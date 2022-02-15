@@ -1,0 +1,110 @@
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+@page "/login"
+@using GrpcFileGeneration.Models
+@using ClientBlazor.Data.Authentication
+@using User = ClientBlazor.Models.User
+@using System.Security.Cryptography
+@using System.Text
+@using Google.Protobuf.WellKnownTypes
+@inject NavigationManager NavigationManager
+
+<section class="py-12 bg-blue-600">
+    <div class="container px-4 mx-auto">
+        <div class="flex max-w-md mx-auto flex-col text-center">
+            <a class="block mx-auto text-white text-3xl font-semibold leading-none" href="#">
+                <img class="h-10" src="metis-assets/logos/metis/metis-light.svg" alt="" width="auto">
+            </a>
+            <div class="mt-12 mb-8 p-8 bg-white rounded">
+                <h4 class="mb-6 text-3xl">Sign In</h4>
+                <EditForm Model="@userCred" OnValidSubmit="@TryLoginAsync" Context="formContext">
+                    <div class="flex mb-4 px-4 bg-blueGray-50 rounded">
+                        <InputText @bind-Value="@userCred.Email" class="w-full py-4 text-xs placeholder-blueGray-400 font-semibold leading-none bg-blueGray-50 outline-none"
+                                   type="email" placeholder="name@email.com"/>
+                        <svg class="h-6 w-6 ml-4 my-auto text-blueGray-300" xmlns="http://www.w3.org/2000/svg" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="flex mb-6 px-4 bg-blueGray-50 rounded">
+                        <InputText @bind-Value="@userCred.Password" class="w-full py-4 text-xs placeholder-blueGray-400 font-semibold leading-none bg-blueGray-50 outline-none"
+                                   type="@(showPassword ? "text" : "password")" placeholder="Enter your password"/>
+                        <button type="button" class="ml-4" @onclick="ToggleShowPassword">
+                            <svg class="h-6 w-6 my-auto text-blueGray-300" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                 viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                    <button type="submit" class="block w-full p-4 text-center text-xs text-white font-semibold leading-none bg-blue-600 hover:bg-blue-700 rounded">
+                        Log In
+                    </button>
+                </EditForm>
+                <button @onclick="OpenSignup" class="block w-full p-4 text-center text-xs text-black font-semibold leading-none bg-gray-200 hover:bg-gray-300 rounded">
+                    Sign Up
+                </button>
+                <h4>@errorMessage</h4>
+            </div>
+            <div>
+                <p class="text-xs text-blue-200 text-center">
+                    <a class="underline hover:text-blue-100" href="#">
+                        Police
+                        privacy
+                    </a> and <a class="underline hover:text-blue-100" href="#">Terms of Use</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+@code {
+
+    [Parameter]
+    public Action SignupCallback { get; set; }
+
+    private User userCred = new();
+    private bool showPassword;
+    private string selected;
+    private string errorMessage = "";
+
+    private async Task TryLoginAsync()
+    {
+        try
+        {
+            var copy = new User(userCred);
+            copy.Password = HashPassword(copy.Password);
+            await ((CurrentAuthenticationStateProvider) AuthenticationStateProvider).ValidateUser(copy);
+            NavigationManager.NavigateTo("/");
+        }
+        catch (Exception e)
+        {
+            errorMessage = "Invalid login";
+            StateHasChanged();
+        }
+    }
+
+    private void ToggleShowPassword()
+    {
+        showPassword = !showPassword;
+    }
+
+    private void OpenSignup()
+    {
+        SignupCallback?.Invoke();
+    }
+    
+    private string HashPassword(string password)
+    {
+        using var sha256 = SHA256.Create();
+        var result = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));  
+        var hash = BitConverter.ToString(result).Replace("-", "").ToLower();  
+        return hash;
+    }
+}

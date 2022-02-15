@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxWidth="500.0" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #90a4ae;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.manager.EmployeeViewController">
+   <children>
+      <ComboBox fx:id="employeeTypeComboBox" layoutX="15.0" layoutY="24.0" onAction="#onGetButton" prefHeight="26.0" prefWidth="126.0" promptText="Select type" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="24.0" />
+      <Button layoutX="26.0" layoutY="180.0" mnemonicParsing="false" onAction="#onAddEmployeeButton" prefHeight="30.0" prefWidth="70.0" text="Add" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="180.0" />
+      <Button layoutX="26.0" layoutY="219.0" mnemonicParsing="false" onAction="#onEditEmployeeButton" prefHeight="30.0" prefWidth="70.0" text="Edit" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="219.0" />
+      <Button layoutX="26.0" layoutY="259.0" mnemonicParsing="false" onAction="#onRemoveEmployeeButton" prefHeight="30.0" prefWidth="70.0" text="Remove" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="259.0" />
+      <TableView fx:id="employeeTable" layoutX="197.0" prefHeight="500.0" prefWidth="499.0" style="-fx-background-color: #f8f8ff;">
+        <columns>
+          <TableColumn fx:id="fNameColumn" prefWidth="150.0" text="First name" />
+            <TableColumn fx:id="lNameColumn" prefWidth="150.0" text="Last name" />
+          <TableColumn fx:id="ssnColumn" prefWidth="213.0" text="SSN" />
+        </columns>
+         <effect>
+            <DropShadow color="#33557f" />
+         </effect>
+      </TableView>
+      <Button layoutX="26.0" layoutY="461.0" mnemonicParsing="false" onAction="#onBackButton" prefHeight="30.0" prefWidth="70.0" text="Back" AnchorPane.bottomAnchor="14.799999999999976" AnchorPane.leftAnchor="26.0" />
+   </children>
+</AnchorPane>

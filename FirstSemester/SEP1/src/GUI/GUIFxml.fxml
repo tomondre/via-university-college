@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="403.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem fx:id="exportProjectsToXML" mnemonicParsing="false" onAction="#handleActions" text="Export to website" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+              <MenuItem fx:id="exitMenuItem" mnemonicParsing="false" onAction="#handleActions" text="Exit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Mode">
+               <items>
+                  <RadioMenuItem fx:id="ongoingProjects" mnemonicParsing="false" onAction="#menuItemsRadioButtons" selected="true" text="Ongoing projects">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="projects" />
+                     </toggleGroup>
+                  </RadioMenuItem>
+                  <RadioMenuItem fx:id="archivedProjects" mnemonicParsing="false" onAction="#menuItemsRadioButtons" text="Archived projects" toggleGroup="$projects" />
+               </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="About">
+            <items>
+              <MenuItem fx:id="aboutMenuItem" mnemonicParsing="false" onAction="#handleActions" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane prefHeight="410.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="projectsTab" onSelectionChanged="#tabChange" text="Projects">
+               <content>
+                  <HBox maxHeight="350.0" minHeight="335.0" prefHeight="335.0" prefWidth="200.0">
+                     <children>
+                        <VBox maxHeight="350.0" minHeight="336.0" prefHeight="336.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Projects:" />
+                              <ListView fx:id="projectsListView" onMouseClicked="#fillFieldsInProjectTab" prefHeight="315.0" prefWidth="179.0" />
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="350.0" maxWidth="1.7976931348623157E308" minHeight="336.0" minWidth="-Infinity" prefHeight="336.0" prefWidth="222.0">
+                           <children>
+                              <Label text="Project name:">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="projectNameTextField" editable="false">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="Project status:">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ComboBox fx:id="projectStatusComboBox" disable="true" prefHeight="25.0" prefWidth="222.0" />
+                              <FlowPane alignment="TOP_CENTER" hgap="10.0" prefHeight="24.0" prefWidth="222.0" vgap="5.0">
+                                 <children>
+                                    <Button fx:id="addProjectButton" mnemonicParsing="false" onAction="#handleActions" prefWidth="105.0" text="Add new project" />
+                                    <Button fx:id="editProjectButton" mnemonicParsing="false" onAction="#handleActions" prefWidth="105.0" text="Edit project" />
+                                    <Button fx:id="archiveProjectButton" layoutX="126.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleActions" prefWidth="105.0" text="Archive project" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </FlowPane>
+                              <Label text="Available employees:">
+                                 <VBox.margin>
+                                    <Insets top="17.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ComboBox fx:id="availableEmployeeComboBox" disable="true" prefWidth="222.0" promptText="Team member">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </ComboBox>
+                              <ComboBox fx:id="employeeRoleComboBox" disable="true" prefHeight="25.0" prefWidth="225.0" promptText="Role">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </ComboBox>
+                              <FlowPane alignment="TOP_CENTER" hgap="10.0" layoutX="10.0" layoutY="114.0" prefHeight="24.0" prefWidth="222.0">
+                                 <children>
+                                    <Button fx:id="assignEmployeeButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleActions" prefWidth="60.0" text="Assign" />
+                                    <Button fx:id="editRoleButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleActions" prefWidth="60.0" text="Edit role" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </FlowPane>
+                              <Button fx:id="saveProjectButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleActions" prefWidth="120.0" text="Save">
+                                 <VBox.margin>
+                                    <Insets left="50.0" top="17.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox maxHeight="350.0" minHeight="336.0" prefHeight="336.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Team members:" />
+                              <ListView fx:id="teamMembersListView" prefHeight="315.0" prefWidth="179.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </content>
+          </Tab>
+          <Tab fx:id="requirementsTab" onSelectionChanged="#tabChange" text="Requiremetns">
+               <content>
+                  <HBox maxHeight="350.0" minHeight="335.0" prefHeight="335.0" prefWidth="200.0">
+                     <children>
+                        <VBox maxHeight="350.0" minHeight="330.0" prefHeight="330.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Requirements:" />
+                              <ListView fx:id="requirementsListView" onMouseClicked="#fillRequirementsFields" prefHeight="148.0" prefWidth="172.0" />
+                              <Label layoutX="10.0" layoutY="10.0" prefWidth="134.0" text="Requirements for testing:">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ListView fx:id="requirementsForTestingListView" layoutX="10.0" layoutY="27.0" onMouseClicked="#fillRequirementsFields" prefHeight="148.0" prefWidth="172.0" />
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="350.0" minHeight="330.0" prefHeight="330.0" prefWidth="300.0">
+                           <children>
+                              <Label text="Project selected:" />
+                              <ComboBox fx:id="projectSelectedComboBox" onAction="#handleActions" prefHeight="25.0" prefWidth="329.0" />
+                              <Label text="Requirement ID:">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="requirementIDTextField" editable="false" prefHeight="25.0" prefWidth="89.0" promptText="11213321" />
+                              <FlowPane hgap="10.0" prefHeight="139.0" prefWidth="293.0" vgap="10.0">
+                                 <children>
+                                    <ComboBox fx:id="requirementStatusComboBox" disable="true" prefHeight="25.0" prefWidth="141.0" promptText="Finished" />
+                                    <ComboBox fx:id="requirementTypeComboBox" disable="true" layoutX="53.0" layoutY="40.0" prefHeight="25.0" prefWidth="141.0" promptText="Functional" />
+                                    <TextField fx:id="requirementDescriptionTextField" alignment="TOP_LEFT" editable="false" prefHeight="63.0" prefWidth="293.0" promptText="Requirement description" />
+                                    <Label layoutX="10.0" layoutY="14.0" text="Time estimate:" />
+                                    <TextField fx:id="estimateHoursTextField" alignment="TOP_CENTER" editable="false" layoutX="60.0" layoutY="10.0" prefHeight="25.0" prefWidth="50.0" promptText="hours" />
+                                    <Label layoutX="160.0" layoutY="157.0" text="Priority nr:" />
+                                    <TextField fx:id="priorityNumberTextField" alignment="TOP_CENTER" editable="false" layoutX="220.0" layoutY="153.0" prefHeight="25.0" prefWidth="50.0" promptText="23" />
+                                    <Label text="Deadline:" />
+                                    <TextField fx:id="deadlineTextField" editable="false" maxWidth="100.0" prefHeight="25.0" prefWidth="100.0" promptText="12-12-2020" />
+                                    <Label layoutX="157.0" layoutY="123.0" text="Time used:" />
+                                    <TextField fx:id="timeUsedTextField" alignment="TOP_CENTER" editable="false" layoutX="222.0" layoutY="119.0" prefHeight="25.0" prefWidth="50.0" promptText="hours" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </FlowPane>
+                              <Label text="Responsible:">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin></Label>
+                              <ComboBox fx:id="responsibleTeamMemberComboBox" disable="true" prefHeight="25.0" prefWidth="363.0" promptText="Asan Aloisman" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox alignment="CENTER" maxHeight="350.0" minHeight="330.0" prefHeight="330.0" prefWidth="147.0" spacing="15.0">
+                           <children>
+                              <Button fx:id="addRequirementButton" mnemonicParsing="false" onAction="#handleActions" prefWidth="110.0" text="Add" />
+                              <Button fx:id="editRequirementButton" mnemonicParsing="false" onAction="#handleActions" prefWidth="110.0" text="Edit" />
+                              <Button fx:id="removeRequirementButton" layoutX="15.0" layoutY="167.0" mnemonicParsing="false" onAction="#handleActions" prefWidth="110.0" text="Remove" />
+                              <Button fx:id="saveRequirementButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleActions" prefWidth="110.0" text="Save" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </content>
+          </Tab>
+            <Tab fx:id="tasksTab" onSelectionChanged="#tabChange" text="Tasks">
+               <content>
+                  <HBox maxHeight="350.0" minHeight="335.0" prefHeight="335.0" prefWidth="200.0">
+                     <children>
+                        <VBox maxHeight="350.0" minHeight="330.0" prefHeight="330.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Tasks:" />
+                              <ListView fx:id="tasksListView" onMouseClicked="#fillTaskFields" prefHeight="381.0" prefWidth="173.0" />
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="350.0" maxWidth="222.0" minHeight="330.0" prefHeight="339.0" prefWidth="219.0">
+                           <children>
+                              <Label text="Project selected:" />
+                              <ComboBox fx:id="projectSelectedOnTasksComboBox" onAction="#handleActions" prefHeight="25.0" prefWidth="222.0" />
+                              <Label text="Requirement selected:">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ComboBox fx:id="requirementSelectedComboBox" onAction="#handleActions" prefHeight="25.0" prefWidth="222.0" />
+                              <FlowPane hgap="10.0" maxWidth="222.0" prefHeight="139.0" prefWidth="222.0" vgap="10.0">
+                                 <children>
+                                    <Label text="Task ID:" />
+                                    <TextField fx:id="taskIDTextField" editable="false" prefHeight="25.0" prefWidth="59.0" promptText="11213321" />
+                                    <ComboBox fx:id="taskStatusComboBox" disable="true" prefHeight="25.0" prefWidth="99.0" promptText="Done" />
+                                    <TextField fx:id="taskDescriptionTextArea" alignment="TOP_LEFT" editable="false" prefHeight="63.0" prefWidth="222.0" promptText="Task description" />
+                                    <Label layoutX="10.0" layoutY="14.0" text="Estimate:" />
+                                    <TextField fx:id="taskEstimateTextField" alignment="TOP_CENTER" editable="false" layoutX="60.0" layoutY="10.0" prefHeight="25.0" prefWidth="45.0" promptText="time" />
+                                    <Label layoutX="160.0" layoutY="157.0" text="Used:" />
+                                    <TextField fx:id="taskTimeUsedTextField" alignment="TOP_CENTER" editable="false" layoutX="220.0" layoutY="153.0" prefHeight="25.0" prefWidth="45.0" promptText="time" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </FlowPane>
+                              <Label text="Deadline:" />
+                              <TextField fx:id="taskDeadline" editable="false" prefHeight="25.0" prefWidth="107.0" promptText="12-12-2020" />
+                              <Label text="Responsible employee:" />
+                              <ComboBox fx:id="taskResponsibleEmployeeComboBox" prefHeight="25.0" prefWidth="367.0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox maxHeight="350.0" minHeight="330.0" prefHeight="330.0" prefWidth="147.0">
+                           <children>
+                              <Label text="Team members:" />
+                              <ListView fx:id="taskTeamMembersListView" prefHeight="146.0" prefWidth="163.0" />
+                              <Button fx:id="addTaskButton" mnemonicParsing="false" onAction="#handleActions" prefWidth="110.0" text="Add task">
+                                 <VBox.margin>
+                                    <Insets left="18.5" top="20.0" />
+                                 </VBox.margin></Button>
+                              <Button fx:id="editTaskButton" mnemonicParsing="false" onAction="#handleActions" prefWidth="110.0" text="Edit task">
+                                 <VBox.margin>
+                                    <Insets left="18.5" top="10.0" />
+                                 </VBox.margin></Button>
+                              <Button fx:id="removeTaskButton" layoutX="29.0" layoutY="229.0" mnemonicParsing="false" onAction="#handleActions" prefWidth="110.0" text="Remove task">
+                                 <VBox.margin>
+                                    <Insets left="18.5" top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button fx:id="saveTaskButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleActions" prefWidth="110.0" text="Save">
+                                 <VBox.margin>
+                                    <Insets left="18.5" top="10.0" />
+                                 </VBox.margin></Button>
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </content>
+            </Tab>
+            <Tab fx:id="employeesTab" onSelectionChanged="#tabChange" text="Employees">
+               <content>
+                  <HBox maxHeight="350.0" minHeight="335.0" prefHeight="335.0" prefWidth="200.0">
+                     <children>
+                        <VBox maxHeight="350.0" minHeight="330.0" prefHeight="330.0" prefWidth="200.0">
+                           <children>
+                              <Label text="Employees:" />
+                              <ListView fx:id="employeesListView" onMouseClicked="#fillEmployeeTab" prefHeight="315.0" prefWidth="179.0" />
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="350.0" minHeight="330.0" prefHeight="330.0" prefWidth="300.0">
+                           <children>
+                              <Label text="Employee ID:" />
+                              <TextField fx:id="employeeIDTextField" editable="false" prefHeight="25.0" prefWidth="122.0" promptText="1233">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </TextField>
+                              <Label text="First name:">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="employeeFirstName" editable="false" prefHeight="25.0" prefWidth="89.0" promptText="Asan" />
+                              <Label text="Last name:">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <TextField fx:id="employeeLastName" editable="false" prefHeight="25.0" prefWidth="89.0" promptText="Aliosman" />
+                              <Label text="Tasks:">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <ListView fx:id="employeeTaskListView" onMouseClicked="#fillEmployeeTab" prefHeight="171.0" prefWidth="279.0" />
+                           </children>
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox alignment="CENTER" maxHeight="350.0" minHeight="330.0" prefHeight="330.0" prefWidth="147.0" spacing="15.0">
+                           <children>
+                              <Button fx:id="addEmployeeButton" mnemonicParsing="false" onAction="#handleActions" prefWidth="110.0" text="Add employee" />
+                              <Button fx:id="editEmployeeButton" mnemonicParsing="false" onAction="#handleActions" prefWidth="110.0" text="Edit employee" />
+                              <Button fx:id="saveEmployeeButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleActions" prefWidth="110.0" text="Save" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</VBox>

@@ -1,0 +1,49 @@
+syntax="proto3";
+option java_multiple_files = true;
+package networking.experience;
+
+import "Proto/Address.proto";
+import "Proto/Request.proto";
+import "Proto/Page.proto";
+
+message ProtobufMessage{
+    string messageOrObject = 1;
+}
+
+message ProtobufStockRequest{
+   int32 id =1;
+   int32 quantity =2;
+}
+
+message ExperienceMessage{
+   int32 id = 1;
+   string picture = 2;
+   string name = 3;
+   double price = 4;
+   int32 stock = 5;
+   string description = 6;
+   int32 experienceValidity = 7;
+   int32 categoryId = 8;
+   int32 providerId = 9;
+   address.AddressMessage address = 10;
+}
+
+message ExperienceListMessage {
+   repeated ExperienceMessage experiences = 1;
+   page.PageMessage pageInfo = 2;
+}
+
+service ExperienceService {
+   rpc getAllProviderExperiences(request.RequestMessage) returns (ExperienceListMessage);
+   rpc getAllWebShopExperiences(request.PageRequestMessage) returns (ExperienceListMessage);
+   rpc addExperience(ExperienceMessage) returns (ExperienceMessage);
+   rpc getExperienceById(request.RequestMessage) returns (ExperienceMessage);
+   rpc isInStock(request.RequestMessage) returns (request.RequestMessage);
+   rpc deleteExperience(request.RequestMessage) returns (request.RequestMessage);
+   rpc removeStock(request.RequestMessage) returns (request.RequestMessage);
+   rpc getAllProviderExperiencesByName(request.RequestMessage) returns (ExperienceListMessage);
+   rpc getExperienceByCategory(request.RequestMessage) returns (ExperienceListMessage);
+   rpc getTopExperiences(request.RequestMessage) returns (ExperienceListMessage);
+   rpc getSortedExperiences(request.RequestMessage) returns (ExperienceListMessage);
+   rpc editExperience(ExperienceMessage) returns (ExperienceMessage);
+}

@@ -1,0 +1,146 @@
+﻿@page "/cart"
+@using WebShop.Services
+@using WebShop.Models.Orders
+@using WebShop.Services.Observer
+@using WebShop.Services.ShoppingCarts
+
+@inject NavigationManager NavigationManager
+@inject IShoppingCartService ShopppingCartService
+@inject IObserverService ObserverService
+
+<section class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <div class="p-8 lg:p-20 bg-white">
+
+            @if (ShoppingCart.ShoppingCartItems.Count == 0)
+            {
+                <h2 class="mb-20 text-5xl font-bold font-heading">Your cart is empty</h2>
+            }
+            else
+            {
+                <h2 class="mb-20 text-5xl font-bold font-heading">Your cart</h2>
+                <div class="flex flex-wrap items-center -mx-4">
+                    <div class="w-full xl:w-8/12 mb-8 xl:mb-0 px-4">
+                        <div class="hidden lg:flex w-full">
+                            <div class="w-full lg:w-3/6">
+                                <h4 class="mb-6 font-bold font-heading text-gray-500">Info</h4>
+                            </div>
+                            <div class="w-full lg:w-1/6">
+                                <h4 class="mb-6 font-bold font-heading text-gray-500">Price</h4>
+                            </div>
+                            <div class="w-full lg:w-1/6 text-center">
+                                <h4 class="mb-6 font-bold font-heading text-gray-500">Quantity</h4>
+                            </div>
+                            <div class="w-full lg:w-1/6 text-right">
+                                <h4 class="mb-6 font-bold font-heading text-gray-500">Subtotal</h4>
+                            </div>
+                        </div>
+                        <div class="mb-12 py-6 border-t border-b border-gray-200">
+                            @foreach (ExperienceCartItem item in ShoppingCart.ShoppingCartItems)
+                            {
+                                <div class="flex flex-wrap items-center -mx-4 mb-6 md:mb-3">
+                                    <div class="w-full md:w-4/6 lg:w-6/12 px-4 mb-6 md:mb-0">
+                                        <div class="flex -mx-4 flex-wrap items-center">
+                                            <div class="w-full md:w-1/3 px-4 mb-3">
+                                                <div class="flex items-center justify-center w-full md:w-24 h-32 bg-gray-100">
+                                                    <img class="h-full object-contain" src="@item.Experience.Picture" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="w-2/3 px-4">
+                                                <h3 class="mb-2 text-xl font-bold font-heading">@item.Experience.Name</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hidden lg:block lg:w-2/12 px-4">
+                                        <p class="text-lg text-blue-500 font-bold font-heading">@item.Experience.Price DKK</p>
+                                    </div>
+                                    <div class="w-auto md:w-1/6 lg:w-2/12 px-4">
+                                        <div class="inline-flex items-center px-4 font-semibold font-heading text-gray-500 border border-gray-200 focus:ring-blue-300 focus:border-blue-300 rounded-md">
+                                            <button @onclick="() => RemoveQuantity(item)" class="py-2 hover:text-gray-700">
+                                                <svg width="12" height="2" viewBox="0 0 12 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g opacity="0.35">
+                                                        <rect x="12" width="2" height="12" transform="rotate(90 12 0)" fill="currentColor"></rect>
+                                                    </g>
+                                                </svg>
+                                            </button>
+                                            <input readonly @bind-value="@item.Quantity" class="w-12 m-0 px-2 py-4 text-center md:text-center border-0 focus:ring-transparent focus:outline-none rounded-md" placeholder="1">
+                                            <button @onclick="() => AddQuantity(item)" class="py-2 hover:text-gray-700">
+                                                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <g opacity="0.35">
+                                                        <rect x="5" width="2" height="12" fill="currentColor"></rect><rect x="12" y="5" width="2" height="12" transform="rotate(90 12 5)" fill="currentColor"></rect>
+                                                    </g>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="w-auto md:w-1/6 lg:w-2/12 px-4 text-right">
+                                        <p class="text-lg text-blue-500 font-bold font-heading">@item.TotalPrice DKK</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="w-full xl:w-4/12 px-4">
+                        <div class="p-6 md:p-12 bg-blue-400">
+                            <h2 class="mb-6 text-4xl font-bold font-heading text-white">Cart totals</h2>
+                            <div class="flex mb-8 items-center justify-between pb-5 border-b border-blue-100">
+                                <span class="text-blue-50">Subtotal</span>
+                                <span class="text-xl font-bold font-heading text-white">@ShoppingCart.OrderTotal DKK</span>
+                            </div>
+                            <h4 class="mb-2 text-xl font-bold font-heading text-white">Tax</h4>
+                            <div class="flex mb-2 justify-between items-center">
+                                <span class="text-blue-50">Percent</span>
+                                <span class="text-xl font-bold font-heading text-white">@ShoppingCart.Tax %</span>
+                            </div>
+                            <div class="flex mb-10 justify-between items-center">
+                                <span class="text-blue-50">Amount</span>
+                                <span class="text-xl font-bold font-heading text-white">@ShoppingCart.TaxAmount DKK</span>
+                            </div>
+                            <div class="flex mb-10 justify-between items-center">
+                                <span class="text-xl font-bold font-heading text-white">Order total</span>
+                                <span class="text-xl font-bold font-heading text-white">@ShoppingCart.OrderTotal DKK</span>
+                            </div>
+                            <a @onclick="OpenCheckoutPage" class="cursor-pointer block w-full py-4 bg-blue-500 hover:bg-blue-600 text-center text-white font-bold font-heading uppercase rounded-md transition duration-200">Go to Checkout</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+
+@code {
+
+    private ShoppingCart ShoppingCart = new();
+
+    protected override void OnInitialized()
+    {
+        ShoppingCart = ShopppingCartService.ShoppingCart;
+    }
+
+    private void RemoveQuantity(ExperienceCartItem item)
+    {
+        item.Quantity--;
+        if (item.Quantity == 0)
+        {
+            ShopppingCartService.RemoveExperienceItem(item);
+            ObserverService.ChangeHappens();
+        }
+    }
+
+    private void AddQuantity(ExperienceCartItem item)
+    {
+        if (item.Experience.Stock > item.Quantity)
+        {
+            item.Quantity++;
+        }
+    }
+
+
+    private void OpenCheckoutPage()
+    {
+        NavigationManager.NavigateTo("/checkout");
+    }
+
+}

@@ -1,0 +1,36 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://via.dk/web-service"
+           targetNamespace="http://via.dk/web-service" elementFormDefault="qualified">
+    <xs:element name="MethodRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- All parameters as xs:element. For instance:
+                <xs:element name="name" type="xs:string"/>
+                 -->
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="MethodResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- One xs:element with the return type or empty if void -->
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Domain types here. Example: -->
+    <xs:complexType name="money">
+        <xs:sequence>
+            <xs:element name="amount" type="xs:decimal"/>
+            <xs:element name="currency" type="tns:currency"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="currency">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="GBP"/>
+            <xs:enumeration value="EUR"/>
+            <xs:enumeration value="PLN"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

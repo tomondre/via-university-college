@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #90a4ae;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.doctor.PatientsViewController">
+   <children>
+      <TableView fx:id="doctorViewPatientTable" layoutY="55.0" prefHeight="290.0" prefWidth="700.0" style="-fx-background-color: #f8f8ff; -fx-background-radius: 0.5em;">
+        <columns>
+          <TableColumn fx:id="doctorViewPatientSSN" prefWidth="267.9999450445175" text="SSN" />
+          <TableColumn fx:id="doctorViewPatientFirstName" prefWidth="220.7999267578125" text="First Name" />
+            <TableColumn fx:id="doctorViewPatientLastName" prefWidth="212.00003051757812" text="Last Name" />
+        </columns>
+         <effect>
+            <DropShadow color="#33557f" />
+         </effect>
+      </TableView>
+      <Label layoutX="318.0" layoutY="14.0" text="Patients" AnchorPane.leftAnchor="318.0" AnchorPane.rightAnchor="318.8" AnchorPane.topAnchor="18.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="165.0" layoutY="415.0" mnemonicParsing="false" onAction="#onTreatButton" prefHeight="30.0" prefWidth="70.0" text="Treat" />
+      <Button layoutX="533.0" layoutY="377.0" mnemonicParsing="false" onAction="#onAddEditSample" prefHeight="30.0" prefWidth="123.0" text="Add/Edit sample ➜" />
+      <Button layoutX="263.0" layoutY="415.0" mnemonicParsing="false" onAction="#onDiagnoseButton" prefHeight="30.0" prefWidth="70.0" text="Diagnose" />
+      <Button layoutX="533.0" layoutY="428.0" mnemonicParsing="false" onAction="#onEditMedicalDescription" prefHeight="30.0" prefWidth="130.0" text="See patient info ➜" />
+      <Button layoutX="51.0" layoutY="415.0" mnemonicParsing="false" onAction="#onBackButton" prefHeight="30.0" prefWidth="70.0" text="Back" AnchorPane.leftAnchor="65.0" />
+   </children>
+   <effect>
+      <ColorAdjust brightness="-0.06" contrast="0.08" />
+   </effect>
+</AnchorPane>

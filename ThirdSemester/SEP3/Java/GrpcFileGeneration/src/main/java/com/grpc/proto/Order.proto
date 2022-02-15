@@ -1,0 +1,50 @@
+syntax="proto3";
+option java_multiple_files = true;
+package networking.order;
+
+import "Request.proto";
+import "Page.proto";
+
+message OrderListMessage {
+  repeated OrderMessage orders = 1;
+  page.PageMessage pageInfo = 2;
+}
+
+message OrderMessage {
+  int32 id = 1;
+  string comment = 2;
+  string date = 3;
+  double total = 5;
+  repeated OrderItemMessage items = 6;
+  int32 customerId = 7;
+}
+
+message OrderItemMessage {
+  int32 id = 1;
+  string description = 2;
+  string name = 3;
+  string picture = 4;
+  double price = 5;
+  int32 quantity = 6;
+  string voucher = 7;
+  int32 providerId = 8;
+}
+message  VoucherMessages{
+  string customerName = 1;
+  string date = 2;
+  string voucher =3;
+  int32 quantity =4;
+  string experienceName =5;
+}
+
+message VoucherListMessages {
+  repeated VoucherMessages vouchers = 1;
+  page.PageMessage pageInfo =2;
+}
+
+service OrderService {
+  rpc createOrder (OrderMessage) returns (OrderMessage);
+  rpc getAllCustomerOrders (request.RequestMessage) returns (OrderListMessage);
+  rpc getOrderById (request.RequestMessage) returns (OrderMessage);
+  rpc getAllProviderVouchers(request.RequestMessage) returns (VoucherListMessages);
+}

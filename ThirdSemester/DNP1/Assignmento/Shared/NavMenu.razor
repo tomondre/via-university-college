@@ -1,0 +1,57 @@
+﻿<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">Assignmento</a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <ul class="nav flex-column">
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+        </li>
+        <AuthorizeView Policy="SecurityLevel3">
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="AddAdult">
+                    <span class="oi oi-plus" aria-hidden="true"></span>Add Adult
+                </NavLink>
+            </li>
+        </AuthorizeView>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="SeeAllAdults">
+                <span class="oi oi-list" aria-hidden="true"></span>See All Adults
+            </NavLink>
+        </li>
+
+        <AuthorizeView Policy="SecurityLevel2">
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="JobSalariesStats">
+                    <span class="oi oi-graph" aria-hidden="true"></span>Job and Salaries Stats
+                </NavLink>
+            </li>
+        </AuthorizeView>
+
+        <AuthorizeView Policy="SecurityLevel2">
+            <li class="nav-item px-3">
+                <NavLink class="nav-link" href="EyeColorStats">
+                    <span class="oi oi-graph" aria-hidden="true"></span>Eye Color Stats
+                </NavLink>
+            </li>
+        </AuthorizeView>
+
+    </ul>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+}

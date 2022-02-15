@@ -1,0 +1,138 @@
+@page "/experiences/{Id:int}/information"
+@using Microsoft.AspNetCore.Hosting
+@using GrpcFileGeneration.Models
+@using Microsoft.AspNetCore.Components
+@using ClientBlazor.Cache
+@using ClientBlazor.Services.Experiences
+@using ClientBlazor.Services.Pictures
+@using ClientBlazor.Services.ProductCategory
+
+@inject IWebHostEnvironment Environment
+@inject IExperienceService ExperienceService
+@inject NavigationManager NavigationManager
+@inject IProductCategoryService ProductCategoryService
+@inject IPicturesService PicturesService
+@inject ICacheService CacheService
+
+<div class="container items-center px-5 py-12 lg:px-20">
+    <EditForm Model="@newExperience" OnValidSubmit="@Edit" class="flex flex-col w-full p-10 px-8 pt-6 mx-auto my-6 mb-4 transition duration-500 ease-in-out transform bg-white border rounded-lg lg:w-1/2 ">
+        <DataAnnotationsValidator/>
+        <ValidationSummary/>
+
+        <section class="flex flex-col w-full h-full p-1 overflow-auto">
+
+
+            <header class="flex flex-col items-center justify-center py-12 text-base text-blueGray-500 transition duration-500 ease-in-out transform bg-white border border-dashed rounded-lg focus:border-blue-500 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2">
+                <p class="flex flex-wrap justify-center mb-3 text-base leading-7 text-blueGray-500">
+                    <label>
+                        <InputFile OnChange="@LoadFiles"/>
+                    </label>
+                </p>
+            </header>
+
+        </section>
+        <div class="relative pt-4">
+            <InputText type="text" id="name" name="name" placeholder="Experience title" class="w-full px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100 focus:border-blueGray-500 focus:bg-white focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2" @bind-Value="newExperience.Name"/>
+        </div>
+        <div class="relative pt-4">
+            <label for="price" class="text-base leading-7 text-blueGray-500">Price: </label>
+            <InputNumber id="price" name="color" class="w-full px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100 focus:border-blueGray-500 focus:bg-white focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2"@bind-Value="newExperience.Price"/>
+        </div>
+        <div class="relative pt-4">
+            <label for="stock" class="text-base leading-7 text-blueGray-500">Stock</label>
+            <InputNumber id="stock" name="stock" class="w-full px-0 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100 focus:border-blueGray-500 focus:bg-white focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2" @bind-Value="newExperience.Stock"/>
+        </div>
+        <div class="relative pt-4">
+            <label for="name" class="text-base leading-7 text-blueGray-500">Address/Street</label>
+            <InputText type="text" id="street" name="text" class="w-full px-4 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100 focus:border-blueGray-500 focus:bg-white focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2" @bind-Value="newExperience.Address.Street"/>
+        </div>
+        <div class="relative pt-4">
+            <label for="StreetNo" class="text-base leading-7 text-blueGray-500">StreetNo.</label>
+            <InputText id="StreetNo" name="StreetNo" class="w-full px-0 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100 focus:border-blueGray-500 focus:bg-white focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2" @bind-Value="newExperience.Address.StreetNumber"/>
+        </div>
+        <div class="relative pt-4">
+            <label for="city" class="text-base leading-7 text-blueGray-500">City</label>
+            <InputText id="city" name="range" class="w-full px-0 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100 focus:border-blueGray-500 focus:bg-white focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2" @bind-Value="newExperience.Address.City"/>
+        </div>
+        <div class="relative pt-4">
+            <label for="code" class="text-base leading-7 text-blueGray-500">Zip Code</label>
+            <InputNumber id="code" name="code" class="w-full px-0 py-2 mt-2 mr-4 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100 focus:border-blueGray-500 focus:bg-white focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2" @bind-Value="newExperience.Address.PostCode"/>
+        </div>
+        <div class="relative mt-4">
+            <label for="name" class="text-base leading-7 text-blueGray-500">Validity in months</label>
+            <InputSelect class="w-full px-4 py-2 mt-2 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100 focus:border-blueGray-500 focus:bg-white focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2" @bind-Value="newExperience.ExperienceValidity">
+                <option>3</option>
+                <option>6</option>
+                <option>12</option>
+            </InputSelect>
+        </div>
+        <div class="relative mt-4">
+            <label for="name" class="text-base leading-7 text-blueGray-500">Category</label>
+
+            <InputSelect @bind-Value="newExperience.CategoryId" class="w-full px-4 py-2 mt-2 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100 focus:border-blueGray-500 focus:bg-white focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2">
+                @foreach (Category category in categories.Categories)
+                {
+                    @if (category.Id == newExperience.CategoryId)
+                    {
+                        <option value="@category.Id" selected >@category.CategoryName</option>
+                    }
+                    else
+                    {
+                        <option value="@category.Id" >@category.CategoryName</option>
+                    }
+                       
+                }
+            </InputSelect>
+            
+        </div>
+        <div class="flex flex-wrap mt-4 mb-6 -mx-3">
+            <div class="w-full px-3">
+                <label class="text-base leading-7 text-blueGray-500" for="description">Description: </label>
+                <InputTextArea class="w-full h-32 px-4 py-2 mt-2 text-base text-blueGray-500 transition duration-500 ease-in-out transform bg-white border rounded-lg focus:border-blue-500 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2 apearance-none autoexpand" id="description" type="text" name="description" placeholder="Description" required="" @bind-Value="newExperience.Description"></InputTextArea>
+            </div>
+        </div>
+        <div class="flex items-center w-full pt-4 mb-4">
+            <button type="submit" class="@(isPictureLoading? "hover:bg-blue-800 bg-blue-600" : "hover:bg-blue-400 bg-blue-400" ) w-full py-3 text-base text-white transition duration-500 ease-in-out transform bg-blue-600 border-blue-600 rounded-md focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2">@(isPictureLoading ? "Picture is being loaded" : "Save")</button>
+        </div>
+        <hr class="my-4 border-gray-200">
+    </EditForm>
+    
+</div>
+
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    private Experience newExperience = new ();
+    private CategoryList categories = new();
+    private bool isPictureLoading;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        var pageCategories = await ProductCategoryService.GetAllCategoriesAsync(0);
+        categories = pageCategories.Content;
+        newExperience = await ExperienceService.GetExperienceByIdAsync(Id);
+    }
+
+    private async Task Edit()
+    {
+        if (!isPictureLoading)
+        {
+            var cachedUser = await CacheService.GetCachedUserAsync();
+            newExperience.ProviderId = cachedUser.Id;
+            await ExperienceService.EditExperienceAsync(newExperience);
+            NavigationManager.NavigateTo("/experiences");
+        }
+    }
+
+
+    private async Task LoadFiles(InputFileChangeEventArgs e)
+    {
+        isPictureLoading = true;
+        var uploadImage = await PicturesService.UploadImage(e.File);
+        newExperience.Picture = uploadImage;
+        isPictureLoading = false;
+    }
+
+    
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #33557f;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.login.NurseMainViewController">
+   <children>
+      <Label layoutX="442.0" layoutY="72.0" text="Logged in as: " textFill="#f8f2f2" AnchorPane.leftAnchor="442.0" AnchorPane.topAnchor="72.0" />
+      <Label fx:id="loggedInAsLabel" layoutX="520.0" layoutY="72.0" text="Label" textFill="#f2efef" />
+      <Button layoutX="518.0" layoutY="256.0" mnemonicParsing="false" onAction="#onNewAppointmentButton" prefHeight="30.0" prefWidth="115.0" text="New appointment" />
+      <Button layoutX="517.0" layoutY="151.0" mnemonicParsing="false" onAction="#onPatientsButton" prefHeight="30.0" prefWidth="115.0" text="Patients" />
+      <Button layoutX="517.0" layoutY="205.0" mnemonicParsing="false" onAction="#onAppointmentsButton" prefHeight="30.0" prefWidth="115.0" text="Appointments" />
+      <Button layoutX="544.0" layoutY="439.0" mnemonicParsing="false" onAction="#onLogoutButton" prefHeight="30.0" prefWidth="115.0" text="Logout" AnchorPane.bottomAnchor="57.6" AnchorPane.leftAnchor="515.0" />
+      <ImageView fitHeight="500.0" fitWidth="410.0" layoutX="-2.0" layoutY="-1.0">
+         <image>
+            <Image url="@../../images/nurse_background.jpg" />
+         </image>
+         <effect>
+            <DropShadow color="#3c3838" />
+         </effect>
+      </ImageView>
+   </children>
+   <effect>
+      <ColorAdjust brightness="-0.08" contrast="-0.08" />
+   </effect>
+</AnchorPane>

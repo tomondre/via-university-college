@@ -1,0 +1,59 @@
+﻿@using WebShop.Services.Experiences
+@using WebShop.Models
+@inject NavigationManager NavigationManager
+@inject IExperienceService ExperienceService
+
+@if (loadedExperiences == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else
+{
+    <section class="relative py-20 lg:pt-32 bg-blue-800 overflow-x-hidden">
+        <img class="absolute top-0 left-0 right-0 h-96 object-cover w-full" src="https://nypost.com/wp-content/uploads/sites/2/2020/10/skydiving.jpg?quality=80&strip=all" alt="">
+        <div class="relative container mx-auto px-4">
+            <span class="text-2xl text-white">The most popular</span>
+            <h2 class="mt-4 mb-16 text-4xl md:text-5xl text-white font-bold font-heading">Experiences</h2>
+            <div class="flex flex-wrap -mx-3">
+
+                @foreach (Experience experience in loadedExperiences.Experiences)
+                {
+                    <div @onclick="() => OpenProduct(experience.Id)" class="cursor-pointer w-full lg:w-1/3 px-3 mb-16 lg:mb-0">
+                        <a class="block mb-10" href="#">
+                            <div class="relative">
+                                @* <span class="absolute bottom-0 left-0 ml-6 mb-6 px-2 py-1 text-xs font-bold font-heading bg-white border-2 border-red-500 rounded-full text-red-500">-15%</span> *@
+                                <img class="w-full h-96 object-cover" src="@experience.Picture" alt="">
+                            </div>
+                            <div class="mt-12">
+                                <div class="mb-2">
+                                    <h3 class="mb-3 text-3xl text-white font-bold font-heading">@experience.Name</h3>
+                                    <p class="text-xl font-bold font-heading text-white">
+                                        <span>@experience.Price DKK</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                        <a class="inline-block bg-blue-600 hover:bg-blue-400 text-white font-bold font-heading py-4 px-8 rounded-md uppercase transition duration-200" >Buy Now</a>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+}
+
+@code {
+    private ExperienceList loadedExperiences;
+
+    protected override async Task OnInitializedAsync()
+    {
+        loadedExperiences = await ExperienceService.GetTopExperiences();
+    }
+
+    private void OpenProduct(int experienceId)
+    {
+        NavigationManager.NavigateTo($"/experiences/{experienceId}");
+    }
+
+}

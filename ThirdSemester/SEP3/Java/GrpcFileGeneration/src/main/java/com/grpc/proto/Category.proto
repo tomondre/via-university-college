@@ -1,0 +1,22 @@
+syntax="proto3";
+option java_multiple_files = true;
+package networking.category;
+
+import "Page.proto";
+import "Request.proto";
+
+message CategoriesMessage {
+  repeated CategoryMessage categories = 1;
+  page.PageMessage pageInfo = 2;
+}
+
+message CategoryMessage {
+  int32 id = 1;
+  string categoryName = 2;
+}
+
+service CategoryService{
+  rpc getAllProductCategories(request.PageRequestMessage) returns (CategoriesMessage);
+  rpc addProductCategory(CategoryMessage) returns (CategoryMessage);
+  rpc editProductCategory(CategoryMessage) returns (CategoryMessage);
+}

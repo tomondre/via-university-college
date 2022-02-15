@@ -1,0 +1,11 @@
+﻿/CSharp/GrpcFileGeneration/GrpcFileGeneration/bin/
+/CSharp/GrpcFileGeneration/GrpcFileGeneration/obj/
+/CSharp/BusinessLogic/BusinessLogic/bin/
+/CSharp/BusinessLogic/BusinessLogic/obj/
+/CSharp/ClientBlazor/obj/
+/CSharp/ClientBlazor/bin/
+/Java/DataServer/target/
+/Java/GrpcFileGeneration/target/
+/Java/.idea/
+/CSharp/WebShop/wwwroot/css/
+/CSharp/ClientBlazor/wwwroot/css/

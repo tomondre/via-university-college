@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="500.0" prefHeight="499.0" prefWidth="700.0" style="-fx-background-color: #90a4ae;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.manager.WardViewController">
+    <children>
+        <Button layoutX="26.0" layoutY="173.0" mnemonicParsing="false" onAction="#onAddWardButton" prefHeight="30.0" prefWidth="70.0" text="Add" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="604.0" AnchorPane.topAnchor="180.0" />
+        <Button layoutX="26.0" layoutY="224.0" mnemonicParsing="false" onAction="#onRemoveWardButton" prefHeight="30.0" prefWidth="70.0" text="Remove" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="604.0" AnchorPane.topAnchor="224.0" />
+        <TableView fx:id="wardTable" layoutX="200.0" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #f8f8ff;">
+            <columns>
+                <TableColumn fx:id="wardNameColumn" prefWidth="338.0" text="Ward name" />
+                <TableColumn fx:id="roomNumberColumn" prefWidth="158.40008544921875" text="Room number" />
+            </columns>
+         <effect>
+            <DropShadow color="#33557f" />
+         </effect>
+        </TableView>
+      <Button layoutX="30.0" layoutY="444.0" mnemonicParsing="false" onAction="#onBackButton" prefHeight="30.0" prefWidth="70.0" text="Back" AnchorPane.bottomAnchor="14.7" AnchorPane.leftAnchor="26.0" />
+    </children>
+</AnchorPane>

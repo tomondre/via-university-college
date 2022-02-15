@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="CloudinaryDotNet" Version="1.15.2" />
+      <PackageReference Include="Microsoft.AspNetCore.Components.DataAnnotations.Validation" Version="3.2.0-rc1.20223.4" />
+      <PackageReference Include="Npm" Version="3.5.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\GrpcFileGeneration\GrpcFileGeneration\GrpcFileGeneration.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Data\Cache" />
+      <Folder Include="Data\Customers" />
+      <Folder Include="Data\Experiences" />
+      <Folder Include="Data\Login" />
+      <Folder Include="Data\Orders" />
+      <Folder Include="Data\Pictures" />
+      <Folder Include="Data\ProductCategory" />
+      <Folder Include="Data\Providers" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Data\Customers\CustomerService.cs" />
+      <Compile Remove="Data\Providers\IProviderService.cs" />
+      <Compile Remove="Data\Experiences\IExperienceSevice.cs" />
+      <Compile Remove="Data\ProductCategory\ProductCategoryService.cs" />
+      <Compile Remove="Data\Pictures\IPicturesService.cs" />
+      <Compile Remove="Data\Cache\CacheService.cs" />
+    </ItemGroup>
+    
+<!--    <Target Name="CheckForNpm" BeforeTargets="NpmInstall">-->
+<!--        <Exec Command="npm -v" ContinueOnError="true">-->
+<!--            <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />-->
+<!--        </Exec>-->
+<!--        <Error Condition="'$(ErrorCode)' != '0'" Text="You must install NPM to build this project" />-->
+<!--    </Target>-->
+
+<!--    <Target Name="NpmInstall" BeforeTargets="BuildCSS" Inputs="package.json" Outputs="$(NpmLastInstall)">-->
+<!--        <Exec Command="npm install" />-->
+<!--        <Touch Files="$(NpmLastInstall)" AlwaysCreate="true" />-->
+<!--    </Target>-->
+
+<!--    <Target Name="BuildCSS" BeforeTargets="Compile">-->
+<!--        <Exec Command="npm run buildcss:dev" Condition=" '$(Configuration)' == 'Debug' " />-->
+<!--        <Exec Command="npm run buildcss:release" Condition=" '$(Configuration)' == 'Release' " />-->
+<!--    </Target>-->
+    
+</Project>

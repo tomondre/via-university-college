@@ -1,0 +1,19 @@
+###
+GET http://localhost:8080/users
+
+<> 2021-10-01T155609.200.json
+<> 2021-10-01T155258.200.json
+
+###
+POST http://localhost:8080/users
+Content-Type: Application/Json
+
+{
+  "email": "halabala@gmail.com",
+  "password": "HeyaHowdy"
+}
+
+<> 2021-10-01T155602.200.json
+###
+
+DELETE http://localhost:8080/users/3

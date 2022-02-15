@@ -1,0 +1,90 @@
+@page "/ProviderVouchers"
+@using GrpcFileGeneration.Models
+@using ClientBlazor.Cache
+@using ClientBlazor.Services.Orders
+
+@inject IOrderService OrderService;
+@inject ICacheService CacheService;
+@inject NavigationManager NavigationManager;
+
+<div class="py-6">
+    @if (vouchers == null)
+    {
+        <p class="text-center">
+            <em>Loading...</em>
+        </p>
+    }
+    else if (!vouchers.Content.Vouchers.Any())
+    {
+        <p class="text-center">
+            <em>No vouchers currenlty exist.</em>
+        </p>
+    }
+    else
+    {
+        <section class="">
+            <div class="container px-4 mx-auto">
+                <div class="p-4 mb-6 bg-white shadow rounded">
+                    <table class="table-auto w-full">
+                        <thead>
+                        <tr class="text-xs text-gray-500 text-left">
+                            <th class="pb-3 font-medium">Costumer Name</th>
+                            <th class="pb-3 font-medium">Date</th>
+                            <th class="pb-3 font-medium">Voucher</th>
+                            <th class="pb-3 font-medium">Quantity</th>
+                            <th class="pb-3 font-medium">Experience name</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var item in vouchers.Content.Vouchers.Select((value, i) => new {value, i}))
+        {
+                            <tr class="text-xs @(item.i % 2 != 0 ? "bg-white-50" : "bg-gray-50") hover:bg-indigo-50">
+                                <td class="py-3 px-4">
+                                    <p class="font-medium align-middle">@item.value.CustomerName</p>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <p class="font-medium align-middle">@item.value.Date</p>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <p class="font-medium align-middle">@item.value.Voucher</p>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <p class="font-medium align-middle">@item.value.Quantity</p>
+                                </td>
+                                <td class="py-3 px-4">
+                                    <p class="font-medium align-middle">@item.value.ExperienceName</p>
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="flex flex-wrap mt-4 items-center justify-end">
+                    <div class="w-full lg:w-auto px-4 flex items-center justify-center">
+                        @foreach(var index in Enumerable.Range(1, vouchers.TotalPages))
+                        {
+                            <a class="cursor-pointer inline-flex mr-3 items-center justify-center w-8 h-8 text-xs @(vouchers.PageNumber+1 == index ? "text-white bg-indigo-500":"text-gray-500 bg-white") border border-gray-300 hover:bg-indigo-50 hover:text-gray-500 rounded" @onclick="() => GetPageElements(index)">@index</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+</div>
+
+@code {
+    private int pageNumber = 0;
+
+    private Page<ProvidersVoucherList> vouchers;
+
+    protected override async Task OnInitializedAsync()
+    {
+        vouchers = await OrderService.GetAllProviderVouchersAsync(pageNumber);
+    }
+    
+    private async Task GetPageElements(int i)
+    {
+        pageNumber = i-1;
+        vouchers = await OrderService.GetAllProviderVouchersAsync(pageNumber);
+    }
+}

@@ -1,0 +1,36 @@
+﻿@page "/AddTodo"
+@using S04_Ex02.Data
+@using S04_Ex02.Models
+@using Microsoft.AspNetCore.Components
+
+@inject ITodosData TodoData
+@inject NavigationManager NavigationManager
+
+<h3>AddTodo</h3>
+
+<EditForm Model="@newTodoItem" OnValidSubmit="@AddNewTodo">
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+    <div class="form-group">
+        User Id: <br/>
+        <InputNumber @bind-Value="newTodoItem.UserId"/>
+    </div>
+    <div class="form-group">
+        Title: <br/>
+        <InputTextArea rows="4" @bind-Value="newTodoItem.Title"/>
+    </div>
+    <p class="actions">
+        <button class="btn btn-outline-dark" type="submit">Create</button>
+    </p>
+</EditForm>
+
+@code {
+    private Todo newTodoItem = new Todo();
+
+    private void AddNewTodo()
+    {
+        TodoData.AddTodo(newTodoItem);
+        NavigationManager.NavigateTo("/Todos");
+    }
+
+}

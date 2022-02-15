@@ -1,0 +1,208 @@
+﻿@page "/Checkout"
+@using WebShop.Cache
+@using WebShop.Models.Orders
+@using WebShop.Services.Customers
+@using WebShop.Services.Observer
+@using WebShop.Services.Orders
+@using WebShop.Services.ShoppingCarts
+@using CustomerService = Stripe.CustomerService
+
+@inject IShoppingCartService ShoppingCartService
+@inject NavigationManager NavigationManager
+@inject IOrderService OrderService
+@inject ICustomerService CustomerService
+@inject ICacheService cacheService
+@inject IObserverService ObserverService
+
+@if (!order.ShoppingCart.ShoppingCartItems.Any())
+{
+    <h2 class="mb-8 text-5xl font-bold font-heading">Please, add items to your shooping cart before proceeding to checkout</h2>
+}
+else
+{
+    <section class="py-20 bg-gray-100">
+        <EditForm Model="@order" OnValidSubmit="@CheckoutHandler">
+            <ObjectGraphDataAnnotationsValidator/>
+            <div class="container mx-auto px-4">
+                <div class="p-8 lg:p-20 bg-white">
+                    <div class="flex flex-wrap -mx-4">
+                        <div class="w-full lg:w-1/3 px-4 mb-10 lg:mb-0">
+                            <div class="flex mb-12 items-center">
+                                <span class="flex-shrink-0 inline-flex mr-8 items-center justify-center w-12 h-12 rounded-full bg-blue-300 text-white">1</span>
+                                <h3 class="text-2xl font-bold font-heading">Shipping address</h3>
+                            </div>
+                            <form action="">
+                                <div class="mb-10">
+                                    <label class="font-bold font-heading text-gray-600" for="">Email address</label>
+                                    <input readonly @bind="@order.Customer.Email" class="block w-full mt-4 py-4 px-4 border border-gray-200 focus:ring-blue-300 focus:border-blue-300 rounded-md" type="email">
+                                </div>
+                                <div class="mb-10">
+                                    <label class="font-bold font-heading text-gray-600" for="">First name</label>
+                                    <input readonly @bind="@order.Customer.FirstName" class="block w-full mt-4 py-4 px-4 border border-gray-200 focus:ring-blue-300 focus:border-blue-300 rounded-md" type="text">
+                                </div>
+                                <div class="mb-10">
+                                    <label class="font-bold font-heading text-gray-600" for="">Last name</label>
+                                    <input readonly @bind="@order.Customer.LastName" class="block w-full mt-4 py-4 px-4 border border-gray-200 focus:ring-blue-300 focus:border-blue-300 rounded-md" type="text">
+                                </div>
+                                <div class="mb-10">
+                                    <label class="font-bold font-heading text-gray-600" for="">Phone number</label>
+                                    <input readonly @bind="@order.Customer.PhoneNumber" class="block w-full mt-4 py-4 px-4 border border-gray-200 focus:ring-blue-300 focus:border-blue-300 rounded-md" type="text">
+                                </div>
+                                <div class="mb-10">
+                                    <label class="font-bold font-heading text-gray-600" for="">City</label>
+                                    <input readonly @bind="@order.Customer.Address.City" class="block w-full mt-4 py-4 px-4 border border-gray-200 focus:ring-blue-300 focus:border-blue-300 rounded-md" type="text">
+                                </div>
+                                <div class="mb-10">
+                                    <label class="font-bold font-heading text-gray-600" for="">Street address</label>
+                                    <input readonly @bind="@order.Customer.Address.Street" class="block w-full mt-4 py-4 px-4 border border-gray-200 focus:ring-blue-300 focus:border-blue-300 rounded-md" type="text">
+                                </div>
+                                <div class="mb-10">
+                                    <div class="flex flex-wrap -mx-4">
+                                        <div class="w-full md:w-3/5 px-4 mb-10 md:mb-0">
+                                            <label class="font-bold font-heading text-gray-600" for="">Street number</label>
+                                            <input readonly @bind="@order.Customer.Address.StreetNumber" class="block w-full mt-4 py-4 px-4 border border-gray-200 focus:ring-blue-300 focus:border-blue-300 rounded-md" type="text">
+                                        </div>
+                                        <div class="w-full md:w-2/5 px-4">
+                                            <label class="font-bold font-heading text-gray-600" for="">Zip Code</label>
+                                            <input readonly @bind="@order.Customer.Address.PostCode" class="block w-full mt-4 py-4 px-4 border border-gray-200 focus:ring-blue-300 focus:border-blue-300 rounded-md" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="w-full lg:w-1/3 px-4 mb-10 lg:mb-0">
+                            <div class="flex mb-12 items-center">
+                                <span class="flex-shrink-0 inline-flex mr-8 items-center justify-center w-12 h-12 rounded-full bg-purple-300 text-white">2</span>
+                                <h3 class="text-2xl font-bold font-heading">Payment methods</h3>
+                            </div>
+                            <div class="mb-12 pb-10 border-b">
+                                <label class="flex items-center mb-6" for="">
+                                    <input class="mr-5" type="radio" name="paymentType" checked="">
+                                    <span class="text-sm">Credit card</span>
+                                </label>
+                            </div>
+                            <div class="mb-8 px-8 py-10 bg-gray-100">
+                                <div class="mb-8">
+                                    <label class="font-bold font-heading text-gray-600" for="">Credit card number</label>
+                                    <input @bind-value="order.CreditCard.Number" class="block w-full mt-4 py-4 px-4 border border-gray-200 focus:ring-blue-300 focus:border-blue-300 rounded-md" type="text">
+                                </div>
+                                <div class="mb-8">
+                                    <label class="font-bold font-heading text-gray-600" for="">Expiration Year</label>
+                                    <input @bind-value="order.CreditCard.Year" class="block w-full mt-4 py-4 px-4 border border-gray-200 focus:ring-blue-300 focus:border-blue-300 rounded-md" type="text">
+                                </div>
+                                <div class="mb-8">
+                                    <label class="font-bold font-heading text-gray-600" for="">Expiration Month</label>
+                                    <input @bind-value="order.CreditCard.Month" class="block w-full mt-4 py-4 px-4 border border-gray-200 focus:ring-blue-300 focus:border-blue-300 rounded-md" type="text">
+                                </div>
+                                <div>
+                                    <label class="font-bold font-heading text-gray-600" for="">CVC</label>
+                                    <input @bind-value="order.CreditCard.Cvv" class="block w-full mt-4 py-4 px-4 border border-gray-200 focus:ring-blue-300 focus:border-blue-300 rounded-md" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/3 px-4">
+                            <div class="flex mb-12 items-center">
+                                <span class="flex-shrink-0 inline-flex mr-8 items-center justify-center w-12 h-12 rounded-full bg-pink-300 text-white">4</span>
+                                <h3 class="text-2xl font-bold font-heading">Order summary</h3>
+                            </div>
+                            <div class="mb-12 p-6 lg:p-12 bg-blue-600">
+
+                                @foreach (ExperienceCartItem item in
+                                    order.ShoppingCart.ShoppingCartItems)
+                                {
+                                    <div class="mb-6 pb-8 border-b border-blue-100">
+                                        <div class="flex">
+                                            <img class="w-20 h-24 object-cover" src="@item.Experience.Picture">
+                                            <div class="pl-6">
+                                                <h3 class="mb-3 text-xl font-bold font-heading text-white">@item.Experience.Name</h3>
+                                                <p class="text-lg font-bold font-heading text-white">@item.Experience.Price DKK x @item.Quantity</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                                <div class="flex mb-2 justify-between items-center">
+                                    <span class="text-blue-50">Order subtotal</span>
+                                    <span class="text-xl font-bold font-heading text-white">@order.ShoppingCart.OrderTotal DKK</span>
+                                </div>
+                                <div class="flex mb-5 justify-between items-center">
+                                    <span class="text-blue-50">Tax</span>
+                                    <span class="text-xl font-bold font-heading text-white">@order.ShoppingCart.TaxAmount DKK</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="text-xl font-bold font-heading text-white">Total</span>
+                                    <span class="text-xl font-bold font-heading text-white">@order.ShoppingCart.OrderTotal DKK</span>
+                                </div>
+                            </div>
+                            <div class="mb-10">
+                                <span class="inline-block mb-4 font-medium">Apply discount code:</span>
+                                <div class="flex mb-12 flex-wrap lg:flex-nowrap items-center">
+                                    <input class="mb-4 md:mb-0 mr-4 px-4 py-4 placeholder-gray-800 font-bold font-heading border border-gray-200 focus:ring-blue-300 focus:border-blue-300 rounded-md" type="text" placeholder="SUMMER30X">
+                                    <a class="inline-block mb-4 md:mb-0 px-6 py-4 text-white font-bold font-heading uppercase bg-gray-800 hover:bg-gray-700 rounded-md" href="#">Apply</a>
+                                </div>
+                            </div>
+                            <div>
+                                <span class="block mb-4 font-medium">Order comment:</span>
+                                <textarea @bind="order.Comment" class="mb-12 w-full resize-none border border-gray-200 focus:ring-blue-300 focus:border-blue-300 rounded-md" name="" id="" cols="30" rows="10"></textarea>
+                                <button type="submit" class="@(checkingOut ? "bg-blue-400 cursor-wait" : "bg-blue-600 cursor-pointer") block w-full py-4 hover:bg-blue-400 text-center text-white font-bold font-heading uppercase rounded-md transition duration-200">
+                                    @(checkingOut ? "Processing order" : "Checkout")
+                                </button>
+                                <ValidationSummary/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </EditForm>
+    </section>
+}
+
+@code {
+    private bool checkingOut;
+
+    private Order order = new()
+    {
+        CreditCard = new CreditCard
+        {
+            Number = "4242424242424242",
+            Cvv = "123",
+            Month = 12,
+            Year = 23
+        }
+    };
+
+    private bool isPaymentCreditCard = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        order.ShoppingCart = ShoppingCartService.ShoppingCart;
+        var cachedUser = await cacheService.GetCachedUserAsync();
+        order.Customer = await CustomerService.GetCustomerByIdAsync(cachedUser.Id);
+    }
+
+
+    private async Task CheckoutHandler()
+    {
+        if (checkingOut)
+        {
+            return;
+        }
+        checkingOut = true;
+        try
+        {
+            var orderId = await OrderService.CreateOrderAsync(order);
+            ClearShoppingCart();
+            NavigationManager.NavigateTo($"/orders/{orderId}/success");
+        }
+        catch (Exception e)
+        {
+            NavigationManager.NavigateTo($"/fail/{e.Message}");
+        }
+    }
+
+    private void ClearShoppingCart()
+    {
+        ShoppingCartService.ClearShoppingCart();
+        ObserverService.ChangeHappens();
+    }
+}

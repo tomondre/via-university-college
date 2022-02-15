@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="00e1d5f8-057f-4662-9cb2-2a6827fe587d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/S03_01/client/HelloWorldClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/S03_01/client/HelloWorldClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/S03_01/server/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/S03_01/server/HelloWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/S03_01/server/HelloWorldImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/S03_01/server/HelloWorldImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/S03_01/server/HelloWorldPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/S03_01/server/HelloWorldPublisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/S03_02/client/UserDAOClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/S03_02/client/UserDAOClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/S03_02/server/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/S03_02/server/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/S03_02/server/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/S03_02/server/UserDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/S03_02/server/UserDAOPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/S03_02/server/UserDAOPublisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/S03_02/shared/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/S03_02/shared/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/S03_03/client/UserDAOClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/S03_03/client/UserDAOClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/S03_03/server/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/S03_03/server/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/S03_03/server/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/S03_03/server/UserDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/S03_03/server/UserDAOPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/S03_03/server/UserDAOPublisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/S03_03/server/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/S03_03/server/model/Model.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1yuBHtYVQBTvaYF6ZQ0FKy5CCg9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="S03_03.shared" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="UserDAOPublisher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.java.S03_03.server.UserDAOPublisher" />
+      <module name="WebServices" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.java.S03_03.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.UserDAOPublisher" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="00e1d5f8-057f-4662-9cb2-2a6827fe587d" name="Changes" comment="" />
+      <created>1633091510339</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1633091510339</updated>
+      <workItem from="1633091511663" duration="429000" />
+      <workItem from="1642329778737" duration="1794000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>

@@ -1,0 +1,14 @@
+@inherits LayoutComponentBase
+
+<AuthorizeView>
+    <NotAuthorized>
+        <LandingComponent/>
+    </NotAuthorized>
+    <Authorized>
+        <div class="page">
+            <NavMenu/>
+            @Body
+            <Footer/>
+        </div>
+    </Authorized>
+</AuthorizeView>

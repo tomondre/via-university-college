@@ -1,0 +1,24 @@
+﻿@page "/"
+@namespace WebShop.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>WebShop</title>
+    <base href="~/"/>
+    <link href="css/app.css" rel="stylesheet"/>
+    @await Html.PartialAsync("_Favicons")
+</head>
+<body>
+<app>
+    <component type="typeof(App)" render-mode="Server"/>
+</app>
+<script src="_framework/blazor.server.js"></script>
+</body>
+</html>

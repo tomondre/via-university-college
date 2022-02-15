@@ -1,0 +1,17 @@
+syntax="proto3";
+option java_multiple_files = true;
+package networking.login;
+
+import "Proto/User.proto";
+
+message ProtobufMessage{
+    string messageOrObject = 1;
+}
+
+service LoginService{
+    rpc GetUserLogin(user.UserMessage) returns (user.UserMessage);
+}
+
+
+
+

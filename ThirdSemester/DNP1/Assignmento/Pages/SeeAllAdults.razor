@@ -1,0 +1,125 @@
+﻿@page "/SeeAllAdults"
+@using Person
+@using FileData
+@inject IAdultService AdultService;
+@inject NavigationManager NavigationManager
+
+<h3>See All Adults</h3>
+<p>
+    Filter by Last Name: <input type="text" @oninput="FilterByName" style="width: 50px"/>
+</p>
+<p>
+    Filter by Job Title: <input type="text" @oninput="FilterByJob" style="width: 50px"/>
+</p>
+
+@if (adultsToShow == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else if (!adultsToShow.Any())
+{
+    <p>
+        <em>No Adults items exist. Please add some.</em>
+    </p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Adult ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Hair Color</th>
+            <th>Eye Color</th>
+            <th>Age</th>
+            <th>Weight</th>
+            <th>Height</th>
+            <th>Sex</th>
+            <th>Job Title</th>
+            <th>Salary</th>
+            <AuthorizeView Policy="SecurityLevel3">
+                <th>Remove</th>
+                <th>Edit</th>
+            </AuthorizeView>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in adultsToShow)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.HairColor</td>
+                <td>@item.EyeColor</td>
+                <td>@item.Age</td>
+                <td>@item.Weight</td>
+                <td>@item.Height</td>
+                <td>@item.Sex</td>
+                <td>@item.JobTitle.JobTitle</td>
+                <td>@item.JobTitle.Salary</td>
+                <AuthorizeView Policy="SecurityLevel3">
+                    <td>
+                        <button @onclick="@(() => RemoveAdult(item))">
+                            <i class="oi oi-trash" style="color: red"></i>
+                        </button>
+                    </td>
+                    <td>
+                        <button @onclick="@(() => EditAdult(item))">
+                            <i class="oi oi-pencil" style="color: red"></i>
+                        </button>
+                    </td>
+                </AuthorizeView>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+    private IList<Adult> allAdults;
+    private IList<Adult> adultsToShow;
+
+    private string? LastName;
+    private string? JobTitle;
+
+    private void FilterByName(ChangeEventArgs changeEventArgs)
+    {
+        LastName = changeEventArgs.Value.ToString();
+        Filter();
+    }
+
+    private void FilterByJob(ChangeEventArgs changeEventArgs)
+    {
+        JobTitle = changeEventArgs.Value.ToString();
+        Filter();
+    }
+
+    private void Filter()
+    {
+       adultsToShow = allAdults.Where(a => (LastName == null
+                                             || a.LastName.ToLower().Contains(LastName.ToLower()))
+                                            && (JobTitle == null
+                                                || a.JobTitle.JobTitle.ToLower().Contains(JobTitle.ToLower()))).ToList();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        allAdults = AdultService.GetAllAdults();
+        adultsToShow = allAdults;
+    }
+
+    private void RemoveAdult(Adult adult)
+    {
+        AdultService.RemoveAdult(adult.Id);
+    }
+
+    private void EditAdult(Adult item)
+    {
+        NavigationManager.NavigateTo($"/EditAdult/{item.Id}");
+    }
+
+}

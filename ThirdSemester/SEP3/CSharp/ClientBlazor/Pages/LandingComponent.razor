@@ -1,0 +1,18 @@
+@if (isSignIn)
+{
+    <Login SignupCallback = "@OpenSignUp"/>
+}
+else
+{
+    <AddProvider/>
+}
+
+@code {
+    private bool isSignIn = true;
+
+    private void OpenSignUp()
+    {
+        isSignIn = false;
+        StateHasChanged();
+    }
+}

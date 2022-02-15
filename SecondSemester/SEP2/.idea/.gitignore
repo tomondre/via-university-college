@@ -1,0 +1,13 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+.idea
+*.iml
+out
+gen
+
+# Datasource local storage ignored files
+/../../../../../../:\Software Engineering\2.Semester Two\SEP\DHMS_SEP2\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="131.0" prefWidth="293.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.login.LoginController">
+   <children>
+      <VBox prefHeight="250.0" prefWidth="280.0">
+         <children>
+            <Text fill="#90004d" strokeType="OUTSIDE" strokeWidth="0.0" text="Dont mess with my MESSenger" textAlignment="CENTER" wrappingWidth="303.13671875">
+               <font>
+                  <Font name="Footlight MT Light" size="29.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" top="20.0" />
+               </VBox.margin>
+            </Text>
+            <HBox prefHeight="99.0" prefWidth="293.0">
+               <children>
+                  <TextField fx:id="nameField" promptText="Enter NickName">
+                     <HBox.margin>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Button fx:id="submitButton" mnemonicParsing="false" onAction="#onSubmitButton" prefHeight="25.0" prefWidth="57.0" text="Submit">
+                     <HBox.margin>
+                        <Insets bottom="30.0" left="15.0" right="30.0" top="30.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

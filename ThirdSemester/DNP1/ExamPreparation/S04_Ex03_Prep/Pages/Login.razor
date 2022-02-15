@@ -1,0 +1,34 @@
+﻿@using S04_Ex03_Prep.Models
+@using S04_Ex03_Prep.Data
+@inject IUserService UserService
+
+<div class="login-form">
+    <EditForm Model="user" OnValidSubmit="TryLogin">
+        <div class="form-group">
+            <InputText class="form-control" required bind-value="@user.UserName" placeholder="Username"></InputText>
+        </div>
+        <div class="form-group">
+            <InputText class="form-control" required bind-value="@user.Password" placeholder="Password"></InputText>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block" type="submit">Log-in</button>
+        </div>
+    </EditForm>
+</div>
+
+@code {
+    private User user = new User();
+
+    private void TryLogin()
+    {
+        try
+        {
+            UserService.ValidateLogin(user);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+
+}

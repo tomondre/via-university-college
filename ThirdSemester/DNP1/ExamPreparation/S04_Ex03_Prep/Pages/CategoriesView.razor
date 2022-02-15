@@ -1,0 +1,33 @@
+﻿@page "/categories"
+@inject NavigationManager NavigationManger
+
+<h3>Categories</h3>
+@if (categories == null)
+{
+    <em>@status</em>
+}
+else
+{
+    <div class="list-group">
+        @foreach (string category in categories)
+        {
+            <a @onclick="() => OpenCategoryProducts(category)" class="list-group-item">@category</a>
+        }
+    </div>
+}
+
+
+@code {
+    private string[] categories;
+    private string status = "Loading products...";
+
+    private void OpenCategoryProducts(string category)
+    {
+        NavigationManger.NavigateTo($"/themes/{category}/products");
+    }
+    
+    protected async override Task OnInitializedAsync()
+    {
+        categories = new []{"Architecture", "Batman", "Boost", "City", "Classic", "Creator 3-in-1"};
+    }
+}

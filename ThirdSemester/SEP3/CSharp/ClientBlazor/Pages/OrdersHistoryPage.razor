@@ -1,0 +1,93 @@
+@page "/customers/{CustomerId:int}/orders"
+@using ClientBlazor.Models
+@using ClientBlazor.Services.Orders
+@using GrpcFileGeneration.Models.Orders
+@using GrpcFileGeneration.Models
+@inject NavigationManager NavigationManager;
+@inject IOrderService OrderService
+
+@attribute [Authorize(Roles = "administrator")]
+
+@if (orders == null)
+{
+    <p class="text-center">
+        <em>Loading...</em>
+    </p>
+}
+else if (!orders.Content.Orders.Any())
+{
+    <p class="text-center">
+        <em>No orders found for the current customer</em>
+    </p>
+}
+else
+{
+  <section class="py-8">
+    <div class="container px-4 mx-auto">
+      <div class="pt-4 bg-white overflow-y-auto shadow rounded">
+        <div class="flex px-6 pb-4 border-b">
+          <h3 class="text-xl font-bold">Recent Transactions</h3>
+        </div>
+        <div class="p-4 overflow-y-auto">
+          <table class="table-auto w-full">
+            <thead>
+            <tr class="text-xs text-gray-500 text-left">
+              <th class="pb-3 font-medium">Order ID</th>
+              <th class="pb-3 font-medium">Date</th>
+              <th class="pb-3 font-medium">Number of items</th>
+              <th class="pb-3 font-medium">Payment method</th>
+              <th class="pb-3 font-medium">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var order in orders.Content.Orders.Select((value, i) => new {value, i}))
+            {
+              <tr class="text-xs @(order.i % 2 == 0 ? "bg-gray-50" : "bg-white-50") hover:bg-indigo-50">
+                <td class="py-5 px-6 font-medium">@order.value.Id</td>
+                <td @onclick="() => OpenSingleOrderView(order.value.Id)" class="cursor-pointer font-medium">@order.value.Date</td>
+                <td class="font-medium">@order.value.ShoppingCart.ShoppingCartItems.Count</td>
+                <td class="font-medium">Credit card</td>
+                <td>
+                  <span class="inline-block py-1 px-2 text-white bg-green-500 rounded-full">Completed</span>
+                </td>
+              </tr>
+            }
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="flex flex-wrap mt-4 items-center justify-end">
+        <div class="w-full lg:w-auto px-4 flex items-center justify-center">
+          @foreach(var index in Enumerable.Range(1, orders.TotalPages))
+          {
+            <a class="cursor-pointer inline-flex mr-3 items-center justify-center w-8 h-8 text-xs @(pageNumber+1 == index ? "text-white bg-indigo-500":"text-gray-500 bg-white") border border-gray-300 hover:bg-indigo-50 rounded" @onclick="() => GetPageElements(index)">@index</a>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+}
+
+@code {
+  private Page<OrderList> orders;
+  private int pageNumber = 0;
+  
+  [Parameter]
+  public  int CustomerId { set; get; }
+  
+  protected override async Task OnInitializedAsync()
+  {
+    orders = await OrderService.GetCustomerOrdersAsync(CustomerId, pageNumber);
+  }
+
+  private void OpenSingleOrderView(int orderId)
+  {
+    NavigationManager.NavigateTo($"/orders/{orderId}");
+  }
+  
+  private async Task GetPageElements(int i)
+  {
+    pageNumber = i-1;
+    orders = await OrderService.GetCustomerOrdersAsync(CustomerId, pageNumber);
+  }
+}

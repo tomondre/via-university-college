@@ -1,0 +1,19 @@
+
+@if (isSignIn)
+{
+    <SignInPage SignupCallback="@OpenSignUp"/>
+}
+else
+{
+    <SignUpCustomer/>
+}
+
+@code {
+    private bool isSignIn = true;
+    
+    public void OpenSignUp(bool isSignIn)
+    {
+        this.isSignIn = isSignIn;
+        StateHasChanged();
+    }
+}

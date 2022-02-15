@@ -1,0 +1,213 @@
+﻿@using WebShop.Services
+@using WebShop.Services.ShoppingCarts
+@using WebShop.Data.Authentication
+@using WebShop.Models
+@using WebShop.Services.Observer
+@using WebShop.Services.ProductCategory
+@using System.Xml
+@inject NavigationManager NavigationManager
+@inject IShoppingCartService ShoppingCartService
+@inject IObserverService ObserverService
+@inject IProductCategoryService ProductCategory
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<section class="relative">
+    <div class="py-2 bg-blue-600">
+        <div class="flex items-center justify-center">
+            <svg class="mr-2" width="18" height="11" viewBox="0 0 18 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect y="3.07129" width="4" height="10" rx="2" transform="rotate(-45 0 3.07129)" fill="white"></rect><rect x="8" y="2.82861" width="4" height="10" rx="2" transform="rotate(-45 8 2.82861)" fill="white"></rect>
+            </svg>
+            <p class="text-xs font-bold font-heading text-blue-100">Unforgotable gifts</p>
+        </div>
+    </div>
+    <nav class="relative flex justify-between bg-blue-50 bg-opacity-30">
+        <div class="px-12 py-8 flex w-full items-center">
+            <a @onclick="OpenIndex" class="cursor-pointer flex-shrink-0 text-3xl font-bold font-heading">
+                <img class="h-9" src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/travel-logo-design-template-dea5e985c2bd8754168665d387bb284c_screen.jpg?ts=1610888433" alt="" width="auto">
+            </a>
+
+            <ul class="hidden lg:flex absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:items-center lg:w-auto">
+                <li>
+                    <a @onclick="OpenExperiences" class="cursor-pointer mr-12 font-bold font-heading hover:text-gray-600">Experiences</a>
+                </li>
+
+
+                @if (categories != null)
+                {
+                    @foreach (Category category in categories.Categories.Take(6))
+                    {
+                        <li>
+                            <a @onclick="() => OpenCategory(category.Id)" class="cursor-pointer mr-12 font-bold font-heading hover:text-gray-600 hover:bg-indigo-50 rounded-lg">@category.CategoryName</a>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+        <div class="hidden xl:flex items-center justify-end mr-12">
+
+            <a @onclick="OpenCartPage" class="cursor-pointer flex items-center">
+                <svg class="mr-3" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.1159 8.72461H2.50427C1.99709 8.72461 1.58594 9.12704 1.58594 9.62346V21.3085C1.58594 21.8049 1.99709 22.2074 2.50427 22.2074H18.1159C18.6231 22.2074 19.0342 21.8049 19.0342 21.3085V9.62346C19.0342 9.12704 18.6231 8.72461 18.1159 8.72461Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M6.34473 6.34469V4.95676C6.34473 3.85246 6.76252 2.79338 7.5062 2.01252C8.24988 1.23165 9.25852 0.792969 10.3102 0.792969C11.362 0.792969 12.3706 1.23165 13.1143 2.01252C13.858 2.79338 14.2758 3.85246 14.2758 4.95676V6.34469" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <span class="inline-block w-6 h-6 text-center bg-blue-600 rounded-full font-semibold font-heading text-white">@cartItemsCount</span>
+            </a>
+            <div class="relative group">
+                <button class="flex flex-row items-center w-full px-4 py-4 mt-2 text-base font-bold text-left uppercase bg-transparent rounded-lg md:w-auto md:inline md:mt-0 md:ml-4 focus:outline-none font-montserrat">
+                    <span>Customer</span>
+                </button>
+                <div class="absolute z-10 hidden bg-grey-200 group-hover:block">
+                    <div class="navbar-backdrop fixed lg:hidden inset-0 bg-gray-800 opacity-10"></div>
+                    <div class="px-2 pt-2 pb-4 bg-white bg-gray-200 shadow-lg">
+                        <a @onclick="OpenOrderHistory" class="cursor-pointer hidden xl:flex items-center px-12 border-l font-semibold font-heading">
+                            <span>Orders</span>
+                        </a>
+                        <a @onclick="OpenEditPage" class="cursor-pointer hidden xl:flex items-center px-12 border-l font-semibold font-heading">
+                            <span>Edit</span>
+                        </a>
+                        <a @onclick="Logout" class="cursor-pointer hidden xl:flex items-center px-12 border-l font-semibold font-heading">
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <button @onclick="ToggleValue" class="mr-5 navbar-burger flex items-center rounded focus:outline-none lg:hidden z-50">
+            <svg width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 2H19C19.2652 2 19.5196 1.89464 19.7071 1.70711C19.8946 1.51957 20 1.26522 20 1C20 0.734784 19.8946 0.48043 19.7071 0.292893C19.5196 0.105357 19.2652 0 19 0H1C0.734784 0 0.48043 0.105357 0.292893 0.292893C0.105357 0.48043 0 0.734784 0 1C0 1.26522 0.105357 1.51957 0.292893 1.70711C0.48043 1.89464 0.734784 2 1 2ZM19 10H1C0.734784 10 0.48043 10.1054 0.292893 10.2929C0.105357 10.4804 0 10.7348 0 11C0 11.2652 0.105357 11.5196 0.292893 11.7071C0.48043 11.8946 0.734784 12 1 12H19C19.2652 12 19.5196 11.8946 19.7071 11.7071C19.8946 11.5196 20 11.2652 20 11C20 10.7348 19.8946 10.4804 19.7071 10.2929C19.5196 10.1054 19.2652 10 19 10ZM19 5H1C0.734784 5 0.48043 5.10536 0.292893 5.29289C0.105357 5.48043 0 5.73478 0 6C0 6.26522 0.105357 6.51957 0.292893 6.70711C0.48043 6.89464 0.734784 7 1 7H19C19.2652 7 19.5196 6.89464 19.7071 6.70711C19.8946 6.51957 20 6.26522 20 6C20 5.73478 19.8946 5.48043 19.7071 5.29289C19.5196 5.10536 19.2652 5 19 5Z" fill="currentColor"></path>
+            </svg>
+        </button>
+    </nav>
+    <div class=@($"{navMenuClass} lg:hidden navbar-menu fixed top-0 left-0 bottom-0 w-5/6 max-w-sm z-30")>
+        <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
+        <nav class=" relative flex flex-col py-6 px-6 w-full h-full bg-white border-r overflow-y-auto">
+            <div class="flex items-center mb-8">
+                <a @onclick="OpenIndex" class="mr-auto cursor-pointer pl-3 py-3 pr-4 rounded">
+                    <img class="h-9" src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/travel-logo-design-template-dea5e985c2bd8754168665d387bb284c_screen.jpg?ts=1610888433" alt="" width="auto">
+                </a>
+            </div>
+            <div class="flex mb-8 justify-between">
+                <div class="inline-flex items-left">
+                    <a @onclick="OpenCartPage"  class="cursor-pointer flex items-center pl-3 py-3 pr-4 hover:bg-indigo-50 rounded">
+                        <svg class="mr-3" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.1159 8.72461H2.50427C1.99709 8.72461 1.58594 9.12704 1.58594 9.62346V21.3085C1.58594 21.8049 1.99709 22.2074 2.50427 22.2074H18.1159C18.6231 22.2074 19.0342 21.8049 19.0342 21.3085V9.62346C19.0342 9.12704 18.6231 8.72461 18.1159 8.72461Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M6.34473 6.34469V4.95676C6.34473 3.85246 6.76252 2.79338 7.5062 2.01252C8.24988 1.23165 9.25852 0.792969 10.3102 0.792969C11.362 0.792969 12.3706 1.23165 13.1143 2.01252C13.858 2.79338 14.2758 3.85246 14.2758 4.95676V6.34469" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg>
+                        <span class="inline-block w-6 h-6 text-center bg-gray-100 rounded-full font-semibold font-heading">@cartItemsCount</span>
+                    </a>
+                </div>
+            </div>
+            <ul class="mb-8 text-sm font-medium">
+                <h3 class="mb-2 text-xs uppercase text-gray-300 font-medium">Main</h3>
+                <li class="pl-3 pr-4">
+                    <a @onclick="OpenExperiences" class="cursor-pointer flex items-center pl-3 py-3 pr-4 text-gray-500 hover:bg-indigo-50 focus:bg-indigo-500 focus:text-white rounded">Experiences</a>
+                </li>
+                @if (categories != null)
+                {
+                    @foreach (Category category in categories.Categories.Take(6))
+                    {
+                        <li class="pl-3 pr-4">
+                            <a @onclick="() => OpenCategory(category.Id)" class="cursor-pointer flex items-center pl-3 py-3 pr-4 text-gray-500 hover:bg-indigo-50 focus:bg-indigo-500 focus:text-white rounded">@category.CategoryName</a>
+                        </li>
+                    }
+                }
+            </ul>
+            <div class="pt-8">
+                <h3 class="mb-2 text-xs uppercase text-gray-300 font-medium">Customer</h3>
+                <ul class="mb-8 text-sm font-medium">
+                    <li class="pl-3 pr-4">
+                    <a @onclick="OpenOrderHistory" class="cursor-pointer flex items-center pl-3 py-3 pr-4 text-gray-500 hover:bg-indigo-50 focus:bg-indigo-500 focus:text-white rounded">
+                        <span>Orders</span>
+                    </a>
+                    </li>
+                    <li class="pl-3 pr-4">
+                        <a @onclick="OpenEditPage" class="cursor-pointer flex items-center pl-3 py-3 pr-4 text-gray-500 hover:bg-indigo-50 focus:bg-indigo-500 focus:text-white rounded">
+                            <span>Edit</span>
+                        </a>
+                    </li>
+                    <li class="pl-3 pr-4">
+                        <a @onclick="Logout" class="cursor-pointer flex items-center pl-3 py-3 pr-4 text-gray-500 hover:bg-indigo-50 focus:bg-indigo-500 focus:text-white rounded">
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</section>
+
+@code {
+    private int cartItemsCount = 0;
+    private CategoryList categories;
+    private bool isOpen = false;
+    private string navMenuClass = "hidden";
+
+    protected override async Task OnInitializedAsync()
+    {
+        ObserverService.OnChange += UpdateCartNumber;
+        categories = await ProductCategory.GetAllCategoriesAsync();
+    }
+
+    private void UpdateCartNumber()
+    {
+        cartItemsCount = ShoppingCartService.ShoppingCart.ShoppingCartItems.Count;
+        StateHasChanged();
+    }
+
+    private void OpenSignInPage()
+    {
+        NavigationManager.NavigateTo("/signin");
+    }
+
+    private void OpenEditPage()
+    {
+        NavigationManager.NavigateTo("/customer/information");
+    }
+
+    private void OpenExperiences()
+    {
+        NavigationManager.NavigateTo("/experiences");
+    }
+
+    private void OpenCartPage()
+    {
+        NavigationManager.NavigateTo("/cart");
+    }
+
+    private void OpenOrderHistory()
+    {
+        NavigationManager.NavigateTo("/orders");
+    }
+
+    private void OpenCategory(int categoryId)
+    {
+        NavigationManager.NavigateTo($"/categories/{categoryId}/experiences");
+    }
+
+    private void OpenIndex()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+
+    private async Task Logout()
+    {
+        try
+        {
+            await ((CurrentAuthenticationStateProvider) AuthenticationStateProvider).Logout();
+            OpenIndex();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+    }
+
+    private void ToggleValue()
+    {
+        isOpen = !isOpen;
+        navMenuClass = isOpen ? "" : "hidden";
+    }
+
+}

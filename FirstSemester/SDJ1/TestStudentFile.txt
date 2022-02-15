@@ -1,0 +1,9 @@
+AL19742,Ferrari,F50,1997,Allan,Henriksen
+HE23477,Audi,A7,2014,Allan,Henriksen
+XY54679,Toyota,Yaris,2007,Charlie,Pace
+JA72921,Seat,Mii,2012,Claire,Littleton
+RT90456,Mercedes,W212,2010,Jack,Shephard
+TY86934,Dodge,Viper,2010,James,Ford
+OS38067,Volkswagen,Golf,2012,John,Locke
+MD21739,Volvo,S80,2009,Juliet,Burke
+JK42234,Ford,Focus,2008,Kate,Austen

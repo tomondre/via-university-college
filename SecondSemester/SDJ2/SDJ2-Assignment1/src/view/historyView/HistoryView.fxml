@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="310.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.historyView.HistoryViewController">
+   <children>
+      <HBox prefHeight="304.0" prefWidth="380.0">
+         <children>
+            <VBox prefHeight="304.0" prefWidth="273.0">
+               <children>
+                  <Label fx:id="thermHistoryLabel" text="Label">
+                     <VBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TableView fx:id="historyTable" prefHeight="277.0" prefWidth="273.0">
+                    <columns>
+                      <TableColumn fx:id="indexesColumn" editable="false" prefWidth="129.0" text="#" />
+                        <TableColumn fx:id="tempColumn" minWidth="0.0" prefWidth="143.0" text="Temperature" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+            <VBox prefHeight="304.0" prefWidth="106.0">
+               <children>
+                  <Button fx:id="graphButton" mnemonicParsing="false" onAction="#onGraphButton" text="See Graph">
+                     <VBox.margin>
+                        <Insets left="16.0" top="80.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onBackButton" text="Back">
+                     <VBox.margin>
+                        <Insets left="30.0" top="20.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

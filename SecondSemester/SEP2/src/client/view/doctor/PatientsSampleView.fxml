@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #90a4ae;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.doctor.PatientsSampleViewController">
+<children>
+    <Label layoutX="306.0" layoutY="14.0" prefHeight="27.0" prefWidth="81.0" text="Samples:" AnchorPane.leftAnchor="318.0" AnchorPane.rightAnchor="302.0" AnchorPane.topAnchor="18.0">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+    <TableView fx:id="sampleTable" layoutX="1.0" layoutY="61.0" prefHeight="290.0" prefWidth="700.0" style="-fx-background-color: #f8f8ff; -fx-background-radius: 0.5em;">
+        <columns>
+            <TableColumn fx:id="sampleType" prefWidth="89.0" text="Type" />
+            <TableColumn fx:id="sampleDeadline" prefWidth="118.0" text="Deadline" />
+            <TableColumn fx:id="samplePriority" prefWidth="128.0" text="Priority" />
+            <TableColumn fx:id="result" prefWidth="165.0" text="Result" />
+        </columns>
+         <effect>
+            <DropShadow color="#33557f" />
+         </effect>
+    </TableView>
+    <Button  layoutX="571.0" layoutY="413.0" mnemonicParsing="false" onAction="#onEditSampleButton" prefHeight="30.0" prefWidth="70.0" text="Edit" AnchorPane.bottomAnchor="56.6" AnchorPane.rightAnchor="65.0" />
+    <Button layoutX="25.0" layoutY="413.0" mnemonicParsing="false" onAction="#onBackButton" prefHeight="30.0" prefWidth="70.0" text="Back" AnchorPane.bottomAnchor="56.6" AnchorPane.leftAnchor="65.0" AnchorPane.rightAnchor="565.6" />
+      <Button fx:id="addButton"  layoutX="477.0" layoutY="413.0" mnemonicParsing="false" onAction="#onAddButton" prefHeight="30.0" prefWidth="70.0" text="Add" />
+</children>
+   <effect>
+      <ColorAdjust brightness="-0.06" contrast="0.08" />
+   </effect>
+</AnchorPane>

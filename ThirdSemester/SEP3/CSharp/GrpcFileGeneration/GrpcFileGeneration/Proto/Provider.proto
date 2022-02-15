@@ -1,0 +1,33 @@
+syntax="proto3";
+option java_multiple_files = true;
+package networking.provider;
+
+import "Proto/Address.proto";
+import "Proto/User.proto";
+import "Proto/Page.proto";
+import "Proto/Request.proto";
+
+message ProviderMessage{
+  user.UserMessage user = 1;
+  string company_name = 2;
+  int32 cvr = 3;
+  string phone_number = 4;
+  string description = 5;
+  bool is_approved = 6;
+  address.AddressMessage address = 7;
+}
+
+message ProvidersMessage {
+  repeated ProviderMessage providers = 1;
+  page.PageMessage pageInfo = 2;
+}
+
+service ProviderService{
+  rpc CreateProvider(ProviderMessage) returns (user.UserMessage);
+  rpc GetAllProviders(request.PageRequestMessage) returns (ProvidersMessage);
+  rpc GetProviderById(request.RequestMessage) returns (ProviderMessage);
+  rpc EditProvider(ProviderMessage) returns (ProviderMessage);
+  rpc RemoveProvider(request.RequestMessage) returns (ProviderMessage);
+  rpc GetAllNotApprovedProviders(request.PageRequestMessage) returns (ProvidersMessage);
+  rpc GetAllByName(request.RequestMessage) returns (ProvidersMessage);
+}

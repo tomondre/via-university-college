@@ -1,0 +1,30 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package networking.customer;
+
+import "Address.proto";
+import "User.proto";
+import "Request.proto";
+import "Page.proto";
+
+message CustomerMessage {
+  user.UserMessage user = 1;
+  string firstName = 2;
+  string lastName = 3;
+  string phoneNumber = 4;
+  address.AddressMessage address = 5;
+}
+
+message CustomersMessage {
+  repeated CustomerMessage customers = 1;
+  page.PageMessage page = 2;
+}
+
+service CustomerService {
+  rpc createCustomer(CustomerMessage) returns (user.UserMessage);
+  rpc getAllCustomers(request.PageRequestMessage) returns (CustomersMessage);
+  rpc deleteCustomer(user.UserMessage) returns (CustomerMessage);
+  rpc getCustomerById(user.UserMessage) returns (CustomerMessage);
+  rpc editCustomer(CustomerMessage) returns (CustomerMessage);
+  rpc findCustomerByName(request.RequestMessage) returns (CustomersMessage);
+}

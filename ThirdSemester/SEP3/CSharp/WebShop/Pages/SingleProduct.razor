@@ -1,0 +1,126 @@
+﻿@page "/experiences/{Id:int}"
+@using WebShop.Models
+@using WebShop.Services.Experiences
+@using WebShop.Services.Observer
+@using WebShop.Services.ShoppingCarts
+
+@inject IShoppingCartService ShoppingCartService
+@inject IExperienceService ExperienceService
+@inject IObserverService ObserverService
+@inject NavigationManager NavigationManager
+
+@if (LoadedExperience == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else
+{
+    <section class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap -mx-4 mb-24">
+                <div class="w-full md:w-1/2  md:h-1/2 px-4 mb-8 md:mb-0">
+                    <div class="relative mb-10" style="height: 564px;">
+                        <img class="object-cover w-full h-full" src="@LoadedExperience.Picture" alt="">
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 px-4">
+                    <div class="lg:pl-20">
+                        <div class="mb-10 pb-10 border-b">
+                            <h2 class="mt-2 mb-6 max-w-xl text-5xl md:text-6xl font-bold font-heading">@LoadedExperience.Name</h2>
+                            <p class="inline-block mb-8 text-2xl font-bold font-heading text-blue-300">
+                                <span>@LoadedExperience.Price DKK</span>
+                            </p>
+                            <p class="max-w-md text-gray-500">@LoadedExperience.Description</p>
+                        </div>
+                        <div class="flex mb-12">
+                            <div class="mr-6">
+                                <span class="block mb-4 font-bold font-heading text-gray-400 uppercase">Quantity</span>
+                                <div class="inline-flex items-center px-4 font-semibold font-heading text-gray-500 border border-gray-200 focus:ring-blue-300 focus:border-blue-300 rounded-md">
+                                    <button @onclick="DecreaseQuantity" class="py-2 hover:text-gray-700">
+                                        <svg width="12" height="2" viewBox="0 0 12 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g opacity="0.35">
+                                                <rect x="12" width="2" height="12" transform="rotate(90 12 0)" fill="currentColor"></rect>
+                                            </g>
+                                        </svg>
+                                    </button>
+                                    <input @bind-value="Quantity" readonly class="w-12 m-0 px-2 py-4 text-center md:text-center border-0 focus:ring-transparent focus:outline-none rounded-md" placeholder="1">
+                                    <button @onclick="IncreaseQuantity" class="py-2 hover:text-gray-700">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g opacity="0.35">
+                                                <rect x="5" width="2" height="12" fill="currentColor"></rect><rect x="12" y="5" width="2" height="12" transform="rotate(90 12 5)" fill="currentColor"></rect>
+                                            </g>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <span class="text-gray-500">Stock: @LoadedExperience.Stock</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap -mx-4 mb-14 items-center">
+                            <div class="w-full xl:w-2/3 px-4 mb-4 xl:mb-0">
+                                <a @onclick="AddProductToCart" class=" @(ItemAdded ? "bg-blue-700" : "bg-blue-500") cursor-pointer block bg-blue-500 hover:bg-blue-700 text-center text-white font-bold font-heading py-5 px-8 rounded-md uppercase transition duration-200">
+                                    @(ItemAdded ? "Go To Cart" : "Add To Cart")
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <ul class="flex flex-wrap mb-16 border-b-2">
+                    <li class="w-1/2 md:w-auto">
+                        <a class="inline-block py-6 px-10 bg-white text-gray-500 font-bold font-heading shadow-2xl">Description</a>
+                    </li>
+                </ul>
+                <h3 class="mb-8 text-3xl font-bold font-heading text-blue-300">@LoadedExperience.Name</h3>
+                <p class="max-w-2xl text-gray-500">@LoadedExperience.Description</p>
+            </div>
+        </div>
+    </section>
+}
+
+@code
+{
+    [Parameter]
+    public int Id { private get; set; }
+
+    private int Quantity = 1;
+    private bool ItemAdded;
+
+    private Experience LoadedExperience;
+
+    protected override async Task OnInitializedAsync()
+    {
+        LoadedExperience = await ExperienceService.GetExperienceById(Id);
+        ItemAdded = ShoppingCartService.IsInCart(LoadedExperience);
+    }
+
+    private void AddProductToCart()
+    {
+        if (ItemAdded)
+        {
+            NavigationManager.NavigateTo("/cart");
+            return;
+        }
+        ShoppingCartService.AddExperience(LoadedExperience, Quantity);
+        ObserverService.ChangeHappens();
+        ItemAdded = true;
+    }
+
+    private void DecreaseQuantity()
+    {
+        if (Quantity != 1)
+        {
+            Quantity--;
+        }
+    }
+
+    private void IncreaseQuantity()
+    {
+        if (LoadedExperience.Stock > Quantity)
+        {
+            Quantity++;
+        }
+    }
+}

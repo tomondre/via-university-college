@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?> <students>
+ <student>
+   <firstName>Bob</firstName>
+   <lastName>Bobson</lastName>
+   <country>Denmark</country>
+ </student>
+ <student>
+   <firstName>Jane</firstName>
+   <lastName>Doe</lastName>
+   <country>England</country>
+ </student>
+ <student>
+   <firstName>John</firstName>
+   <lastName>Doe</lastName>
+   <country>USA</country>
+ </student>
+ </students>

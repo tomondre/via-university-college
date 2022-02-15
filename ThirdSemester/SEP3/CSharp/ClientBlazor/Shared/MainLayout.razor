@@ -1,0 +1,16 @@
+@inherits LayoutComponentBase
+@using ClientBlazor.Pages
+
+<AuthorizeView>
+    <NotAuthorized>
+        <LandingComponent/>
+    </NotAuthorized>
+    <Authorized>
+        <div class="mx-auto lg:ml-80">
+            <SideBar/>
+        </div>
+        <div class="mx-auto lg:ml-80">
+            @Body
+        </div>
+    </Authorized>
+</AuthorizeView>

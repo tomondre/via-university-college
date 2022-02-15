@@ -1,0 +1,97 @@
+﻿@page "/Todos"
+@using S04_Ex02.Data
+@using S04_Ex02.Models
+@inject ITodosData TodoData
+
+<h3>Todos</h3>
+<p>
+    Filter by User Id: <input type="number" @oninput="@((arg) => Filter(arg))" style="width: 50px"/>
+</p>
+
+@if (todosToShow == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else if (!todosToShow.Any())
+{
+    <p>
+        <em>No ToDo items exist. Please add some</em>
+    </p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Todo ID</th>
+            <th>Title</th>
+            <th>Completed?</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in todosToShow)
+        {
+            <tr>
+                <td>@item.UserId</td>
+                <td>@item.TodoId</td>
+                <td>@item.Title</td>
+                <td>
+                    <input type="checkbox" checked=@item.IsCompleted @onchange="@((arg) => CompletedChange(arg, item))"/>
+                </td>
+                <button @onclick="@(() => RemoveTodo(item.TodoId))">
+                    <i class="oi oi-trash" style="color: red"/>
+                </button>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+    private IList<Todo> allTodos;
+    private IList<Todo> todosToShow;
+
+    protected override async Task OnInitializedAsync()
+    {
+        allTodos = TodoData.GetTodos();
+        todosToShow = allTodos;
+    }
+
+    private void RemoveTodo(int todoId)
+    {
+        Todo todoToRemove = allTodos.First(t => t.TodoId == todoId);
+        allTodos.Remove(todoToRemove);
+        TodoData.RemoveTodo(todoId);
+        todosToShow.Remove(todoToRemove);
+    }
+
+    private void CompletedChange(ChangeEventArgs o, Todo item)
+    {
+        item.IsCompleted = (bool) o.Value;
+        TodoData.Update(item);
+    }
+
+    private void Filter(ChangeEventArgs changeEventArgs)
+    {
+        int? filterById = null;
+        try
+        {
+            filterById = int.Parse(changeEventArgs.Value.ToString());
+        }
+        catch (Exception e)
+        {
+            if (filterById != null)
+            {
+                todosToShow = allTodos.Where(t => t.UserId == filterById).ToList();
+            }
+            else
+            {
+                todosToShow = allTodos;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,65 @@
+﻿@page "/EyeColorStats"
+
+@using Person
+@using Plotly.Blazor.LayoutLib
+@using FileData
+@using Plotly.Blazor.Traces
+@inject IAdultService AdultService;
+
+<PlotlyChart Id="TestId" Config="config" Layout="layout" Data="data" @ref="chart"/>
+
+@code {
+    IList<Adult> Adults;
+    PlotlyChart chart;
+    Config config = new Config
+    {
+        Responsive = true
+    };
+
+    Layout layout = new Layout
+    {
+        Title = new Title
+        {
+            Text = "Eye Color Stats"
+        },
+        Height = 500
+    };
+
+    List<ITrace> data = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Adults = AdultService.GetAllAdults();
+        LoadData();
+    }
+    
+    private void LoadData()
+    {
+        Dictionary<string, int> dict = new Dictionary<string, int>();
+
+        foreach (var adult in Adults)
+        {
+            if (dict.ContainsKey(adult.EyeColor))
+            {
+                dict[adult.EyeColor]++;
+            }
+            else
+            {
+                dict.Add(adult.EyeColor, 1);
+            }
+        }
+        
+        List<object> values = new List<object>();
+        List<object> labels = new List<object>();
+        foreach (var color in dict)
+        {
+            values.Add(color.Value);
+            labels.Add(color.Key);
+        }
+        Pie pie = new Pie()
+        {
+            Values = values, Labels = labels,
+        };
+        data.Add(pie);
+    }
+}

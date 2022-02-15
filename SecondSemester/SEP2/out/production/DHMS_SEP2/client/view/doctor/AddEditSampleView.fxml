@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #90a4ae;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.doctor.AddEditSampleViewController">
+   <children>
+      <Label layoutX="95.0" layoutY="22.0" text="Sample">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+
+      <Button layoutX="184.0" layoutY="424.0" mnemonicParsing="false" onAction="#onSaveButton" prefHeight="30.0" prefWidth="70.0" text="Save" />
+      <DatePicker fx:id="deadline" layoutX="23.0" layoutY="163.0" prefHeight="26.0" prefWidth="211.0" promptText="Deadline">
+         <tooltip>
+            <Tooltip text="Deadline" />
+         </tooltip></DatePicker>
+      <ComboBox fx:id="priority" layoutX="23.0" layoutY="206.0" prefHeight="26.0" prefWidth="211.0" promptText="Priority" />
+      <Button layoutX="23.0" layoutY="424.0" mnemonicParsing="false" onAction="#onBackButton" prefHeight="30.0" prefWidth="70.0" text="Back" />
+      <Button layoutX="103.0" layoutY="424.0" mnemonicParsing="false" onAction="#onClearButton" prefHeight="30.0" prefWidth="70.0" text="Clear" />
+
+      <ImageView fitHeight="501.0" fitWidth="420.0" layoutX="279.0">
+         <image>
+            <Image url="@../../images/sample_image6.jpg" />
+         </image>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.20000000298023224" green="0.3333333432674408" blue="0.49803921580314636" />
+               </color></DropShadow>
+         </effect>
+      </ImageView>
+      <TextArea fx:id="result" layoutX="21.0" layoutY="265.0" prefHeight="49.0" prefWidth="211.0" promptText="Write result..." wrapText="true">
+         <tooltip>
+            <Tooltip text="Result" />
+         </tooltip></TextArea>
+      <ComboBox fx:id="sampleType" layoutX="22.0" layoutY="120.0" prefHeight="25.0" prefWidth="211.0" promptText="Type" />
+
+   </children>
+</AnchorPane>

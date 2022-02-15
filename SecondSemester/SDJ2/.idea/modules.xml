@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Adapter/Adapter.iml" filepath="$PROJECT_DIR$/Adapter/Adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CodeAbbey/CodeAbbey.iml" filepath="$PROJECT_DIR$/CodeAbbey/CodeAbbey.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DatabaseConnection/DatabaseConnection.iml" filepath="$PROJECT_DIR$/DatabaseConnection/DatabaseConnection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MVVM 2/MVVM 2.iml" filepath="$PROJECT_DIR$/MVVM 2/MVVM 2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Observers/Observers.iml" filepath="$PROJECT_DIR$/Observers/Observers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProducerAndConsumer/ProducerAndConsumer.iml" filepath="$PROJECT_DIR$/ProducerAndConsumer/ProducerAndConsumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Proxy/Proxy.iml" filepath="$PROJECT_DIR$/Proxy/Proxy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Readers-Writers/Readers-Writers.iml" filepath="$PROJECT_DIR$/Readers-Writers/Readers-Writers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SDJ2-Assignment1/SDJ2-Assignment1.iml" filepath="$PROJECT_DIR$/SDJ2-Assignment1/SDJ2-Assignment1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SDJ2-Assignment2/SDJ2-Assignment2.iml" filepath="$PROJECT_DIR$/SDJ2-Assignment2/SDJ2-Assignment2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SDJ2-Assignment3/SDJ2-Assignment3.iml" filepath="$PROJECT_DIR$/SDJ2-Assignment3/SDJ2-Assignment3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SWE/SWE.iml" filepath="$PROJECT_DIR$/SWE/SWE.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Second semester.iml" filepath="$PROJECT_DIR$/Second semester.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Singleton and multiton/Singleton and multiton.iml" filepath="$PROJECT_DIR$/Singleton and multiton/Singleton and multiton.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sockets/Sockets.iml" filepath="$PROJECT_DIR$/Sockets/Sockets.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sockets 2/Sockets 2.iml" filepath="$PROJECT_DIR$/Sockets 2/Sockets 2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Sockets and MVVM/Sockets and MVVM.iml" filepath="$PROJECT_DIR$/Sockets and MVVM/Sockets and MVVM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/State Pattern/State Pattern.iml" filepath="$PROJECT_DIR$/State Pattern/State Pattern.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Strategy/Strategy.iml" filepath="$PROJECT_DIR$/Strategy/Strategy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Thrads2/Thrads2.iml" filepath="$PROJECT_DIR$/Thrads2/Thrads2.iml" />
+    </modules>
+  </component>
+</project>

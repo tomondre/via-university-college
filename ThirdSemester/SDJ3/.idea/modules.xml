@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Interview/Interview.iml" filepath="$PROJECT_DIR$/Interview/Interview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RESTful Web Service/RESTful web services/S05_Ex01.iml" filepath="$PROJECT_DIR$/RESTful Web Service/RESTful web services/S05_Ex01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RESTful Web Service/S05_Ex02/S05_Ex02.iml" filepath="$PROJECT_DIR$/RESTful Web Service/S05_Ex02/S05_Ex02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SDJ3.iml" filepath="$PROJECT_DIR$/SDJ3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Web Services/Web Services.iml" filepath="$PROJECT_DIR$/Web Services/Web Services.iml" />
+      <module fileurl="file://$PROJECT_DIR$/WebServices/WebServices.iml" filepath="$PROJECT_DIR$/WebServices/WebServices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cars-spring-soap/cars-spring-soap.iml" filepath="$PROJECT_DIR$/cars-spring-soap/cars-spring-soap.iml" />
+    </modules>
+  </component>
+</project>

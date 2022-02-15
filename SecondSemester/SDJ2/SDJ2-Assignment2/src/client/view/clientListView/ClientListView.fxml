@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="320.0" prefWidth="290.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.clientListView.ClientListViewController">
+   <children>
+      <VBox prefHeight="320.0" prefWidth="290.0">
+         <children>
+            <TableView fx:id="clientListTable" prefHeight="247.0" prefWidth="290.0">
+              <columns>
+                <TableColumn fx:id="clientListColumn" prefWidth="289.0" text="Client Names" />
+              </columns>
+            </TableView>
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#onBackButton" text="Back">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="120.0" right="50.0" top="20.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

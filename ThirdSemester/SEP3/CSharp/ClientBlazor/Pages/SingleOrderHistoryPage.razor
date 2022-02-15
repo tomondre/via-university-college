@@ -1,0 +1,128 @@
+﻿@page "/orders/{OrderId:int}"
+@using ClientBlazor.Services.Orders
+@using Order = ClientBlazor.Models.Orders.Order
+@inject IOrderService OrderService
+@inject IJSRuntime jsRuntime
+
+
+@if (LoadedOrder == null)
+{
+    <p class="text-center">
+        <em>Loading...</em>
+    </p>
+}
+else if (!LoadedOrder.ShoppingCart.ShoppingCartItems.Any())
+{
+    <p class="text-center">
+        <em>Wrong order ID</em>
+    </p>
+}
+else {
+    <section class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="mb-8 text-5xl font-bold font-heading">Order</h2>
+            <div class="py-8 md:py-20 px-6 md:px-20 bg-white">
+                <div class="flex flex-wrap mb-8">
+                    <div class="w-full md:w-1/3 mb-6 lg:mb-0">
+                        <span class="text-gray-500">Order Number</span>
+                        <h3 class="text-3xl font-bold font-heading">@LoadedOrder.Id</h3>
+                        <span class="font-bold font-heading text-blue-300">@LoadedOrder.Date</span>
+                    </div>
+                </div>
+                <div class="flex flex-wrap -mx-4 lg:-mx-10 mb-8 pb-8 border-b">
+                    <div class="w-full md:w-1/2 mb-4 lg:mb-0 lg:w-auto px-4 lg:px-10">
+                        <h4 class="mb-2 font-bold font-heading">Value</h4>
+                        <p class="text-gray-500">@LoadedOrder.ShoppingCart.OrderTotal</p>
+                    </div>
+                    <div class="w-full md:w-1/2 mb-4 md:mb-0 lg:w-auto px-4 lg:px-10">
+                        <h4 class="mb-2 font-bold font-heading">Tax Amount</h4>
+                        <p class="text-gray-500">@LoadedOrder.ShoppingCart.TaxAmount</p>
+                    </div>
+                    <div class="w-full md:w-1/2 mb-4 lg:mb-0 lg:w-auto px-4 lg:px-10">
+                        <h4 class="mb-2 font-bold font-heading">Payment Method</h4>
+                        <p class="text-gray-500">Credit card</p>
+                    </div>
+                    <div class="w-full md:w-1/2 lg:w-auto px-4 lg:px-10">
+                        <h4 class="mb-2 font-bold font-heading">Status</h4>
+                        <p class="text-gray-500">Completed</p>
+                    </div>
+                </div>
+
+
+                <div class="hidden md:flex -mx-4 mb-8">
+                    <div class="w-1/12 px-4">
+                        <h3 class="font-bold font-heading">Product ID</h3>
+                    </div>
+                    <div class="w-3/12 px-4">
+                        <h3 class="font-bold font-heading">Product Name</h3>
+                    </div>
+                    <div class="w-2/12 px-4">
+                        <h3 class="font-bold font-heading">Item Price</h3>
+                    </div>
+                    <div class="w-1/12 px-4">
+                        <h3 class="font-bold font-heading">Quantity</h3>
+                    </div>
+                    <div class="w-2/12 px-4">
+                        <h3 class="font-bold font-heading">Total Price</h3>
+                    </div>
+                    <div class="w-3/12 px-4">
+                        <h3 class="font-bold font-heading">Voucher</h3>
+                    </div>
+                </div>
+
+                @foreach (var item in LoadedOrder.ShoppingCart.ShoppingCartItems.Select((item, i) => new {item, i}))
+                {
+                    <div class="@(item.i % 2 == 0 ? "bg-gray-50" : "bg-white") flex flex-wrap items-center -mx-4 py-10 rounded-md">
+                        <div class="hidden lg:block lg:w-1/12 px-4">
+                            <span>@item.item.Experience.Id</span>
+                        </div>
+                        <div class="w-full lg:w-3/12 mb-6 lg:mb-0 px-4">
+                            <div class="flex items-center">
+                                <img class="h-28" src="@item.item.Experience.Picture" alt="">
+                                <div class="pl-4">
+                                    <h3 class="font-bold font-heading">@item.item.Experience.Name</h3>
+                                    <p>@item.item.Experience.Description</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-2/3 lg:w-2/12 px-4">
+                            <p class="font-bold font-heading">@item.item.Experience.Price</p>
+                        </div>
+                        <div class="w-1/3 lg:w-1/12 px-4">
+                            <p class="font-bold font-heading">@item.item.Quantity</p>
+                        </div>
+                        <div class="w-1/3 lg:w-2/12 px-4">
+                            <p class="font-bold font-heading">@item.item.TotalPrice</p>
+                        </div>
+                        <div class="w-1/3 lg:w-3/12 px-4">
+                            <a @onclick="() => OpenVoucherSite(item.item.Voucher)" class="inline-flex w-full md:w-auto justify-center items-center px-8 py-6 font-bold font-heading uppercase border hover:bg-indigo-50 cursor-pointer rounded-md">
+                                <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1V0.25C0.585786 0.25 0.25 0.585786 0.25 1L1 1ZM15 19V19.75C15.4142 19.75 15.75 19.4142 15.75 19H15ZM1 19H0.25C0.25 19.4142 0.585786 19.75 1 19.75L1 19ZM10 1L10.5303 0.46967C10.3897 0.329018 10.1989 0.25 10 0.25V1ZM15 6H15.75C15.75 5.80109 15.671 5.61032 15.5303 5.46967L15 6ZM15 18.25H1V19.75H15V18.25ZM1.75 19V1H0.25V19H1.75ZM1 1.75H10V0.25H1V1.75ZM14.25 6V19H15.75V6H14.25ZM9.46967 1.53033L14.4697 6.53033L15.5303 5.46967L10.5303 0.46967L9.46967 1.53033ZM8.25 1V5H9.75V1H8.25ZM11 7.75H15V6.25H11V7.75ZM8.25 5C8.25 6.51878 9.48122 7.75 11 7.75V6.25C10.3096 6.25 9.75 5.69036 9.75 5H8.25Z" fill="black"></path>
+                                </svg>
+                                <span class="ml-4">VIEW VOUCHER</span>
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+}
+
+@code {
+
+    [Parameter]
+    public int OrderId { get; set; }
+
+    private Order LoadedOrder;
+
+    protected override async Task OnInitializedAsync()
+    {
+        LoadedOrder = await OrderService.GetOrderByIdAsync(OrderId);
+    }
+
+    private async Task OpenVoucherSite(string url)
+    {
+        await jsRuntime.InvokeAsync<object>("open", url, "_blank");
+    }
+}

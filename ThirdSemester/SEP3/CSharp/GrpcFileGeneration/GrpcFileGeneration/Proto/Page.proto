@@ -1,0 +1,13 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package networking.page;
+
+message PageMessage {
+  int64 totalElements = 1;
+  int32 TotalPages = 2;
+  int32 PageNumber = 3;
+}
+
+service PageService {
+  
+}

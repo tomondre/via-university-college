@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <Protobuf Include="Proto\Provider.proto" OutputDir="./Protobuf/Provider" GrpcServices="Client" />
+        <Protobuf Include="Proto/Category.proto" OutputDir="./Protobuf/Category" GrpcServices="Client" />
+        <Protobuf Include="Proto/Experience.proto" OutputDir="./Protobuf/Experience" GrpcServices="Client" />
+        <Protobuf Include="Proto/Customer.proto" OutputDir="./Protobuf/Customer" GrpcServices="Client" />
+        <Protobuf Include="Proto/Order.proto" OutputDir="./Protobuf/Order" GrpcServices="Client" />
+        <Protobuf Include="Proto/Login.proto" OutputDir="./Protobuf/Login" GrpcServices="Client" />
+        <Protobuf Include="Proto/Address.proto" OutputDir="./Protobuf/Address" GrpcServices="Client" />
+        <Protobuf Include="Proto/User.proto" OutputDir="./Protobuf/User" GrpcServices="Client" />
+        <Protobuf Include="Proto/Page.proto" OutputDir="./Protobuf/Page" GrpcServices="Client" />
+        <Protobuf Include="Proto/Request.proto" OutputDir="./Protobuf/Request" GrpcServices="Client" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Google.Protobuf" Version="3.19.0" />
+        <PackageReference Include="Grpc.Net.Client" Version="2.40.0" />
+        <PackageReference Include="Grpc.Tools" Version="2.41.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.JSInterop" Version="5.0.12" />
+        <PackageReference Include="RiskFirst.Hateoas" Version="3.1.1" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\..\WebShop\WebShop.csproj" />
+    </ItemGroup>
+
+</Project>

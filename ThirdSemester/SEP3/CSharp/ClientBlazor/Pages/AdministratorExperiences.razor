@@ -1,0 +1,10 @@
+@page "/providers/{Id:int}/experiences"
+@attribute [Authorize(Roles = "administrator")]
+
+<Experiences Id="Id"/>
+
+@code
+{
+    [Parameter]
+    public int Id { get; set; }
+}

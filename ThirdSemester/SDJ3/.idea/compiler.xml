@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cars-spring-soap" />
+        <module name="Web Services" />
+        <module name="WebServices" />
+        <module name="Interview" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.4">
+      <module name="cars-spring-soap" target="11" />
+      <module name="Interview" target="17" />
+      <module name="WebServices" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="WebServices" options="-parameters" />
+      <module name="cars-spring-soap" options="-parameters" />
+    </option>
+  </component>
+</project>

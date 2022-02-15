@@ -1,0 +1,200 @@
+﻿@page "/experiences"
+@page "/categories/{Id:int}/experiences"
+@using WebShop.Models
+@using WebShop.Services.Experiences
+@using WebShop.Services.ProductCategory
+
+@inject NavigationManager NavigationManager
+@inject IProductCategoryService ProductCategoryService
+@inject IExperienceService ExperienceService
+
+<section class="py-20 bg-gray-100">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-wrap -mx-4 mb-5 items-center justify-between">
+            <div class="w-full lg:w-auto px-4 mb-5 xl:mb-0">
+
+                <br/>
+
+                <div class="my-2 lg:flex lg:w-auto lg:space-x-10">
+
+                    <div class="flex flex-wrap -mx-4 mb-5 items-center justify-between">
+                        <div class="w-full lg:w-auto px-4 mb-5">
+                            <h2 class="text-5xl font-bold font-heading">
+                                @if (Id == null)
+                                {
+                                    <span>Experiences</span>
+                                }
+                                else if (categories != null)
+                                {
+                                    <span>Category: @categories.Categories.FirstOrDefault(a => a.Id == Id).CategoryName</span>
+                                }
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        @if (experiences == null)
+        {
+            <p>
+                <em> Loading...</em>
+            </p>
+        }
+        else if (!experiences.Content.Experiences.Any())
+        {
+            <p>
+                <em> No experiences.</em>
+            </p>
+        }
+        else
+        {
+            <div class="flex flex-wrap -mx-3">
+                <div class="w-full lg:hidden px-3">
+                    <div class="hidden flex flex-wrap -mx-2">
+                        <div class="w-1/2 md:w-1/3 px-2 mb-4">
+                            <div class=" py-6 px-2 text-center bg-gray-50">
+                                <a class="font-bold font-heading" >Category</a>
+                                <ul class="hidden text-left mt-6">
+                                    @if (categories != null)
+                                    {
+                                        @foreach (Category category in categories.Categories)
+                                        {
+                                            <li class="mb-4">
+                                                <a @onclick="() => OpenCategoryView(category.Id)">@category.CategoryName</a>
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full lg:w-3/4 px-3">
+
+                    @foreach (Experience experience in experiences.Content.Experiences)
+                    {
+                        <div @onclick="() => OpenProductPage(experience.Id)" class="cursor-pointer relative mb-6 bg-gray-50">
+                            <div class="flex flex-wrap items-center -mx-4 px-8 md:px-20 py-12">
+                                <div class="w-full md:w-1/4 px-4 mb-4 md:mb-0">
+                                    <a >
+                                        <img class="mx-auto md:mx-0 w-40 h-52 object-contain" src="@experience.Picture" alt="">
+                                    </a>
+                                </div>
+                                <div class="w-full md:w-3/4 px-4">
+                                    <a class="block mb-8" >
+                                        <h3 class="mb-2 text-xl font-bold font-heading">@experience.Name</h3>
+                                        <p class="mb-6 text-lg font-bold font-heading text-blue-500">
+                                            <span>@experience.Price DKK</span>
+                                        </p>
+                                        <p class="max-w-md text-gray-500">@experience.Description</p>
+                                    </a>
+                                    <div class="flex flex-wrap items-center justify-between">
+                                        <a class="cursor-pointer inline-block w-full md:w-auto mb-4 md:mb-0 md:mr-4 text-center bg-blue-500 hover:bg-blue-700 text-white font-bold font-heading py-4 px-8 rounded-md uppercase">View Item</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="block w-1/4 pl-8 pr-3">
+                    <div class="mb-6 py-10 border-b border-gray-900 hidden lg:block">
+                        <h3 class="mb-8 text-2xl font-bold font-heading">Category</h3>
+                        <ul>
+                            @foreach (Category category in categories.Categories)
+                            {
+                                <li class="cursor-pointer mb-4">
+                                    <a @onclick="() => OpenCategoryView(category.Id)" class="text-lg">@category.CategoryName</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="mb-6 py-10 block">
+                        <h3 class="mb-6 text-2xl font-bold font-heading">Filter</h3>
+                        <div class="pb-4">
+                            <button class="mr-2 text-gray-200 hover:text-gray-300" @onclick="Filter">
+                                <svg class="h-5 w-5" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20.7 19.3L17 15.6C20.1 11.7 19.5 6 15.6 2.9C11.7 -0.2 5.99999 0.5 2.89999 4.3C-0.200006 8.2 0.499995 13.9 4.29999 17C7.59999 19.6 12.3 19.6 15.6 17L19.3 20.7C19.7 21.1 20.3 21.1 20.7 20.7C21.1 20.3 21.1 19.7 20.7 19.3ZM9.99999 17C6.09999 17 2.99999 13.9 2.99999 10C2.99999 6.1 6.09999 3 9.99999 3C13.9 3 17 6.1 17 10C17 13.9 13.9 17 9.99999 17Z" fill="currentColor"></path>
+                                </svg>
+                            </button>
+                            <input @bind="filterByName" class="pl-2 py-3 text-sm text-gray-500" type="text" placeholder="Search by name...">
+                        </div>
+                        <div class="block">
+                            <h3 class="mb-8 text-2xl font-bold font-heading">Price @filterByPrice</h3>
+
+                            <div class=" mb-5 py-8 px-10 bg-gray-50">
+                                <input @onmouseout="Filter" class="w-full mb-4 outline-none appearance-none bg-gray-100 h-1 rounded cursor-pointer" type="range" min="0" max="10000" @bind="filterByPrice">
+                                <div class="flex justify-between">
+                                    <span class="inline-block text-lg font-bold font-heading text-blue-300">0</span>
+                                    <span class="inline-block text-lg font-bold font-heading text-blue-300">10000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block my-2  items-center justify-end">
+                    <div class="w-full lg:w-auto px-4 flex items-center justify-center">
+                        @foreach(var index in Enumerable.Range(1, experiences.TotalPages))
+                        {
+                            <a class="cursor-pointer inline-flex mr-3 items-center justify-center w-8 h-8 text-xs @(experiences.PageNumber+1 == index ? "text-white bg-indigo-500":"text-gray-500 bg-white") border border-gray-300 hover:bg-indigo-50 hover:text-gray-500 rounded" @onclick="() => GetPageElements(index)">@index</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+
+@code {
+    private CategoryList categories;
+    private Page<ExperienceList> experiences;
+    private string filterByName;
+    private double filterByPrice;
+    private int pageNumber = 0;
+
+    [Parameter]
+    public int? Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        categories = await ProductCategoryService.GetAllCategoriesAsync();
+        if (Id == null)
+        {
+            experiences = await ExperienceService.GetAllExperiencesAsync(pageNumber);
+        }
+        else
+        {
+            experiences = await ExperienceService.GetExperiencesByCategoryAsync(Id.Value, pageNumber);
+        }
+    }
+
+    private async Task Filter()
+    {
+        experiences = await ExperienceService.GetSortedExperiences(filterByName, filterByPrice, pageNumber);
+    }
+
+    private void OpenProductPage(int productId)
+    {
+        NavigationManager.NavigateTo($"/experiences/{productId}");
+    }
+
+    private async Task OpenCategoryView(int categoryId)
+    {
+        NavigationManager.NavigateTo($"/categories/{categoryId}/experiences");
+        await OnInitializedAsync();
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await OnInitializedAsync();
+    }
+
+    private async Task GetPageElements(int i)
+    {
+        pageNumber = i-1;
+        experiences = await ExperienceService.GetAllExperiencesAsync(pageNumber);
+    }
+}
+

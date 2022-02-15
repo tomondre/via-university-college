@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #90a4ae;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.doctor.AssignNurseViewController">
+   <children>
+      <Label layoutX="6.0" layoutY="15.0" prefHeight="20.0" prefWidth="114.0" text="Available nurses:" />
+      <TableView fx:id="nursesTable" layoutX="1.0" layoutY="43.0" prefHeight="294.0" prefWidth="322.0" style="-fx-background-color: #f8f8ff; -fx-background-radius: 0.5em;">
+        <columns>
+          <TableColumn fx:id="availableNurseFirstName" prefWidth="81.0" text="First name" />
+          <TableColumn fx:id="availableNurseLastName" prefWidth="84.0" text="Last name" />
+            <TableColumn fx:id="availableNurseSSN" prefWidth="75.0" text="SSN" />
+        </columns>
+         <effect>
+            <DropShadow color="#33557f" radius="14.75" width="40.0" />
+         </effect>
+      </TableView>
+      <Button layoutX="571.0" layoutY="430.0" mnemonicParsing="false" onAction="#onAssignButton" prefHeight="30.0" prefWidth="114.0" text="Assign Nurse ➜" />
+      <Button layoutX="14.0" layoutY="430.0" mnemonicParsing="false" onAction="#onBackButton" prefHeight="30.0" prefWidth="70.0" text="Back" />
+      <TableView fx:id="assignedNurseTable" layoutX="376.0" layoutY="44.0" prefHeight="294.0" prefWidth="322.0" style="-fx-background-radius: 0.5em; -fx-background-color: #f8f8ff;">
+        <columns>
+          <TableColumn fx:id="assignedNurseFirstName" prefWidth="75.0" text="First name" />
+          <TableColumn fx:id="assignedNurseLastName" prefWidth="75.0" text="Last name" />
+            <TableColumn fx:id="assignedNurseSSN" prefWidth="75.0" text="SSN" />
+        </columns>
+         <effect>
+            <DropShadow color="#33557f" radius="14.75" width="40.0" />
+         </effect>
+      </TableView>
+      <Label layoutX="376.0" layoutY="16.0" prefHeight="20.0" prefWidth="113.0" text="Assigned nurses:" />
+   </children>
+   <effect>
+      <ColorAdjust brightness="-0.06" contrast="0.08" />
+   </effect>
+</AnchorPane>

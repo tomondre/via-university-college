@@ -1,4 +1,4 @@
-package Ex10_Regular_Expression_Matching;
+package leetcode.Ex10_Regular_Expression_Matching;
 
 public class Main {
     public static void main(String[] args) {

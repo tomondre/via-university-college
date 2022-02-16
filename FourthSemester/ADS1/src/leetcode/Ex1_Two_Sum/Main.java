@@ -1,4 +1,4 @@
-package Ex1_Two_Sum;
+package leetcode.Ex1_Two_Sum;
 
 public class Main {
     public static void main(String[] args) {

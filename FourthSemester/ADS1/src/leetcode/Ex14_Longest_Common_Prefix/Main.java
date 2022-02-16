@@ -1,4 +1,4 @@
-package Ex14_Longest_Common_Prefix;
+package leetcode.Ex14_Longest_Common_Prefix;
 
 import java.util.Arrays;
 import java.util.stream.Stream;

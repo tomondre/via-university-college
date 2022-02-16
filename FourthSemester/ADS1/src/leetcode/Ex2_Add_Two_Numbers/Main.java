@@ -1,4 +1,4 @@
-package Ex2_Add_Two_Numbers;
+package leetcode.Ex2_Add_Two_Numbers;
 
 public class Main {
     public static void main(String[] args) {

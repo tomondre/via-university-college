@@ -1,4 +1,4 @@
-package Ex9_Palindrome;
+package leetcode.Ex9_Palindrome;
 
 public class Main {
     public static void main(String[] args) {

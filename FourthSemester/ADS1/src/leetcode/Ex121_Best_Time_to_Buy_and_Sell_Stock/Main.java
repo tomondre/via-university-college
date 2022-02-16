@@ -1,4 +1,4 @@
-package Ex121_Best_Time_to_Buy_and_Sell_Stock;
+package leetcode.Ex121_Best_Time_to_Buy_and_Sell_Stock;
 
 import java.util.ArrayList;
 import java.util.Arrays;

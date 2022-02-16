@@ -1,4 +1,4 @@
-package Sort;
+package S01_Pogram_Efficiency_And_Correctness.school_ex;
 
 public class Main {
     public static void main(String[] args) {

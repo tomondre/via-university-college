@@ -8,6 +8,8 @@
         <entry key="..\:/Users/PC1/AndroidStudioProjects/Basics/app/src/main/res/layout/layout_weight_pictures.xml" value="0.36231884057971014" />
         <entry key="..\:/Users/PC1/AndroidStudioProjects/Basics/app/src/main/res/layout/maring_padding.xml" value="0.36231884057971014" />
         <entry key="..\:/Users/PC1/ViaUniversityCollege/Sem04/AND1/Basics/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/PC1/ViaUniversityCollege/Sem04/AND1/Basics/app/src/main/res/layout/ex07_experiment_with_constraintlayout.xml" value="0.25" />
+        <entry key="..\:/Users/PC1/ViaUniversityCollege/Sem04/AND1/Basics/app/src/main/res/layout/ex08_a_trip_to_singapore.xml" value="0.22" />
       </map>
     </option>
   </component>
@@ -16,5 +18,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.22" />
+      </ProjectState>
+    </option>
   </component>
 </project>

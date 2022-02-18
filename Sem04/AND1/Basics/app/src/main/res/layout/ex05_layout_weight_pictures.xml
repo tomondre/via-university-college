@@ -15,14 +15,14 @@
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="match_parent"
-            android:layout_height="0"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             tools:srcCompat="@tools:sample/avatars" />
 
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="match_parent"
-            android:layout_height="0"
+            android:layout_height="match_parent"
             android:layout_weight="3"
             tools:srcCompat="@tools:sample/avatars[1]" />
     </LinearLayout>

@@ -26,7 +26,7 @@
         android:layout_height="37dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline10"
-        app:srcCompat="@drawable/Bell" />
+        app:srcCompat="@drawable/bell" />
 
     <ScrollView
         android:layout_width="0dp"
@@ -41,24 +41,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/imageView12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:translationZ="-1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView10"
-                app:srcCompat="@drawable/shadow" />
-
-            <ImageView
-                android:id="@+id/imageView10"
-                android:layout_width="wrap_content"
-                android:layout_height="130dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/day_profi_loss"
-                app:srcCompat="@drawable/graph" />
 
             <TextView
                 android:id="@+id/textView19"
@@ -93,7 +75,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/day_profi_loss"
+                android:id="@+id/day_profit_loss"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="▲$488.75 (5.43%)"
@@ -108,7 +90,7 @@
                 android:layout_marginStart="8dp"
                 android:text="Today"
                 android:textColor="#000000"
-                app:layout_constraintStart_toEndOf="@+id/day_profi_loss"
+                app:layout_constraintStart_toEndOf="@+id/day_profit_loss"
                 app:layout_constraintTop_toBottomOf="@+id/PortfolioValue" />
 
             <androidx.constraintlayout.widget.Guideline
@@ -129,47 +111,52 @@
                 android:id="@+id/constraintLayout"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="36dp"
                 app:layout_constraintEnd_toStartOf="@+id/guideline11"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/guideline6"
-                app:layout_constraintTop_toBottomOf="@+id/imageView10">
+                app:layout_constraintTop_toBottomOf="@+id/lineChart">
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:translationZ="-1dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/shadow" />
 
                 <TextView
                     android:id="@+id/textView24"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="56dp"
                     android:text="Big Movers"
                     android:textColor="#000000"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/bigMoversChart"
+                    android:layout_width="313dp"
+                    android:layout_height="98dp"
+                    android:layout_marginTop="92dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/imageView12" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <RelativeLayout
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/lineChart"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="@dimen/activity_vertical_margin"
-                android:paddingBottom="@dimen/activity_vertical_margin"
-                tools:context=".MainActivity">
+                android:layout_height="150dp"
+                android:elevation="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/day_profit_loss" />
 
-            </RelativeLayout>
-
-            <com.github.mikephil.charting.charts.BarChart
-                android:id="@+id/chart"
-                android:layout_width="wrap_content"
-                android:layout_height="100dp"
-                android:layout_marginTop="24dp"
-                app:layout_constraintEnd_toStartOf="@+id/guideline11"
-                app:layout_constraintHorizontal_bias="0.495"
-                app:layout_constraintStart_toStartOf="@+id/guideline6"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
         lineChart.legend.isEnabled = false
         lineChart.description.isEnabled = false
-
+        lineChart.setScaleEnabled(false)
     }
 
     private fun loadLineChartData() {
@@ -82,6 +82,7 @@ class MainActivity : AppCompatActivity() {
 
         barChart.legend.isEnabled = false
         barChart.description.isEnabled = false
+        barChart.setScaleEnabled(false)
     }
 
     private fun loadPieChartData() {

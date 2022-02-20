@@ -3,6 +3,7 @@ package com.example.eroto
 import android.graphics.Color
 import android.graphics.LinearGradient
 import android.os.Bundle
+import android.view.ActionMode
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
@@ -22,13 +23,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_screen)
 
         barChart = findViewById(R.id.bigMoversChart)
-        loadPieChartData()
         setupChart()
 
         lineChart = findViewById(R.id.lineChart)
-        loadLineChartData()
         setUpLineChart()
+    }
 
+    override fun onStart() {
+        super.onStart()
+
+        loadPieChartData()
+        loadLineChartData()
     }
 
     private fun setUpLineChart() {
@@ -103,6 +108,4 @@ class MainActivity : AppCompatActivity() {
         barChart.data = barData
         barChart.invalidate()
     }
-
-
 }

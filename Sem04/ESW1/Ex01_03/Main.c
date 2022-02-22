@@ -11,16 +11,16 @@ void main() {
 
 	printf("fahr celsius\n");
 	while (fahr <= upper) {
-		celsius = 5 * (fahr - 32);
+		celsius = 5 * (fahr - 32) / 9;
 		printf("%d\t%d\n", fahr, celsius);
 		fahr = fahr + step;
 	}
 	printf("/n");
 
 	
-	lower = -30;
-	upper = 40;
-	step = 10;
+	lower = -17;
+	upper = 148;
+	step = 9;
 	celsius = lower;
 
 	printf("celsius fahr/n");

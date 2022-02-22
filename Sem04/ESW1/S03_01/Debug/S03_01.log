@@ -1,0 +1,4 @@
+﻿  Source.c
+C:\Users\PC1\ViaUniversityCollege\Sem04\ESW1\S03_01\Source.c(4,12): warning C4255: 'main': no function prototype given: converting '()' to '(void)'
+C:\Users\PC1\ViaUniversityCollege\Sem04\ESW1\S03_01\Source.c(10,22): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  S03_01.vcxproj -> C:\Users\PC1\ViaUniversityCollege\Sem04\ESW1\Debug\S03_01.exe

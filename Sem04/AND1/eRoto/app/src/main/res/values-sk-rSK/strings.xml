@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">eRoto</string>
+    <string name="portfolio_value">Hodnota Portfólia</string>
+    <string name="welcome_back">Vitaj naspäť</string>
+    <string name="today">Dnes</string>
+    <string name="big_movers">Najväčšie rozdiely</string>
+</resources>

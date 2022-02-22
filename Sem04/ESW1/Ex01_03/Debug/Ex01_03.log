@@ -1,0 +1,3 @@
+﻿  Main.c
+C:\Users\PC1\ViaUniversityCollege\Sem04\ESW1\S01_Introduction\Ex01_03\Main.c(29,26): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Ex01_03.vcxproj -> C:\Users\PC1\ViaUniversityCollege\Sem04\ESW1\S01_Introduction\Debug\Ex01_03.exe

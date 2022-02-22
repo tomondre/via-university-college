@@ -1,13 +1,15 @@
 package com.example.eroto
 
 import android.graphics.Color
-import android.graphics.LinearGradient
 import android.os.Bundle
+import android.util.Log
 import android.view.ActionMode
+import android.view.View
+import android.widget.ImageButton
+import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
-import com.example.eroto.R
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.*
@@ -17,16 +19,34 @@ import com.github.mikephil.charting.utils.Utils
 class MainActivity : AppCompatActivity() {
     private lateinit var barChart: BarChart
     private lateinit var lineChart: LineChart
+    private lateinit var marketLayout: LinearLayout
+    private lateinit var burgerButton: ImageButton
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_screen)
 
+        burgerButton = findViewById(R.id.burgir)
+        burgerButton.setOnClickListener(::clickedBurgir)
+
         barChart = findViewById(R.id.bigMoversChart)
         setupChart()
 
+        marketLayout = findViewById(R.id.markets_data)
+
         lineChart = findViewById(R.id.lineChart)
         setUpLineChart()
+        Log.d("Main Activity", "Create")
+    }
+
+    private fun clickedBurgir(v: View){
+        Toast.makeText(this, "Menu open", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("Main Activity", "Pause")
     }
 
     override fun onStart() {
@@ -34,6 +54,36 @@ class MainActivity : AppCompatActivity() {
 
         loadPieChartData()
         loadLineChartData()
+        loadMarketsData()
+        Log.d("Main Activity", "Start")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("Main Activity", "Resume")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("Main Activity", "Stop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("Main Activity", "Destroy")
+    }
+
+    private fun loadMarketsData() {
+        var markets = ArrayList<Market>()
+        markets.add(Market("NSDQ100", 1222.2, 0.5))
+        markets.add(Market("NSDQ100", 1222.2, 0.5))
+        markets.add(Market("NSDQ100", 1222.2, 0.5))
+        markets.add(Market("NSDQ100", 1222.2, 0.5))
+
+//        for (market in markets) {
+//            var
+//        }
+//        marketLayout
     }
 
     private fun setUpLineChart() {
@@ -62,8 +112,7 @@ class MainActivity : AppCompatActivity() {
         if (Utils.getSDKInt() >= 18) {
             val drawable = ContextCompat.getDrawable(this, R.drawable.fade)
             lineDataSet.fillDrawable = drawable
-        }
-        else {
+        } else {
             lineDataSet.fillColor = Color.parseColor("#4bdf2b")
         }
 
@@ -108,4 +157,8 @@ class MainActivity : AppCompatActivity() {
         barChart.data = barData
         barChart.invalidate()
     }
+}
+
+class Market(var ticker: String, var price: Double, var diff: Double) {
+
 }

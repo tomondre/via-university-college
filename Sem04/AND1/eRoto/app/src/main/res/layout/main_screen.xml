@@ -13,85 +13,28 @@
         app:layout_constraintGuide_begin="20dp" />
 
     <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="39dp"
-        android:layout_height="40dp"
-        app:layout_constraintStart_toStartOf="@+id/guideline12"
-        app:layout_constraintTop_toTopOf="@+id/guideline10"
-        app:srcCompat="@drawable/hamburger" />
-
-    <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="33dp"
-        android:layout_height="37dp"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline10"
         app:srcCompat="@drawable/bell" />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView8"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/burgir"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/textView20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Portfolio value"
-                android:textColor="#000000"
-                app:layout_constraintStart_toStartOf="@+id/guideline6"
-                app:layout_constraintTop_toBottomOf="@+id/textView21" />
-
-            <TextView
-                android:id="@+id/PortfolioValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$9,496.21"
-                android:textColor="#000000"
-                android:textSize="34sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/guideline6"
-                app:layout_constraintTop_toBottomOf="@+id/textView20" />
-
-            <TextView
-                android:id="@+id/textView21"
-                android:layout_width="128dp"
-                android:layout_height="29dp"
-                android:layout_marginTop="40dp"
-                android:text="Welcome back!"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@+id/guideline6"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/day_profit_loss"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="▲$488.75 (5.43%)"
-                android:textColor="#509700"
-                app:layout_constraintStart_toStartOf="@+id/guideline6"
-                app:layout_constraintTop_toBottomOf="@+id/PortfolioValue" />
-
-            <TextView
-                android:id="@+id/textView22"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="Today"
-                android:textColor="#000000"
-                app:layout_constraintStart_toEndOf="@+id/day_profit_loss"
-                app:layout_constraintTop_toBottomOf="@+id/PortfolioValue" />
 
             <HorizontalScrollView
                 android:layout_width="0dp"
@@ -107,6 +50,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
                 <LinearLayout
+                    android:id="@+id/markets_data"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
@@ -240,6 +184,57 @@
                     </LinearLayout>
                 </LinearLayout>
             </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Portfolio value"
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="@+id/guideline6"
+                app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+            <TextView
+                android:id="@+id/PortfolioValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="$9,496.21"
+                android:textColor="#000000"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guideline6"
+                app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="128dp"
+                android:layout_height="29dp"
+                android:layout_marginTop="40dp"
+                android:text="Welcome back!"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guideline6"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/day_profit_loss"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="▲$488.75 (5.43%)"
+                android:textColor="#509700"
+                app:layout_constraintStart_toStartOf="@+id/guideline6"
+                app:layout_constraintTop_toBottomOf="@+id/PortfolioValue" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Today"
+                android:textColor="#000000"
+                app:layout_constraintStart_toEndOf="@+id/day_profit_loss"
+                app:layout_constraintTop_toBottomOf="@+id/PortfolioValue" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout"
@@ -398,7 +393,7 @@
                 android:layout_height="150dp"
                 android:elevation="10dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/day_profit_loss" >
+                app:layout_constraintTop_toBottomOf="@+id/day_profit_loss">
 
             </com.github.mikephil.charting.charts.LineChart>
 
@@ -418,4 +413,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="25dp" />
+
+    <ImageButton
+        android:id="@+id/burgir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/guideline12"
+        app:layout_constraintTop_toTopOf="@+id/guideline10"
+        app:srcCompat="@drawable/burgir" />
 </androidx.constraintlayout.widget.ConstraintLayout>

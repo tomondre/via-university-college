@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/PC1/AndroidStudioProjects/S02_Interaction/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/PC1/AndroidStudioProjects/S02_Interaction/app/src/main/res/layout/activity_main2.xml" value="0.32019927536231885" />
+        <entry key="..\:/Users/PC1/AndroidStudioProjects/S02_Interaction/app/src/main/res/layout/activity_main3.xml" value="0.32019927536231885" />
+        <entry key="..\:/Users/PC1/AndroidStudioProjects/S02_Interaction/app/src/main/res/layout/activity_main4.xml" value="0.32019927536231885" />
+        <entry key="..\:/Users/PC1/AndroidStudioProjects/S02_Interaction/app/src/main/res/layout/activity_main5.xml" value="0.32019927536231885" />
+        <entry key="..\:/Users/PC1/ViaUniversityCollege/Sem04/AND1/S02_Interaction/app/src/main/res/layout-land/horizontal.xml" value="0.31040564373897706" />
+        <entry key="..\:/Users/PC1/ViaUniversityCollege/Sem04/AND1/S02_Interaction/app/src/main/res/layout/activity_ex10.xml" value="0.32019927536231885" />
+        <entry key="..\:/Users/PC1/ViaUniversityCollege/Sem04/AND1/S02_Interaction/app/src/main/res/layout/activity_main6.xml" value="0.32019927536231885" />
+        <entry key="..\:/Users/PC1/ViaUniversityCollege/Sem04/AND1/S02_Interaction/app/src/main/res/layout/activity_main7.xml" value="0.32019927536231885" />
+        <entry key="..\:/Users/PC1/ViaUniversityCollege/Sem04/AND1/S02_Interaction/app/src/main/res/layout/activity_main8.xml" value="0.32019927536231885" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

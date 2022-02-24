@@ -5,6 +5,8 @@ import android.view.MenuItem
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.eroto.framents.DiscoverFragment
+import com.example.eroto.framents.Main_fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -13,7 +15,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var burgerButton: ImageButton
     private lateinit var bottomNavigation: BottomNavigationView
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_screen)
@@ -21,10 +22,10 @@ class MainActivity : AppCompatActivity() {
         burgerButton = findViewById(R.id.burgir)
         bottomNavigation = findViewById(R.id.bottom_navigation)
 
-        bottomNavigation.setOnItemSelectedListener(::NavigationListener)
+        bottomNavigation.setOnItemSelectedListener(::navigationListener)
     }
 
-    private fun NavigationListener(menuItem: MenuItem): Boolean {
+    private fun navigationListener(menuItem: MenuItem): Boolean {
         var fragment: Fragment = when(menuItem.itemId){
             R.id.discover_menu_item ->
                 DiscoverFragment()

@@ -1,4 +1,4 @@
-package com.example.eroto
+package com.example.eroto.framents
 
 import android.graphics.Color
 import android.os.Bundle
@@ -8,6 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.eroto.R
+import com.example.eroto.models.Market
+import com.example.eroto.views.MarketViewAdapter
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.*
@@ -30,7 +35,8 @@ class Main_fragment : Fragment() {
 
     private lateinit var barChart: BarChart
     private lateinit var lineChart: LineChart
-    private lateinit var marketLayout: LinearLayout
+    private lateinit var marketRecycler: RecyclerView
+    private lateinit var adapter: MarketViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,14 +51,20 @@ class Main_fragment : Fragment() {
         barChart = view.findViewById(R.id.bigMoversChart)
         setupChart()
 
-        marketLayout = view.findViewById(R.id.markets_data)
-
         lineChart = view.findViewById(R.id.lineChart)
         setUpLineChart()
 
+        adapter = MarketViewAdapter()
+        loadMarketsData()
+        marketRecycler = view.findViewById(R.id.market_recycler)
+        var layoutManager = LinearLayoutManager(context)
+        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
+
+        marketRecycler.layoutManager = layoutManager
+        marketRecycler.adapter = adapter
+
         loadPieChartData()
         loadLineChartData()
-        loadMarketsData()
     }
 
     override fun onCreateView(
@@ -85,9 +97,11 @@ class Main_fragment : Fragment() {
     private fun loadMarketsData() {
         var markets = ArrayList<Market>()
         markets.add(Market("NSDQ100", 1222.2, 0.5))
-        markets.add(Market("NSDQ100", 1222.2, 0.5))
-        markets.add(Market("NSDQ100", 1222.2, 0.5))
-        markets.add(Market("NSDQ100", 1222.2, 0.5))
+        markets.add(Market("SPY50", 1222.0, 0.5))
+        markets.add(Market("HLABAALA100", 1222.2, 0.5))
+        markets.add(Market("HUN10", 122.2, 0.5))
+
+        adapter.marketList = markets
     }
 
     private fun setUpLineChart() {
@@ -159,9 +173,5 @@ class Main_fragment : Fragment() {
         barData.barWidth = 0.4f
         barChart.data = barData
         barChart.invalidate()
-    }
-
-    class Market(var ticker: String, var price: Double, var diff: Double) {
-
     }
 }

@@ -3,11 +3,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/home"
+        android:id="@+id/home_menu_item"
         android:icon="@drawable/home"
         android:title="Home" />
     <item
-        android:id="@+id/discover"
+        android:id="@+id/watchlist_menu_item"
+        android:icon="@drawable/watchlist"
+        android:title="Watchlist" />
+    <item
+        android:id="@+id/portfolio_menu_item"
+        android:icon="@drawable/portfolio"
+        android:title="Portfolio" />
+    <item
+        android:id="@+id/discover_menu_item"
         android:icon="@drawable/search"
         android:title="Discover" />
 </menu>

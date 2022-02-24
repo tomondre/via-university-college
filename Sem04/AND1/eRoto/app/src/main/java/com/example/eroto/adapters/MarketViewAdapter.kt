@@ -1,4 +1,4 @@
-package com.example.eroto.views
+package com.example.eroto.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eroto.R
+import com.example.eroto.factories.PortfolioItemFactory
 import com.example.eroto.models.Market
 
 class MarketViewAdapter : RecyclerView.Adapter<MarketViewAdapter.ViewHolder>() {
@@ -26,12 +27,7 @@ class MarketViewAdapter : RecyclerView.Adapter<MarketViewAdapter.ViewHolder>() {
 
         holder.currentPrice.text = marketList[position].price.toString()
 
-        var diff = marketList[position].difference
-        var temp = ""
-        if (diff < 0) {
-            temp = "-"
-        }
-        holder.marketDifference.text = "$temp$diff%"
+        holder.marketDifference.text = "${marketList[position].difference}%"
     }
 
     override fun getItemCount(): Int {

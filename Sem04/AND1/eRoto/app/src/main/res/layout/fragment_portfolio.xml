@@ -41,6 +41,7 @@
         app:layout_constraintGuide_end="16dp" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/portolio_list_recycler"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"

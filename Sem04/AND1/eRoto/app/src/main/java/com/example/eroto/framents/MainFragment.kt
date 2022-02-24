@@ -6,13 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eroto.R
 import com.example.eroto.models.Market
-import com.example.eroto.views.MarketViewAdapter
+import com.example.eroto.adapters.MarketViewAdapter
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.*
@@ -25,26 +24,13 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [Main_fragment.newInstance] factory method to
+ * Use the [MainFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class Main_fragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
+class MainFragment : Fragment() {
     private lateinit var barChart: BarChart
     private lateinit var lineChart: LineChart
     private lateinit var marketRecycler: RecyclerView
-    private lateinit var adapter: MarketViewAdapter
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -54,14 +40,8 @@ class Main_fragment : Fragment() {
         lineChart = view.findViewById(R.id.lineChart)
         setUpLineChart()
 
-        adapter = MarketViewAdapter()
-        loadMarketsData()
         marketRecycler = view.findViewById(R.id.market_recycler)
-        var layoutManager = LinearLayoutManager(context)
-        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
-
-        marketRecycler.layoutManager = layoutManager
-        marketRecycler.adapter = adapter
+        loadMarketsData()
 
         loadPieChartData()
         loadLineChartData()
@@ -86,7 +66,7 @@ class Main_fragment : Fragment() {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            Main_fragment().apply {
+            MainFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
@@ -101,7 +81,15 @@ class Main_fragment : Fragment() {
         markets.add(Market("HLABAALA100", 1222.2, 0.5))
         markets.add(Market("HUN10", 122.2, 0.5))
 
+        var adapter = MarketViewAdapter()
+
         adapter.marketList = markets
+
+        var layoutManager = LinearLayoutManager(context)
+        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
+
+        marketRecycler.layoutManager = layoutManager
+        marketRecycler.adapter = adapter
     }
 
     private fun setUpLineChart() {

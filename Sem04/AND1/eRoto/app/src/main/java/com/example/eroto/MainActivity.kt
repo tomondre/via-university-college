@@ -6,7 +6,8 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.eroto.framents.DiscoverFragment
-import com.example.eroto.framents.Main_fragment
+import com.example.eroto.framents.MainFragment
+import com.example.eroto.framents.PortfolioFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -29,8 +30,10 @@ class MainActivity : AppCompatActivity() {
         var fragment: Fragment = when(menuItem.itemId){
             R.id.discover_menu_item ->
                 DiscoverFragment()
+            R.id.portfolio_menu_item ->
+                PortfolioFragment()
             else ->
-                Main_fragment()
+                MainFragment()
         }
 
         var transaction = supportFragmentManager.beginTransaction()

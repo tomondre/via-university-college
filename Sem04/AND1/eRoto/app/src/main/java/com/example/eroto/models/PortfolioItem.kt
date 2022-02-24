@@ -1,4 +1,11 @@
 package com.example.eroto.models
 
-class PortfolioItem(ticker: String, fullName: String, img: String, price: Int, percentDiff: Int, value: Int) {
-}
+class PortfolioItem(
+    var ticker: String,
+    var fullName: String,
+    var img: String,
+    var valueInvested: Double,
+    var plValue: Double,
+    var plPercent: Double,
+    var value: Double
+)

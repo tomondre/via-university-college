@@ -1,6 +1,7 @@
 package com.example.eroto.framents
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -28,11 +29,10 @@ class StockFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         viewModel = ViewModelProvider(this).get(StockViewModelImpl::class.java)
 
         stockImg = view.findViewById(R.id.stock_img)
-        stockTicker = view.findViewById(R.id.ticker)
+        stockTicker = view.findViewById(R.id.stock_ticker)
         stockName = view.findViewById(R.id.stock_name)
         stockPrice = view.findViewById(R.id.stock_price)
         stockMarketOpening = view.findViewById(R.id.stock_market_openning)
@@ -57,6 +57,7 @@ class StockFragment : Fragment() {
     }
 
     private fun createStockData() {
+        Log.d("TICKER", "" + ticker)
         if (ticker == null)
             return
         val stock = viewModel.getStockByTicker(ticker!!)

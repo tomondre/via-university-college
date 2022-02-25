@@ -47,8 +47,6 @@ class PortfolioFragment : Fragment(), PortfolioItemStockListener {
 
     override fun onCellClickListener(item: PortfolioItem) {
         val stockFragment = StockFragment.newInstance(item.ticker)
-        val bundle = Bundle()
-        stockFragment.arguments = bundle
         val beginTransaction = activity?.supportFragmentManager?.beginTransaction()
         beginTransaction?.replace(R.id.fragmentContainerView, stockFragment)
         beginTransaction?.commit()

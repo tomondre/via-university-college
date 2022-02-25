@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,20 +20,13 @@ import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.utils.Utils
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [MainFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class MainFragment : Fragment() {
     private lateinit var barChart: BarChart
     private lateinit var lineChart: LineChart
     private lateinit var marketRecycler: RecyclerView
+    private lateinit var portfolioValueTextView: TextView
+    private lateinit var portfolioDiffTextView: TextView
+
     private lateinit var viewModel: HomePageViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,15 +37,27 @@ class MainFragment : Fragment() {
         lineChart = view.findViewById(R.id.lineChart)
         marketRecycler = view.findViewById(R.id.market_recycler)
 
+        portfolioValueTextView = view.findViewById(R.id.portfolio_value)
+        portfolioDiffTextView = view.findViewById(R.id.day_profit_loss)
+
+        createPortfolioData()
+
         createPortfolioChart()
         createBigMoverChart()
         createMarketView()
     }
 
+    private fun createPortfolioData() {
+        val portfolioData = viewModel.getPortfolioData()
+        portfolioDiffTextView.text = portfolioData
+
+        val portfolioValue = viewModel.getPortfolioValue()
+        portfolioValueTextView.text = portfolioValue
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_main_screen, container, false)
     }
 

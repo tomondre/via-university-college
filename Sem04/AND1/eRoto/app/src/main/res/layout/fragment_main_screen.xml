@@ -36,7 +36,7 @@
                 android:textColor="#000000" />
 
             <TextView
-                android:id="@+id/PortfolioValue"
+                android:id="@+id/portfolio_value"
                 app:layout_constraintStart_toStartOf="@+id/guideline6"
                 app:layout_constraintTop_toBottomOf="@+id/textView20"
                 android:layout_width="wrap_content"
@@ -61,7 +61,7 @@
             <TextView
                 android:id="@+id/day_profit_loss"
                 app:layout_constraintStart_toStartOf="@+id/guideline6"
-                app:layout_constraintTop_toBottomOf="@+id/PortfolioValue"
+                app:layout_constraintTop_toBottomOf="@+id/portfolio_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="▲$488.75 (5.43%)"
@@ -70,7 +70,7 @@
             <TextView
                 android:id="@+id/textView22"
                 app:layout_constraintStart_toEndOf="@+id/day_profit_loss"
-                app:layout_constraintTop_toBottomOf="@+id/PortfolioValue"
+                app:layout_constraintTop_toBottomOf="@+id/portfolio_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"

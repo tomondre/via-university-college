@@ -8,4 +8,6 @@ interface HomePageViewModel {
     fun getPortfolioGraphData(): ArrayList<Entry>
     fun getBigMoverGraphData(): BigMoverList
     fun getMarketsData(): MarketList
+    fun getPortfolioData(): String
+    fun getPortfolioValue(): String
 }

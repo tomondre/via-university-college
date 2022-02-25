@@ -39,4 +39,13 @@ class HomePageViewModelImpl : ViewModel(), HomePageViewModel {
         markets.add(Market("HUN10", 122.2, 0.5))
         return MarketList(markets)
     }
+
+    //TODO Should it be viewModel responsibility to make data suit view format? Or views?
+    override fun getPortfolioData(): String {
+        return "▲$488.75 (5.43%)"
+    }
+
+    override fun getPortfolioValue(): String {
+        return "$9,496.21"
+    }
 }

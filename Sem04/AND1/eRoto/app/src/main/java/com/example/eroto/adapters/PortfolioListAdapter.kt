@@ -7,6 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.eroto.Helper
 import com.example.eroto.R
 import com.example.eroto.models.PortfolioItem
 
@@ -25,7 +27,6 @@ class PortfolioListAdapter : RecyclerView.Adapter<PortfolioListAdapter.ViewHolde
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = portfolioList[position]
-//        TODO holder.image. = item.img
         holder.fullName.text = item.fullName
         holder.plPercent.text = "${item.plPercent}%"
         holder.plValue.text = "$${item.plValue}"
@@ -35,13 +36,15 @@ class PortfolioListAdapter : RecyclerView.Adapter<PortfolioListAdapter.ViewHolde
         if (position % 2 == 1) {
             holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.portfolio_list_even))
         }
+
+        Glide.with(holder.itemView.context).load(item.img).into(holder.image)
     }
 
     override fun getItemCount(): Int {
         return portfolioList.size
     }
 
-    public class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var image: ImageView = itemView.findViewById(R.id.image)
         var ticker: TextView = itemView.findViewById(R.id.ticker)
         var fullName: TextView = itemView.findViewById(R.id.full_name)
@@ -49,6 +52,5 @@ class PortfolioListAdapter : RecyclerView.Adapter<PortfolioListAdapter.ViewHolde
         var value: TextView = itemView.findViewById(R.id.value)
         var plValue: TextView = itemView.findViewById(R.id.p_l_value)
         var plPercent: TextView = itemView.findViewById(R.id.p_l_percent)
-
     }
 }

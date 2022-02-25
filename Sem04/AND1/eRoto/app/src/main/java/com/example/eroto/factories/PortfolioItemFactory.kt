@@ -4,7 +4,6 @@ import com.example.eroto.models.PortfolioItem
 
 class PortfolioItemFactory {
     companion object {
-        @JvmStatic
         fun generate(count: Int): List<PortfolioItem> {
             var list = ArrayList<PortfolioItem>()
             for (i in 0..count) {
@@ -12,7 +11,7 @@ class PortfolioItemFactory {
                     PortfolioItem(
                         "VRTX",
                         "Vertex Pharmaceuticals Incorporated",
-                        "https",
+                        "https://etoro-cdn.etorostatic.com/market-avatars/baba/150x150.png",
                         100.0,
                         15.17,
                         15.17,

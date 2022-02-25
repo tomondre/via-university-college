@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StockFragment">
+    tools:context=".framents.StockFragment">
 
     <View
         android:id="@+id/view2"
@@ -138,4 +138,22 @@
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/stock_price"
         app:layout_constraintStart_toEndOf="@+id/stock_price" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/stock_navigation"
+        android:layout_width="409dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2"
+        app:menu="@menu/stock_menu" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/stock_fragment_view"
+        android:name="com.example.eroto.framents.PostsFragment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stock_navigation" />
 </androidx.constraintlayout.widget.ConstraintLayout>

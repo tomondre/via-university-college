@@ -13,6 +13,5 @@
         android:icon="@drawable/ic_baseline_show_chart_24" />
     <item
         android:id="@+id/research_stock_menu_item"
-        android:icon="@drawable/ic_baseline_menu_book_24"
-        android:title="Item" />
+        android:icon="@drawable/ic_baseline_menu_book_24" />
 </menu>

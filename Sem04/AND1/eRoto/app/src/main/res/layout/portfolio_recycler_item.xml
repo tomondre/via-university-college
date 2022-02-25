@@ -71,7 +71,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginStart="142dp"
         android:text="$15.17"
-        android:textColor="@color/purple_500"
+        android:textColor="@color/main_green"
         android:textSize="12sp"
         android:textStyle="bold" />
 
@@ -84,7 +84,7 @@
         android:layout_marginBottom="10dp"
         android:layout_marginStart="250dp"
         android:text="15.17%"
-        android:textColor="@color/purple_500"
+        android:textColor="@color/main_green"
         android:textSize="12sp"
         android:textStyle="bold" />
 </RelativeLayout>

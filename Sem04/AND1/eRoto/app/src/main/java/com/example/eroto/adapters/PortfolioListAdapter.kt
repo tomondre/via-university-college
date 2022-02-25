@@ -8,12 +8,15 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.eroto.Helper
+import com.example.eroto.PortfolioItemStockListener
 import com.example.eroto.R
 import com.example.eroto.models.PortfolioItem
 
-class PortfolioListAdapter : RecyclerView.Adapter<PortfolioListAdapter.ViewHolder>() {
-    var portfolioList: List<PortfolioItem> = ArrayList<PortfolioItem>()
+
+class PortfolioListAdapter(items: List<PortfolioItem>, var listener: PortfolioItemStockListener) :
+    RecyclerView.Adapter<PortfolioListAdapter.ViewHolder>() {
+
+    var portfolioList: List<PortfolioItem> = items
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -38,6 +41,9 @@ class PortfolioListAdapter : RecyclerView.Adapter<PortfolioListAdapter.ViewHolde
         }
 
         Glide.with(holder.itemView.context).load(item.img).into(holder.image)
+        holder.itemView.setOnClickListener {
+            listener.onCellClickListener(item)
+        }
     }
 
     override fun getItemCount(): Int {

@@ -127,4 +127,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/p_l_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="0.78(8.31%)"
+        android:textColor="@color/main_green"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/stock_price"
+        app:layout_constraintStart_toEndOf="@+id/stock_price" />
 </androidx.constraintlayout.widget.ConstraintLayout>

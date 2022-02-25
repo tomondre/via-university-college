@@ -8,13 +8,15 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.eroto.PortfolioItemStockListener
 import com.example.eroto.R
 import com.example.eroto.adapters.PortfolioListAdapter
 import com.example.eroto.factories.PortfolioItemFactory
+import com.example.eroto.models.PortfolioItem
 import com.example.eroto.viewModel.portfolio.PortfolioViewModel
 import com.example.eroto.viewModel.portfolio.PortfolioViewModelImpl
 
-class PortfolioFragment : Fragment() {
+class PortfolioFragment : Fragment(), PortfolioItemStockListener {
 
     private lateinit var viewModel: PortfolioViewModelImpl
 
@@ -37,9 +39,18 @@ class PortfolioFragment : Fragment() {
     }
 
     private fun loadPortfolioData() {
-        var adapter = PortfolioListAdapter()
-        adapter.portfolioList = viewModel.getPortfolio().items
+        val items = viewModel.getPortfolio().items
+        var adapter = PortfolioListAdapter(items, this)
         portfolioRecycler.layoutManager = LinearLayoutManager(context)
         portfolioRecycler.adapter = adapter
+    }
+
+    override fun onCellClickListener(item: PortfolioItem) {
+        val stockFragment = StockFragment.newInstance(item.ticker)
+        val bundle = Bundle()
+        stockFragment.arguments = bundle
+        val beginTransaction = activity?.supportFragmentManager?.beginTransaction()
+        beginTransaction?.replace(R.id.fragmentContainerView, stockFragment)
+        beginTransaction?.commit()
     }
 }

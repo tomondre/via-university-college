@@ -5,13 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eroto.R
 import com.example.eroto.adapters.PortfolioListAdapter
 import com.example.eroto.factories.PortfolioItemFactory
+import com.example.eroto.viewModel.portfolio.PortfolioViewModel
+import com.example.eroto.viewModel.portfolio.PortfolioViewModelImpl
 
 class PortfolioFragment : Fragment() {
+
+    private lateinit var viewModel: PortfolioViewModelImpl
 
     private lateinit var portfolioRecycler: RecyclerView
 
@@ -25,19 +30,16 @@ class PortfolioFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        portfolioRecycler = view.findViewById(R.id.portolio_list_recycler)
+        viewModel = ViewModelProvider(this).get(PortfolioViewModelImpl::class.java)
 
+        portfolioRecycler = view.findViewById(R.id.portolio_list_recycler)
         loadPortfolioData()
     }
 
     private fun loadPortfolioData() {
-        val generate = PortfolioItemFactory.generate(10)
-
         var adapter = PortfolioListAdapter()
-        adapter.portfolioList = generate
-
+        adapter.portfolioList = viewModel.getPortfolio().items
         portfolioRecycler.layoutManager = LinearLayoutManager(context)
         portfolioRecycler.adapter = adapter
     }
-
 }

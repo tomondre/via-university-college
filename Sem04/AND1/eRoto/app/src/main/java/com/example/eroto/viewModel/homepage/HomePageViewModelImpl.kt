@@ -1,4 +1,4 @@
-package com.example.eroto.model.homepage
+package com.example.eroto.viewModel.homepage
 
 import androidx.lifecycle.ViewModel
 import com.example.eroto.models.BigMover

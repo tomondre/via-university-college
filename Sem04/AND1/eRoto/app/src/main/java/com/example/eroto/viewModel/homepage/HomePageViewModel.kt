@@ -1,4 +1,4 @@
-package com.example.eroto.model.homepage
+package com.example.eroto.viewModel.homepage
 
 import com.example.eroto.models.BigMoverList
 import com.example.eroto.models.MarketList

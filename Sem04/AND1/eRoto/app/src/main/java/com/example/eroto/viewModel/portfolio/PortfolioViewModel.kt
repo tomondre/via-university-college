@@ -1,7 +1,7 @@
-package com.example.eroto.model.portfolio
+package com.example.eroto.viewModel.portfolio
 
 import com.example.eroto.models.PortfolioItemList
 
-interface PortfolioModel {
+interface PortfolioViewModel {
     fun getPortfolio(): PortfolioItemList
 }

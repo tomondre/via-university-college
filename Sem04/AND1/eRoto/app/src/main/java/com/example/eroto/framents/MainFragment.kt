@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eroto.R
 import com.example.eroto.adapters.MarketViewAdapter
-import com.example.eroto.model.homepage.HomePageViewModel
-import com.example.eroto.model.homepage.HomePageViewModelImpl
+import com.example.eroto.viewModel.homepage.HomePageViewModel
+import com.example.eroto.viewModel.homepage.HomePageViewModelImpl
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.*
@@ -130,24 +130,3 @@ class MainFragment : Fragment() {
         marketRecycler.adapter = adapter
     }
 }
-
-
-//    companion object {
-//        /**
-//         * Use this factory method to create a new instance of
-//         * this fragment using the provided parameters.
-//         *
-//         * @param param1 Parameter 1.
-//         * @param param2 Parameter 2.
-//         * @return A new instance of fragment main_screen.
-//         */
-//        // TODO: Rename and change types and number of parameters
-//        @JvmStatic
-//        fun newInstance(param1: String, param2: String) =
-//            MainFragment().apply {
-//                arguments = Bundle().apply {
-//                    putString(ARG_PARAM1, param1)
-//                    putString(ARG_PARAM2, param2)
-//                }
-//            }
-//    }

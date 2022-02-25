@@ -3,8 +3,8 @@ package com.example.eroto.viewModel.homepage
 import androidx.lifecycle.ViewModel
 import com.example.eroto.models.BigMover
 import com.example.eroto.models.BigMoverList
-import com.example.eroto.models.Market
-import com.example.eroto.models.MarketList
+import com.example.eroto.models.MarketData
+import com.example.eroto.models.MarketDataList
 import com.github.mikephil.charting.data.Entry
 
 class HomePageViewModelImpl : ViewModel(), HomePageViewModel {
@@ -31,13 +31,13 @@ class HomePageViewModelImpl : ViewModel(), HomePageViewModel {
         return BigMoverList(entries)
     }
 
-    override fun getMarketsData(): MarketList {
-        var markets = ArrayList<Market>()
-        markets.add(Market("NSDQ100", 1222.2, 0.5))
-        markets.add(Market("SPY50", 1222.0, 0.5))
-        markets.add(Market("HLABAALA100", 1222.2, 0.5))
-        markets.add(Market("HUN10", 122.2, 0.5))
-        return MarketList(markets)
+    override fun getMarketsData(): MarketDataList {
+        var markets = ArrayList<MarketData>()
+        markets.add(MarketData("NSDQ100", 1222.2, 0.5))
+        markets.add(MarketData("SPY50", 1222.0, 0.5))
+        markets.add(MarketData("HLABAALA100", 1222.2, 0.5))
+        markets.add(MarketData("HUN10", 122.2, 0.5))
+        return MarketDataList(markets)
     }
 
     //TODO Should it be viewModel responsibility to make data suit view format? Or views?

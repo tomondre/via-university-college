@@ -6,12 +6,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eroto.R
-import com.example.eroto.factories.PortfolioItemFactory
-import com.example.eroto.models.Market
+import com.example.eroto.models.MarketData
 
 class MarketViewAdapter : RecyclerView.Adapter<MarketViewAdapter.ViewHolder>() {
 
-    var marketList: ArrayList<Market> = ArrayList()
+    var marketList: ArrayList<MarketData> = ArrayList()
     set(value) {
         field = value
         notifyDataSetChanged()

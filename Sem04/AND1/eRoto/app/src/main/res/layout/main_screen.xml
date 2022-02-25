@@ -14,8 +14,8 @@
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="40dp"
-        android:layout_height="0dp"
+        android:layout_width="48dp"
+        android:layout_height="43dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline10"
         app:srcCompat="@drawable/bell" />
@@ -37,8 +37,8 @@
 
     <ImageButton
         android:id="@+id/burgir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="48dp"
+        android:layout_height="43dp"
         app:layout_constraintStart_toStartOf="@+id/guideline12"
         app:layout_constraintTop_toTopOf="@+id/guideline10"
         app:srcCompat="@drawable/burgir" />
@@ -55,7 +55,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

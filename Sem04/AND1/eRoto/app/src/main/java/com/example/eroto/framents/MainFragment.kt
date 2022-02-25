@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eroto.R
+import com.example.eroto.adapters.BigMoversAdapter
 import com.example.eroto.adapters.MarketViewAdapter
 import com.example.eroto.viewModel.homepage.HomePageViewModel
 import com.example.eroto.viewModel.homepage.HomePageViewModelImpl
@@ -21,11 +22,13 @@ import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.utils.Utils
 
 class MainFragment : Fragment() {
-    private lateinit var barChart: BarChart
+    private lateinit var bigMoverChart: BarChart
     private lateinit var lineChart: LineChart
-    private lateinit var marketRecycler: RecyclerView
     private lateinit var portfolioValueTextView: TextView
     private lateinit var portfolioDiffTextView: TextView
+
+    private lateinit var bigMoverRecycler: RecyclerView
+    private lateinit var marketRecycler: RecyclerView
 
     private lateinit var viewModel: HomePageViewModel
 
@@ -33,17 +36,18 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this).get(HomePageViewModelImpl::class.java)
-        barChart = view.findViewById(R.id.bigMoversChart)
+        bigMoverChart = view.findViewById(R.id.bigMoversChart)
         lineChart = view.findViewById(R.id.lineChart)
+
         marketRecycler = view.findViewById(R.id.market_recycler)
+        bigMoverRecycler = view.findViewById(R.id.big_movers_recycler)
 
         portfolioValueTextView = view.findViewById(R.id.portfolio_value)
         portfolioDiffTextView = view.findViewById(R.id.day_profit_loss)
 
         createPortfolioData()
-
-        createPortfolioChart()
-        createBigMoverChart()
+        createBigMovers()
+        createPortfolioView()
         createMarketView()
     }
 
@@ -62,7 +66,7 @@ class MainFragment : Fragment() {
     }
 
 
-    private fun createBigMoverChart() {
+    private fun createPortfolioView() {
         lineChart.xAxis.isEnabled = false
         lineChart.axisLeft.isEnabled = false
         lineChart.axisRight.isEnabled = false
@@ -94,14 +98,26 @@ class MainFragment : Fragment() {
         lineChart.data = lineData
     }
 
-    private fun createPortfolioChart() {
-        barChart.axisLeft.isEnabled = false
-        barChart.xAxis.isEnabled = false
-        barChart.axisRight.isEnabled = false
+    private fun createMarketView() {
+        var adapter = MarketViewAdapter()
 
-        barChart.legend.isEnabled = false
-        barChart.description.isEnabled = false
-        barChart.setScaleEnabled(false)
+        adapter.marketList = viewModel.getMarketsData().list
+
+        var layoutManager = LinearLayoutManager(context)
+        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
+
+        marketRecycler.layoutManager = layoutManager
+        marketRecycler.adapter = adapter
+    }
+
+    private fun createBigMovers() {
+        bigMoverChart.axisLeft.isEnabled = false
+        bigMoverChart.xAxis.isEnabled = false
+        bigMoverChart.axisRight.isEnabled = false
+
+        bigMoverChart.legend.isEnabled = false
+        bigMoverChart.description.isEnabled = false
+        bigMoverChart.setScaleEnabled(false)
 
         val data = viewModel.getBigMoverGraphData()
 
@@ -112,21 +128,16 @@ class MainFragment : Fragment() {
         dataSet.highLightAlpha = 0
         val barData = BarData(dataSet)
         barData.barWidth = 0.4f
-        barChart.data = barData
-        barChart.invalidate()
-    }
+        bigMoverChart.data = barData
+        bigMoverChart.invalidate()
 
-    private fun createMarketView() {
+        val bigMoversAdapter = BigMoversAdapter()
+        bigMoversAdapter.bigMoverList = data.items
 
+        val linearLayoutManager = LinearLayoutManager(context)
+        linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
 
-        var adapter = MarketViewAdapter()
-
-        adapter.marketList = viewModel.getMarketsData().list
-
-        var layoutManager = LinearLayoutManager(context)
-        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
-
-        marketRecycler.layoutManager = layoutManager
-        marketRecycler.adapter = adapter
+        bigMoverRecycler.layoutManager = linearLayoutManager
+        bigMoverRecycler.adapter = bigMoversAdapter
     }
 }

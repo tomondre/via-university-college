@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/posts_stock_menu_item"
+        android:icon="@drawable/books_icon" />
+    <item
+        android:id="@+id/details_stock_menu_item"
+        android:icon="@drawable/ic_baseline_bar_chart_24" />
+    <item
+        android:id="@+id/chart_stock_menu_item"
+        android:icon="@drawable/ic_baseline_show_chart_24" />
+    <item
+        android:id="@+id/research_stock_menu_item"
+        android:icon="@drawable/ic_baseline_menu_book_24"
+        android:title="Item" />
+</menu>

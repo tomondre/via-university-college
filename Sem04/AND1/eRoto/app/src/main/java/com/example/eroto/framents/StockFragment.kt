@@ -67,7 +67,7 @@ class StockFragment : Fragment() {
         stockPrice.text = stock.currentPrice.toString()
 
         var openning = "MARKET "
-        openning += if (stock.market.isOpen) "OPENED" else "CLOSED"
+        openning += if (stock.market.isOpen) "OPEN" else "CLOSED"
         stockMarketOpening.text = openning
 
         val status = "PRICES BY " + stock.market.ticker + ", IN " + stock.market.currency

@@ -26,6 +26,8 @@ class PostsAdapter(list: List<Post>) : RecyclerView.Adapter<PostsAdapter.ViewHol
         holder.userCountry.text = item.user.country
         holder.time.text = item.time
         holder.text.text = item.text
+        holder.likes.text = item.likes.toString()
+        holder.comments.text = item.comments.toString()
         Glide.with(holder.itemView.context).load(item.user.image).into(holder.userImage)
     }
 
@@ -39,5 +41,7 @@ class PostsAdapter(list: List<Post>) : RecyclerView.Adapter<PostsAdapter.ViewHol
         var userCountry: TextView = itemView.findViewById(R.id.post_user_country)
         var time: TextView = itemView.findViewById(R.id.post_time)
         var text: TextView = itemView.findViewById(R.id.post_text)
+        var likes: TextView = itemView.findViewById(R.id.post_like_count)
+        var comments: TextView = itemView.findViewById(R.id.post_comment_count)
     }
 }

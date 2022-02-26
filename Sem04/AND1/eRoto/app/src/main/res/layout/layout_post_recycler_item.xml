@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/post_image"
+        android:id="@+id/post_user_image"
         android:layout_width="35dp"
         android:layout_height="35dp"
         app:layout_constraintStart_toStartOf="@+id/guideline8"
@@ -30,7 +30,7 @@
         android:textColor="@color/blue"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/post_image"
+        app:layout_constraintStart_toEndOf="@+id/post_user_image"
         app:layout_constraintTop_toTopOf="@+id/guideline14" />
 
     <TextView

@@ -31,7 +31,7 @@ class BigMoversAdapter : RecyclerView.Adapter<BigMoversAdapter.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return bigMoverList.count()
+        return bigMoverList.size
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

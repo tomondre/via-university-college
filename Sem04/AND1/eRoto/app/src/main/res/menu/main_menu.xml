@@ -4,6 +4,7 @@
 
     <item
         android:id="@+id/main_menu_invite_friends"
+        android:icon="@drawable/ic_outline_contact_phone_24"
         android:title="Invite Friends" />
     <item
         android:id="@+id/main_menu_withdraw_funds"

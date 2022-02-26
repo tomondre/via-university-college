@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -13,6 +14,7 @@ import com.bumptech.glide.Glide
 import com.example.eroto.R
 import com.example.eroto.viewModel.stock.StockViewModel
 import com.example.eroto.viewModel.stock.StockViewModelImpl
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 private const val TICKER = "ticker"
 
@@ -39,7 +41,24 @@ class StockFragment : Fragment() {
         stockMarketStatus = view.findViewById(R.id.stock_market_status)
         plText = view.findViewById(R.id.p_l_text)
 
+        val navigation = view.findViewById<BottomNavigationView>(R.id.stock_navigation)
+        navigation.setOnItemSelectedListener(::navigationHandler)
+
         createStockData()
+    }
+
+    private fun navigationHandler(menuItem: MenuItem): Boolean {
+        var fragment: Fragment = when(menuItem.itemId) {
+            R.id.chart_stock_menu_item -> StockChartFragment()
+            R.id.details_stock_menu_item -> StockDetailsFragment()
+            R.id.research_stock_menu_item -> StockResearchFragment()
+            else -> PostsFragment()
+        }
+
+        var transaction = parentFragmentManager.beginTransaction()
+        transaction.replace(R.id.stock_fragment_view, fragment)
+        transaction.commit()
+        return true
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

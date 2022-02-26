@@ -35,7 +35,7 @@ class PostsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_posts, container, false)
+        return inflater.inflate(R.layout.fragment_stock_posts, container, false)
     }
 
     companion object {

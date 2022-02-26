@@ -1,4 +1,4 @@
-package com.example.eroto
+package com.example.eroto.helpers
 
 import android.graphics.drawable.Drawable
 import java.io.InputStream

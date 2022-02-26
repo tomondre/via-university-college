@@ -9,6 +9,7 @@ import com.example.eroto.framents.DiscoverFragment
 import com.example.eroto.framents.MainFragment
 import com.example.eroto.framents.PortfolioFragment
 import com.example.eroto.framents.WatchlistFragment
+import com.example.eroto.helpers.BottomNavigationViewHelper
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         burgerButton = findViewById(R.id.burgir)
         bottomNavigation = findViewById(R.id.bottom_navigation)
-
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigation)
         bottomNavigation.setOnItemSelectedListener(::navigationListener)
     }
 

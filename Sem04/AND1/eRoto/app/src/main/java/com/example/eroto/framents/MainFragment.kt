@@ -1,13 +1,15 @@
 package com.example.eroto.framents
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -20,6 +22,7 @@ import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.utils.Utils
+
 
 class MainFragment : Fragment() {
     private lateinit var bigMoverChart: BarChart
@@ -98,6 +101,7 @@ class MainFragment : Fragment() {
         lineChart.data = lineData
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun createMarketView() {
         var adapter = MarketViewAdapter()
 
@@ -108,6 +112,7 @@ class MainFragment : Fragment() {
 
         marketRecycler.layoutManager = layoutManager
         marketRecycler.adapter = adapter
+        bigMoverRecycler.setOnTouchListener { v, event -> true }
     }
 
     private fun createBigMovers() {

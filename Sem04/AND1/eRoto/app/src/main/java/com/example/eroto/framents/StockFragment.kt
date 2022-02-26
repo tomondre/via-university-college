@@ -41,6 +41,8 @@ class StockFragment : Fragment() {
         stockMarketStatus = view.findViewById(R.id.stock_market_status)
         plText = view.findViewById(R.id.p_l_text)
 
+        replaceFragment(StockPostsFragment())
+
         val navigation = view.findViewById<BottomNavigationView>(R.id.stock_navigation)
         navigation.setOnItemSelectedListener(::navigationHandler)
 
@@ -52,13 +54,16 @@ class StockFragment : Fragment() {
             R.id.chart_stock_menu_item -> StockChartFragment()
             R.id.details_stock_menu_item -> StockDetailsFragment()
             R.id.research_stock_menu_item -> StockResearchFragment()
-            else -> PostsFragment()
+            else -> StockPostsFragment()
         }
+        replaceFragment(fragment)
+        return true
+    }
 
+    private fun replaceFragment(fragment: Fragment) {
         var transaction = parentFragmentManager.beginTransaction()
         transaction.replace(R.id.stock_fragment_view, fragment)
         transaction.commit()
-        return true
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

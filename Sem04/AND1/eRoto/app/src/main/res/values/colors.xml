@@ -10,4 +10,5 @@
     <color name="portfolio_list_even">#F3F3F3</color>
     <color name="blue">#2999f5</color>
     <color name="line_color">#D1D1D1</color>
+    <color name="button_color_black">#525252</color>
 </resources>

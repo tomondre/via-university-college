@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
 
         burgerButton = findViewById(R.id.burgir)
         bottomNavigation = findViewById(R.id.bottom_navigation)
-        BottomNavigationViewHelper.disableShiftMode(bottomNavigation)
         bottomNavigation.setOnItemSelectedListener(::navigationListener)
     }
 

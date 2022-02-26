@@ -151,7 +151,6 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/stock_fragment_view"
-        android:name="com.example.eroto.framents.PostsFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:elevation="0dp"

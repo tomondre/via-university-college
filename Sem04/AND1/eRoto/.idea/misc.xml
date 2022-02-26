@@ -19,6 +19,7 @@
         <entry key="..\:/Users/PC1/ViaUniversityCollege/Sem04/AND1/eRoto/app/src/main/res/layout/fragment_stock_details.xml" value="0.1" />
         <entry key="..\:/Users/PC1/ViaUniversityCollege/Sem04/AND1/eRoto/app/src/main/res/layout/fragment_stock_research.xml" value="0.1" />
         <entry key="..\:/Users/PC1/ViaUniversityCollege/Sem04/AND1/eRoto/app/src/main/res/layout/fragment_watchlist.xml" value="0.14722222222222223" />
+        <entry key="..\:/Users/PC1/ViaUniversityCollege/Sem04/AND1/eRoto/app/src/main/res/layout/layout_post.xml" value="0.67" />
         <entry key="..\:/Users/PC1/ViaUniversityCollege/Sem04/AND1/eRoto/app/src/main/res/layout/main_screen.xml" value="0.33" />
         <entry key="..\:/Users/PC1/ViaUniversityCollege/Sem04/AND1/eRoto/app/src/main/res/layout/market_layout.xml" value="0.41321243523316065" />
         <entry key="..\:/Users/PC1/ViaUniversityCollege/Sem04/AND1/eRoto/app/src/main/res/layout/portfolio_recycler_item.xml" value="0.36666666666666664" />
@@ -36,7 +37,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.12" />
+        <option name="scale" value="0.67" />
       </ProjectState>
     </option>
   </component>

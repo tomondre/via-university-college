@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/main_menu_invite_friends"
+        android:title="Invite Friends" />
+    <item
+        android:id="@+id/main_menu_withdraw_funds"
+        android:icon="@drawable/ic_outline_attach_money_24"
+        android:title="Withdraw Funds" />
+    <item
+        android:id="@+id/main_menu_settings"
+        android:icon="@drawable/ic_outline_settings_24"
+        android:title="Settings" />
+    <item
+        android:id="@+id/main_manu_help"
+        android:icon="@drawable/ic_outline_help_outline_24"
+        android:title="Help" />
+    <item
+        android:id="@+id/main_menu_logout"
+        android:icon="@drawable/ic_baseline_login_24"
+        android:title="Logout" />
+</menu>

@@ -29,7 +29,6 @@ class PortfolioFragment : Fragment(), PortfolioItemStockListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         viewModel = ViewModelProvider(this).get(PortfolioViewModelImpl::class.java)
 
         portfolioRecycler = view.findViewById(R.id.portolio_list_recycler)
@@ -46,7 +45,7 @@ class PortfolioFragment : Fragment(), PortfolioItemStockListener {
     override fun onCellClickListener(item: PortfolioItem) {
         val stockFragment = StockFragment.newInstance(item.ticker)
         val beginTransaction = activity?.supportFragmentManager?.beginTransaction()
-        beginTransaction?.replace(R.id.fragmentContainerView, stockFragment)
+        beginTransaction?.replace(R.id.fragmentContainerView, stockFragment)?.addToBackStack(null)
         beginTransaction?.commit()
     }
 }

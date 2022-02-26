@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun navigationListener(menuItem: MenuItem): Boolean {
-        var fragment: Fragment = when(menuItem.itemId){
+        var fragment: Fragment = when (menuItem.itemId) {
             R.id.discover_menu_item ->
                 DiscoverFragment()
             R.id.portfolio_menu_item ->

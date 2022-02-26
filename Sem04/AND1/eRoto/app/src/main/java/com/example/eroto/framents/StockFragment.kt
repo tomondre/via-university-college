@@ -1,5 +1,6 @@
 package com.example.eroto.framents
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,10 +8,12 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.example.eroto.PlaceOrderStock
 import com.example.eroto.R
 import com.example.eroto.viewModel.stock.StockViewModel
 import com.example.eroto.viewModel.stock.StockViewModelImpl
@@ -28,11 +31,12 @@ class StockFragment : Fragment() {
     private lateinit var stockMarketStatus: TextView
     private lateinit var stockMarketOpening: TextView
     private lateinit var plText: TextView
+    private lateinit var tradeButton: Button
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(StockViewModelImpl::class.java)
 
+        viewModel = ViewModelProvider(this).get(StockViewModelImpl::class.java)
         stockImg = view.findViewById(R.id.stock_img)
         stockTicker = view.findViewById(R.id.stock_ticker)
         stockName = view.findViewById(R.id.stock_name)
@@ -40,6 +44,12 @@ class StockFragment : Fragment() {
         stockMarketOpening = view.findViewById(R.id.stock_market_openning)
         stockMarketStatus = view.findViewById(R.id.stock_market_status)
         plText = view.findViewById(R.id.p_l_text)
+        tradeButton = view.findViewById(R.id.trade_button)
+
+        tradeButton.setOnClickListener {
+            val intent = Intent(activity, PlaceOrderStock::class.java)
+            activity?.startActivity(intent)
+        }
 
         replaceFragment(StockPostsFragment())
 

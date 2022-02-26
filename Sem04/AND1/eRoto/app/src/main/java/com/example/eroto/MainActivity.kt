@@ -1,5 +1,6 @@
 package com.example.eroto
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.ImageButton
@@ -23,6 +24,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_screen)
 
         burgerButton = findViewById(R.id.burgir)
+        burgerButton.setOnClickListener {
+            val intent = Intent(this, MainMenu::class.java)
+            startActivity(intent)
+        }
+
         bottomNavigation = findViewById(R.id.bottom_navigation)
         bottomNavigation.setOnItemSelectedListener(::navigationListener)
     }

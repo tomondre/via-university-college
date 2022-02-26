@@ -7,71 +7,6 @@
     android:background="#363c52"
     tools:context=".MainMenu">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="30dp" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="28dp"
-        android:src="@drawable/plrr"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="28dp"
-        android:src="@drawable/ic_baseline_close_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/logged_in_image"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="52dp"
-        android:src="@drawable/doyu"
-        app:layout_constraintStart_toStartOf="@+id/guideline15"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-
-    <TextView
-        android:id="@+id/logged_user_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="tomondre"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/logged_in_image"
-        app:layout_constraintStart_toEndOf="@+id/logged_in_image"
-        app:layout_constraintTop_toTopOf="@+id/logged_in_image"
-        app:layout_constraintVertical_bias="0.565" />
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/main_menu_navigation"
-        android:layout_width="0dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="44dp"
-        android:background="@android:color/transparent"
-        app:elevation="0dp"
-        app:itemIconTint="@color/white"
-        app:itemTextAppearance="@style/MainMenu"
-        app:itemTextColor="#FFFFFF"
-        app:layout_constraintStart_toStartOf="@+id/guideline15"
-        app:layout_constraintTop_toBottomOf="@+id/logged_in_image"
-        app:menu="@menu/main_menu" />
-
     <Button
         android:id="@+id/deposit_funds_button"
         android:layout_width="0dp"
@@ -92,6 +27,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:backgroundTint="@android:color/transparent"
+        android:elevation="0dp"
+        android:stateListAnimator="@null"
         android:text="Switch to Virtual >"
         android:textAllCaps="false"
         android:textColor="@color/blue"
@@ -99,5 +36,75 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/logged_in_image"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="52dp"
+        android:src="@drawable/doyu"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/plrr"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/main_menu_exit_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/ic_baseline_close_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/logged_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="tomondre"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/logged_in_image"
+        app:layout_constraintStart_toEndOf="@+id/logged_in_image"
+        app:layout_constraintTop_toTopOf="@+id/logged_in_image"
+        app:layout_constraintVertical_bias="0.565" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="30dp" />
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/main_menu_navigation"
+        android:layout_width="0dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="32dp"
+        android:background="@android:color/transparent"
+        android:fadeScrollbars="false"
+        android:isScrollContainer="false"
+        android:nestedScrollingEnabled="false"
+        android:scrollbars="none"
+        app:elevation="0dp"
+        app:itemHorizontalPadding="0dp"
+        app:itemIconTint="@color/white"
+        app:itemTextAppearance="@style/MainMenu"
+        app:itemTextColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toBottomOf="@+id/logged_in_image"
+        app:menu="@menu/main_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

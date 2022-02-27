@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-
     <dimen name="bottom_bar_height">60dp</dimen>
     <dimen name="design_bottom_navigation_text_size" tools:override="true">30sp</dimen>
     <dimen name="design_bottom_navigation_active_text_size" tools:override="true">30sp</dimen>
+    <dimen name="exit_button_size">40dp</dimen>
+    <dimen name="notification_activity_button_size">30dp</dimen>
+    <dimen name="notification_activity_offset">30dp</dimen>
 </resources>

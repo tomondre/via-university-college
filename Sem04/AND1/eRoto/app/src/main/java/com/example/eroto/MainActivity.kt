@@ -1,9 +1,11 @@
 package com.example.eroto
 
+import android.app.Notification
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.eroto.framents.DiscoverFragment
@@ -18,6 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var burgerButton: ImageButton
     private lateinit var bottomNavigation: BottomNavigationView
+    private lateinit var notificationButton: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +31,13 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MainMenu::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.from_left_animation, R.anim.no_animation)
+        }
+
+        notificationButton = findViewById(R.id.main_screen_notification_button)
+        notificationButton.setOnClickListener {
+            val intent = Intent(this, Notifications::class.java)
+            startActivity(intent)
+            overridePendingTransition(R.anim.from_right_animation, R.anim.no_animation)
         }
 
         bottomNavigation = findViewById(R.id.bottom_navigation)

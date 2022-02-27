@@ -23,9 +23,7 @@ class MarketViewAdapter : RecyclerView.Adapter<MarketViewAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.marketTicker.text = marketList[position].ticker
-
         holder.currentPrice.text = marketList[position].price.toString()
-
         holder.marketDifference.text = "${marketList[position].difference}%"
     }
 

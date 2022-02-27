@@ -16,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
         android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_marginTop="4dp"
@@ -30,10 +31,10 @@
 
     <ImageView
         android:id="@+id/exit_trade"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="@dimen/exit_button_size"
+        android:layout_height="@dimen/exit_button_size"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_close_24" />

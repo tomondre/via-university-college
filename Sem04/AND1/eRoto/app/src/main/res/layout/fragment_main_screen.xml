@@ -161,6 +161,15 @@
 
             </com.github.mikephil.charting.charts.LineChart>
 
+            <View
+                android:id="@+id/view5"
+                android:layout_width="0dp"
+                android:layout_height="8dp"
+                android:background="@color/line_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/market_recycler" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 

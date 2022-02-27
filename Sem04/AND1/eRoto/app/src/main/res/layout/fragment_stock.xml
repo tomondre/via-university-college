@@ -17,6 +17,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/trade_button" />
 
+    <View
+        android:id="@+id/view5"
+        android:layout_width="0dp"
+        android:layout_height="5dp"
+        android:background="@color/line_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stock_navigation" />
+
     <ImageView
         android:id="@+id/stock_img"
         android:layout_width="60dp"

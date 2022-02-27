@@ -34,6 +34,8 @@ class HomePageViewModelImpl : ViewModel(), HomePageViewModel {
         markets.add(MarketData("SPY50", 1222.0, 0.5))
         markets.add(MarketData("HLABAALA100", 1222.2, 0.5))
         markets.add(MarketData("HUN10", 122.2, 0.5))
+        markets.add(MarketData("MSCW100", 122.2, 0.5))
+        markets.add(MarketData("HUN10", 122.2, 0.5))
         return MarketDataList(markets)
     }
 

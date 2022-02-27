@@ -9,10 +9,20 @@
         android:id="@+id/main_fragment"
         android:name="com.example.eroto.Main_fragment"
         android:label="fragment_main_screen"
-        tools:layout="@layout/fragment_main_screen" />
+        tools:layout="@layout/fragment_main_screen" >
+        <action
+            android:id="@+id/action_main_fragment_to_mainMenu"
+            app:destination="@id/mainMenu"
+            app:enterAnim="@anim/from_left_animation" />
+    </fragment>
     <fragment
         android:id="@+id/discoverFragment"
         android:name="com.example.eroto.DiscoverFragment"
         android:label="fragment_discover"
         tools:layout="@layout/fragment_discover" />
+    <activity
+        android:id="@+id/mainMenu"
+        android:name="com.example.eroto.MainMenu"
+        android:label="activity_main_menu"
+        tools:layout="@layout/activity_main_menu" />
 </navigation>

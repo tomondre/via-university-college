@@ -5,7 +5,6 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -16,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.eroto.R
 import com.example.eroto.adapters.BigMoversAdapter
 import com.example.eroto.adapters.MarketViewAdapter
+import com.example.eroto.adapters.PostsAdapter
 import com.example.eroto.viewModel.homepage.HomePageViewModel
 import com.example.eroto.viewModel.homepage.HomePageViewModelImpl
 import com.github.mikephil.charting.charts.BarChart
@@ -32,6 +32,7 @@ class MainFragment : Fragment() {
 
     private lateinit var bigMoverRecycler: RecyclerView
     private lateinit var marketRecycler: RecyclerView
+    private lateinit var postsRecycler: RecyclerView
 
     private lateinit var viewModel: HomePageViewModel
 
@@ -44,6 +45,7 @@ class MainFragment : Fragment() {
 
         marketRecycler = view.findViewById(R.id.market_recycler)
         bigMoverRecycler = view.findViewById(R.id.big_movers_recycler)
+        postsRecycler = view.findViewById(R.id.main_fragment_posts_recycler)
 
         portfolioValueTextView = view.findViewById(R.id.portfolio_value)
         portfolioDiffTextView = view.findViewById(R.id.day_profit_loss)
@@ -52,6 +54,7 @@ class MainFragment : Fragment() {
         createBigMovers()
         createPortfolioView()
         createMarketView()
+        createPostsData()
     }
 
     private fun createPortfolioData() {
@@ -67,7 +70,6 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_main_screen, container, false)
     }
-
 
     private fun createPortfolioView() {
         lineChart.xAxis.isEnabled = false
@@ -100,6 +102,7 @@ class MainFragment : Fragment() {
         val lineData = LineData(lineDataSet)
         lineChart.data = lineData
     }
+
 
     @SuppressLint("ClickableViewAccessibility")
     private fun createMarketView() {
@@ -144,5 +147,18 @@ class MainFragment : Fragment() {
 
         bigMoverRecycler.layoutManager = linearLayoutManager
         bigMoverRecycler.adapter = bigMoversAdapter
+    }
+
+    private fun createPostsData() {
+        val posts = viewModel.getPosts()
+        val postsAdapter = PostsAdapter(posts.list)
+        val linearLayoutManager= object: LinearLayoutManager(context) {
+            override fun canScrollVertically(): Boolean {
+                return false
+            }
+        }
+
+        postsRecycler.adapter = postsAdapter
+        postsRecycler.layoutManager = linearLayoutManager
     }
 }

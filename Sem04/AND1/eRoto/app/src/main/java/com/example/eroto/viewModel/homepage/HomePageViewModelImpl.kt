@@ -1,10 +1,7 @@
 package com.example.eroto.viewModel.homepage
 
 import androidx.lifecycle.ViewModel
-import com.example.eroto.models.BigMover
-import com.example.eroto.models.BigMoverList
-import com.example.eroto.models.MarketData
-import com.example.eroto.models.MarketDataList
+import com.example.eroto.models.*
 import com.github.mikephil.charting.data.Entry
 
 class HomePageViewModelImpl : ViewModel(), HomePageViewModel {
@@ -47,5 +44,25 @@ class HomePageViewModelImpl : ViewModel(), HomePageViewModel {
 
     override fun getPortfolioValue(): String {
         return "$9,496.21"
+    }
+
+    override fun getPosts(): PostList {
+        var list = ArrayList<Post>()
+        for (i in 0..5) {
+            list.add(
+                Post(
+                    User(
+                        "Sktbrd",
+                        "Denmark",
+                        "https://static.remove.bg/remove-bg-web/59c96072ccf69a79c0e6dd85a2eac05ceb4d0784/assets/start_remove-c851bdf8d3127a24e2d137a55b1b427378cd17385b01aec6e59d5d4b5f39d2ec.png"
+                    ),
+                    "3 minutes ago",
+                    "In order to have a complete sentence, the sentence must have a minimum of three word types: a subject, a verb, and an object. In most cases, the subject is a noun or a pronoun. For example, the sentence &quot;Jack loves candy&quot; is a complete sentence because it has all three elements needed to make a complete sentence. Jack (the subject) loves (the verb) candy (the object).",
+                    3,
+                    5
+                )
+            )
+        }
+        return PostList(list)
     }
 }

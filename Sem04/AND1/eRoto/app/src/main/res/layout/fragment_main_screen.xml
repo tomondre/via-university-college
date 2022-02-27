@@ -1,81 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
     tools:context="framents.MainFragment">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/market_recycler"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginTop="24dp"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/guideline6"
-                app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
-
             <TextView
                 android:id="@+id/textView20"
-                app:layout_constraintStart_toStartOf="@+id/guideline6"
-                app:layout_constraintTop_toBottomOf="@+id/textView21"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/portfolio_value"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                app:layout_constraintStart_toStartOf="@+id/guideline6"
+                app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
             <TextView
                 android:id="@+id/portfolio_value"
-                app:layout_constraintStart_toStartOf="@+id/guideline6"
-                app:layout_constraintTop_toBottomOf="@+id/textView20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="$9,496.21"
                 android:textColor="#000000"
                 android:textSize="34sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guideline6"
+                app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
             <TextView
                 android:id="@+id/textView21"
-                app:layout_constraintStart_toStartOf="@+id/guideline6"
-                app:layout_constraintTop_toTopOf="parent"
                 android:layout_width="128dp"
                 android:layout_height="29dp"
                 android:layout_marginTop="40dp"
                 android:text="@string/welcome_back"
                 android:textColor="#000000"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guideline6"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/day_profit_loss"
-                app:layout_constraintStart_toStartOf="@+id/guideline6"
-                app:layout_constraintTop_toBottomOf="@+id/portfolio_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="▲$488.75 (5.43%)"
-                android:textColor="#509700" />
+                android:textColor="#509700"
+                app:layout_constraintStart_toStartOf="@+id/guideline6"
+                app:layout_constraintTop_toBottomOf="@+id/portfolio_value" />
 
             <TextView
                 android:id="@+id/textView22"
-                app:layout_constraintStart_toEndOf="@+id/day_profit_loss"
-                app:layout_constraintTop_toBottomOf="@+id/portfolio_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="@string/today"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                app:layout_constraintStart_toEndOf="@+id/day_profit_loss"
+                app:layout_constraintTop_toBottomOf="@+id/portfolio_value" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout"
@@ -128,30 +117,50 @@
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline11"
-                app:layout_constraintGuide_end="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="20dp" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline6"
-                app:layout_constraintGuide_begin="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="20dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/market_recycler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline6"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/main_fragment_posts_recycler"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/bottom_bar_height"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/market_recycler" />
 
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/lineChart"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/day_profit_loss"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:elevation="10dp">
+                android:elevation="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/day_profit_loss">
 
             </com.github.mikephil.charting.charts.LineChart>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 
 </FrameLayout>

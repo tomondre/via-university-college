@@ -20,6 +20,7 @@ class MainMenu : AppCompatActivity() {
         exitButton = findViewById(R.id.main_menu_exit_button)
         exitButton.setOnClickListener {
             finish()
+            overridePendingTransition(R.anim.no_animation, R.anim.to_left_animation)
         }
     }
 }

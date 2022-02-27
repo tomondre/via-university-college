@@ -27,6 +27,7 @@ class Notifications : AppCompatActivity() {
         backButton = findViewById(R.id.notifications_back_button)
         backButton.setOnClickListener {
             finish()
+            overridePendingTransition(R.anim.no_animation, R.anim.to_right_animation)
         }
 
         createNotificationRecyclerView()

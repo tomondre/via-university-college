@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eroto.R
 import com.example.eroto.adapters.BigMoversAdapter
-import com.example.eroto.adapters.MarketViewAdapter
+import com.example.eroto.adapters.MarketAdapter
 import com.example.eroto.adapters.PostsAdapter
 import com.example.eroto.viewModel.homepage.HomePageViewModel
 import com.example.eroto.viewModel.homepage.HomePageViewModelImpl
@@ -106,7 +106,7 @@ class MainFragment : Fragment() {
 
     @SuppressLint("ClickableViewAccessibility")
     private fun createMarketView() {
-        var adapter = MarketViewAdapter()
+        var adapter = MarketAdapter()
 
         adapter.marketList = viewModel.getMarketsData().list
 

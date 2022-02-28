@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.eroto.R
 import com.example.eroto.models.MarketData
 
-class MarketViewAdapter : RecyclerView.Adapter<MarketViewAdapter.ViewHolder>() {
+class MarketAdapter : RecyclerView.Adapter<MarketAdapter.ViewHolder>() {
 
     var marketList: ArrayList<MarketData> = ArrayList()
     set(value) {

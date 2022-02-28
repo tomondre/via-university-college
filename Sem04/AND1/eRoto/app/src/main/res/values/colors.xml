@@ -18,5 +18,5 @@
     <color name="selected_background">#ffaa3f</color>
     <color name="default_background">#3d3d3d</color>
     <color name="grey">#e8e8e8</color>
-    <color name="dark_grey"></color>
+    <color name="header_dark_grey">#3D3F4B</color>
 </resources>

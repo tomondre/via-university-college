@@ -17,7 +17,7 @@ class NotificationAdapter(list: List<Notification>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         var view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.notification_recycler_item, parent, false)
+            .inflate(R.layout.recycler_notification, parent, false)
         return ViewHolder(view)
     }
 

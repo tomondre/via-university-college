@@ -24,7 +24,7 @@ class PortfolioListAdapter(items: List<PortfolioItem>, var listener: PortfolioIt
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         var view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.portfolio_recycler_item, parent, false)
+            .inflate(R.layout.recycler_portfolio_item, parent, false)
         return ViewHolder(view)
     }
 

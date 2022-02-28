@@ -3,23 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="60dp">
+    android:layout_height="70dp">
 
     <ImageView
         android:id="@+id/notification_img"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline18"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/baba" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="@dimen/notification_activity_offset" />
 
     <TextView
         android:id="@+id/notification_text"
@@ -27,7 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="@JeppeKirkBonde wrote a post"
-        android:textSize="12sp"
+        android:textColor="#000000"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/notification_img"
         app:layout_constraintTop_toTopOf="@+id/notification_img" />
 
@@ -36,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="about 11 hours ago"
-        android:textSize="8sp"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="@+id/notification_img"
         app:layout_constraintStart_toStartOf="@+id/notification_text" />
 
@@ -51,4 +45,11 @@
         app:layout_constraintEnd_toStartOf="@+id/notification_img"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/notification_activity_offset" />
 </androidx.constraintlayout.widget.ConstraintLayout>

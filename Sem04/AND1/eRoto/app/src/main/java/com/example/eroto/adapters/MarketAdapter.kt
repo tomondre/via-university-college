@@ -17,7 +17,7 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.ViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        var view = LayoutInflater.from(parent.context).inflate(R.layout.market_layout, parent, false)
+        var view = LayoutInflater.from(parent.context).inflate(R.layout.recycler_market, parent, false)
         return ViewHolder(view)
     }
 

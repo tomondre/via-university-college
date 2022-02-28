@@ -20,7 +20,7 @@ class BigMoversAdapter : RecyclerView.Adapter<BigMoversAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         var view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.big_mover_recycler_item, parent, false)
+            .inflate(R.layout.recycler_big_mover, parent, false)
         return ViewHolder(view)
     }
 

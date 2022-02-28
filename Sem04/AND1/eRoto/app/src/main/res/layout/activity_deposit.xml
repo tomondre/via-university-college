@@ -82,13 +82,25 @@
         android:id="@+id/textView4"
         android:layout_width="0dp"
         android:layout_height="70dp"
-        android:background="#505050"
+        android:background="@color/header_dark_grey"
         android:gravity="center"
-        android:text="TextView"
+        android:text="Fund Your Account"
         android:textAlignment="center"
         android:textColor="#FBFBFB"
+        android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/deposit_exit_button"
+        android:layout_width="@dimen/exit_button_size"
+        android:layout_height="@dimen/exit_button_size"
+        android:layout_marginEnd="13dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/ic_baseline_close_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,6 +18,7 @@
             android:exported="false" />
         <activity
             android:name=".MainMenu"
+            android:noHistory="true"
             android:exported="false" />
         <activity
             android:name=".PlaceOrderStock"

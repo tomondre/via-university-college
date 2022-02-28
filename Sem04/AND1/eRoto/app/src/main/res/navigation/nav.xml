@@ -25,4 +25,16 @@
         android:name="com.example.eroto.MainMenu"
         android:label="activity_main_menu"
         tools:layout="@layout/activity_main_menu" />
+    <fragment
+        android:id="@+id/discoverFragment2"
+        android:name="com.example.eroto.framents.DiscoverFragment"
+        android:label="DiscoverFragment" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.eroto.MainActivity"
+        android:label="MainActivity" />
+    <fragment
+        android:id="@+id/portfolioFragment"
+        android:name="com.example.eroto.framents.PortfolioFragment"
+        android:label="PortfolioFragment" />
 </navigation>

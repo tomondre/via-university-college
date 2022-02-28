@@ -35,6 +35,5 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.ViewHolder>() {
         var marketTicker: TextView = itemView.findViewById(R.id.market_ticker)
         var currentPrice: TextView = itemView.findViewById(R.id.market_current_price)
         var marketDifference: TextView = itemView.findViewById(R.id.market_difference)
-
     }
 }

@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ERoto">
         <activity
+            android:name=".DepositActivity"
+            android:exported="false" />
+        <activity
             android:name=".Notifications"
             android:exported="false" />
         <activity
@@ -20,7 +23,7 @@
             android:name=".PlaceOrderStock"
             android:exported="false"
             android:label="@string/title_activity_place_order_stock"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -31,15 +34,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
-    <uses-feature
-        android:name="android.hardware.touchscreen"
-        android:required="false" />
-
     <uses-feature
         android:name="android.software.leanback"
         android:required="true" />
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
 
     <uses-permission android:name="android.permission.INTERNET" />
 

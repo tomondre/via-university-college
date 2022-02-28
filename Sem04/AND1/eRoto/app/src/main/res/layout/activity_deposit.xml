@@ -22,6 +22,7 @@
 
     <TextView
         android:id="@+id/textView3"
+        style="@style/deposit_text_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="96dp"
@@ -33,7 +34,7 @@
         android:id="@+id/deposit_fragment_amount_edit_text"
         android:layout_width="250dp"
         android:layout_height="40dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="@dimen/deposit_activity_offset"
         android:background="@color/grey"
         android:hint="200"
         android:inputType="textPersonName"
@@ -71,12 +72,12 @@
         android:id="@+id/spinner2"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="@dimen/deposit_activity_offset"
         android:elevation="20dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline22"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline21"
-        app:layout_constraintTop_toBottomOf="@+id/deposit_fragment_amount_edit_text" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <TextView
         android:id="@+id/textView4"
@@ -101,6 +102,35 @@
         app:layout_constraintEnd_toEndOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5"
-        app:srcCompat="@drawable/ic_baseline_close_24" />
+        tools:srcCompat="@drawable/ic_baseline_close_24" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activity_deposit_recycler_credit_card"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="@dimen/deposit_activity_offset"
+        app:layout_constraintEnd_toStartOf="@+id/guideline22"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline21"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView5"
+        style="@style/deposit_text_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/deposit_activity_offset"
+        android:text="Select Card"
+        app:layout_constraintStart_toStartOf="@+id/guideline21"
+        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+
+    <TextView
+        android:id="@+id/textView6"
+        style="@style/deposit_text_item"
+        android:layout_width="58dp"
+        android:layout_height="15dp"
+        android:text="Payment Method"
+        app:layout_constraintStart_toStartOf="@+id/guideline21"
+        app:layout_constraintTop_toBottomOf="@+id/deposit_fragment_amount_edit_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

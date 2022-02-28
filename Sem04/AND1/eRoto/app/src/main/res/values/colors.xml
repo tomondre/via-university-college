@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="purple_200">#FFBB86FC</color>
     <color name="main_green">#4bdf2b</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
@@ -8,11 +9,14 @@
     <color name="white">#FFFFFFFF</color>
     <color name="portfolio_list_even">#F3F3F3</color>
     <color name="blue">#2999f5</color>
-    <color name="dark_blue">#004D92</color>
     <color name="line_color">#D1D1D1</color>
     <color name="button_color_black">#525252</color>
     <color name="background_gradient_start">#000000</color>
     <color name="background_gradient_end">#DDDDDD</color>
+    <color name="dark_blue">#004D92</color>
+    <color name="fastlane_background">#0096a6</color>
+    <color name="search_opaque">#ffaa3f</color>
+    <color name="selected_background">#ffaa3f</color>
     <color name="default_background">#3d3d3d</color>
     <color name="grey">#e8e8e8</color>
     <color name="header_dark_grey">#3D3F4B</color>

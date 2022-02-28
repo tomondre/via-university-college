@@ -6,4 +6,5 @@
     <dimen name="exit_button_size">40dp</dimen>
     <dimen name="notification_activity_button_size">30dp</dimen>
     <dimen name="notification_activity_offset">30dp</dimen>
+    <dimen name="deposit_activity_offset">20dp</dimen>
 </resources>

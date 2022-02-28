@@ -38,6 +38,5 @@ class Notifications : AppCompatActivity() {
         val notificationAdapter = NotificationAdapter(notifications.list)
         notificationRecyclerView.layoutManager = LinearLayoutManager(applicationContext)
         notificationRecyclerView.adapter = notificationAdapter
-
     }
 }

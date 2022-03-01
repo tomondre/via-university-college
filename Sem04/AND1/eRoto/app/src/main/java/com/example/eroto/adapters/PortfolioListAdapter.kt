@@ -30,17 +30,17 @@ class PortfolioListAdapter(items: List<PortfolioItem>, var listener: PortfolioIt
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = portfolioList[position]
-        holder.fullName.text = item.fullName
+        holder.fullName.text = item.stock.fullName
         holder.plPercent.text = "${item.plPercent}%"
         holder.plValue.text = "$${item.plValue}"
         holder.valueInvested.text = "$${item.valueInvested}"
-        holder.ticker.text = item.ticker
+        holder.ticker.text = item.stock.ticker
 
         if (position % 2 == 1) {
             holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.portfolio_list_even))
         }
 
-        Glide.with(holder.itemView.context).load(item.img).into(holder.image)
+        Glide.with(holder.itemView.context).load(item.stock.img).into(holder.image)
         holder.itemView.setOnClickListener {
             listener.onCellClickListener(item)
         }

@@ -37,7 +37,7 @@ class CreditCardAdapter(var list: List<CreditCard>): RecyclerView.Adapter<Credit
         var numberEnding: TextView = itemView.findViewById(R.id.recycler_card_number_ending)
         var expiration: TextView = itemView.findViewById(R.id.recycler_card_expiration)
         var img: ImageView = itemView.findViewById(R.id.recycler_card_img)
-        var tick: CheckBox = itemView.findViewById(R.id.recycler_card_checkbox)
+        var checkBox: CheckBox = itemView.findViewById(R.id.recycler_card_checkbox)
         var cvv: EditText = itemView.findViewById(R.id.recycler_card_cvv)
         var removeCard: ImageView = itemView.findViewById(R.id.recycler_card_remove_credit_card)
     }

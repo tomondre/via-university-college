@@ -43,7 +43,7 @@ class PortfolioFragment : Fragment(), PortfolioItemStockListener {
     }
 
     override fun onCellClickListener(item: PortfolioItem) {
-        val stockFragment = StockFragment.newInstance(item.ticker)
+        val stockFragment = StockFragment.newInstance(item.stock.ticker)
         val beginTransaction = activity?.supportFragmentManager?.beginTransaction()
         beginTransaction?.replace(R.id.fragmentContainerView, stockFragment)?.addToBackStack(null)
         beginTransaction?.commit()

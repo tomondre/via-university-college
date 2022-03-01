@@ -1,19 +1,12 @@
 package com.example.eroto.viewModel.stock
 
 import androidx.lifecycle.ViewModel
+import com.example.eroto.helpers.Helper
 import com.example.eroto.models.*
 
 class StockViewModelImpl : ViewModel(), StockViewModel {
     override fun getStockByTicker(ticker: String): Stock {
-        return Stock(
-            "BABA",
-            "Aliabba",
-            100.0,
-            15.1,
-            15.1,
-            Market("NSDQ", "USD", true),
-            "https://etoro-cdn.etorostatic.com/market-avatars/baba/150x150.png"
-        )
+       return Helper.getStockByTicker(ticker)
     }
 
     override fun getStockPosts(ticker: String): PostList {

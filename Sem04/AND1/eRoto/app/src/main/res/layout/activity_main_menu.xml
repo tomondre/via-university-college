@@ -11,15 +11,15 @@
         android:id="@+id/deposit_funds_button"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_margin="30dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="28dp"
         android:backgroundTint="@color/blue"
         android:text="Deposit Funds"
         android:textAllCaps="false"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/switch_to_virtual_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline23"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline15" />
 
     <Button
         android:id="@+id/switch_to_virtual_button"
@@ -107,5 +107,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_close_24" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="30dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

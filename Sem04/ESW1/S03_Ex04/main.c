@@ -1,4 +1,5 @@
 #include<stdio.h>
+
 #include "my_string_func.h"
 #define MAX_LENGTH 1000
 int main(){

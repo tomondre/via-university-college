@@ -12,12 +12,19 @@ import com.bumptech.glide.Glide
 import com.example.eroto.R
 import com.example.eroto.models.CreditCard
 
-class CreditCardAdapter(var list: List<CreditCard>): RecyclerView.Adapter<CreditCardAdapter.ViewHolder>() {
+class CreditCardAdapter(var list: List<CreditCard>) :
+    RecyclerView.Adapter<CreditCardAdapter.ViewHolder>() {
 
-    private var lastChecked = 0
+    private var lastCheckedIndex = -1
+    private var lastCheckedBox: CheckBox? = null
+
+    fun getSelectedCreditCard(): CreditCard {
+        return list[lastCheckedIndex]
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val inflate = LayoutInflater.from(parent.context).inflate(R.layout.recycler_card, parent, false)
+        val inflate =
+            LayoutInflater.from(parent.context).inflate(R.layout.recycler_card, parent, false)
         return ViewHolder(inflate)
     }
 
@@ -27,6 +34,13 @@ class CreditCardAdapter(var list: List<CreditCard>): RecyclerView.Adapter<Credit
         holder.expiration.text = item.expiration
         holder.numberEnding.text = item.numberEnding
         Glide.with(holder.itemView.context).load(item.img).into(holder.img)
+
+        holder.checkBox.isChecked = position == lastCheckedIndex
+        holder.checkBox.setOnClickListener {
+            lastCheckedBox?.isChecked = false
+            lastCheckedBox = holder.checkBox
+            lastCheckedIndex = holder.absoluteAdapterPosition
+        }
     }
 
     override fun getItemCount(): Int {

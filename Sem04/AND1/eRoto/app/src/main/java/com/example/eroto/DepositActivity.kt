@@ -3,10 +3,7 @@ package com.example.eroto
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -52,7 +49,7 @@ class DepositActivity : AppCompatActivity() {
         val cc = creditCardAdapter.getSelectedCreditCard()
         Toast.makeText(
             this,
-            "Depositing with credit card ending ${cc.numberEnding} and ${cc.expiration}",
+            "Depositing with credit card ending ${cc.numberEnding} and ${cc.expiration} and amount of ${amountInput.text}",
             Toast.LENGTH_LONG
         ).show()
 

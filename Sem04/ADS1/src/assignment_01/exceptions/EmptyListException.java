@@ -1,4 +1,4 @@
-package assignment_01.excpetions;
+package assignment_01.exceptions;
 
 public class EmptyListException extends Exception {
 

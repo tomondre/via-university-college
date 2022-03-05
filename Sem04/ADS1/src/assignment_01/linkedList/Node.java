@@ -1,4 +1,4 @@
-package assignment_01;
+package assignment_01.linkedList;
 
 public class Node<T> {
     private T data;

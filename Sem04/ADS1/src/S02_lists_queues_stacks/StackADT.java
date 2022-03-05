@@ -1,8 +1,8 @@
 package S02_lists_queues_stacks;
 
-public interface StackADT<E> {
+public interface StackADT<T> {
     boolean isEmpty();
-    E peek();
-    E pop();
-    E push(E item);
+    T peek();
+    T pop();
+    T push(T item);
 }

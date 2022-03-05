@@ -15,7 +15,6 @@ public class StackImpl<T> implements StackADT<T> {
     @Override
     public T peek() {
         if (head == null) throw new EmptyStackException();
-
         return head.getData();
     }
 

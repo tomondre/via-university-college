@@ -1,7 +1,6 @@
-package S02_lists_queues_stacks.Ex02_hasBalanceParantheases;
+package S02_lists_queues_stacks;
 
 import S02_lists_queues_stacks.StackADT;
-import S02_lists_queues_stacks.StackImpl;
 
 public class Main {
     public static void main(String[] args) {

@@ -34,7 +34,6 @@ class DepositActivity : AppCompatActivity() {
             finish()
             overridePendingTransition(R.anim.no_animation, R.anim.no_animation)
         }
-
         createCreditCardRecyclerView()
     }
 

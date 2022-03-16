@@ -1,7 +1,7 @@
 # AND Hand-in 2 - eRoto
 
-The app that I will be creating will be an trading platform. Because stocks/funds investing is very interesting to me and I have been educating myself in these areas for a while, I think it can be an enggaging project to me.</em>
-I am using a general repository that I have created for my Via studies, therfore the project itself can be found here: Sem04/AND1/eRoto (Sorry for this inconvenience). </em>
+The app that I will be creating will be an trading platform. Because stocks/funds investing is very interesting to me and I have been educating myself in these areas for a while, I think it can be an enggaging project to me.<br/>
+I am using a general repository that I have created for my Via studies, therfore the project itself can be found here: Sem04/AND1/eRoto (Sorry for this inconvenience). <br/>
 The name eRoto is just a 'parody name' to the original company eToro. (I know the name suggest other things but that is not a goal.)
 
 ## Requirements

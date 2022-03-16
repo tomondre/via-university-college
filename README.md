@@ -11,14 +11,20 @@ The name eRoto is just a 'parody name' to the original company eToro. (I know th
 4. As a User, I want to be able to see my current balance, so that I have an overview of it. 
 5. ~~As a User, I want to be able to see a list of stocks, so that I can choose one.~~
 6. ~~As a User, I want to be able to see details of selected stock, so that I can research it.~~
-7. As a User, I want to be able to buy a stock, so that I can spend my hardly-worked money.
-8. ~~As a User, I want to be able to see my bought stocks in my portfolio, so that I can keep track of owned stocks.~~
-9. ~~As a User, I want to be able to see what are the stocks are rising in price fast, so that I can FOMO buy it.~~
-10. ~~As a User, I want to be able to see overview of different markets, so that I can see how they are doing.~~
-11. ~~As a User, I want to be able to see my notifications, so that I can react to the accordingly.~~
-12. As a User, I want to be able to create a post about stock, so that I can express my feeling about it.
-13. ~~As a User, I want to be able to see most recent posts of a selected stock, so that I can see how are the people feeling about it today.~~
-14. ~~As a User, I want to be able to see most recent posts of different users, so that I can see how are people feeling about today's stocks and markets~~
-15. As a User, I want to be able to like a post, so that I can support it.
-
-
+7. As a User, I want to be able to buy a stock, so that I can spend my hardly-worked money. 
+10. ~~As a User, I want to be able to see my bought stocks in my portfolio, so that I can keep track of owned stocks.~~
+11. As a User, I want to be able to log out, so that noone can use my account.
+12. ~~As a User, I want to be able to see my current portfolio value with today's performance, so that I have an brief overview of the portfolio.~~
+13. ~~As a User, I want to be able to see a graph of my portfolio value, so that I can see how is it doing over a period of time.~~
+14. ~~As a User, I want to be able to see what are the stocks are rising in price fast, so that I can FOMO buy it.~~
+15. ~~As a User, I want to be able to see overview of different markets, so that I can see how they are doing.~~
+16. ~~As a User, I want to be able to see my notifications, so that I can react to the accordingly.~~
+17. As a User, I want to be able to create a post about stock, so that I can express my feeling about it.
+18. ~~As a User, I want to be able to see most recent posts of a selected stock, so that I can see how are the people feeling about it today.~~
+19. ~~As a User, I want to be able to see most recent posts of other users, so that I can see how are people feeling about today's stocks and markets~~
+20. As a User, I want to be able to like a post, so that I can support it.
+21. As a User, I want to be able to comment a post, so that I can share my opinion about the subject.
+22. As a User, I want to be able to follow a stock, so that I can see the prices changes of it.
+23. As a User, I want to be able to search through stocks by its ticker, so that I can find them faster.
+24. As a User, I want to be able to edit my account details, so that I can keep it up to date.
+25. As a User, I want to be able to withdraw money, so that I can loose them on other platform.

@@ -17,7 +17,7 @@ The name eRoto is just a 'parody name' to the original company eToro. (I know th
 10. ~~As a User, I want to be able to see overview of different markets, so that I can see how they are doing.~~
 11. ~~As a User, I want to be able to see my notifications, so that I can react to the accordingly.~~
 12. As a User, I want to be able to create a post about stock, so that I can express my feeling about it.
-13. ~~As a User, I want to be able to see most recent posts of a selected stock, so that I can see how are the people feeling about it today. ~~
+13. ~~As a User, I want to be able to see most recent posts of a selected stock, so that I can see how are the people feeling about it today.~~
 14. ~~As a User, I want to be able to see most recent posts of different users, so that I can see how are people feeling about today's stocks and markets~~
 15. As a User, I want to be able to like a post, so that I can support it.
 

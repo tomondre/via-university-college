@@ -1,7 +1,3 @@
-package linkedList;
-
-import exceptions.EmptyListException;
-
 public interface List<T> {
     boolean isEmpty();
     int size();

@@ -1,6 +1,4 @@
-import exceptions.MalformedExpressionException;
-import linkedList.Calculator;
-import linkedList.LinkedStack;
+import java.util.EmptyStackException;
 
 public class CalculatorVisitor implements Visitor, Calculator {
     private LinkedStack<Integer> tokenStack;
@@ -40,6 +38,10 @@ public class CalculatorVisitor implements Visitor, Calculator {
 
     @Override
     public int getResult() throws MalformedExpressionException {
-        return tokenStack.pop();
+        try {
+            return tokenStack.pop();
+        } catch (EmptyStackException e) {
+            throw new MalformedExpressionException();
+        }
     }
 }

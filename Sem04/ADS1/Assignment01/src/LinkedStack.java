@@ -1,7 +1,3 @@
-package linkedList;
-
-import exceptions.EmptyListException;
-
 import java.util.EmptyStackException;
 
 public class LinkedStack<T> implements Stack<T> {

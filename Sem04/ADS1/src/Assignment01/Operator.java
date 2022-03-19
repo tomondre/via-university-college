@@ -1,4 +1,4 @@
-package assignment_01;
+package Assignment01;
 
 public class Operator extends Token {
     private Operation operation;

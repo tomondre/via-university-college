@@ -1,6 +1,6 @@
-package assignment_01.linkedList;
+package Assignment01.linkedList;
 
-import assignment_01.exceptions.EmptyListException;
+import Assignment01.exceptions.EmptyListException;
 
 public interface List<T> {
     boolean isEmpty();

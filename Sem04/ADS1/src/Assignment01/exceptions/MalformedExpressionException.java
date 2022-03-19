@@ -1,4 +1,4 @@
-package assignment_01.exceptions;
+package Assignment01.exceptions;
 
 public class MalformedExpressionException extends Exception {
 }

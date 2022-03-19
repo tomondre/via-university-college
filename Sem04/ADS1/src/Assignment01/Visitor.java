@@ -1,4 +1,4 @@
-package assignment_01;
+package Assignment01;
 
 public interface Visitor {
     void visit(Operator operand);

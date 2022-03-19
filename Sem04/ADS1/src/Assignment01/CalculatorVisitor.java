@@ -1,8 +1,8 @@
-package assignment_01;
+package Assignment01;
 
-import assignment_01.exceptions.MalformedExpressionException;
-import assignment_01.linkedList.Calculator;
-import assignment_01.linkedList.LinkedStack;
+import Assignment01.exceptions.MalformedExpressionException;
+import Assignment01.linkedList.Calculator;
+import Assignment01.linkedList.LinkedStack;
 
 public class CalculatorVisitor implements Visitor, Calculator {
     private LinkedStack<Integer> tokenStack;

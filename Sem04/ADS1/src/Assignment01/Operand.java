@@ -1,4 +1,4 @@
-package assignment_01;
+package Assignment01;
 
 public class Operand extends Token{
     private int value;

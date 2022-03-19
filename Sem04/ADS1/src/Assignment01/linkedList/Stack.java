@@ -1,4 +1,4 @@
-package assignment_01.linkedList;
+package Assignment01.linkedList;
 
 import java.util.EmptyStackException;
 

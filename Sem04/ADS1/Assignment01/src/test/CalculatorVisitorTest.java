@@ -9,15 +9,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class CalculatorVisitorTest {
 
     private CalculatorVisitor visitor;
-    private ArrayList<Operand> operands;
 
     @BeforeEach
     void beforeEach() {
         visitor = new CalculatorVisitor();
-
-        operands = new ArrayList<>();
-        operands.add(new Operand(10));
-        operands.add(new Operand(5));
     }
 
     @Test
@@ -27,7 +22,7 @@ class CalculatorVisitorTest {
 
     @Test
     void visitOperatorPlus() throws MalformedExpressionException {
-        loadOperands(visitor, operands);
+        loadOperands();
         visitor.visit(new Operator(Operation.PLUS));
 
         int result = visitor.getResult();
@@ -37,7 +32,7 @@ class CalculatorVisitorTest {
 
     @Test
     void visitOperatorMinus() throws MalformedExpressionException {
-        loadOperands(visitor, operands);
+        loadOperands();
         visitor.visit(new Operator(Operation.MINUS));
 
         int result = visitor.getResult();
@@ -48,7 +43,7 @@ class CalculatorVisitorTest {
 
     @Test
     void visitOperatorMultiply() throws MalformedExpressionException {
-        loadOperands(visitor, operands);
+        loadOperands();
         visitor.visit(new Operator(Operation.MULTIPLY));
 
         int result = visitor.getResult();
@@ -58,7 +53,7 @@ class CalculatorVisitorTest {
 
     @Test
     void visitOperatorDivide() throws MalformedExpressionException {
-        loadOperands(visitor, operands);
+        loadOperands();
         visitor.visit(new Operator(Operation.DIVIDE));
 
         int result = visitor.getResult();
@@ -82,12 +77,21 @@ class CalculatorVisitorTest {
     }
 
     @Test
-    void getResult() {
+    void getResultEmpty() {
+        assertThrows(MalformedExpressionException.class, () -> visitor.getResult());
     }
 
-    private void loadOperands(CalculatorVisitor visitor, ArrayList<Operand> operands) {
-        for(Operand operand : operands) {
-            visitor.visit(operand);
-        }
+    @Test
+    void getResult() throws MalformedExpressionException {
+        loadOperands();
+        visitor.visit(new Operator(Operation.PLUS));
+
+        int result = visitor.getResult();
+        assertEquals(15, result);
+    }
+
+    private void loadOperands() {
+        visitor.visit(new Operand(10));
+        visitor.visit(new Operand(5));
     }
 }

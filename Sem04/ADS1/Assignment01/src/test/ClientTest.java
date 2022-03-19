@@ -32,7 +32,6 @@ class ClientTest {
         int i = client.evaluateExpression(tokens);
 
         assertEquals(0, i);
-
     }
 
     @Test

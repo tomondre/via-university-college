@@ -15,7 +15,7 @@ public class CalculatorVisitor implements Visitor, Calculator {
         int o2 = tokenStack.pop();
         int o1 = tokenStack.pop();
 
-        int result = 0;
+        int result;
         result = switch (operator.getOperation()){
             case PLUS -> o1 + o2;
             case MINUS -> o1 - o2;

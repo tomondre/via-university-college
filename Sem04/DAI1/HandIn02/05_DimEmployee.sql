@@ -33,8 +33,9 @@ set TerritoryCountryName='UNKNOWN'
 where TerritoryCountryName is null
 
 UPDATE stage.[Dim_Employee]
-set Quota= 0
+set Quota = 0
 where Quota is null
+
 
 
 INSERT INTO [edw].[Dim_Employee]
@@ -49,4 +50,15 @@ INSERT INTO [edw].[Dim_Employee]
            ,[Quota]
 
 	FROM AdventureWorksDwh.Stage.Dim_Employee
+
+INSERT INTO [edw].[Dim_Employee]
+           ([SalesPersonId]
+           ,[Name]     
+           ,[TerritoryCountryName]
+           ,[Quota])
+		 VALUES 
+		 (-1, 'Online sale', 'Internet', '0')
+
+
+
 GO

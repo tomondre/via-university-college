@@ -4,7 +4,7 @@ GO
 DECLARE @StartDate DATETIME
 DECLARE @EndDate DATETIME
 SET @StartDate ='1996-01-01'
-SET @EndDate = DATEADD(YEAR, 1095, GETDATE())
+SET @EndDate = DATEADD(YEAR, 100, GETDATE())
 WHILE @StartDate<=@EndDate
 BEGIN 
     INSERT INTO edw.[Dim_Date]

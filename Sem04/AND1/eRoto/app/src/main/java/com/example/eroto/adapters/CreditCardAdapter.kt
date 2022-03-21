@@ -12,8 +12,14 @@ import com.bumptech.glide.Glide
 import com.example.eroto.R
 import com.example.eroto.models.CreditCard
 
-class CreditCardAdapter(var list: List<CreditCard>) :
+class CreditCardAdapter(list: List<CreditCard>) :
     RecyclerView.Adapter<CreditCardAdapter.ViewHolder>() {
+
+    var list: List<CreditCard> = list
+    set(value) {
+        field = value
+        notifyDataSetChanged()
+    }
 
     private var lastCheckedIndex = -1
     private var lastCheckedBox: CheckBox? = null

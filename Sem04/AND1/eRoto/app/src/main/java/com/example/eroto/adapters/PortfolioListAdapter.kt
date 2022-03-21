@@ -37,20 +37,22 @@ class PortfolioListAdapter(items: List<PortfolioItem>, var listener: PortfolioIt
         holder.ticker.text = item.stock.ticker
 
         if (position % 2 == 1) {
-            holder.itemView.setBackgroundColor(ContextCompat.getColor(holder.itemView.context, R.color.portfolio_list_even))
+            holder.itemView.setBackgroundColor(
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    R.color.portfolio_list_even
+                )
+            )
         }
 
         Glide.with(holder.itemView.context).load(item.stock.img).into(holder.image)
-        holder.itemView.setOnClickListener {
-            listener.onCellClickListener(item)
-        }
     }
 
     override fun getItemCount(): Int {
         return portfolioList.size
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var image: ImageView = itemView.findViewById(R.id.image)
         var ticker: TextView = itemView.findViewById(R.id.ticker)
         var fullName: TextView = itemView.findViewById(R.id.full_name)
@@ -58,5 +60,10 @@ class PortfolioListAdapter(items: List<PortfolioItem>, var listener: PortfolioIt
         var value: TextView = itemView.findViewById(R.id.value)
         var plValue: TextView = itemView.findViewById(R.id.p_l_value)
         var plPercent: TextView = itemView.findViewById(R.id.p_l_percent)
+
+        init {
+            if (bindingAdapterPosition >= 0)
+                listener.onCellClickListener(portfolioList[bindingAdapterPosition])
+        }
     }
 }

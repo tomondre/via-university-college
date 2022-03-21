@@ -1,7 +1,8 @@
 package com.example.eroto.viewModel.deposit
 
-import com.example.eroto.models.CreditCardList
+import androidx.lifecycle.LiveData
+import com.example.eroto.models.CreditCard
 
 interface DepositViewModel {
-    fun getSavedCreditCards(): CreditCardList
+    fun getSavedCreditCards(): LiveData<List<CreditCard>>
 }

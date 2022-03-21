@@ -17,6 +17,7 @@ class DiscoverFragment : Fragment() {
 
     private lateinit var marketRecycler: RecyclerView
     private lateinit var viewModel: DiscoverViewModel
+    private lateinit var adapter: MarketAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,14 +32,16 @@ class DiscoverFragment : Fragment() {
         marketRecycler = view.findViewById(R.id.discover_recycler_view)
         viewModel = ViewModelProvider(this).get(DiscoverViewModelImpl::class.java)
 
+        viewModel.getMarketsData().observe(viewLifecycleOwner) {adapter.marketList = it}
+
         createRecyclerView()
     }
 
     private fun createRecyclerView() {
         val marketsData = viewModel.getMarketsData()
 
-        val adapter = MarketAdapter()
-        adapter.marketList = marketsData.list
+        adapter = MarketAdapter()
+        adapter.marketList = marketsData.value!!
         val linearLayoutManager = LinearLayoutManager(context)
         linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
         marketRecycler.layoutManager = linearLayoutManager

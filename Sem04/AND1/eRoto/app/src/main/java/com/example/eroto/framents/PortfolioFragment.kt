@@ -17,7 +17,7 @@ import com.example.eroto.viewModel.portfolio.PortfolioViewModelImpl
 class PortfolioFragment : Fragment(), PortfolioItemStockListener {
 
     private lateinit var viewModel: PortfolioViewModelImpl
-
+    private lateinit var portfolioListAdapter: PortfolioListAdapter
     private lateinit var portfolioRecycler: RecyclerView
 
     override fun onCreateView(
@@ -31,15 +31,17 @@ class PortfolioFragment : Fragment(), PortfolioItemStockListener {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(PortfolioViewModelImpl::class.java)
 
+        viewModel.getPortfolio().observe(viewLifecycleOwner) {portfolioListAdapter.portfolioList = it}
+
         portfolioRecycler = view.findViewById(R.id.portolio_list_recycler)
         loadPortfolioData()
     }
 
     private fun loadPortfolioData() {
-        val items = viewModel.getPortfolio().items
-        var adapter = PortfolioListAdapter(items, this)
+        val items = viewModel.getPortfolio()
+        portfolioListAdapter = PortfolioListAdapter(items.value!!, this)
         portfolioRecycler.layoutManager = LinearLayoutManager(context)
-        portfolioRecycler.adapter = adapter
+        portfolioRecycler.adapter = portfolioListAdapter
     }
 
     override fun onCellClickListener(item: PortfolioItem) {

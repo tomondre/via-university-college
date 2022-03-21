@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eroto.adapters.CreditCardAdapter
+import com.example.eroto.models.CreditCard
 import com.example.eroto.viewModel.deposit.DepositViewModel
 import com.example.eroto.viewModel.deposit.DepositViewModelImpl
 
@@ -34,12 +35,15 @@ class DepositActivity : AppCompatActivity() {
             finish()
             overridePendingTransition(R.anim.no_animation, R.anim.no_animation)
         }
+        viewModel.getSavedCreditCards().observe(this) {
+            creditCardAdapter.list = it
+        }
         createCreditCardRecyclerView()
     }
 
     private fun createCreditCardRecyclerView() {
         val savedCreditCards = viewModel.getSavedCreditCards()
-        creditCardAdapter = CreditCardAdapter(savedCreditCards.list)
+        creditCardAdapter = CreditCardAdapter(savedCreditCards.value!!)
         creditCardRecycler.layoutManager = LinearLayoutManager(applicationContext)
         creditCardRecycler.adapter = creditCardAdapter
     }
@@ -51,7 +55,6 @@ class DepositActivity : AppCompatActivity() {
             "Depositing with credit card ending ${cc.numberEnding} and ${cc.expiration} and amount of ${amountInput.text}",
             Toast.LENGTH_LONG
         ).show()
-
         finish()
     }
 }

@@ -10,7 +10,7 @@ import com.example.eroto.models.MarketData
 
 class MarketAdapter : RecyclerView.Adapter<MarketAdapter.ViewHolder>() {
 
-    var marketList: ArrayList<MarketData> = ArrayList()
+    var marketList: List<MarketData> = ArrayList()
     set(value) {
         field = value
         notifyDataSetChanged()
@@ -31,7 +31,7 @@ class MarketAdapter : RecyclerView.Adapter<MarketAdapter.ViewHolder>() {
         return marketList.size
     }
 
-    public class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var marketTicker: TextView = itemView.findViewById(R.id.market_ticker)
         var currentPrice: TextView = itemView.findViewById(R.id.market_current_price)
         var marketDifference: TextView = itemView.findViewById(R.id.market_difference)

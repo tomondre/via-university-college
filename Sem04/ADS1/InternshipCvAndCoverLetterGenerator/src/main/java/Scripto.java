@@ -11,8 +11,8 @@ import java.util.List;
 
 public class Scripto {
     public static void main(String[] args) throws Exception {
-        String position = "Software Engineering Intern position";
-        String companyName = "Quest Hyphen";
+        String position = "Full-Stack Software Engineer Intern position";
+        String companyName = "Hypotenuse Ai";
 
         LocalDate now = LocalDate.now();
         int day = now.getDayOfMonth();
@@ -77,7 +77,6 @@ public class Scripto {
 
             doc.close();
         } finally {
-
         }
     }
 
@@ -96,13 +95,8 @@ public class Scripto {
 
     static void replaceIfFound(XWPFRun run, String text, String key, String replacement) {
         if (text.contains(key)) {
-            if (key.equals("[day]") || key.equals("[date extension]")) {
-                text = text.replace(key, replacement);
-                run.setText(text, 0);
-            } else {
-                text = text.replace(key, replacement);
-                run.setText(text, 0);
-            }
+            text = text.replace(key, replacement);
+            run.setText(text, 0);
         }
     }
 }

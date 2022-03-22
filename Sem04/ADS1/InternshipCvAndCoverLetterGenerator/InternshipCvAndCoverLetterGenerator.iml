@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_17">
+    <output url="file://$MODULE_DIR$/target/classes" />
+    <output-test url="file://$MODULE_DIR$/target/test-classes" />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.apache.poi:poi:5.2.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.15" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-collections4:4.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-math3:3.6.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.11.0" level="project" />
+    <orderEntry type="library" name="Maven: com.zaxxer:SparseBitSet:1.2" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.17.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.poi:poi-ooxml:5.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.poi:poi-ooxml-lite:5.2.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.xmlbeans:xmlbeans:5.0.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.21" level="project" />
+    <orderEntry type="library" name="Maven: com.github.virtuald:curvesapi:1.07" level="project" />
+    <orderEntry type="library" name="Maven: e-iceblue:spire.doc.free:3.9.0" level="project" />
+    <orderEntry type="library" name="Maven: fr.opensagres.xdocreport:org.apache.poi.xwpf.converter.pdf:1.0.6" level="project" />
+    <orderEntry type="library" name="Maven: fr.opensagres.xdocreport:org.apache.poi.xwpf.converter.core:1.0.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.poi:ooxml-schemas:1.1" level="project" />
+    <orderEntry type="library" name="Maven: fr.opensagres.xdocreport:fr.opensagres.xdocreport.itext.extension:1.0.6" level="project" />
+    <orderEntry type="library" name="Maven: com.lowagie:itext:2.1.7" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:guava:31.1-jre" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:failureaccess:1.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:3.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.checkerframework:checker-qual:3.12.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.errorprone:error_prone_annotations:2.11.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.j2objc:j2objc-annotations:1.3" level="project" />
+  </component>
+</module>

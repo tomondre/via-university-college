@@ -19,8 +19,9 @@ account_t account_create(int accountNo, double creditLimit)
 		return NULL;
 	}
 
-	//_new_account->accountNo = accountNo;
-	//_new_account->creditLimit = creditLimit;
+	_new_account->accountNo = accountNo;
+	_new_account->creditLimit = creditLimit;
+	_new_account->balance = 0;
 
 	return _new_account;
 }

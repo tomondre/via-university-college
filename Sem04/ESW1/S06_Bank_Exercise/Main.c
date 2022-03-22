@@ -7,7 +7,6 @@ int main()
 	a1 = account_create(1, 2);
 	a2 = account_create(2, 10);
 
-	printf("Account 1 details: accountNo - %d, creditLimit - %d, balance %d", account_getAccountNo(a1), account_getCreditLimit(a1), account_getBalance(a1));
-	printf("\nAccount 2 details: accountNo - %d, creditLimit - %d, balance %d", account_getAccountNo(a2), account_getCreditLimit(a2), account_getBalance(a2));
-
+	printf("Account 1 details: accountNo - %d, creditLimit - %.2f, balance %.2f", account_getAccountNo(a1), account_getCreditLimit(a1), account_getBalance(a1));
+	printf("\nAccount 2 details: accountNo - %d, creditLimit - %.2f, balance %.2f", account_getAccountNo(a2), account_getCreditLimit(a2), account_getBalance(a2));
 }

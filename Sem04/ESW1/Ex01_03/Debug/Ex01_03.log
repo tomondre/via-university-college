@@ -1,4 +1,2 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Professional\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Ex01_03.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Main.c
-C:\Users\PC1\ViaUniversityCollege\Sem04\ESW1\Ex01_03\Main.c(29,26): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   Ex01_03.vcxproj -> C:\Users\PC1\ViaUniversityCollege\Sem04\ESW1\Debug\S01_Ex01_03.exe

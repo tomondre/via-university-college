@@ -28,14 +28,6 @@
             <version>5.2.1</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/e-iceblue/spire.doc.free -->
-        <dependency>
-            <groupId>e-iceblue</groupId>
-            <artifactId>spire.doc.free</artifactId>
-            <version>3.9.0</version>
-        </dependency>
-
-
         <dependency>
             <groupId>fr.opensagres.xdocreport</groupId>
             <artifactId>org.apache.poi.xwpf.converter.pdf</artifactId>

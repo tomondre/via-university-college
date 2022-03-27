@@ -1,4 +1,3 @@
 ﻿  mystr.c
-C:\Users\PC1\ViaUniversityCollege\Sem04\ESW1\S04_Ex01\mystr.c(44): warning C4716: 'my_strcpy': must return a value
-C:\Users\PC1\ViaUniversityCollege\Sem04\ESW1\S04_Ex01\mystr.c(49): warning C4716: 'my_strdup': must return a value
+C:\Users\PC1\ViaUniversityCollege\Sem04\ESW1\S04_Ex01\mystr.c(65): warning C4716: 'my_strdup': must return a value
   S04_Ex01.vcxproj -> C:\Users\PC1\ViaUniversityCollege\Sem04\ESW1\Debug\S04_Ex01.exe

@@ -1,8 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="eb3687c6-3771-48b3-8409-d00ac4184383" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Data Web Service/data.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_virtuald_curvesapi_1_07.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_failureaccess_1_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_31_1_jre.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_listenablefuture_9999_0_empty_to_avoid_conflict_with_guava.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_lowagie_itext_2_1_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_SparseBitSet_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_15.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_11_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_opensagres_xdocreport_fr_opensagres_xdocreport_itext_extension_1_0_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_opensagres_xdocreport_org_apache_poi_xwpf_converter_core_1_0_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__fr_opensagres_xdocreport_org_apache_poi_xwpf_converter_pdf_1_0_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_compress_1_21.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_math3_3_6_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_17_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_ooxml_schemas_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_5_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_5_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_lite_5_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_5_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_qual_3_12_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/InternshipCvAndCoverLetterGenerator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/InternshipCvAndCoverLetterGenerator.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Scripto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Scripto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Scripto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Scripto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/.vs/ESW1/v17/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/.vs/ESW1/v17/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/.vs/ESW1/v17/Browse.VC.db" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/.vs/ESW1/v17/Browse.VC.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/.vs/ESW1/v17/Solution.VC.db" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/.vs/ESW1/v17/Solution.VC.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/.vs/ESW1/v17/TestStore/0/000.testlog" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/.vs/ESW1/v17/TestStore/0/000.testlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/Debug/S02_Ex01.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/Debug/S02_Ex01.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/Debug/S02_Ex01.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/Debug/S02_Ex01.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/Debug/S03_Ex02.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/Debug/S03_Ex02.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/Debug/S03_Ex02.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/Debug/S03_Ex02.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/Debug/S03_Ex03.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/Debug/S03_Ex03.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/Debug/S03_Ex03.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/Debug/S03_Ex03.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/Debug/S03_Ex04.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/Debug/S03_Ex04.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/Debug/S03_Ex04.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/Debug/S03_Ex04.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/Debug/S04_Ex01.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/Debug/S04_Ex01.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/Debug/S04_Ex01.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/Debug/S04_Ex01.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/ESW1.sln" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/ESW1.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/Ex01_00/Debug/Ex01_00.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/Ex01_00/Debug/Ex01_00.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/Ex01_01/Debug/Ex01_01.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/Ex01_01/Debug/Ex01_01.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/Ex01_03/Debug/Ex01_03.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/Ex01_03/Debug/Ex01_03.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S02_01/Debug/S02_Ex01.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S02_01/Debug/S02_Ex01.ilk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S02_01/Debug/S02_Ex01.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S02_01/Debug/S02_Ex01.tlog/link.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S02_01/Debug/S02_Ex01.tlog/link.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S02_01/Debug/S02_Ex01.tlog/link.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S02_01/Debug/subtraction.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S02_01/Debug/subtraction.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S02_01/Debug/vc143.idb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S02_01/Debug/vc143.idb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S02_01/Debug/vc143.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S02_01/Debug/vc143.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_01/Debug/S03_01.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_01/Debug/S03_01.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_01/Debug/Source.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_01/Debug/Source.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_01/Debug/vc143.idb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_01/Debug/vc143.idb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_01/Debug/vc143.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_01/Debug/vc143.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_Ex02/Debug/S03_Ex02.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_Ex02/Debug/S03_Ex02.ilk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_Ex02/Debug/S03_Ex02.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_Ex02/Debug/S03_Ex02.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_Ex02/Debug/S03_Ex02.tlog/link.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_Ex02/Debug/S03_Ex02.tlog/link.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_Ex02/Debug/S03_Ex02.tlog/link.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_Ex02/Debug/S03_Ex02.tlog/link.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_Ex02/Debug/Source.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_Ex02/Debug/Source.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_Ex02/Debug/vc143.idb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_Ex02/Debug/vc143.idb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_Ex02/Debug/vc143.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_Ex02/Debug/vc143.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_Ex03/Debug/S03_Ex03.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_Ex03/Debug/S03_Ex03.ilk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_Ex03/Debug/S03_Ex03.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_Ex03/Debug/S03_Ex03.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_Ex03/Debug/Source.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_Ex03/Debug/Source.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_Ex03/Debug/vc143.idb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_Ex03/Debug/vc143.idb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_Ex03/Debug/vc143.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_Ex03/Debug/vc143.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_Ex04/Debug/S03_Ex04.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_Ex04/Debug/S03_Ex04.ilk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_Ex04/Debug/S03_Ex04.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_Ex04/Debug/S03_Ex04.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_Ex04/Debug/S03_Ex04.tlog/CL.command.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_Ex04/Debug/S03_Ex04.tlog/CL.command.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_Ex04/Debug/S03_Ex04.tlog/CL.read.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_Ex04/Debug/S03_Ex04.tlog/CL.read.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_Ex04/Debug/S03_Ex04.tlog/CL.write.1.tlog" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_Ex04/Debug/S03_Ex04.tlog/CL.write.1.tlog" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_Ex04/Debug/main.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_Ex04/Debug/main.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_Ex04/Debug/vc143.idb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_Ex04/Debug/vc143.idb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S03_Ex04/Debug/vc143.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S03_Ex04/Debug/vc143.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S04_Ex01/Debug/S04_Ex01.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S04_Ex01/Debug/S04_Ex01.ilk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S04_Ex01/Debug/S04_Ex01.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S04_Ex01/Debug/S04_Ex01.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S04_Ex01/Debug/mystr.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S04_Ex01/Debug/mystr.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S04_Ex01/Debug/vc143.idb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S04_Ex01/Debug/vc143.idb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S04_Ex01/Debug/vc143.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../ESW1/S04_Ex01/Debug/vc143.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S06_Bank_Exercise/Account.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S06_Bank_Exercise/Account.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S06_Bank_Exercise/Debug/Account.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S06_Bank_Exercise/Debug/Main.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S06_Bank_Exercise/Debug/S06_Bank.5131c381.tlog/CL.command.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S06_Bank_Exercise/Debug/S06_Bank.5131c381.tlog/CL.read.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S06_Bank_Exercise/Debug/S06_Bank.5131c381.tlog/CL.write.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S06_Bank_Exercise/Debug/S06_Bank.5131c381.tlog/S06_Bank_Exercise.lastbuildstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S06_Bank_Exercise/Debug/S06_Bank.5131c381.tlog/link.command.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S06_Bank_Exercise/Debug/S06_Bank.5131c381.tlog/link.read.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S06_Bank_Exercise/Debug/S06_Bank.5131c381.tlog/link.write.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S06_Bank_Exercise/Debug/S06_Bank_Exercise.exe.recipe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S06_Bank_Exercise/Debug/S06_Bank_Exercise.ilk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S06_Bank_Exercise/Debug/S06_Bank_Exercise.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S06_Bank_Exercise/Debug/vc143.idb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S06_Bank_Exercise/Debug/vc143.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S06_Bank_Exercise/Main.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S06_Bank_Exercise/S06_Bank_Exercise.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S06_Bank_Exercise/S06_Bank_Exercise.vcxproj.filters" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S06_Bank_Exercise/S06_Bank_Exercise.vcxproj.user" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01/S07_Ex01.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01/S07_Ex01.vcxproj.filters" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01/S07_Ex01.vcxproj.user" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01/production.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01/production.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/Debug/S07_Ex01_Test.exe.recipe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/Debug/S07_Ex01_Test.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/Debug/S07_Ex01_Test.tlog/CL.command.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/Debug/S07_Ex01_Test.tlog/CL.read.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/Debug/S07_Ex01_Test.tlog/CL.write.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/Debug/S07_Ex01_Test.tlog/CopyLocal.read.1u.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/Debug/S07_Ex01_Test.tlog/CopyLocal.write.1u.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/Debug/S07_Ex01_Test.tlog/S07_Ex01_Test.lastbuildstate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/Debug/S07_Ex01_Test.tlog/link.command.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/Debug/S07_Ex01_Test.tlog/link.read.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/Debug/S07_Ex01_Test.tlog/link.write.1.tlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/Debug/S07_Ex01_Test.vcxproj.CopyComplete" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/Debug/S07_Ex01_Test.vcxproj.FileListAbsolute.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/Debug/production.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/Debug/production_test.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/Debug/vc143.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/S07_Ex01_Test.vcxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/S07_Ex01_Test.vcxproj.user" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/packages.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/pch.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/pch.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ESW1/S07_Ex01_Test/production_test.cpp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,11 +156,26 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/SEP4/DAI/Data Web Service" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Scripto" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Scripto" />
+      <module name="InternshipCvAndCoverLetterGenerator" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Scripto" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -36,10 +186,22 @@
       <option name="presentableId" value="Default" />
       <updated>1647788972014</updated>
       <workItem from="1647788974258" duration="20000" />
+      <workItem from="1648148259718" duration="232000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -1,0 +1,15 @@
+1. Function account_create() accepts 2 arguments of type int and double
+2. Function account_create() returns pointer 
+3. Function account_create() returns pointer to account_t
+4. The getBalance() function returns doublea
+5. The getBalance() function returns correct answer
+6. The withdraw() function returns status 
+7. The withdraw() function removes requested balance
+8. The withdraw() function returns denied status when insufficient balance
+9. The withdraw() function withdraws the money from the account 
+10. 
+11. 
+12. 
+13. 
+14. 
+15.

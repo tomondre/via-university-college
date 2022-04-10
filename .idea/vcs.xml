@@ -2,5 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Sem04/SEP4" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Sem04/SEP4/IoT/IoT/FreeRTOS" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Sem04/SEP4/IoT/IoT/drivers" vcs="Git" />
   </component>
 </project>

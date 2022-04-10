@@ -16,6 +16,7 @@ import com.example.eroto.R
 import com.example.eroto.adapters.BigMoversAdapter
 import com.example.eroto.adapters.MarketAdapter
 import com.example.eroto.adapters.PostsAdapter
+import com.example.eroto.models.BigMover
 import com.example.eroto.viewModel.homepage.HomePageViewModel
 import com.example.eroto.viewModel.homepage.HomePageViewModelImpl
 import com.github.mikephil.charting.charts.BarChart
@@ -33,6 +34,9 @@ class MainFragment : Fragment() {
     private lateinit var bigMoverRecycler: RecyclerView
     private lateinit var marketRecycler: RecyclerView
     private lateinit var postsRecycler: RecyclerView
+
+    private var bigMoverAdapter: BigMoversAdapter = BigMoversAdapter()
+    private var marketAdapter: MarketAdapter = MarketAdapter()
 
     private lateinit var viewModel: HomePageViewModel
 
@@ -53,11 +57,18 @@ class MainFragment : Fragment() {
         viewModel.getPortfolioOverview().observe(viewLifecycleOwner) {
             loadPortfolioChartData(it.graphData)
             loadPortfolioData(it.currency, it.value, it.plValue, it.plPercent)
-
         }
 
-//        loadPortfolioData()
+        viewModel.getBigMoverGraphData().observe(viewLifecycleOwner) {
+            loadBigMoverData(it)
+        }
+
+        viewModel.getMarketsData().observe(viewLifecycleOwner) {
+            marketAdapter.marketList = it
+        }
+
         createBigMovers()
+        createBigMoverSection()
         createPortfolioView()
         createMarketView()
         createPostsData()
@@ -68,7 +79,8 @@ class MainFragment : Fragment() {
 
         lineDataSet.setDrawFilled(true)
         if (Utils.getSDKInt() >= 18) {
-            val drawable = ContextCompat.getDrawable(activity?.applicationContext!!, R.drawable.fade)
+            val drawable =
+                ContextCompat.getDrawable(activity?.applicationContext!!, R.drawable.fade)
             lineDataSet.fillDrawable = drawable
         } else {
             lineDataSet.fillColor = Color.parseColor("#4bdf2b")
@@ -98,7 +110,8 @@ class MainFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_main_screen, container, false)
     }
 
@@ -112,19 +125,40 @@ class MainFragment : Fragment() {
         lineChart.setScaleEnabled(false)
     }
 
-
-    @SuppressLint("ClickableViewAccessibility")
     private fun createMarketView() {
-        var adapter = MarketAdapter()
-
-        adapter.marketList = viewModel.getMarketsData().list
 
         var layoutManager = LinearLayoutManager(context)
         layoutManager.orientation = LinearLayoutManager.HORIZONTAL
 
         marketRecycler.layoutManager = layoutManager
-        marketRecycler.adapter = adapter
+        marketRecycler.adapter = marketAdapter
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun createBigMoverSection() {
         bigMoverRecycler.setOnTouchListener { v, event -> true }
+        bigMoverRecycler.adapter = bigMoverAdapter
+    }
+
+    private fun loadBigMoverData(data: List<BigMover>) {
+        var temp = ArrayList<BarEntry>()
+
+        for (i in data.indices) {
+            temp.add(BarEntry(i.toFloat(), data[i].value))
+        }
+
+        var dataSet = BarDataSet(temp, "")
+        dataSet.valueTextSize = 15f
+        dataSet.setGradientColor(Color.parseColor("#41b727"), Color.parseColor("#4bdf2b"))
+        dataSet.valueTextColor = Color.parseColor("#4ad929")
+        dataSet.highLightAlpha = 0
+
+        val barData = BarData(dataSet)
+        barData.barWidth = 0.4f
+        bigMoverChart.data = barData
+        bigMoverChart.invalidate()
+
+        bigMoverAdapter.bigMoverList = data
     }
 
     private fun createBigMovers() {
@@ -136,32 +170,16 @@ class MainFragment : Fragment() {
         bigMoverChart.description.isEnabled = false
         bigMoverChart.setScaleEnabled(false)
 
-        val data = viewModel.getBigMoverGraphData()
-
-        var dataSet = BarDataSet(data.toEntries(), "")
-        dataSet.valueTextSize = 15f
-        dataSet.setGradientColor(Color.parseColor("#41b727"), Color.parseColor("#4bdf2b"))
-        dataSet.valueTextColor = Color.parseColor("#4ad929")
-        dataSet.highLightAlpha = 0
-        val barData = BarData(dataSet)
-        barData.barWidth = 0.4f
-        bigMoverChart.data = barData
-        bigMoverChart.invalidate()
-
-        val bigMoversAdapter = BigMoversAdapter()
-        bigMoversAdapter.bigMoverList = data.items
-
         val linearLayoutManager = LinearLayoutManager(context)
         linearLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
 
         bigMoverRecycler.layoutManager = linearLayoutManager
-        bigMoverRecycler.adapter = bigMoversAdapter
     }
 
     private fun createPostsData() {
         val posts = viewModel.getPosts()
         val postsAdapter = PostsAdapter(posts.value!!)
-        val linearLayoutManager= object: LinearLayoutManager(context) {
+        val linearLayoutManager = object : LinearLayoutManager(context) {
             override fun canScrollVertically(): Boolean {
                 return false
             }

@@ -15,6 +15,8 @@ class NotificationAdapter(list: List<Notification>) :
 
     var list: List<Notification> = list
 
+    constructor() : this(ArrayList())
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         var view = LayoutInflater.from(parent.context)
             .inflate(R.layout.recycler_notification, parent, false)

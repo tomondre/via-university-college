@@ -1,5 +1,6 @@
 package com.example.eroto.activities
 
+import android.app.Notification
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
@@ -15,6 +16,8 @@ class Notifications : AppCompatActivity() {
     private lateinit var notificationRecyclerView: RecyclerView
     private lateinit var backButton: ImageView
 
+    private var notificationAdapter: NotificationAdapter = NotificationAdapter()
+
     private lateinit var viewModel: NotificationViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +28,11 @@ class Notifications : AppCompatActivity() {
 
         notificationRecyclerView = findViewById(R.id.notification_recycler_view)
         backButton = findViewById(R.id.notifications_back_button)
+
+        viewModel.getNotifications().observe(this) {
+            loadNotificationData(it)
+        }
+
         backButton.setOnClickListener {
             finish()
             overridePendingTransition(R.anim.no_animation, R.anim.to_right_animation)
@@ -33,9 +41,11 @@ class Notifications : AppCompatActivity() {
         createNotificationRecyclerView()
     }
 
+    private fun loadNotificationData(list: List<com.example.eroto.models.Notification>) {
+        notificationAdapter.list = list
+    }
+
     private fun createNotificationRecyclerView() {
-        val notifications = viewModel.getNotifications()
-        val notificationAdapter = NotificationAdapter(notifications.list)
         notificationRecyclerView.layoutManager = LinearLayoutManager(applicationContext)
         notificationRecyclerView.adapter = notificationAdapter
     }

@@ -37,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun openSignUpActivity() {
-        var intent = Intent(this, DepositActivity::class.java)
+        var intent = Intent(this, SignupActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
         overridePendingTransition(R.anim.no_animation, R.anim.no_animation)

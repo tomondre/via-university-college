@@ -17,6 +17,8 @@ protected:
 	void TearDown() override
 	{
 	}
+
+
 };
 
 
@@ -25,12 +27,11 @@ protected:
 
 
 //------------------CREATE------------------
-
 TEST_F(LinkedListTest, CanBeCreated)
 {
 	linkedList_t list = NULL;
 	list = linkedList_create();
-	ASSERT_TRUE(list != NULL);
+	ASSERT_NE(nullptr, list);
 }
 
 
@@ -262,8 +263,25 @@ TEST_F(LinkedListTest, PeekIndexOne)
 	ASSERT_TRUE(peek == 2);
 }
 
+TEST_F(LinkedListTest, PeekLastIndex)
+{
+	//Arrange
+	int item_1 = 1;
+	int item_2 = 2;
+	int item_3 = 3;
 
+	linkedList_push(linkedList, &item_1);
+	linkedList_push(linkedList, &item_2);
+	linkedList_push(linkedList, &item_3);
 
+	int index = 2;
+
+	//Act
+	int peek = *(int*)linkedList_peekItemByIndex(linkedList, index);
+
+	//Assert
+	ASSERT_TRUE(peek == 1);
+}
 
 //------------------LENGTH------------------
 TEST_F(LinkedListTest, LengthIsOneWhenSingleElementPushed)
@@ -305,6 +323,17 @@ TEST_F(LinkedListTest, LengthZeroWhenCreated)
 	ASSERT_TRUE(length == 0);
 }
 
+TEST_F(LinkedListTest, LengthZeroAfterPullEmptyList)
+{
+	//Assert
+	linkedList_pull(linkedList);
+
+	//ACT
+	int length = linkedList_length(linkedList);
+
+	//ASSERT
+	ASSERT_TRUE(length == 0);
+}
 
 //------------------CLEAR------------------
 

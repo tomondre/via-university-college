@@ -48,7 +48,10 @@ void* linkedList_pull(linkedList_t self)
 
 	node_t root = self->root;
 	self->root = node_getNext(root);
-	return node_getItem(root);
+	//root = NULL;
+	void* itemResult = node_getItem(root);
+	node_destroy(root);
+	return itemResult;
 }
 
 list_code_t linkedList_containsItem(linkedList_t self, void* item)

@@ -11,8 +11,8 @@ import java.util.List;
 
 public class Scripto {
     public static void main(String[] args) throws Exception {
-        String position = "Software Development Internship";
-        String companyName = "Karzo";
+        String position = "Software Engineering Intern position";
+        String companyName = "Nexthink";
 
         LocalDate now = LocalDate.now();
         int day = now.getDayOfMonth();

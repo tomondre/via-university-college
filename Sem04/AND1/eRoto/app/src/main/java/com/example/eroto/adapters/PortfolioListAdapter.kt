@@ -45,6 +45,10 @@ class PortfolioListAdapter(items: List<PortfolioItem>, var listener: PortfolioIt
             )
         }
 
+        holder.itemView.setOnClickListener {
+            listener.onCellClickListener(item)
+        }
+
         Glide.with(holder.itemView.context).load(item.stock.img).into(holder.image)
     }
 
@@ -60,10 +64,5 @@ class PortfolioListAdapter(items: List<PortfolioItem>, var listener: PortfolioIt
         var value: TextView = itemView.findViewById(R.id.value)
         var plValue: TextView = itemView.findViewById(R.id.p_l_value)
         var plPercent: TextView = itemView.findViewById(R.id.p_l_percent)
-
-        init {
-            if (bindingAdapterPosition >= 0)
-                listener.onCellClickListener(portfolioList[bindingAdapterPosition])
-        }
     }
 }

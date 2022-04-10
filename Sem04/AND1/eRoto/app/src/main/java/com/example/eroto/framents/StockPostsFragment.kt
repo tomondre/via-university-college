@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eroto.R
@@ -12,23 +13,11 @@ import com.example.eroto.adapters.PostsAdapter
 import com.example.eroto.viewModel.stock.StockViewModel
 import com.example.eroto.viewModel.stock.StockViewModelImpl
 
-//private const val ARG_PARAM1 = "param1"
-//private const val ARG_PARAM2 = "param2"
-
 class StockPostsFragment : Fragment() {
-//    private var param1: String? = null
-//    private var param2: String? = null
-
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        arguments?.let {
-//            param1 = it.getString(ARG_PARAM1)
-//            param2 = it.getString(ARG_PARAM2)
-//        }
-//    }
 
     private lateinit var postRecyclerView: RecyclerView
     private lateinit var viewModel: StockViewModel
+    private lateinit var postsAdapter: PostsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,26 +30,17 @@ class StockPostsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         postRecyclerView = view.findViewById(R.id.stock_posts_recycler_view)
-        viewModel = StockViewModelImpl()
-
+        viewModel = ViewModelProvider(this).get(StockViewModelImpl::class.java)
+        viewModel.getStockPosts("").observe(viewLifecycleOwner){
+            postsAdapter.list = it
+        }
         loadPosts()
     }
 
     private fun loadPosts() {
         val stockPosts = viewModel.getStockPosts("")
-        val adapter = PostsAdapter(stockPosts.list)
+        postsAdapter = PostsAdapter(stockPosts.value!!)
         postRecyclerView.layoutManager = LinearLayoutManager(context)
-        postRecyclerView.adapter = adapter
+        postRecyclerView.adapter = postsAdapter
     }
-
-    //    companion object {
-//        @JvmStatic
-//        fun newInstance(param1: String, param2: String) =
-//            StockPostsFragment().apply {
-//                arguments = Bundle().apply {
-//                    putString(ARG_PARAM1, param1)
-//                    putString(ARG_PARAM2, param2)
-//                }
-//            }
-//    }
 }

@@ -1,11 +1,9 @@
-package com.example.eroto.viewModel.stock
+package com.example.eroto.repository.post
 
 import androidx.lifecycle.LiveData
 import com.example.eroto.models.Post
 import com.example.eroto.models.PostList
-import com.example.eroto.models.Stock
 
-interface StockViewModel {
-    fun getStockByTicker(ticker: String): Stock
+interface PostRepository {
     fun getStockPosts(ticker: String): LiveData<List<Post>>
 }

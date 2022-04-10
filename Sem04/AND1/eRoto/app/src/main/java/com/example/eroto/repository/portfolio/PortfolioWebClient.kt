@@ -10,12 +10,12 @@ object PortfolioWebClient: PortfolioRepository{
 
     override fun getPortfolio(): LiveData<List<PortfolioItem>> {
         var portfolio = MutableLiveData<List<PortfolioItem>>(ArrayList<PortfolioItem>())
-        object: CountDownTimer(2000, 1000) {
-            override fun onTick(millisUntilFinished: Long) {}
-            override fun onFinish() {
+//        object: CountDownTimer(2000, 1000) {
+//            override fun onTick(millisUntilFinished: Long) {}
+//            override fun onFinish() {
                 portfolio.value = Helper.getPortfolioStocks()
-            }
-        }.start()
+//            }
+//        }.start()
         return portfolio
     }
 }

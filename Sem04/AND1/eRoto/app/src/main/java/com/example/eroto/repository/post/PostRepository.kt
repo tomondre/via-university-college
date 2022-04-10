@@ -6,4 +6,5 @@ import com.example.eroto.models.PostList
 
 interface PostRepository {
     fun getStockPosts(ticker: String): LiveData<List<Post>>
+    fun getMainPosts(): LiveData<List<Post>>
 }

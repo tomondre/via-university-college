@@ -50,37 +50,20 @@ class MainFragment : Fragment() {
         portfolioValueTextView = view.findViewById(R.id.portfolio_value)
         portfolioDiffTextView = view.findViewById(R.id.day_profit_loss)
 
-        createPortfolioData()
+        viewModel.getPortfolioOverview().observe(viewLifecycleOwner) {
+            loadPortfolioChartData(it.graphData)
+            loadPortfolioData(it.currency, it.value, it.plValue, it.plPercent)
+
+        }
+
+//        loadPortfolioData()
         createBigMovers()
         createPortfolioView()
         createMarketView()
         createPostsData()
     }
 
-    private fun createPortfolioData() {
-        val portfolioData = viewModel.getPortfolioData()
-        portfolioDiffTextView.text = portfolioData
-
-        val portfolioValue = viewModel.getPortfolioValue()
-        portfolioValueTextView.text = portfolioValue
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_main_screen, container, false)
-    }
-
-    private fun createPortfolioView() {
-        lineChart.xAxis.isEnabled = false
-        lineChart.axisLeft.isEnabled = false
-        lineChart.axisRight.isEnabled = false
-
-        lineChart.legend.isEnabled = false
-        lineChart.description.isEnabled = false
-        lineChart.setScaleEnabled(false)
-
-        var values = viewModel.getPortfolioGraphData()
+    private fun loadPortfolioChartData(values: List<Entry>) {
         val lineDataSet = LineDataSet(values, "")
 
         lineDataSet.setDrawFilled(true)
@@ -101,6 +84,32 @@ class MainFragment : Fragment() {
 
         val lineData = LineData(lineDataSet)
         lineChart.data = lineData
+    }
+
+    private fun loadPortfolioData(
+        currency: String,
+        value: Double,
+        plValue: Double,
+        plPercent: Double
+    ) {
+        portfolioDiffTextView.text = "▲${currency}${plValue} (${plPercent}%)"
+        portfolioValueTextView.text = "${currency}${value}"
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_main_screen, container, false)
+    }
+
+    private fun createPortfolioView() {
+        lineChart.xAxis.isEnabled = false
+        lineChart.axisLeft.isEnabled = false
+        lineChart.axisRight.isEnabled = false
+
+        lineChart.legend.isEnabled = false
+        lineChart.description.isEnabled = false
+        lineChart.setScaleEnabled(false)
     }
 
 
@@ -151,7 +160,7 @@ class MainFragment : Fragment() {
 
     private fun createPostsData() {
         val posts = viewModel.getPosts()
-        val postsAdapter = PostsAdapter(posts.list)
+        val postsAdapter = PostsAdapter(posts.value!!)
         val linearLayoutManager= object: LinearLayoutManager(context) {
             override fun canScrollVertically(): Boolean {
                 return false

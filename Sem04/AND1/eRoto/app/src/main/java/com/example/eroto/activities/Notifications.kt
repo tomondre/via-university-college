@@ -1,12 +1,12 @@
-package com.example.eroto
+package com.example.eroto.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.ImageView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.eroto.R
 import com.example.eroto.adapters.NotificationAdapter
 import com.example.eroto.viewModel.notification.NotificationViewModel
 import com.example.eroto.viewModel.notification.NotificationViewModelImpl

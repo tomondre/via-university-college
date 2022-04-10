@@ -7,20 +7,14 @@ import androidx.lifecycle.ViewModel
 import com.example.eroto.helpers.Helper
 import com.example.eroto.models.PortfolioItem
 import com.example.eroto.models.PortfolioItemList
+import com.example.eroto.repository.portfolio.PortfolioRepository
+import com.example.eroto.repository.portfolio.PortfolioWebClient
 
 class PortfolioViewModelImpl : ViewModel(), PortfolioViewModel {
-    private var portfolio: MutableLiveData<List<PortfolioItem>> = MutableLiveData(ArrayList())
 
-    init {
-        object: CountDownTimer(2000, 1000) {
-            override fun onTick(millisUntilFinished: Long) {}
-            override fun onFinish() {
-                portfolio.value = Helper.getPortfolioStocks()
-            }
-        }.start()
-    }
+    private var portfolioRepository: PortfolioRepository = PortfolioWebClient
 
     override fun getPortfolio(): LiveData<List<PortfolioItem>> {
-        return portfolio
+        return portfolioRepository.getPortfolio()
     }
 }

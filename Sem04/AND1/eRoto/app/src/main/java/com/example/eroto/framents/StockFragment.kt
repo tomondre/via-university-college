@@ -13,7 +13,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.example.eroto.PlaceOrderStock
+import com.example.eroto.activities.PlaceOrderStock
 import com.example.eroto.R
 import com.example.eroto.viewModel.stock.StockViewModel
 import com.example.eroto.viewModel.stock.StockViewModelImpl

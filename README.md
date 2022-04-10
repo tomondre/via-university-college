@@ -14,7 +14,7 @@ eRoto file itself is a project, therefore this file needs to be opened in order 
 6. As an Investor, I want to be able to see details of selected stock, so that I can research it.~
 7. As an Investor, I want to be able to buy a stock, so that I can spend my hard-earned money.
 10. As an Investor, I want to be able to see my bought stocks in my portfolio, so that I can keep track of owned stocks.~
-11. As an Investor, I want to be able to log out, so that noone can use my account.
+11. As an Investor, I want to be able to log out, so that no one can use my account.
 12. As an Investor, I want to be able to see my current portfolio value with today's performance, so that I have an brief overview of the portfolio.~
 13. As an Investor, I want to be able to see a graph of my portfolio value, so that I can see how is it doing over a period of time.~
 14. As an Investor, I want to be able to see what are the stocks are rising in price fast, so that I can FOMO buy it.~

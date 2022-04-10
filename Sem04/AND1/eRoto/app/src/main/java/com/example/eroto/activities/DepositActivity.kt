@@ -1,4 +1,4 @@
-package com.example.eroto
+package com.example.eroto.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,8 +7,8 @@ import android.widget.*
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.eroto.R
 import com.example.eroto.adapters.CreditCardAdapter
-import com.example.eroto.models.CreditCard
 import com.example.eroto.viewModel.deposit.DepositViewModel
 import com.example.eroto.viewModel.deposit.DepositViewModelImpl
 

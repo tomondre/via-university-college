@@ -1,6 +1,5 @@
-package com.example.eroto
+package com.example.eroto.activities
 
-import android.app.Notification
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
@@ -8,11 +7,11 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.example.eroto.R
 import com.example.eroto.framents.DiscoverFragment
 import com.example.eroto.framents.MainFragment
 import com.example.eroto.framents.PortfolioFragment
 import com.example.eroto.framents.WatchlistFragment
-import com.example.eroto.helpers.BottomNavigationViewHelper
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 

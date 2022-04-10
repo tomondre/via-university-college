@@ -1,9 +1,10 @@
-package com.example.eroto
+package com.example.eroto.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import com.example.eroto.R
 
 class PlaceOrderStock : AppCompatActivity() {
     private lateinit var exitButton: ImageView

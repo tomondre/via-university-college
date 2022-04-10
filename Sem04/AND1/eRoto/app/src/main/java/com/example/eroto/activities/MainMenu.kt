@@ -1,13 +1,12 @@
-package com.example.eroto
+package com.example.eroto.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import com.example.eroto.R
 import com.example.eroto.helpers.Helper
-import com.google.android.material.internal.NavigationMenu
-import com.google.android.material.navigation.NavigationBarMenu
 import com.google.android.material.navigation.NavigationView
 
 class MainMenu : AppCompatActivity() {

@@ -11,22 +11,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ERoto">
         <activity
-            android:name=".DepositActivity"
+            android:name=".activities.DepositActivity"
             android:exported="false" />
         <activity
-            android:name=".Notifications"
+            android:name=".activities.Notifications"
             android:exported="false" />
         <activity
-            android:name=".MainMenu"
+            android:name=".activities.MainMenu"
             android:noHistory="true"
             android:exported="false" />
         <activity
-            android:name=".PlaceOrderStock"
+            android:name=".activities.PlaceOrderStock"
             android:exported="false"
             android:label="@string/title_activity_place_order_stock"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>

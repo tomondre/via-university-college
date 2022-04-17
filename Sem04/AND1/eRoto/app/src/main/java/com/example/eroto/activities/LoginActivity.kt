@@ -60,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
         try {
             userViewModel.performLogin(loginUser).observe(this) {
                 var intent = Intent(this, MainActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(intent)
                 overridePendingTransition(R.anim.no_animation, R.anim.no_animation)
             }

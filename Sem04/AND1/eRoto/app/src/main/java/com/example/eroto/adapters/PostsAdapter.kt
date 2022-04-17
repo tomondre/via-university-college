@@ -22,13 +22,13 @@ class PostsAdapter(list: List<Post>) : RecyclerView.Adapter<PostsAdapter.ViewHol
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = list[position]
 
-        holder.userName.text = item.user.name
-        holder.userCountry.text = item.user.country
+        holder.userName.text = item.postUser.name
+        holder.userCountry.text = item.postUser.country
         holder.time.text = item.time
         holder.text.text = item.text
         holder.likes.text = item.likes.toString()
         holder.comments.text = item.comments.toString()
-        Glide.with(holder.itemView.context).load(item.user.image).into(holder.userImage)
+        Glide.with(holder.itemView.context).load(item.postUser.image).into(holder.userImage)
     }
 
     override fun getItemCount(): Int {

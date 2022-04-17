@@ -3,8 +3,7 @@ package com.example.eroto.repository.post
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.eroto.models.Post
-import com.example.eroto.models.PostList
-import com.example.eroto.models.User
+import com.example.eroto.models.PostUser
 
 object PostWebClient: PostRepository {
     override fun getStockPosts(ticker: String): LiveData<List<Post>> {
@@ -14,7 +13,7 @@ object PostWebClient: PostRepository {
         for (i in 0..5) {
             list.add(
                 Post(
-                    User(
+                    PostUser(
                         "Sktbrd",
                         "Denmark",
                         "https://static.remove.bg/remove-bg-web/59c96072ccf69a79c0e6dd85a2eac05ceb4d0784/assets/start_remove-c851bdf8d3127a24e2d137a55b1b427378cd17385b01aec6e59d5d4b5f39d2ec.png"
@@ -36,7 +35,7 @@ object PostWebClient: PostRepository {
         for (i in 0..5) {
             list.add(
                 Post(
-                    User(
+                    PostUser(
                         "Sktbrd",
                         "Denmark",
                         "https://static.remove.bg/remove-bg-web/59c96072ccf69a79c0e6dd85a2eac05ceb4d0784/assets/start_remove-c851bdf8d3127a24e2d137a55b1b427378cd17385b01aec6e59d5d4b5f39d2ec.png"

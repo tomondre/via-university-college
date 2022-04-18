@@ -8,8 +8,8 @@ import com.example.eroto.models.User
 import java.lang.Exception
 import java.util.*
 
-object UserWebClient : UserRepository {
-    override fun performLogin(loginUser: LoginUser): LiveData<User> {
+object UserWebClient {
+    fun performLogin(loginUser: LoginUser): LiveData<User> {
 
         var data = MutableLiveData<User>()
 
@@ -23,7 +23,7 @@ object UserWebClient : UserRepository {
         return data
     }
 
-    override fun createUser(user: User): LiveData<User> {
+    fun createUser(user: User): LiveData<User> {
         return MutableLiveData(User("Tomasito", "Halabala", "halabala"))
     }
 }

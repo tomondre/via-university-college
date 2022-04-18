@@ -6,9 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import com.example.eroto.helpers.Helper
 import com.example.eroto.models.PortfolioItem
 
-object PortfolioWebClient: PortfolioRepository{
+object PortfolioWebClient{
 
-    override fun getPortfolio(): LiveData<List<PortfolioItem>> {
+    fun getPortfolio(): LiveData<List<PortfolioItem>> {
         var portfolio = MutableLiveData<List<PortfolioItem>>(ArrayList<PortfolioItem>())
 //        object: CountDownTimer(2000, 1000) {
 //            override fun onTick(millisUntilFinished: Long) {}

@@ -6,8 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import com.example.eroto.models.CreditCard
 import com.example.eroto.models.CreditCardList
 
-object CreditCardWebClient: CreditCardRepository {
-    override fun getSavedCreditCards(): LiveData<List<CreditCard>> {
+object CreditCardWebClient {
+    fun getSavedCreditCards(): LiveData<List<CreditCard>> {
         var list = MutableLiveData<List<CreditCard>>(ArrayList<CreditCard>())
 //        object: CountDownTimer(2000, 1000) {
 //            override fun onTick(millisUntilFinished: Long) {}

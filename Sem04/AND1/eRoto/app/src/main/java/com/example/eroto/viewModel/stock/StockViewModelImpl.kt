@@ -2,15 +2,14 @@ package com.example.eroto.viewModel.stock
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.eroto.helpers.Helper
 import com.example.eroto.models.*
-import com.example.eroto.repository.post.PostWebClient
-import com.example.eroto.repository.stock.StockWebClient
+import com.example.eroto.repository.post.PostRepositoryImpl
+import com.example.eroto.repository.stock.StockRepositoryImpl
 
 class StockViewModelImpl : ViewModel(), StockViewModel {
 
-    private var postRepository = PostWebClient
-    private var stockRepository = StockWebClient
+    private var postRepository = PostRepositoryImpl()
+    private var stockRepository = StockRepositoryImpl()
 
     override fun getStockByTicker(ticker: String): Stock  {
        return stockRepository.getStockByTicker(ticker)

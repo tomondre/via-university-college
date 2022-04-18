@@ -6,8 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import com.example.eroto.models.CreditCard
 import com.example.eroto.models.MarketData
 
-object MarketWebClient : MarketRepository {
-    override fun getMarketsData(): LiveData<List<MarketData>> {
+object MarketWebClient {
+        fun getMarketsData(): LiveData<List<MarketData>> {
         var marketData = MutableLiveData<List<MarketData>>(ArrayList())
 //        object : CountDownTimer(2000, 1000) {
 //            override fun onTick(millisUntilFinished: Long) {}

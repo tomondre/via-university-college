@@ -2,13 +2,11 @@ package com.example.eroto.repository.portfolioOverview
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.eroto.models.PortfolioItem
 import com.example.eroto.models.PortfolioOverview
-import com.example.eroto.repository.portfolio.PortfolioRepository
 import com.github.mikephil.charting.data.Entry
 
-object PortfolioOverviewWebClient : PortfolioOverviewRepository {
-    override fun getPortfolioOverview(): LiveData<PortfolioOverview> {
+object PortfolioOverviewWebClient {
+    fun getPortfolioOverview(): LiveData<PortfolioOverview> {
         var values = ArrayList<Entry>()
         values.add(Entry(10f, 10f))
         values.add(Entry(15f, 18f))

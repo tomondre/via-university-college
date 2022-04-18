@@ -1,18 +1,13 @@
 package com.example.eroto.viewModel.portfolio
 
-import android.os.CountDownTimer
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.eroto.helpers.Helper
 import com.example.eroto.models.PortfolioItem
-import com.example.eroto.models.PortfolioItemList
-import com.example.eroto.repository.portfolio.PortfolioRepository
-import com.example.eroto.repository.portfolio.PortfolioWebClient
+import com.example.eroto.repository.portfolio.PortfolioRepositoryImpl
 
 class PortfolioViewModelImpl : ViewModel(), PortfolioViewModel {
 
-    private var portfolioRepository: PortfolioRepository = PortfolioWebClient
+    private var portfolioRepository = PortfolioRepositoryImpl()
 
     override fun getPortfolio(): LiveData<List<PortfolioItem>> {
         return portfolioRepository.getPortfolio()

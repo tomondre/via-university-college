@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.eroto.models.Notification
 
-object NotificationWebClient : NotificationRepository {
-    override fun getNotifications(): LiveData<List<Notification>> {
+object NotificationWebClient {
+    fun getNotifications(): LiveData<List<Notification>> {
         var list: ArrayList<Notification> = ArrayList()
 
         for (i in 0..5)

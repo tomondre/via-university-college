@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import com.example.eroto.models.BigMover
 import com.example.eroto.models.BigMoverList
 
-object BigMoverWebClient : BigMoverRepository {
-    override fun getBigMoverGraphData(): LiveData<List<BigMover>> {
+object BigMoverWebClient {
+    fun getBigMoverGraphData(): LiveData<List<BigMover>> {
         var entries = ArrayList<BigMover>()
         entries.add(BigMover("AYX", "https://etoro-cdn.etorostatic.com/market-avatars/7991/150x150.png", 11.78f))
         entries.add(BigMover("CRSR", "https://etoro-cdn.etorostatic.com/market-avatars/btc/70x70.png", 9.66f))

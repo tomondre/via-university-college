@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import com.example.eroto.models.Post
 import com.example.eroto.models.PostUser
 
-object PostWebClient: PostRepository {
-    override fun getStockPosts(ticker: String): LiveData<List<Post>> {
+object PostWebClient {
+    fun getStockPosts(ticker: String): LiveData<List<Post>> {
         var posts = MutableLiveData<List<Post>>(ArrayList())
         var list = ArrayList<Post>()
 
@@ -30,7 +30,7 @@ object PostWebClient: PostRepository {
         return posts
     }
 
-    override fun getMainPosts(): LiveData<List<Post>> {
+    fun getMainPosts(): LiveData<List<Post>> {
         var list = ArrayList<Post>()
         for (i in 0..5) {
             list.add(

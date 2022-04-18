@@ -4,12 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.eroto.models.LoginUser
 import com.example.eroto.models.User
-import com.example.eroto.repository.user.UserRepository
-import com.example.eroto.repository.user.UserWebClient
+import com.example.eroto.repository.user.UserRepositoryImpl
 
 class UserViewModelImpl: ViewModel(), UserViewModel {
 
-    private var userRepository: UserRepository = UserWebClient
+    private var userRepository = UserRepositoryImpl()
 
     override fun performLogin(loginUser: LoginUser): LiveData<User> {
         return userRepository.performLogin(loginUser)

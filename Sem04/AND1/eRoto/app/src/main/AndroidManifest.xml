@@ -29,7 +29,7 @@
             android:name=".activities.Notifications"
             android:exported="false" />
         <activity
-            android:name=".activities.MainMenu"
+            android:name=".activities.MainMenuActivity"
             android:exported="false"
             android:noHistory="true" />
         <activity

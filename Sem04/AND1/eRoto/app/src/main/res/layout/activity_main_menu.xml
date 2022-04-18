@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#363c52"
-    tools:context=".activities.MainMenu">
+    tools:context=".activities.MainMenuActivity">
 
     <Button
         android:id="@+id/deposit_funds_button"

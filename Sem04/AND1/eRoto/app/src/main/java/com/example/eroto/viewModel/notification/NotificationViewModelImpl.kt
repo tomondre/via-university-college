@@ -14,4 +14,8 @@ class NotificationViewModelImpl: ViewModel(), NotificationViewModel {
     override fun getNotifications(): LiveData<List<Notification>> {
         return notificationRepository.getNotifications()
     }
+
+    override fun setAllRead() {
+
+    }
 }

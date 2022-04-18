@@ -49,4 +49,8 @@ class Notifications : AppCompatActivity() {
         notificationRecyclerView.layoutManager = LinearLayoutManager(applicationContext)
         notificationRecyclerView.adapter = notificationAdapter
     }
+
+    private fun markAllAsRead() {
+        viewModel.setAllRead()
+    }
 }

@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.eroto.R
@@ -30,6 +31,19 @@ class NotificationAdapter(list: List<Notification>) :
         var id = if (item.isRead) View.INVISIBLE else View.VISIBLE
         holder.isRead.visibility = id
         Glide.with(holder.itemView.context).load(item.img).into(holder.img)
+
+        if (position % 2 == 1) {
+            holder.itemView.setBackgroundColor(
+                ContextCompat.getColor(
+                    holder.itemView.context,
+                    R.color.portfolio_list_even
+                )
+            )
+        }
+
+        holder.itemView.setOnClickListener {
+            holder.isRead.visibility = View.INVISIBLE
+        }
     }
 
     override fun getItemCount(): Int {

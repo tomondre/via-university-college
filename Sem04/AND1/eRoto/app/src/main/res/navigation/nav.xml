@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_discover" />
     <activity
         android:id="@+id/mainMenu"
-        android:name="com.example.eroto.activities.MainMenu"
+        android:name="com.example.eroto.activities.MainMenuActivity"
         android:label="activity_main_menu"
         tools:layout="@layout/activity_main_menu" />
     <fragment

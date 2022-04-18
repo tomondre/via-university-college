@@ -6,4 +6,5 @@ import com.example.eroto.models.NotificationList
 
 interface NotificationViewModel {
     fun getNotifications(): LiveData<List<Notification>>
+    fun setAllRead()
 }

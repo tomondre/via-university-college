@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         burgerButton = findViewById(R.id.burgir)
         burgerButton.setOnClickListener {
-            val intent = Intent(this, MainMenu::class.java)
+            val intent = Intent(this, MainMenuActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.from_left_animation, R.anim.no_animation)
         }

@@ -3,7 +3,7 @@ package com.example.eroto.repository.market
 import androidx.lifecycle.LiveData
 import com.example.eroto.models.MarketData
 
-class MarketRepositoryImpl {
+class MarketRepository {
 
     private var webClient = MarketWebClient
 

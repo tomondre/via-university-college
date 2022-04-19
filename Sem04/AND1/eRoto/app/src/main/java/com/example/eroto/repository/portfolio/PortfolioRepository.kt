@@ -3,7 +3,7 @@ package com.example.eroto.repository.portfolio
 import androidx.lifecycle.LiveData
 import com.example.eroto.models.PortfolioItem
 
-class PortfolioRepositoryImpl {
+class PortfolioRepository {
 
     private var webClient = PortfolioWebClient
 

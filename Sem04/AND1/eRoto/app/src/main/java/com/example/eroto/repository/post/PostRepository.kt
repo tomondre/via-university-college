@@ -3,7 +3,7 @@ package com.example.eroto.repository.post
 import androidx.lifecycle.LiveData
 import com.example.eroto.models.Post
 
-class PostRepositoryImpl {
+class PostRepository {
 
     private var webClient = PostWebClient
 

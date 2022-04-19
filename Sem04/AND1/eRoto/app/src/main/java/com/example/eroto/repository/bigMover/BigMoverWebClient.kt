@@ -6,6 +6,9 @@ import com.example.eroto.models.BigMover
 import com.example.eroto.models.BigMoverList
 
 object BigMoverWebClient {
+
+
+
     fun getBigMoverGraphData(): LiveData<List<BigMover>> {
         var entries = ArrayList<BigMover>()
         entries.add(BigMover("AYX", "https://etoro-cdn.etorostatic.com/market-avatars/7991/150x150.png", 11.78f))

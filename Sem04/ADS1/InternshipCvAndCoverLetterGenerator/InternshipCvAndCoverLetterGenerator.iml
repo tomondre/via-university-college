@@ -23,7 +23,6 @@
     <orderEntry type="library" name="Maven: org.apache.xmlbeans:xmlbeans:5.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-compress:1.21" level="project" />
     <orderEntry type="library" name="Maven: com.github.virtuald:curvesapi:1.07" level="project" />
-    <orderEntry type="library" name="Maven: e-iceblue:spire.doc.free:3.9.0" level="project" />
     <orderEntry type="library" name="Maven: fr.opensagres.xdocreport:org.apache.poi.xwpf.converter.pdf:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: fr.opensagres.xdocreport:org.apache.poi.xwpf.converter.core:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: org.apache.poi:ooxml-schemas:1.1" level="project" />

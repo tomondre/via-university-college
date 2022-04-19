@@ -2,7 +2,7 @@ package com.example.eroto.repository.stock
 
 import com.example.eroto.models.Stock
 
-class StockRepositoryImpl {
+class StockRepository {
 
     private var webClient = StockWebClient
 

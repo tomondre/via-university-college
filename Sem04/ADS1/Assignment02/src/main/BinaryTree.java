@@ -1,7 +1,9 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class BinaryTree<E> {
     private BinaryTreeNode<E> root;
+    private int size;
 
     public BinaryTree() {
         root = null;
@@ -77,13 +79,14 @@ public class BinaryTree<E> {
     }
 
     public ArrayList<E> levelOrder() {
-        int height = 4;
+        int height = height();
 
         ArrayList<E> result = new ArrayList<>();
 
         for (int i = 0; i < height; i++) {
             levelOrder(root, i, result);
         }
+
         return result;
     }
 

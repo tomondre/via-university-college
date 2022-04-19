@@ -66,7 +66,7 @@ public class BinaryTreeADT implements BinarySearchTreeADT {
 
     @Override
     public int removeMin() {
-        return ;
+        return 11;
     }
 
     @Override
@@ -83,7 +83,7 @@ public class BinaryTreeADT implements BinarySearchTreeADT {
 
     @Override
     public int findMin() {
-
+        return 1;
     }
 
     private Node nodeMin(Node node) {

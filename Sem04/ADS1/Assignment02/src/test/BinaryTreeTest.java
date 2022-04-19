@@ -72,11 +72,10 @@ class BinaryTreeTest {
     @Test
     void levelOrder() {
         //Arrange
-        ArrayList<String> result;
         ArrayList<String> correct = new ArrayList<>(Arrays.asList("A", "B", "C", "D", "E"));
 
         //Assert
-        result = tree.levelOrder();
+        var result = tree.levelOrder();
 
         //Act
         assertEquals(correct, result);

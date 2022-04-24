@@ -43,4 +43,105 @@ class BinarySearchTreeTest {
         //Assert
         assertEquals(1, min);
     }
+
+    @Test
+    void containsFalse() {
+        //Arrange
+        int toCompare = 25;
+
+        //Act
+        boolean contains = tree.contains(toCompare);
+
+        //Assert
+        assertFalse(contains);
+    }
+
+    @Test
+    void containsTrue() {
+        //Arrange
+        int toCompare = 10;
+
+        //Act
+        boolean contains = tree.contains(toCompare);
+
+        //Assert
+        assertTrue(contains);
+    }
+
+    @Test
+    void removeElementExisting() {
+        //Arrange
+        int toRemove = 10;
+        boolean beforeDeletion;
+        boolean afterDeletion;
+        boolean isRemoved;
+
+        //Act
+        beforeDeletion = tree.contains(toRemove);
+        isRemoved = tree.removeElement(toRemove);
+        afterDeletion = tree.contains(toRemove);
+
+        //Assert
+        assertTrue(beforeDeletion);
+        assertFalse(afterDeletion);
+        assertTrue(isRemoved);
+    }
+
+    @Test
+    void removeElementRoot() {
+        //Arrange
+        int toRemove = 5;
+        boolean beforeDeletion;
+        boolean afterDeletion;
+        boolean isRemoved;
+
+        //Act
+        beforeDeletion = tree.contains(toRemove);
+        isRemoved = tree.removeElement(toRemove);
+        afterDeletion = tree.contains(toRemove);
+
+        //Assert
+        assertTrue(beforeDeletion);
+        assertFalse(afterDeletion);
+        assertTrue(isRemoved);
+    }
+
+    @Test
+    void removeElementLeaf() {
+        //Arrange
+        int toRemove = 1;
+        boolean beforeDeletion;
+        boolean afterDeletion;
+
+        boolean isRemoved;
+
+        //Act
+        beforeDeletion = tree.contains(toRemove);
+        isRemoved = tree.removeElement(toRemove);
+        afterDeletion = tree.contains(toRemove);
+
+        //Assert
+        assertTrue(beforeDeletion);
+        assertFalse(afterDeletion);
+        assertTrue(isRemoved);
+    }
+
+    @Test
+    void removeElementNotExisting() {
+        //Arrange
+        int toRemove = 50;
+        boolean beforeDeletion;
+        boolean afterDeletion;
+        boolean isRemoved;
+
+        //Act
+        beforeDeletion = tree.contains(toRemove);
+        isRemoved = tree.removeElement(toRemove);
+        afterDeletion = tree.contains(toRemove);
+
+        //Assert
+        assertFalse(beforeDeletion);
+        assertFalse(afterDeletion);
+        assertFalse(isRemoved);
+    }
 }

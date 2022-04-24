@@ -92,6 +92,7 @@ public class BinaryTree<E> {
 
     private void levelOrder(BinaryTreeNode<E> node, int depth, ArrayList<E> result) {
         if (node == null) {
+            result.add(null);
             return;
         }
 

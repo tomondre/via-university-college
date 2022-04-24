@@ -3,7 +3,7 @@ package com.example.eroto.repository.bigMover
 import androidx.lifecycle.LiveData
 import com.example.eroto.models.BigMover
 
-class BigMoverRepository {
+object BigMoverRepository {
 
     private var webClient = BigMoverWebClient
 

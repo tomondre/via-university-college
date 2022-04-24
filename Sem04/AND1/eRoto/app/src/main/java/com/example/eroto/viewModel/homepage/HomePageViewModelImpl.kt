@@ -11,10 +11,10 @@ import com.example.eroto.repository.post.PostWebClient
 
 class HomePageViewModelImpl : ViewModel(), HomePageViewModel {
 
-    private var postRepository = PostRepository()
-    private var portfolioOverviewRepository = PortfolioOverviewRepository()
-    private var bigMoverRepository = BigMoverRepository()
-    private var marketRepository = MarketRepository()
+    private var postRepository = PostRepository
+    private var portfolioOverviewRepository = PortfolioOverviewRepository
+    private var bigMoverRepository = BigMoverRepository
+    private var marketRepository = MarketRepository
 
     override fun getPortfolioOverview(): LiveData<PortfolioOverview> {
         return portfolioOverviewRepository.getPortfolioOverview()

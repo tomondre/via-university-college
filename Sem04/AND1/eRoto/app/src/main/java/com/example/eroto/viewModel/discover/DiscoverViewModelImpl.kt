@@ -7,7 +7,7 @@ import com.example.eroto.repository.market.MarketRepository
 
 class DiscoverViewModelImpl : ViewModel(), DiscoverViewModel {
 
-    private var marketRepository = MarketRepository()
+    private var marketRepository = MarketRepository
 
     override fun getMarketsData(): LiveData<List<MarketData>> {
         return marketRepository.getMarketsData()

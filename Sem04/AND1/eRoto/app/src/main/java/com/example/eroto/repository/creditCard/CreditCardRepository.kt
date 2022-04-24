@@ -3,7 +3,7 @@ package com.example.eroto.repository.creditCard
 import androidx.lifecycle.LiveData
 import com.example.eroto.models.CreditCard
 
-class CreditCardRepository {
+object CreditCardRepository {
 
     private var webClient = CreditCardWebClient
 

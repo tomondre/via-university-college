@@ -3,7 +3,7 @@ package com.example.eroto.repository.notification
 import androidx.lifecycle.LiveData
 import com.example.eroto.models.Notification
 
-class NotificationRepository {
+object NotificationRepository {
 
     private var webClient = NotificationWebClient
 

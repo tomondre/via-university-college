@@ -8,8 +8,8 @@ import com.example.eroto.repository.stock.StockRepository
 
 class StockViewModelImpl : ViewModel(), StockViewModel {
 
-    private var postRepository = PostRepository()
-    private var stockRepository = StockRepository()
+    private var postRepository = PostRepository
+    private var stockRepository = StockRepository
 
     override fun getStockByTicker(ticker: String): Stock  {
        return stockRepository.getStockByTicker(ticker)

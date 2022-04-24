@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import com.example.eroto.models.LoginUser
 import com.example.eroto.models.User
 
-class UserRepository {
+object UserRepository {
 
     private var webClient = UserWebClient
 

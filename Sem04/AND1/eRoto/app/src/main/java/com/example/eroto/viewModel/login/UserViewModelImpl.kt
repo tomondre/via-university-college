@@ -8,7 +8,7 @@ import com.example.eroto.repository.user.UserRepository
 
 class UserViewModelImpl: ViewModel(), UserViewModel {
 
-    private var userRepository = UserRepository()
+    private var userRepository = UserRepository
 
     override fun performLogin(loginUser: LoginUser): LiveData<User> {
         return userRepository.performLogin(loginUser)

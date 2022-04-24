@@ -7,7 +7,7 @@ import com.example.eroto.repository.notification.NotificationRepository
 
 class NotificationViewModelImpl: ViewModel(), NotificationViewModel {
 
-    private var notificationRepository= NotificationRepository()
+    private var notificationRepository= NotificationRepository
 
     override fun getNotifications(): LiveData<List<Notification>> {
         return notificationRepository.getNotifications()

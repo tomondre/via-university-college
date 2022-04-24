@@ -23,7 +23,6 @@
         android:layout_marginTop="@dimen/deposit_activity_offset"
         android:background="@color/grey"
         android:editable="false"
-        android:inputType="textPersonName"
         android:paddingRight="0dp"
         android:text="100"
         android:textColorHint="@color/black"

@@ -19,6 +19,7 @@ class DepositActivity : AppCompatActivity() {
     private lateinit var creditCardRecycler: RecyclerView
     private lateinit var creditCardAdapter: CreditCardAdapter
     private lateinit var depositButton: Button
+    private lateinit var currentAmount: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,15 +30,21 @@ class DepositActivity : AppCompatActivity() {
         amountInput = findViewById(R.id.deposit_fragment_amount_edit_text)
         creditCardRecycler = findViewById(R.id.activity_deposit_recycler_credit_card)
         depositButton = findViewById(R.id.deposit_fragment_deposit_button)
+        currentAmount = findViewById(R.id.deposit_fragment_current_amount)
 
         depositButton.setOnClickListener(::depositHandler)
         exitButton.setOnClickListener {
             finish()
             overridePendingTransition(R.anim.no_animation, R.anim.no_animation)
         }
+
         viewModel.getSavedCreditCards().observe(this) {
             creditCardAdapter.list = it
         }
+        viewModel.getBalance().observe(this) {
+            currentAmount.setText(it.balance.toString())
+        }
+
         createCreditCardRecyclerView()
     }
 
@@ -50,6 +57,9 @@ class DepositActivity : AppCompatActivity() {
 
     private fun depositHandler(itemView: View) {
         val cc = creditCardAdapter.getSelectedCreditCard()
+
+        var amount = amountInput.text.toString().toDouble()
+        viewModel.addBalance(amount);
         Toast.makeText(
             this,
             "Depositing with credit card ending ${cc.numberEnding} and ${cc.expiration} and amount of ${amountInput.text}",

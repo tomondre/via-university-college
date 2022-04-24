@@ -7,9 +7,9 @@ import com.example.eroto.models.BigMoverList
 
 object BigMoverWebClient {
 
+    private final var bigMoverGraphData: MutableLiveData<List<BigMover>> = MutableLiveData<List<BigMover>>()
 
-
-    fun getBigMoverGraphData(): LiveData<List<BigMover>> {
+    init {
         var entries = ArrayList<BigMover>()
         entries.add(BigMover("AYX", "https://etoro-cdn.etorostatic.com/market-avatars/7991/150x150.png", 11.78f))
         entries.add(BigMover("CRSR", "https://etoro-cdn.etorostatic.com/market-avatars/btc/70x70.png", 9.66f))
@@ -17,6 +17,12 @@ object BigMoverWebClient {
         entries.add(BigMover("DOYU", "https://etoro-cdn.etorostatic.com/market-avatars/aapl/150x150.png", 2.01f))
         entries.add(BigMover("BNGO", "https://etoro-cdn.etorostatic.com/market-avatars/baba/150x150.png", 1.83f))
 
-        return MutableLiveData(entries)
+        bigMoverGraphData.value = entries
     }
+
+    fun getBigMoverGraphData(): LiveData<List<BigMover>> {
+        return bigMoverGraphData
+    }
+
+
 }

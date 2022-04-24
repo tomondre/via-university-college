@@ -6,6 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".activities.DepositActivity">
 
+    <TextView
+        android:id="@+id/textView8"
+        style="@style/deposit_text_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Current Amount"
+        app:layout_constraintStart_toStartOf="@+id/guideline21"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <EditText
+        android:id="@+id/deposit_fragment_current_amount"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="@dimen/deposit_activity_offset"
+        android:background="@color/grey"
+        android:editable="false"
+        android:inputType="textPersonName"
+        android:paddingRight="0dp"
+        android:text="100"
+        android:textColorHint="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline21"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline21"
         android:layout_width="wrap_content"
@@ -25,10 +50,10 @@
         style="@style/deposit_text_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:text="Amount"
+        android:layout_marginTop="25dp"
+        android:text="Amount To Deposit"
         app:layout_constraintStart_toStartOf="@+id/guideline21"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/deposit_fragment_current_amount" />
 
     <EditText
         android:id="@+id/deposit_fragment_amount_edit_text"
@@ -68,17 +93,6 @@
         app:layout_constraintStart_toEndOf="@+id/deposit_fragment_amount_edit_text"
         app:layout_constraintTop_toTopOf="@+id/deposit_fragment_amount_edit_text" />
 
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="@dimen/deposit_activity_offset"
-        android:elevation="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline22"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline21"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
     <TextView
         android:id="@+id/textView4"
         android:layout_width="0dp"
@@ -108,17 +122,9 @@
         style="@style/deposit_text_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/deposit_activity_offset"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="25dp"
         android:text="Select Card"
-        app:layout_constraintStart_toStartOf="@+id/guideline21"
-        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
-
-    <TextView
-        android:id="@+id/textView6"
-        style="@style/deposit_text_item"
-        android:layout_width="58dp"
-        android:layout_height="15dp"
-        android:text="Payment Method"
         app:layout_constraintStart_toStartOf="@+id/guideline21"
         app:layout_constraintTop_toBottomOf="@+id/deposit_fragment_amount_edit_text" />
 

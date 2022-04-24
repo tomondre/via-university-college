@@ -21,7 +21,7 @@ class CreditCardAdapter(list: List<CreditCard>) :
         notifyDataSetChanged()
     }
 
-    private var lastCheckedIndex = -1
+    private var lastCheckedIndex = 0
     private var lastCheckedBox: CheckBox? = null
 
     fun getSelectedCreditCard(): CreditCard {
@@ -41,7 +41,10 @@ class CreditCardAdapter(list: List<CreditCard>) :
         holder.numberEnding.text = item.numberEnding
         Glide.with(holder.itemView.context).load(item.img).into(holder.img)
 
-        holder.checkBox.isChecked = position == lastCheckedIndex
+        if (position == lastCheckedIndex) {
+            holder.checkBox.isChecked = true
+            lastCheckedBox = holder.checkBox
+        }
         holder.checkBox.setOnClickListener {
             lastCheckedBox?.isChecked = false
             lastCheckedBox = holder.checkBox

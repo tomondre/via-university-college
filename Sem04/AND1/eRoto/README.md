@@ -6,8 +6,8 @@ The name eRoto is just a 'parody name' to the original company eToro. (I know th
 eRoto file itself is a project, therefore this file needs to be opened in order to run the android app.
 
 ## Requirements
-1. As an Investor, I want to be able to create an account, so that I can be in the system.
-2. As an Investor, I want to be able to login to the app, so that I can start using the app.
+1. As an Investor, I want to be able to create an account, so that I can be in the system.~
+2. As an Investor, I want to be able to login to the app, so that I can start using the app.~
 3. As an Investor, I want to be able to deposit money, so that I can top-up my account.~
 4. As an Investor, I want to be able to see my current balance, so that I have an overview of it.
 5. As an Investor, I want to be able to see a list of stocks, so that I can choose one.~
@@ -29,3 +29,10 @@ eRoto file itself is a project, therefore this file needs to be opened in order 
 23. As an Investor, I want to be able to search through stocks by its ticker, so that I can find them faster.
 24. As an Investor, I want to be able to edit my account details, so that I can keep it up to date.
 25. As an Investor, I want to be able to withdraw money, so that I can loose them on other platform.
+
+<!-- TODO -->
+1. When and where should we fetch the data for web client?
+   1. WebClient constructor - it will be fetched once when the singleton object is created.
+        - This may be a problem because the data won't be up to date after each view is created or openned
+   2. Call method loadData in activity after we set observe to livedata.
+        - This way the data will be always updated but when the views are being created for the first time, the call will be called several times (due to more activities starting at the same time)

@@ -25,26 +25,36 @@ class MainMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
 
+        Helper.disableNavigationViewScrollbars(navigation)
+
+        bindViews()
+        createObservers()
+        createListeners()
+    }
+
+    private fun bindViews() {
         navigation = findViewById(R.id.main_menu_navigation)
         exitButton = findViewById(R.id.main_menu_exit_button)
         depositButton = findViewById(R.id.deposit_funds_button)
+    }
 
-        Helper.disableNavigationViewScrollbars(navigation)
+    private fun createObservers() {
+    }
 
+    private fun createListeners() {
         navigation.setNavigationItemSelectedListener(::navigationHandler)
-
         depositButton.setOnClickListener {
             var intent = Intent(this, DepositActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
             overridePendingTransition(R.anim.no_animation, R.anim.no_animation)
         }
-
         exitButton.setOnClickListener {
             finish()
             overridePendingTransition(R.anim.no_animation, R.anim.to_left_animation)
         }
     }
+
 
     private fun navigationHandler(menuItem: MenuItem): Boolean {
         var activity = when (menuItem.itemId) {

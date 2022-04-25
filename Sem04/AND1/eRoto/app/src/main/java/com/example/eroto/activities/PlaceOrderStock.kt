@@ -13,7 +13,20 @@ class PlaceOrderStock : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_place_order_stock)
 
+        bindViews()
+        createObservers()
+        createListeners()
+    }
+
+    private fun bindViews() {
         exitButton = findViewById(R.id.exit_trade)
+
+    }
+
+    private fun createObservers() {
+    }
+
+    private fun createListeners() {
         exitButton.setOnClickListener(::exitActivityHandler)
     }
 

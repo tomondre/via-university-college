@@ -26,19 +26,29 @@ class Notifications : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(NotificationViewModelImpl::class.java)
 
+
+        bindViews()
+        createObservers()
+        createListeners()
+        createNotificationRecyclerView()
+    }
+
+    private fun bindViews() {
         notificationRecyclerView = findViewById(R.id.notification_recycler_view)
         backButton = findViewById(R.id.notifications_back_button)
+    }
 
+    private fun createObservers() {
         viewModel.getNotifications().observe(this) {
             loadNotificationData(it)
         }
+    }
 
+    private fun createListeners() {
         backButton.setOnClickListener {
             finish()
             overridePendingTransition(R.anim.no_animation, R.anim.to_right_animation)
         }
-
-        createNotificationRecyclerView()
     }
 
     private fun loadNotificationData(list: List<com.example.eroto.models.Notification>) {

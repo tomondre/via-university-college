@@ -25,28 +25,39 @@ class DepositActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_deposit)
 
+        createCreditCardRecyclerView()
+
+        bindViews()
+        createListeners()
+        createObservers()
+    }
+
+    private fun bindViews() {
         viewModel = ViewModelProvider(this).get(DepositViewModelImpl::class.java)
         exitButton = findViewById(R.id.deposit_exit_button)
         amountInput = findViewById(R.id.deposit_fragment_amount_edit_text)
         creditCardRecycler = findViewById(R.id.activity_deposit_recycler_credit_card)
         depositButton = findViewById(R.id.deposit_fragment_deposit_button)
         currentAmount = findViewById(R.id.deposit_fragment_current_amount)
+    }
 
+    private fun createListeners() {
         depositButton.setOnClickListener(::depositHandler)
         exitButton.setOnClickListener {
             finish()
             overridePendingTransition(R.anim.no_animation, R.anim.no_animation)
         }
+    }
 
+    private fun createObservers() {
         viewModel.getSavedCreditCards().observe(this) {
             creditCardAdapter.list = it
         }
         viewModel.getBalance().observe(this) {
             currentAmount.setText(it.balance.toString())
         }
-
-        createCreditCardRecyclerView()
     }
+
 
     private fun createCreditCardRecyclerView() {
         val savedCreditCards = viewModel.getSavedCreditCards()

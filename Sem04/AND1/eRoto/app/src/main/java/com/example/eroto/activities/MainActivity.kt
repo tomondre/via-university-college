@@ -25,23 +25,35 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_screen)
 
+        bindViews()
+        createObservers()
+        createListeners()
+    }
+
+    private fun bindViews() {
         burgerButton = findViewById(R.id.burgir)
+        notificationButton = findViewById(R.id.main_screen_notification_button)
+        bottomNavigation = findViewById(R.id.bottom_navigation)
+    }
+
+    private fun createObservers() {
+
+    }
+
+    private fun createListeners() {
         burgerButton.setOnClickListener {
             val intent = Intent(this, MainMenuActivity::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.from_left_animation, R.anim.no_animation)
         }
-
-        notificationButton = findViewById(R.id.main_screen_notification_button)
         notificationButton.setOnClickListener {
             val intent = Intent(this, Notifications::class.java)
             startActivity(intent)
             overridePendingTransition(R.anim.from_right_animation, R.anim.no_animation)
         }
-
-        bottomNavigation = findViewById(R.id.bottom_navigation)
         bottomNavigation.setOnItemSelectedListener(::navigationListener)
     }
+
 
     private fun navigationListener(menuItem: MenuItem): Boolean {
         var fragment: Fragment = when (menuItem.itemId) {

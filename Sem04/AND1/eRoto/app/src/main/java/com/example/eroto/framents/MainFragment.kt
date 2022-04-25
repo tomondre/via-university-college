@@ -44,6 +44,19 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this).get(HomePageViewModelImpl::class.java)
+
+        bindViews(view)
+        createObservers()
+        createListeners()
+
+        createBigMovers()
+        createBigMoverSection()
+        createPortfolioView()
+        createMarketView()
+        createPostsData()
+    }
+
+    private fun bindViews(view: View) {
         bigMoverChart = view.findViewById(R.id.bigMoversChart)
         lineChart = view.findViewById(R.id.lineChart)
 
@@ -53,7 +66,9 @@ class MainFragment : Fragment() {
 
         portfolioValueTextView = view.findViewById(R.id.portfolio_value)
         portfolioDiffTextView = view.findViewById(R.id.day_profit_loss)
+    }
 
+    private fun createObservers() {
         viewModel.getPortfolioOverview().observe(viewLifecycleOwner) {
             loadPortfolioChartData(it.graphData)
             loadPortfolioData(it.currency, it.value, it.plValue, it.plPercent)
@@ -66,12 +81,10 @@ class MainFragment : Fragment() {
         viewModel.getMarketsData().observe(viewLifecycleOwner) {
             marketAdapter.marketList = it
         }
+    }
 
-        createBigMovers()
-        createBigMoverSection()
-        createPortfolioView()
-        createMarketView()
-        createPostsData()
+    private fun createListeners() {
+
     }
 
     private fun loadPortfolioChartData(values: List<Entry>) {

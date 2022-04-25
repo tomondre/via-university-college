@@ -32,11 +32,23 @@ class StockFragment : Fragment() {
     private lateinit var stockMarketOpening: TextView
     private lateinit var plText: TextView
     private lateinit var tradeButton: Button
+    private lateinit var navigation: BottomNavigationView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this).get(StockViewModelImpl::class.java)
+
+        replaceFragment(StockPostsFragment())
+
+        bindViews(view)
+        createObservers()
+        createListeners()
+
+        createStockData()
+    }
+
+    private fun bindViews(view: View) {
         stockImg = view.findViewById(R.id.stock_img)
         stockTicker = view.findViewById(R.id.stock_ticker)
         stockName = view.findViewById(R.id.stock_name)
@@ -45,18 +57,19 @@ class StockFragment : Fragment() {
         stockMarketStatus = view.findViewById(R.id.stock_market_status)
         plText = view.findViewById(R.id.p_l_text)
         tradeButton = view.findViewById(R.id.trade_button)
+        navigation = view.findViewById(R.id.stock_navigation)
+    }
 
+    private fun createObservers() {
+
+    }
+
+    private fun createListeners() {
         tradeButton.setOnClickListener {
             val intent = Intent(activity, PlaceOrderStock::class.java)
             activity?.startActivity(intent)
         }
-
-        replaceFragment(StockPostsFragment())
-
-        val navigation = view.findViewById<BottomNavigationView>(R.id.stock_navigation)
         navigation.setOnItemSelectedListener(::navigationHandler)
-
-        createStockData()
     }
 
     private fun navigationHandler(menuItem: MenuItem): Boolean {

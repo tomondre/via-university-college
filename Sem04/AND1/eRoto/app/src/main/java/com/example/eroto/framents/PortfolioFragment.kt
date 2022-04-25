@@ -31,12 +31,25 @@ class PortfolioFragment : Fragment(), PortfolioItemStockListener {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this).get(PortfolioViewModelImpl::class.java)
 
+        bindViews(view)
+        createObservers()
+        createListeners()
+        loadPortfolioData()
+    }
+
+    private fun bindViews(view: View) {
+        portfolioRecycler = view.findViewById(R.id.portolio_list_recycler)
+
+    }
+
+    private fun createObservers() {
         viewModel.getPortfolio().observe(viewLifecycleOwner) {
             portfolioListAdapter.portfolioList = it
         }
+    }
 
-        portfolioRecycler = view.findViewById(R.id.portolio_list_recycler)
-        loadPortfolioData()
+    private fun createListeners() {
+
     }
 
     private fun loadPortfolioData() {

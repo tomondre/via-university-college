@@ -29,12 +29,28 @@ class StockPostsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        postRecyclerView = view.findViewById(R.id.stock_posts_recycler_view)
         viewModel = ViewModelProvider(this).get(StockViewModelImpl::class.java)
-        viewModel.getStockPosts("").observe(viewLifecycleOwner){
+
+        bindViews(view)
+        createObservers()
+        createListeners()
+
+        loadPosts()
+    }
+
+    private fun createListeners() {
+
+    }
+
+    private fun createObservers() {
+        viewModel.getStockPosts("").observe(viewLifecycleOwner) {
             postsAdapter.list = it
         }
-        loadPosts()
+    }
+
+    private fun bindViews(view: View) {
+        postRecyclerView = view.findViewById(R.id.stock_posts_recycler_view)
+
     }
 
     private fun loadPosts() {

@@ -29,12 +29,25 @@ class DiscoverFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        marketRecycler = view.findViewById(R.id.discover_recycler_view)
         viewModel = ViewModelProvider(this).get(DiscoverViewModelImpl::class.java)
 
-        viewModel.getMarketsData().observe(viewLifecycleOwner) {adapter.marketList = it}
-
+        bindViews(view)
+        createObservers()
+        createListeners()
         createRecyclerView()
+    }
+
+    private fun bindViews(view: View) {
+        marketRecycler = view.findViewById(R.id.discover_recycler_view)
+
+    }
+
+    private fun createListeners() {
+
+    }
+
+    private fun createObservers() {
+        viewModel.getMarketsData().observe(viewLifecycleOwner) {adapter.marketList = it}
     }
 
     private fun createRecyclerView() {

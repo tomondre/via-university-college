@@ -1,29 +1,47 @@
 package com.example.eroto.repository.user
 
-import android.os.CountDownTimer
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.eroto.models.LoginUser
 import com.example.eroto.models.User
-import java.lang.Exception
-import java.util.*
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 
 object UserWebClient {
-    fun performLogin(loginUser: LoginUser): LiveData<User> {
 
-        var data = MutableLiveData<User>()
+    private var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
-        object : CountDownTimer(2000, 1000) {
-            override fun onTick(millisUntilFinished: Long) {}
-            override fun onFinish() {
-//                throw Exception("Wrong login matafaka")
-                data.value = User("Tomasito", "Halabala", "halabala")
+    var loggedInUser = MutableLiveData<FirebaseUser>(mAuth.currentUser)
+        private set
+
+    var loginResponse = MutableLiveData<Task<AuthResult>>()
+        private set
+
+    var signUpResponse = MutableLiveData<Task<AuthResult>>()
+        private set
+
+
+    fun performLogin(loginUser: LoginUser) {
+        mAuth.signInWithEmailAndPassword(loginUser.email, loginUser.password)
+            .addOnCompleteListener {
+                loginResponse.value = it
             }
-        }.start()
-        return data
     }
 
-    fun createUser(user: User): LiveData<User> {
-        return MutableLiveData(User("Tomasito", "Halabala", "halabala"))
+    fun createUser(user: User) {
+        mAuth.createUserWithEmailAndPassword(user.email, user.password).addOnCompleteListener {
+            if (it.isSuccessful) {
+                loggedInUser.value = it.result.user
+                val userChangeRequest =
+                    UserProfileChangeRequest.Builder().setDisplayName(user.userName).build()
+                loggedInUser.value?.updateProfile(userChangeRequest)
+            }
+
+            signUpResponse.value = it
+        }
     }
 }

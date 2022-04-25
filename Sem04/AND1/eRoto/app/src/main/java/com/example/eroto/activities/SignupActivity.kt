@@ -8,14 +8,14 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.eroto.R
-import com.example.eroto.models.LoginUser
 import com.example.eroto.models.User
-import com.example.eroto.viewModel.login.UserViewModel
-import com.example.eroto.viewModel.login.UserViewModelImpl
+import com.example.eroto.viewModel.user.UserViewModel
+import com.example.eroto.viewModel.user.UserViewModelImpl
+import com.google.firebase.auth.FirebaseAuth
 
 class SignupActivity : AppCompatActivity() {
 
-    private lateinit var userViewModel: UserViewModel
+    private lateinit var viewModel: UserViewModel
 
     private lateinit var userNameEditText: EditText
     private lateinit var emailEditText: EditText
@@ -28,15 +28,23 @@ class SignupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
-        userViewModel = ViewModelProvider(this).get(UserViewModelImpl::class.java)
+        viewModel = ViewModelProvider(this).get(UserViewModelImpl::class.java)
 
+        bindViews()
+        createListeners()
+        createObservers()
+    }
+
+    private fun bindViews() {
         userNameEditText = findViewById(R.id.signupUsernameEditText)
         emailEditText = findViewById(R.id.signupEmailEditText)
         passwordEditText = findViewById(R.id.signupPasswordEditText)
         signUpButton = findViewById(R.id.signupCreateAccountButton)
         signInTextView = findViewById(R.id.signInEditText)
         errorMessage = findViewById(R.id.signupErrorMessage)
+    }
 
+    private fun createListeners() {
         signInTextView.setOnClickListener {
             finish()
         }
@@ -46,16 +54,23 @@ class SignupActivity : AppCompatActivity() {
         }
     }
 
+    private fun createObservers() {
+        viewModel.getSignUpResponse().observe(this) {
+            if (it.isSuccessful) {
+                openMainActivity()
+            } else {
+                errorMessage.text = it.exception?.message
+            }
+        }
+    }
+
     private fun performSignUp() {
         val userName = userNameEditText.text.toString()
         val email = emailEditText.text.toString()
-        val pass = passwordEditText.text.toString()
+        val password = passwordEditText.text.toString()
 
         try {
-            userViewModel.createUser(User(userName, email, pass)).observe(this) {
-                userViewModel.performLogin(LoginUser(it.email, it.password))
-                    .observe(this) { openMainActivity() }
-            }
+            viewModel.createUser(User(userName, email, password))
         } catch (e: Exception) {
             errorMessage.text = e.message
         }

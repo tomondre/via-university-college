@@ -5,11 +5,13 @@
       <module fileurl="file://$PROJECT_DIR$/ADS1.iml" filepath="$PROJECT_DIR$/ADS1.iml" />
       <module fileurl="file://$PROJECT_DIR$/Assignment01/Assignment01.iml" filepath="$PROJECT_DIR$/Assignment01/Assignment01.iml" />
       <module fileurl="file://$PROJECT_DIR$/Assignment02/Assignment02.iml" filepath="$PROJECT_DIR$/Assignment02/Assignment02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CernCodeInterview/CernCodeInterview.iml" filepath="$PROJECT_DIR$/CernCodeInterview/CernCodeInterview.iml" />
       <module fileurl="file://$PROJECT_DIR$/InternshipCvAndCoverLetterGenerator/InternshipCvAndCoverLetterGenerator.iml" filepath="$PROJECT_DIR$/InternshipCvAndCoverLetterGenerator/InternshipCvAndCoverLetterGenerator.iml" />
       <module fileurl="file://$PROJECT_DIR$/LeetCode/LeetCode.iml" filepath="$PROJECT_DIR$/LeetCode/LeetCode.iml" />
       <module fileurl="file://$PROJECT_DIR$/S01/S01.iml" filepath="$PROJECT_DIR$/S01/S01.iml" />
       <module fileurl="file://$PROJECT_DIR$/S02/S02.iml" filepath="$PROJECT_DIR$/S02/S02.iml" />
       <module fileurl="file://$PROJECT_DIR$/S03/S03.iml" filepath="$PROJECT_DIR$/S03/S03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TikTokCodeInterview/TikTokCodeInterview.iml" filepath="$PROJECT_DIR$/TikTokCodeInterview/TikTokCodeInterview.iml" />
     </modules>
   </component>
 </project>

@@ -18,4 +18,8 @@ object PortfolioWebClient{
 //        }.start()
         return portfolio
     }
+
+    fun addStockToPortfolio(item: PortfolioItem) {
+
+    }
 }

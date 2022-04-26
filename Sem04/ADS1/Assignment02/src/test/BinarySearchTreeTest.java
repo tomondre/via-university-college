@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class BinarySearchTreeTest {
     private BinarySearchTree<Integer> tree;
+    private BinarySearchTree<Integer> unbalancedTree;
 
     @BeforeEach
     public void setUp() {
@@ -18,6 +19,14 @@ class BinarySearchTreeTest {
         tree.insert(8);
         tree.insert(11);
         tree.insert(1);
+
+        unbalancedTree = new BinarySearchTree<>();
+        unbalancedTree.insert(1);
+        unbalancedTree.insert(2);
+        unbalancedTree.insert(3);
+        unbalancedTree.insert(4);
+        unbalancedTree.insert(5);
+        unbalancedTree.insert(6);
     }
 
     @Test
@@ -143,5 +152,24 @@ class BinarySearchTreeTest {
         assertFalse(beforeDeletion);
         assertFalse(afterDeletion);
         assertFalse(isRemoved);
+    }
+
+    @Test
+    void rebalance() {
+        //Arrange
+        int beforeBalanceHeight;
+        int afterBalanceHeight;
+
+        //Act
+        beforeBalanceHeight = unbalancedTree.height();
+        unbalancedTree.rebalance();
+        afterBalanceHeight = unbalancedTree.height();
+
+        //Assert
+        int valueToCheck = (beforeBalanceHeight / 2) - afterBalanceHeight;
+
+
+        assertTrue(valueToCheck <= 1);
+        assertTrue(valueToCheck >= -1);
     }
 }

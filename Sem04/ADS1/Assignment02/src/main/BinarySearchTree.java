@@ -109,4 +109,31 @@ public class BinarySearchTree<E extends Comparable<E>> extends BinaryTree<E> {
                 return true;
         }
     }
+
+    public void rebalance() {
+        BinaryTreeNode<E> root = getRoot();
+        if (root == null) {
+            return;
+        }
+
+        int leftChildHeight = height(root.getLeftChild());
+        int rightChildHeight = height(root.getRightChild());
+
+        int diff = rightChildHeight - leftChildHeight;
+
+        if (diff > 1){
+            BinaryTreeNode<E> rightChild = root.getRightChild();
+            root.setRightChild(null);
+            rightChild.setLeftChild(root);
+            setRoot(rightChild);
+        } else if(diff < -1) {
+            BinaryTreeNode<E> leftChild = root.getLeftChild();
+            root.setLeftChild(null);
+            leftChild.setRightChild(root);
+            setRoot(leftChild);
+        } else {
+            return;
+        }
+        rebalance();
+    }
 }

@@ -109,7 +109,7 @@ public class BinaryTree<E> {
         return height(root);
     }
 
-    private int height(BinaryTreeNode<E> node) {
+    protected int height(BinaryTreeNode<E> node) {
         if (node == null) {
             return 0;
         }

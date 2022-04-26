@@ -2,9 +2,11 @@ package sudoku;
 
 public class Sudoku {
     private GridItem[][] grid;
+    private final int size = 9;
+    private final int groupSize = size / 3;
 
     public Sudoku() {
-        grid = new GridItem[9][9];
+        grid = new GridItem[size][size];
     }
 
     public Sudoku(GridItem[][] grid) {
@@ -12,47 +14,52 @@ public class Sudoku {
     }
 
     public Sudoku(String str) {
-        grid = new GridItem[9][9];
-        for (int i = 0; i < 81; i++) {
-            int row = i / 9;
-            int column = i % 9;
+        grid = new GridItem[size][size];
+        for (int i = 0; i < size * size; i++) {
+            int row = i / size;
+            int column = i % size;
             int numericValue = Character.getNumericValue(str.charAt(i));
             grid[row][column] = new GridItem(numericValue, numericValue != -1);
         }
     }
 
     public String toString() {
-        String result = "";
-        for (int r = 0; r < 9; r++) {
-            if (r % 3 == 0) {
-                result += "━━━━━━━━━" + "\n";
+        StringBuilder result = new StringBuilder();
+        String divideLineHorizontal = "━".repeat((size * 3) + groupSize + 1) + "\n";
+
+        for (int r = 0; r < size; r++) {
+            if (r % groupSize == 0) {
+                result.append(divideLineHorizontal);
             }
-            for (int c = 0; c < 9; c++) {
-                if (c % 3 == 0) {
-                    result += "┃";
+            for (int c = 0; c < size; c++) {
+                if (c % groupSize == 0) {
+                    result.append("┃");
                 }
                 int val = grid[r][c].getValue();
                 if (val == -1) {
-                    result += "-";
+                    result.append(" - ");
                 } else {
-                    result += val;
+                    result.append(" ").append(val).append(" ");
                 }
             }
-            result += "\n";
+            result.append("┃");
+            result.append("\n");
         }
-        return result;
+        result.append(divideLineHorizontal);
+
+        return result.toString();
     }
 
     public void solve(int curRow, int curCol) {
 
         //Condition when the maze is solved
-        if (curRow == 8 && curCol == 8) {
+        if (curRow == size - 1 && curCol == size - 1) {
             System.out.println(this);
             return;
         }
 
         //Check if we are outside of columns and correcting the values to start of next row
-        if (curCol > 8) {
+        if (curCol >= size) {
             curCol = 0;
             ++curRow;
         }
@@ -66,7 +73,7 @@ public class Sudoku {
         }
 
         //Going through possible values
-        for (int i = 1; i < 10; i++) {
+        for (int i = 1; i <= size; i++) {
             if (checkAllRules(i, curRow, curCol)) {
                 gridItem.setValue(i);
                 solve(curRow, curCol + 1);
@@ -80,28 +87,28 @@ public class Sudoku {
     }
 
     public boolean followsGroupRule(int num, int row, int column) {
-        int groupStartCol;
-        int groupStartRow;
+        int groupStartCol = 0;
+        int groupStartRow = 0;
 
-        if (row < 3) {
-            groupStartRow = 0;
-        } else if (row > 5) {
-            groupStartRow = 6;
-        } else {
-            groupStartRow = 3;
+        //Setup index of first row of the group
+        for (int i = 0; i <= size; i = i + 3) {
+            if (row < i + groupSize) {
+                groupStartRow = i;
+                break;
+            }
         }
 
-        if (column < 3) {
-            groupStartCol = 0;
-        } else if (column > 5) {
-            groupStartCol = 6;
-        } else {
-            groupStartCol = 3;
+        //Setup index of first column of the group
+        for (int i = 0; i <= size; i = i + 3) {
+            if (column < i + groupSize) {
+                groupStartCol = i;
+                break;
+            }
         }
 
-        for (int r = 0; r < 3; r++) {
+        for (int r = 0; r < groupSize; r++) {
             int currentRow = groupStartRow + r;
-            for (int c = 0; c < 3; c++) {
+            for (int c = 0; c < groupSize; c++) {
                 int currentColumn = groupStartCol + c;
                 if (grid[currentRow][currentColumn].getValue() == num) {
                     return false;
@@ -113,7 +120,7 @@ public class Sudoku {
     }
 
     public boolean followsRowRule(int num, int row) {
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < size; i++) {
             if (num == grid[row][i].getValue()) {
                 return false;
             }
@@ -122,7 +129,7 @@ public class Sudoku {
     }
 
     public boolean followsColumnRule(int num, int column) {
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < size; i++) {
             if (grid[i][column].getValue() == num) {
                 return false;
             }
@@ -134,35 +141,15 @@ public class Sudoku {
     public static void main(String[] args) {
         String grid =
                 "53--7----" + //Row 1
-                        "6--195---" + //Row 2
-                        "-98----6-" + //Row 3
-                        "8---6---3" + //Row 4
-                        "4--8-3--1" + //Row 5
-                        "7---2---6" + //Row 6
-                        "-6----28-" + //Row 7
-                        "---419--5" + //Row 8
-                        "----8--79";  //Row 9
-//        String grid =
-//                "---------" + //Row 1
-//                "---------" + //Row 2
-//                "---------" + //Row 3
-//                "---------" + //Row 4
-//                "---------" + //Row 5
-//                "---------" + //Row 6
-//                "---------" + //Row 7
-//                "---------" + //Row 8
-//                "---------";  //Row 9
+                "6--195---" + //Row 2
+                "-98----6-" + //Row 3
+                "8---6---3" + //Row 4
+                "4--8-3--1" + //Row 5
+                "7---2---6" + //Row 6
+                "-6----28-" + //Row 7
+                "---419--5" + //Row 8
+                "----8--79";  //Row 9
 
-
-        Sudoku sudoku = new Sudoku(grid);
-
-        String s = sudoku.toString();
-
-        boolean b = false;
-//        b = sudoku.followsGroupRule(1, 2, 4);
-//        b = sudoku.followsRowRule(6, 8);
-//        b = sudoku.followsColumnRule(6, 0);
-
-        sudoku.solve(0, 0);
+        new Sudoku(grid).solve(0, 0);
     }
 }

@@ -2,43 +2,58 @@ package com.example.eroto.activities
 
 import android.app.Activity
 import android.content.Intent
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.eroto.R
 import com.example.eroto.framents.StockChartFragment
 import com.example.eroto.framents.StockDetailsFragment
 import com.example.eroto.framents.StockPostsFragment
 import com.example.eroto.framents.StockResearchFragment
 import com.example.eroto.helpers.Helper
+import com.example.eroto.viewModel.mainMenu.MainMenuViewModel
+import com.example.eroto.viewModel.mainMenu.MainMenuViewModelImpl
 import com.google.android.material.navigation.NavigationView
+import org.w3c.dom.Text
 
 class MainMenuActivity : AppCompatActivity() {
     private lateinit var navigation: NavigationView
     private lateinit var exitButton: ImageView
     private lateinit var depositButton: Button
+    private lateinit var viewModel: MainMenuViewModel
+    private lateinit var userImage: ImageView
+    private lateinit var userName: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
 
-        Helper.disableNavigationViewScrollbars(navigation)
+        viewModel = ViewModelProvider(this).get(MainMenuViewModelImpl::class.java)
 
         bindViews()
         createObservers()
         createListeners()
+        Helper.disableNavigationViewScrollbars(navigation)
     }
 
     private fun bindViews() {
+        userName = findViewById(R.id.logged_user_name)
+        userImage = findViewById(R.id.logged_in_image)
         navigation = findViewById(R.id.main_menu_navigation)
         exitButton = findViewById(R.id.main_menu_exit_button)
         depositButton = findViewById(R.id.deposit_funds_button)
     }
 
     private fun createObservers() {
+        viewModel.getLoggedInUser().observe(this) {
+            userName.text = it.displayName
+        }
     }
 
     private fun createListeners() {

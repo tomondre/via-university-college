@@ -12,6 +12,7 @@ import com.example.eroto.models.User
 import com.example.eroto.viewModel.user.UserViewModel
 import com.example.eroto.viewModel.user.UserViewModelImpl
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class SignupActivity : AppCompatActivity() {
 

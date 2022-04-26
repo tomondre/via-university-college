@@ -15,7 +15,7 @@ object UserWebClient {
 
     private var mAuth: FirebaseAuth = FirebaseAuth.getInstance()
 
-    var loggedInUser = MutableLiveData<FirebaseUser>(mAuth.currentUser)
+    var loggedInUser = MutableLiveData(mAuth.currentUser?.let { it })
         private set
 
     var loginResponse = MutableLiveData<Task<AuthResult>>()

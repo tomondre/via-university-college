@@ -123,5 +123,3 @@ DECLARE @NewLoadDate AS int = CONVERT(char(8), GETDATE(), 112)
 INSERT INTO [etl].[LogUpdate] ([Table],[LastLoadDate]) VALUES ('Dim_Customer', @NewLoadDate)
 INSERT INTO [etl].[LogUpdate] ([Table],[LastLoadDate]) VALUES ('Dim_Employee', @NewLoadDate)
 INSERT INTO [etl].[LogUpdate] ([Table],[LastLoadDate]) VALUES ('Dim_Product', @NewLoadDate)
-
-

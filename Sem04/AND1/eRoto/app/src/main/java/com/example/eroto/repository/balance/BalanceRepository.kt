@@ -7,11 +7,7 @@ object BalanceRepository {
     private var balanceWebClient: BalanceWebClient = BalanceWebClient
 
     fun getBalance(): LiveData<Balance> {
-        return balanceWebClient.getBalance();
-    }
-
-    fun loadBalance() {
-        balanceWebClient.loadBalance()
+        return balanceWebClient.balance;
     }
 
     fun addBalance(amount: Double) {

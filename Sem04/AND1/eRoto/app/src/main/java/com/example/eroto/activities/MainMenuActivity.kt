@@ -53,6 +53,7 @@ class MainMenuActivity : AppCompatActivity() {
     private fun createObservers() {
         viewModel.getLoggedInUser().observe(this) {
             userName.text = it.displayName
+
         }
     }
 

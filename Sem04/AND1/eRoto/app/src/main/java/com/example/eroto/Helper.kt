@@ -1,5 +1,8 @@
 package com.example.eroto
 
+import com.example.eroto.repository.user.UserRepository
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import java.util.regex.Pattern
 
 class Helper {
@@ -24,7 +27,13 @@ class Helper {
             ) {
                 throw Exception("Password should include: One lower case letter, One upper case letter, a number and be of length between 6 and 20.")
             }
+        }
 
+        fun getLoggedInUserReference(): DatabaseReference {
+            val value = UserRepository.getLoggedInUser().value
+            return FirebaseDatabase.getInstance("https://and-eroto-default-rtdb.europe-west1.firebasedatabase.app/").reference.child(
+                "users"
+            ).child(value!!.uid)
         }
     }
 }

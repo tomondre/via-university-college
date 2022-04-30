@@ -3,26 +3,28 @@ package com.example.eroto.repository.balance
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.eroto.models.Balance
+import com.example.eroto.models.BalanceLiveData
+import com.example.eroto.repository.user.UserRepository
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 object BalanceWebClient {
-    private var balance = MutableLiveData<Balance>()
+    var balance: BalanceLiveData
+        private set
+    private var myRef: DatabaseReference
 
     init {
-        loadBalance()
+        val uid = UserRepository.getLoggedInUser().value?.uid
+        myRef = FirebaseDatabase.getInstance("https://and-eroto-default-rtdb.europe-west1.firebasedatabase.app/").reference.child("users").child(uid.toString())
+            .child("balance")
+        balance = BalanceLiveData(myRef)
     }
 
-    fun getBalance(): LiveData<Balance> {
-        return balance;
-    }
-
-    fun loadBalance() {
-        balance.value = Balance(200.0);
-    }
 
     fun addBalance(amount: Double) {
-        if (balance.value != null)
-        {
-            balance.value = Balance(balance.value!!.balance + amount)
-        }
+        myRef.setValue(balance.value?.let { it.balance + amount})
+        //        if (balance.value != null) {
+//            balance.value = Balance(balance.value!!.balance + amount)
+//        }
     }
 }

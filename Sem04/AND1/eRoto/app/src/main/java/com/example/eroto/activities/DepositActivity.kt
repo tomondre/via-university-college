@@ -23,6 +23,8 @@ class DepositActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        viewModel = ViewModelProvider(this).get(DepositViewModelImpl::class.java)
         setContentView(R.layout.activity_deposit)
 
         createCreditCardRecyclerView()
@@ -33,7 +35,6 @@ class DepositActivity : AppCompatActivity() {
     }
 
     private fun bindViews() {
-        viewModel = ViewModelProvider(this).get(DepositViewModelImpl::class.java)
         exitButton = findViewById(R.id.deposit_exit_button)
         amountInput = findViewById(R.id.deposit_fragment_amount_edit_text)
         creditCardRecycler = findViewById(R.id.activity_deposit_recycler_credit_card)

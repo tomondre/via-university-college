@@ -1,0 +1,19 @@
+﻿@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager
+<AuthorizeView>
+    <Authorized>
+        <p>Logged in as: @context.User.Identity?.Name</p>
+        <a href="" @onclick="@EditUser"> Edit </a>
+    </Authorized>
+</AuthorizeView>
+
+@code {
+
+    private async void EditUser()
+    {
+        var state = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var loggedInUserId = state.User.Claims.First(input => input.Type == "Id").Value;
+        NavigationManager.NavigateTo("/EditAdult/" + loggedInUserId);
+    }
+
+}

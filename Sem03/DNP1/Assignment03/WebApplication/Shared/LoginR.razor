@@ -1,0 +1,41 @@
+﻿@using Radzen
+@using FileData
+
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager
+
+<AuthorizeView>
+    <NotAuthorized Context="NotAuth" >
+        <RadzenCard>
+            <RadzenTemplateForm Data=@("LoginWithRegister")>
+                <RadzenLogin AllowResetPassword="false"
+                             Login=@(args => OnLogin(args, "Login with register"))
+                             Register=@(args => OnRegister("Login with register")) Style="margin-bottom: 20px;"/>
+            </RadzenTemplateForm>
+        </RadzenCard>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+
+    async Task OnLogin(LoginArgs args, string name)
+    {
+        try
+        {
+            await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(args.Username, args.Password);
+            NavigationManager.NavigateTo("/");
+        }
+        catch (Exception e)
+        {
+        }
+    }
+
+    void OnRegister(string name)
+    {
+    }
+
+    void OnResetPassword(string value, string name)
+    {
+    }
+
+}

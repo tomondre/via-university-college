@@ -1,0 +1,15 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+
+<AuthorizeView Roles="Administrator">
+<h2>Hello Administrator</h2>
+</AuthorizeView>
+
+
+<AuthorizeView Roles="Marketing">
+<h2>Hello Marketing department</h2>
+</AuthorizeView>
+
+@code {
+}

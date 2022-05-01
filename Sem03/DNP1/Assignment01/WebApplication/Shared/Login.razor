@@ -1,0 +1,57 @@
+﻿@page "/login"
+@using FileData
+@namespace LoginComponent
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+@inject NavigationManager NavigationManager
+<AuthorizeView>
+    <NotAuthorized>
+        <div class="form-group">
+            <label>User name:</label> <input type="text" placeholder="user name" @bind-value="username"/>
+        </div>
+        <div class="form-group">
+            <label>Password</label> <input type="password" placeholder="password" @bind-value="password"/>
+        </div>
+        <div style="color:red">@errorMessage</div> <a href="" @onclick="PerformLogin"> Login </a>
+    </NotAuthorized>
+    <Authorized>
+        <a href="" @onclick="PerformLogout"> Log out </a>
+    </Authorized>
+</AuthorizeView>
+
+@code {
+    private string username;
+    private string password;
+    private string errorMessage;
+
+    public async Task PerformLogin()
+    {
+        errorMessage = "";
+        try
+        {
+            ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(username, password);
+            username = "";
+            password = "";
+            NavigationManager.NavigateTo("/");
+        }
+        catch (Exception e)
+        {
+            errorMessage = e.Message;
+        }
+    }
+
+    public async Task PerformLogout()
+    {
+        errorMessage = "";
+        username = "";
+        password = "";
+        try
+        {
+            ((CustomAuthenticationStateProvider) AuthenticationStateProvider).Logout();
+            NavigationManager.NavigateTo("/");
+        }
+        catch (Exception e)
+        {
+        }
+    }
+}

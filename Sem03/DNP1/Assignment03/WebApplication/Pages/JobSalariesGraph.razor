@@ -1,0 +1,46 @@
+﻿@page "/JobSalariesStats"
+
+@using Person
+@using Plotly.Blazor.LayoutLib
+@using FileData
+@using Plotly.Blazor.Traces
+@inject IAdultApiService _adultApiService;
+
+<PlotlyChart Id="TestId" Config="config" Layout="layout" Data="data" @ref="chart"/>
+
+@code {
+    IList<Adult> Adults;
+    PlotlyChart chart;
+
+    Config config = new Config
+    {
+        Responsive = true
+    };
+
+    Layout layout = new Layout
+    {
+        Title = new Title
+        {
+            Text = "Job Titles Salaries"
+        },
+        BarMode = BarModeEnum.Stack,
+        Height = 500
+    };
+
+    List<ITrace> data = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Adults = await _adultApiService.GetAllAdultsAsync();
+        foreach (var adult in Adults)
+        {
+            data.Add(new Bar()
+            {
+                X = new List<object>() {adult.JobTitle.JobTitle},
+                Y = new List<object>() {adult.JobTitle.Salary},
+                Name = adult.JobTitle.JobTitle
+            });
+        }
+    }
+ 
+}

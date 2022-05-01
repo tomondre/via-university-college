@@ -8,13 +8,13 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.eroto.PortfolioItemStockListener
+import com.example.eroto.helpers.PortfolioItemClickedListener
 import com.example.eroto.R
 import com.example.eroto.adapters.PortfolioListAdapter
 import com.example.eroto.models.PortfolioItem
 import com.example.eroto.viewModel.portfolio.PortfolioViewModelImpl
 
-class PortfolioFragment : Fragment(), PortfolioItemStockListener {
+class PortfolioFragment : Fragment(), PortfolioItemClickedListener {
 
     private lateinit var viewModel: PortfolioViewModelImpl
     private lateinit var portfolioListAdapter: PortfolioListAdapter

@@ -1,7 +1,7 @@
-package com.example.eroto
+package com.example.eroto.helpers
 
 import com.example.eroto.models.PortfolioItem
 
-interface PortfolioItemStockListener {
+interface PortfolioItemClickedListener {
     fun onCellClickListener(item: PortfolioItem)
 }

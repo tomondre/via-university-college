@@ -8,12 +8,12 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.eroto.PortfolioItemStockListener
+import com.example.eroto.helpers.PortfolioItemClickedListener
 import com.example.eroto.R
 import com.example.eroto.models.PortfolioItem
 
 
-class PortfolioListAdapter(items: List<PortfolioItem>, var listener: PortfolioItemStockListener) :
+class PortfolioListAdapter(items: List<PortfolioItem>, var listener: PortfolioItemClickedListener) :
     RecyclerView.Adapter<PortfolioListAdapter.ViewHolder>() {
 
     var portfolioList: List<PortfolioItem> = items

@@ -1,12 +1,16 @@
 package com.example.eroto
 
 import com.example.eroto.repository.user.UserRepository
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import java.security.AuthProvider
 import java.util.regex.Pattern
 
 class Helper {
     companion object {
+        var URL = "https://and-eroto-default-rtdb.europe-west1.firebasedatabase.app/"
+
         fun validateEmailAndPassword(email: String, password: String) {
             if (email == "") {
                 throw Exception("Email is mandatory!")
@@ -29,11 +33,21 @@ class Helper {
             }
         }
 
-        fun getLoggedInUserReference(): DatabaseReference {
-            val value = UserRepository.getLoggedInUser().value
-            return FirebaseDatabase.getInstance("https://and-eroto-default-rtdb.europe-west1.firebasedatabase.app/").reference.child(
-                "users"
-            ).child(value!!.uid)
+        fun getLoggedInUserDatabaseReference(): DatabaseReference {
+            val uid = FirebaseAuth.getInstance().currentUser?.uid
+            return getUsersDatabaseReference().child(uid!!)
+        }
+
+        fun getUsersDatabaseReference(): DatabaseReference {
+            return FirebaseDatabase.getInstance(URL).reference.child("users")
+        }
+
+        fun getMarketDatabaseReference(): DatabaseReference {
+            return FirebaseDatabase.getInstance(URL).reference.child("markets")
+        }
+
+        fun getStocksDatabaseReference(): DatabaseReference {
+            return FirebaseDatabase.getInstance(URL).reference.child("stocks")
         }
     }
 }

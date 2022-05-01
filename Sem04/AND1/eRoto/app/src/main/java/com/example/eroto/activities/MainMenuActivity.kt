@@ -1,26 +1,18 @@
 package com.example.eroto.activities
 
-import android.app.Activity
 import android.content.Intent
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.eroto.R
-import com.example.eroto.framents.StockChartFragment
-import com.example.eroto.framents.StockDetailsFragment
-import com.example.eroto.framents.StockPostsFragment
-import com.example.eroto.framents.StockResearchFragment
 import com.example.eroto.helpers.Helper
 import com.example.eroto.viewModel.mainMenu.MainMenuViewModel
 import com.example.eroto.viewModel.mainMenu.MainMenuViewModelImpl
 import com.google.android.material.navigation.NavigationView
-import org.w3c.dom.Text
 
 class MainMenuActivity : AppCompatActivity() {
     private lateinit var navigation: NavigationView
@@ -52,8 +44,7 @@ class MainMenuActivity : AppCompatActivity() {
 
     private fun createObservers() {
         viewModel.getLoggedInUser().observe(this) {
-            userName.text = it.displayName
-
+            userName.text = it.name
         }
     }
 

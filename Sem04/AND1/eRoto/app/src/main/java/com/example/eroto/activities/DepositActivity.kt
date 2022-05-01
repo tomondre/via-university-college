@@ -27,11 +27,11 @@ class DepositActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(DepositViewModelImpl::class.java)
         setContentView(R.layout.activity_deposit)
 
-        createCreditCardRecyclerView()
-
         bindViews()
         createListeners()
         createObservers()
+
+        createCreditCardRecyclerView()
     }
 
     private fun bindViews() {

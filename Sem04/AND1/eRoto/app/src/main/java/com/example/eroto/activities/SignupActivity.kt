@@ -11,8 +11,6 @@ import com.example.eroto.R
 import com.example.eroto.models.User
 import com.example.eroto.viewModel.user.UserViewModel
 import com.example.eroto.viewModel.user.UserViewModelImpl
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 
 class SignupActivity : AppCompatActivity() {
 
@@ -71,7 +69,7 @@ class SignupActivity : AppCompatActivity() {
         val password = passwordEditText.text.toString()
 
         try {
-            viewModel.createUser(User(userName, email, password))
+            viewModel.createUser(User.Builder().password(password).email(email).name(userName).build())
         } catch (e: Exception) {
             errorMessage.text = e.message
         }

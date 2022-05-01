@@ -24,7 +24,7 @@ class HomePageViewModelImpl : ViewModel(), HomePageViewModel {
         return bigMoverRepository.getBigMoverGraphData()
     }
 
-    override fun getMarketsData(): LiveData<List<MarketData>> {
+    override fun getMarketsData(): MarketDataListLiveData {
         return marketRepository.getMarketsData()
     }
 

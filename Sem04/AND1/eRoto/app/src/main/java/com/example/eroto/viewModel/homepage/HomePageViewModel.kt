@@ -6,7 +6,7 @@ import com.github.mikephil.charting.data.Entry
 
 interface HomePageViewModel {
     fun getBigMoverGraphData(): LiveData<List<BigMover>>
-    fun getMarketsData(): LiveData<List<MarketData>>
+    fun getMarketsData(): MarketDataListLiveData
     fun getPosts(): LiveData<List<Post>>
     fun getPortfolioOverview(): LiveData<PortfolioOverview>
 }

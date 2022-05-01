@@ -3,6 +3,7 @@ package com.example.eroto.repository.user
 import androidx.lifecycle.LiveData
 import com.example.eroto.models.LoginUser
 import com.example.eroto.models.User
+import com.example.eroto.models.UserLiveData
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseUser
@@ -15,7 +16,7 @@ object UserRepository {
         webClient.performLogin(loginUser)
     }
 
-    fun getLoggedInUser(): LiveData<FirebaseUser> {
+    fun getLoggedInUser(): UserLiveData {
         return webClient.loggedInUser
     }
 

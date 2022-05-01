@@ -20,7 +20,7 @@ class HomePageViewModelImpl : ViewModel(), HomePageViewModel {
         return portfolioOverviewRepository.getPortfolioOverview()
     }
 
-    override fun getBigMoverGraphData(): LiveData<List<BigMover>> {
+    override fun getBigMoverGraphData(): BigMoverListLiveData {
         return bigMoverRepository.getBigMoverGraphData()
     }
 

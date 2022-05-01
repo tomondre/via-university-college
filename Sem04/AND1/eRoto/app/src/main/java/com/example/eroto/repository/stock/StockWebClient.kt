@@ -4,6 +4,9 @@ import com.example.eroto.models.Market
 import com.example.eroto.models.Stock
 
 object StockWebClient {
+
+
+
     fun getStockByTicker(ticker: String): Stock {
         var list = ArrayList<Stock>()
 

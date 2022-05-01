@@ -49,5 +49,9 @@ class Helper {
         fun getStocksDatabaseReference(): DatabaseReference {
             return FirebaseDatabase.getInstance(URL).reference.child("stocks")
         }
+
+        fun getBigMoverDatabaseReference(): DatabaseReference {
+            return FirebaseDatabase.getInstance(URL).reference.child("bigMovers")
+        }
     }
 }

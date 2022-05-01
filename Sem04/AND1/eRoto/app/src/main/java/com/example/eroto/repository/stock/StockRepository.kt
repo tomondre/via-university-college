@@ -1,12 +1,17 @@
 package com.example.eroto.repository.stock
 
 import com.example.eroto.models.Stock
+import com.example.eroto.models.StockLiveData
 
 object StockRepository {
 
     private var webClient = StockWebClient
 
-    fun getStockByTicker(ticker: String): Stock {
-        return webClient.getStockByTicker(ticker)
+    fun searchStockByTicker(ticker: String) {
+        webClient.searchStockByTicker(ticker)
+    }
+
+    fun getStockByTicker(): StockLiveData {
+        return webClient.stockByTicker
     }
 }

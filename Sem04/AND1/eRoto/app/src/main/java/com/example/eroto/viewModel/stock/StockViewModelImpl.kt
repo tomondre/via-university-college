@@ -11,11 +11,15 @@ class StockViewModelImpl : ViewModel(), StockViewModel {
     private var postRepository = PostRepository
     private var stockRepository = StockRepository
 
-    override fun getStockByTicker(ticker: String): Stock  {
-       return stockRepository.getStockByTicker(ticker)
+    override fun searchStockByTicker(ticker: String) {
+        stockRepository.searchStockByTicker(ticker)
     }
 
     override fun getStockPosts(ticker: String): LiveData<List<Post>> {
         return postRepository.getStockPosts(ticker)
+    }
+
+    override fun getStockByTicker(): StockLiveData {
+        return stockRepository.getStockByTicker()
     }
 }

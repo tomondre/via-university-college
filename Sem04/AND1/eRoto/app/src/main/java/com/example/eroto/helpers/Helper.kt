@@ -109,9 +109,7 @@ class Helper {
                         "https://etoro-cdn.etorostatic.com/market-avatars/aapl/150x150.png"
                     ),
                     150.0,
-                    20.0,
-                    30.0,
-                    170.0
+                    2.0
                 )
             )
 
@@ -127,9 +125,7 @@ class Helper {
                         "https://etoro-cdn.etorostatic.com/market-avatars/tsla/150x150.png",
                     ),
                     150.0,
-                    20.0,
-                    30.0,
-                    170.0
+                    2.0
                 )
             )
 
@@ -145,9 +141,7 @@ class Helper {
                         "https://etoro-cdn.etorostatic.com/market-avatars/baba/150x150.png",
                     ),
                     150.0,
-                    20.0,
-                    30.0,
-                    170.0
+                    2.0
                 )
             )
 
@@ -163,9 +157,7 @@ class Helper {
                         "https://etoro-cdn.etorostatic.com/market-avatars/4238/150x150.png",
                     ),
                     150.0,
-                    20.0,
-                    30.0,
-                    170.0
+                    2.0
                 )
             )
 
@@ -181,9 +173,7 @@ class Helper {
                         "https://etoro-cdn.etorostatic.com/market-avatars/3217/150x150.png",
                     ),
                     150.0,
-                    20.0,
-                    30.0,
-                    170.0
+                    2.0
                 )
             )
 

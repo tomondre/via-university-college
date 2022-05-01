@@ -31,8 +31,8 @@ class PortfolioListAdapter(items: List<PortfolioItem>, var listener: PortfolioIt
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = portfolioList[position]
         holder.fullName.text = item.stock.fullName
-        holder.plPercent.text = "${item.plPercent}%"
-        holder.plValue.text = "$${item.plValue}"
+        holder.plPercent.text = "${item.stock.plPercentage}%"
+        holder.plValue.text = "$${item.stock.plValue}"
         holder.valueInvested.text = "$${item.valueInvested}"
         holder.ticker.text = item.stock.ticker
 

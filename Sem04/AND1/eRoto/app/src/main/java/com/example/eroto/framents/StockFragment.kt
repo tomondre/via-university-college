@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.eroto.activities.PlaceOrderStock
 import com.example.eroto.R
+import com.example.eroto.models.Stock
 import com.example.eroto.viewModel.stock.StockViewModel
 import com.example.eroto.viewModel.stock.StockViewModelImpl
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -44,8 +45,6 @@ class StockFragment : Fragment() {
         bindViews(view)
         createObservers()
         createListeners()
-
-        createStockData()
     }
 
     private fun bindViews(view: View) {
@@ -61,7 +60,10 @@ class StockFragment : Fragment() {
     }
 
     private fun createObservers() {
-
+        ticker?.let { viewModel.searchStockByTicker(it) }
+        viewModel.getStockByTicker().observe(viewLifecycleOwner) {
+            createStockData(it)
+        }
     }
 
     private fun createListeners() {
@@ -103,11 +105,8 @@ class StockFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_stock, container, false)
     }
 
-    private fun createStockData() {
-        Log.d("TICKER", "" + ticker)
-        if (ticker == null)
-            return
-        val stock = viewModel.getStockByTicker(ticker!!)
+    private fun createStockData(stock: Stock) {
+        Log.d("TICKER", "" + stock.ticker)
 
         stockTicker.text = stock.ticker
         stockName.text = stock.fullName

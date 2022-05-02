@@ -1,4 +1,4 @@
-package com.example.eroto.framents
+package com.example.eroto.fragments
 
 import android.annotation.SuppressLint
 import android.graphics.Color

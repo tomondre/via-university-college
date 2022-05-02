@@ -1,4 +1,4 @@
-package com.example.eroto.framents
+package com.example.eroto.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

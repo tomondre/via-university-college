@@ -8,10 +8,10 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.eroto.R
-import com.example.eroto.framents.DiscoverFragment
-import com.example.eroto.framents.MainFragment
-import com.example.eroto.framents.PortfolioFragment
-import com.example.eroto.framents.WatchlistFragment
+import com.example.eroto.fragments.DiscoverFragment
+import com.example.eroto.fragments.MainFragment
+import com.example.eroto.fragments.PortfolioFragment
+import com.example.eroto.fragments.WatchlistFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 

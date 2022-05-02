@@ -27,7 +27,7 @@
         tools:layout="@layout/activity_main_menu" />
     <fragment
         android:id="@+id/discoverFragment2"
-        android:name="com.example.eroto.framents.DiscoverFragment"
+        android:name="com.example.eroto.fragments.DiscoverFragment"
         android:label="DiscoverFragment" />
     <activity
         android:id="@+id/mainActivity"
@@ -35,6 +35,6 @@
         android:label="MainActivity" />
     <fragment
         android:id="@+id/portfolioFragment"
-        android:name="com.example.eroto.framents.PortfolioFragment"
+        android:name="com.example.eroto.fragments.PortfolioFragment"
         android:label="PortfolioFragment" />
 </navigation>

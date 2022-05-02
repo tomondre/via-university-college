@@ -12,7 +12,7 @@ jobs:
   build-and-test-Sem4-AND1-eRoto:
     executor:
       name: android/android-machine
-      tag: 2021.10.1
+      tag: 2022.04.1
 
     working_directory: ~/repo/Sem04/AND1/eRoto
 

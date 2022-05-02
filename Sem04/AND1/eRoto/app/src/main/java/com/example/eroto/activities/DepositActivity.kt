@@ -74,7 +74,7 @@ class DepositActivity : AppCompatActivity() {
         viewModel.addBalance(amount);
         Toast.makeText(
             this,
-            "Depositing with credit card ending ${cc.numberEnding} and ${cc.expiration} and amount of ${amountInput.text}",
+            "Depositing with credit card ending  ${cc.numberEnding} and ${cc.expiration} and amount of ${amountInput.text}",
             Toast.LENGTH_LONG
         ).show()
         finish()

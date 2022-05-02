@@ -1,0 +1,17 @@
+version: 2.1
+
+setup: true
+
+orbs:
+  path-filtering: circleci/path-filtering@0.1.1
+
+workflows:
+  always-run:
+    jobs:
+      - path-filtering/filter:
+          name: check-updated-files
+          mapping: |
+            Sem04/AND1/eRoto/.* run-Sem04-AND1-eRoto-job true
+#            service2/.* run-build-service-2-job true
+          base-revision: main
+          config-path: .circleci/continue_config.yml

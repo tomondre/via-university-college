@@ -286,9 +286,83 @@ SET ValidTo=@NewLoadDate - 1
 DROP TABLE IF EXISTS #tmp3
 
 
+
+DECLARE @LastLoadDateFactSale datetime
+SET @LastLoadDateFactSale = (SELECT [Date]
+from AdventureWorksDwh.edw.Dim_Date
+where DId in (select MAX([LastLoadDate]) from etl.LogUpdate where [Table] = 'Fact_Sale'))
+
+truncate table [stage].[Fact_sale]
+INSERT INTO [AdventureWorksDwh].[Stage].[Fact_Sale]
+(     [EmployeeId]
+    , [CustomerId]
+    , [ProductId]
+    , [ShippingDate]
+    , [OrderDate]
+    , [OrderId]
+    , [Qty]
+    , [TotalLine])
+select case
+           when o.SalesPersonID is null
+               then -1
+           else o.SalesPersonId
+           end,
+       o.CustomerID,
+       saleDetail.ProductID,
+       o.ShipDate,
+       o.OrderDate,
+
+       saleDetail.SalesOrderID,
+       saleDetail.OrderQty,
+       saleDetail.OrderQty * saleDetail.UnitPrice * (1 - saleDetail.UnitPriceDiscount)
+
+from AdventureWorks2019.Sales.SalesOrderHeader as o
+         join AdventureWorks2019.Sales.SalesOrderDetail as saleDetail
+              on o.SalesOrderID = saleDetail.SalesOrderID	  
+where o.OrderDate > (@LastLoadDateFactSale)
+
+    GO
+
+
+INSERT INTO AdventureWorksDwh.edw.Fact_Sale
+(EId,
+ CId,
+ PId,
+ ShippingDId,
+ OrderDId,
+ OrderId,
+ Qty,
+ TotalLine)
+SELECT e.EId,
+       c.CId,
+       p.PId,
+       sd.DId,
+       od.DId,
+       f.OrderId,
+       f.Qty,
+       f.TotalLine
+FROM AdventureWorksDwh.Stage.Fact_Sale as f
+         inner join AdventureWorksDwh.edw.Dim_Employee as e
+                    on f.EmployeeId = e.SalesPersonId
+         inner join AdventureWorksDwh.edw.Dim_Customer as c
+                    on f.CustomerId = c.CustomerId
+         inner join AdventureWorksDwh.edw.Dim_Product as p
+                    on f.ProductId = p.ProductId
+         inner join AdventureWorksDwh.edw.Dim_Date as sd
+                    on sd.Date = f.ShippingDate
+         inner join AdventureWorksDwh.edw.Dim_Date as od
+                    on od.Date = f.OrderDate
+where p.ValidTo = 99991231
+and c.ValidTo = 99991231
+and e.ValidTo = 99991231
+
 INSERT INTO [etl].[LogUpdate] ([Table], [LastLoadDate])
 VALUES ('Dim_Customer', @NewLoadDate)
 INSERT INTO [etl].[LogUpdate] ([Table], [LastLoadDate])
 VALUES ('Dim_Employee', @NewLoadDate)
 INSERT INTO [etl].[LogUpdate] ([Table], [LastLoadDate])
 VALUES ('Dim_Product', @NewLoadDate)
+INSERT INTO [etl].[LogUpdate] ([Table], [LastLoadDate])
+VALUES ('Fact_Sale', @NewLoadDate)
+
+

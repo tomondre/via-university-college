@@ -118,8 +118,9 @@ CREATE TABLE etl.[LogUpdate](
 	[LastLoadDate] int NULL
 ) ON [PRIMARY]
 
-DECLARE @NewLoadDate AS int = CONVERT(char(8), GETDATE(), 112) 
+DECLARE @DatabaseCreationDate AS int = 20110530
 
-INSERT INTO [etl].[LogUpdate] ([Table],[LastLoadDate]) VALUES ('Dim_Customer', @NewLoadDate)
-INSERT INTO [etl].[LogUpdate] ([Table],[LastLoadDate]) VALUES ('Dim_Employee', @NewLoadDate)
-INSERT INTO [etl].[LogUpdate] ([Table],[LastLoadDate]) VALUES ('Dim_Product', @NewLoadDate)
+INSERT INTO [AdventureWorksDwh].[etl].[LogUpdate] ([Table],[LastLoadDate]) VALUES ('Dim_Customer', @DatabaseCreationDate)
+INSERT INTO [AdventureWorksDwh].[etl].[LogUpdate] ([Table],[LastLoadDate]) VALUES ('Dim_Employee', @DatabaseCreationDate)
+INSERT INTO [AdventureWorksDwh].[etl].[LogUpdate] ([Table],[LastLoadDate]) VALUES ('Dim_Product', @DatabaseCreationDate)
+INSERT INTO [AdventureWorksDwh].[etl].[LogUpdate] ([Table],[LastLoadDate]) VALUES ('Fact_Sale', @DatabaseCreationDate)

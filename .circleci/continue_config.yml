@@ -26,7 +26,7 @@ jobs:
           test-command: ./gradlew test
 
       - android/start-emulator-and-run-tests:
-          test-command: ./gradlew connectedDebugAndroidTest
+          test-command: ./gradlew connectedAndroidTest
           system-image: system-images;android-32;google_apis;x86
 
 workflows:

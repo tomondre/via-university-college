@@ -39,7 +39,6 @@ class StockPostsFragment : Fragment() {
     }
 
     private fun createListeners() {
-
     }
 
     private fun createObservers() {

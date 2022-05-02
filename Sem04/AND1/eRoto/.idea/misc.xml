@@ -9,7 +9,12 @@
         <entry key="..\:/Users/PC1/School/ViaUniversityCollege/Sem04/AND1/eRoto/app/src/main/res/layout/activity_login.xml" value="0.2778993435448578" />
         <entry key="..\:/Users/PC1/School/ViaUniversityCollege/Sem04/AND1/eRoto/app/src/main/res/layout/activity_main_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/PC1/School/ViaUniversityCollege/Sem04/AND1/eRoto/app/src/main/res/layout/activity_notifications.xml" value="0.1" />
+        <entry key="..\:/Users/PC1/School/ViaUniversityCollege/Sem04/AND1/eRoto/app/src/main/res/layout/activity_place_order_stock.xml" value="0.209375" />
         <entry key="..\:/Users/PC1/School/ViaUniversityCollege/Sem04/AND1/eRoto/app/src/main/res/layout/activity_signup.xml" value="0.18947368421052632" />
+        <entry key="..\:/Users/PC1/School/ViaUniversityCollege/Sem04/AND1/eRoto/app/src/main/res/layout/fragment_buy_stock.xml" value="0.481437125748503" />
+        <entry key="..\:/Users/PC1/School/ViaUniversityCollege/Sem04/AND1/eRoto/app/src/main/res/layout/fragment_buy_stock_order_details.xml" value="0.25" />
+        <entry key="..\:/Users/PC1/School/ViaUniversityCollege/Sem04/AND1/eRoto/app/src/main/res/layout/fragment_sell_stock_details.xml" value="0.33" />
+        <entry key="..\:/Users/PC1/School/ViaUniversityCollege/Sem04/AND1/eRoto/app/src/main/res/layout/fragment_stock.xml" value="0.209375" />
         <entry key="..\:/Users/PC1/School/ViaUniversityCollege/Sem04/AND1/eRoto/app/src/main/res/layout/fragment_watchlist.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/PC1/School/ViaUniversityCollege/Sem04/AND1/eRoto/app/src/main/res/layout/recycler_big_mover.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/PC1/School/ViaUniversityCollege/Sem04/AND1/eRoto/app/src/main/res/layout/recycler_card.xml" value="0.18802083333333333" />

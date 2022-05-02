@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/amzn" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="BUY"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+
+    <TextView
+        android:id="@+id/frasgment_buy_stock_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="204.3"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/fragment_stock_ticker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="FB"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toTopOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/fragment_buy_stock_market_overview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PRICES BY NASDAQ, IN USD |"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/frasgment_buy_stock_price" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintStart_toEndOf="@+id/fragment_buy_stock_market_overview"
+        app:layout_constraintTop_toTopOf="@+id/fragment_buy_stock_market_overview"
+        app:srcCompat="@drawable/watch" />
+
+    <TextView
+        android:id="@+id/fragment_buy_stock_market_is_openned"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="MARKET OPEN"
+        android:textColor="#000000"
+        android:textSize="10sp"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

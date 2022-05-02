@@ -26,7 +26,6 @@ class Notifications : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(NotificationViewModelImpl::class.java)
 
-
         bindViews()
         createObservers()
         createListeners()

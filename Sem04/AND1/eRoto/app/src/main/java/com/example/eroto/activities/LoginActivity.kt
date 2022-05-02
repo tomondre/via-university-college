@@ -76,7 +76,6 @@ class LoginActivity : AppCompatActivity() {
     private fun performLogin() {
         val email = emailEditText.text.toString()
         val password = passwordEditText.text.toString()
-
         try {
             viewModel.performLogin(LoginUser(email, password))
         } catch (e: Exception) {

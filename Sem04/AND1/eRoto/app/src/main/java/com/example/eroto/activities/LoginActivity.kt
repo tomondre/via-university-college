@@ -18,7 +18,6 @@ import com.example.eroto.viewModel.user.UserViewModelImpl
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var viewModel: UserViewModel
-
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
     private lateinit var signInButton: Button

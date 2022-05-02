@@ -13,5 +13,5 @@ workflows:
           mapping: |
             Sem04/AND1/eRoto/.* run-Sem04-AND1-eRoto-job true
 #            service2/.* run-build-service-2-job true
-          base-revision: main
+          base-revision: master
           config-path: .circleci/continue_config.yml

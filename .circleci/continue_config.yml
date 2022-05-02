@@ -12,6 +12,7 @@ jobs:
   build-and-test-Sem4-AND1-eRoto:
     executor:
       name: android/android-machine
+      tag: 2021.10.1
 
     working_directory: ~/repo/Sem04/AND1/eRoto
 
@@ -27,6 +28,7 @@ jobs:
           test-command: ./gradlew test
 
       - android/start-emulator-and-run-tests:
+
           test-command: ./gradlew connectedAndroidTest
           system-image: system-images;android-32;google_apis;x86
 

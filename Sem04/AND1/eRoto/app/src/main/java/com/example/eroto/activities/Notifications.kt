@@ -17,7 +17,6 @@ class Notifications : AppCompatActivity() {
     private lateinit var backButton: ImageView
 
     private var notificationAdapter: NotificationAdapter = NotificationAdapter()
-
     private lateinit var viewModel: NotificationViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {

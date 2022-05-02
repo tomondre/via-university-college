@@ -15,6 +15,7 @@ import com.example.eroto.viewModel.notification.NotificationViewModelImpl
 class Notifications : AppCompatActivity() {
     private lateinit var notificationRecyclerView: RecyclerView
     private lateinit var backButton: ImageView
+
     private var notificationAdapter: NotificationAdapter = NotificationAdapter()
     private lateinit var viewModel: NotificationViewModel
 

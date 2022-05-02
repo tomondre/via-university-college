@@ -23,16 +23,11 @@ jobs:
           name: chmod permissions
           command: chmod +x ./gradlew
       - android/run-tests:
-          test-command: ./gradlew lint testDebug --continue
+          test-command: ./gradlew test
 
       - android/start-emulator-and-run-tests:
           test-command: ./gradlew connectedDebugAndroidTest
-          system-image: system-images;android-29;google_apis;x86
-
-      - run:
-          name: Assemble release build
-          command: |
-            ./gradlew assembleRelease
+          system-image: system-images;android-32;google_apis;x86
 
 workflows:
   rSem04-AND1-eRoto-wf:

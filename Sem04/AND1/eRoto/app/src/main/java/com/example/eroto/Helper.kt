@@ -57,5 +57,15 @@ class Helper {
         fun getBigMoverDatabaseReference(): DatabaseReference {
             return FirebaseDatabase.getInstance(URL).reference.child("bigMovers")
         }
+
+        fun parseMarketInfo(marketTicker: String, currency: String): String {
+            return "PRICES BY $marketTicker, IN $currency"
+        }
+
+        fun parseMarketOpen(isOpen: Boolean): String {
+            var result = "MARKET "
+            result += if (isOpen) "OPEN" else "CLOSED"
+            return result
+        }
     }
 }

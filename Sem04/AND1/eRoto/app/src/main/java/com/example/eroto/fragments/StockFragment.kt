@@ -13,6 +13,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.example.eroto.Helper
 import com.example.eroto.activities.PlaceOrderStock
 import com.example.eroto.R
 import com.example.eroto.models.Stock
@@ -112,11 +113,9 @@ class StockFragment : Fragment() {
         stockName.text = stock.fullName
         stockPrice.text = stock.currentPrice.toString()
 
-        var openning = "MARKET "
-        openning += if (stock.market.isOpen) "OPEN" else "CLOSED"
-        stockMarketOpening.text = openning
+        stockMarketOpening.text = Helper.parseMarketOpen(stock.market.isOpen)
 
-        val status = "PRICES BY " + stock.market.ticker + ", IN " + stock.market.currency
+        val status = Helper.parseMarketInfo(stock.market.ticker, stock.market.currency)
         stockMarketStatus.text = status
 
         val plStatus = stock.plValue.toString() + "(" + stock.plPercentage + "%)"

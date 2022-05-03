@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/fragment_place_order_image"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="20dp"
@@ -22,8 +22,8 @@
         android:layout_marginStart="24dp"
         android:text="BUY"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+        app:layout_constraintStart_toEndOf="@+id/fragment_place_order_image"
+        app:layout_constraintTop_toTopOf="@+id/fragment_place_order_image" />
 
     <TextView
         android:id="@+id/frasgment_buy_stock_price"
@@ -84,7 +84,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5">
+        app:layout_constraintTop_toBottomOf="@+id/fragment_place_order_image">
 
         <EditText
             android:id="@+id/fragment_buy_stock_balance"

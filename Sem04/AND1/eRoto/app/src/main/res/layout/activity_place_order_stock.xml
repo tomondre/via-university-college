@@ -41,7 +41,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/activity_fragment_place_order_stock_fragment"
-        android:name="com.example.eroto.PlaceOrderFragment"
+        android:name="com.example.eroto.fragments.PlaceOrderFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

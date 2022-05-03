@@ -1,12 +1,14 @@
 package com.example.eroto.models
 
+import java.util.*
+import kotlin.collections.ArrayList
+
 class DatabaseUser() {
     var name: String = ""
     var email: String = ""
     var image: String = ""
     var balance: Balance = Balance(0.0)
-    var portfolio: PortfolioList = PortfolioList()
-
+    var portfolio: ArrayList<PortfolioItem> = ArrayList()
 
     constructor(user: User) : this() {
         this.name = user.name

@@ -42,6 +42,10 @@ class Helper {
             return FirebaseDatabase.getInstance(URL).reference.child("users")
         }
 
+        fun getUserPortfolioReference(): DatabaseReference {
+            return getLoggedInUserDatabaseReference().child("portfolio")
+        }
+
         fun getMarketDatabaseReference(): DatabaseReference {
             return FirebaseDatabase.getInstance(URL).reference.child("markets")
         }

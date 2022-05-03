@@ -5,19 +5,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.eroto.helpers.Helper
 import com.example.eroto.models.PortfolioItem
+import com.example.eroto.models.UserPortfolioLiveData
 
 object PortfolioWebClient{
 
-    fun getPortfolio(): LiveData<List<PortfolioItem>> {
-        var portfolio = MutableLiveData<List<PortfolioItem>>(ArrayList<PortfolioItem>())
-//        object: CountDownTimer(2000, 1000) {
-//            override fun onTick(millisUntilFinished: Long) {}
-//            override fun onFinish() {
-                portfolio.value = Helper.getPortfolioStocks()
-//            }
-//        }.start()
-        return portfolio
-    }
+    var userPortfolioLiveData = UserPortfolioLiveData()
+        private set
 
     fun addStockToPortfolio(item: PortfolioItem) {
 

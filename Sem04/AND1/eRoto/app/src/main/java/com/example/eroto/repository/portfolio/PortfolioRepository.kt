@@ -8,6 +8,6 @@ object PortfolioRepository {
     private var webClient = PortfolioWebClient
 
     fun getPortfolio(): LiveData<List<PortfolioItem>> {
-        return webClient.getPortfolio()
+        return webClient.userPortfolioLiveData
     }
 }

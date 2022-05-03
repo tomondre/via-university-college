@@ -7,10 +7,20 @@ public class Sudoku {
 
     public Sudoku() {
         grid = new GridItem[size][size];
+        populateGrid();
     }
 
     public Sudoku(GridItem[][] grid) {
         this.grid = grid;
+        populateGrid();
+    }
+
+    private void populateGrid() {
+        for (int r = 0; r < grid.length; r++) {
+            for (int c = 0; c < grid[0].length; c++) {
+                grid[r][c] = new GridItem(-1, false);
+            }
+        }
     }
 
     public Sudoku(String str) {
@@ -53,7 +63,7 @@ public class Sudoku {
     public void solve(int curRow, int curCol) {
 
         //Condition when the maze is solved
-        if (curRow == size - 1 && curCol == size - 1) {
+        if (curRow == size - 1 && curCol == size) {
             System.out.println(this);
             return;
         }

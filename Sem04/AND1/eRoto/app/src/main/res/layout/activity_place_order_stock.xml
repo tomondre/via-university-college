@@ -38,4 +38,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_close_24" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/activity_fragment_place_order_stock_fragment"
+        android:name="com.example.eroto.PlaceOrderFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

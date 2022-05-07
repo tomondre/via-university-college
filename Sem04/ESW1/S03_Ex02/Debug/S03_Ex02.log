@@ -1,3 +1,0 @@
-﻿  Source.c
-C:\Users\PC1\ViaUniversityCollege\Sem04\ESW1\S03_Ex02\Source.c(16,14): warning C4047: '=': 'char' differs in levels of indirection from 'char [2]'
-  S03_Ex02.vcxproj -> C:\Users\PC1\ViaUniversityCollege\Sem04\ESW1\Debug\S03_Ex02.exe

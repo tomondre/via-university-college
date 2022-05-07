@@ -1,5 +1,0 @@
-﻿C:\Program Files\Microsoft Visual Studio\2022\Professional\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(514,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (S03_01.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Source.c
-C:\Users\PC1\ViaUniversityCollege\Sem04\ESW1\S03_01\Source.c(4,12): warning C4255: 'main': no function prototype given: converting '()' to '(void)'
-C:\Users\PC1\ViaUniversityCollege\Sem04\ESW1\S03_01\Source.c(10,22): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  S03_01.vcxproj -> C:\Users\PC1\ViaUniversityCollege\Sem04\ESW1\Debug\S03_Ex01.exe

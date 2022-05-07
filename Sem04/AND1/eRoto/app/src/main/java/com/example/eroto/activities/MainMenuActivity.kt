@@ -13,6 +13,7 @@ import com.example.eroto.helpers.Helper
 import com.example.eroto.viewModel.mainMenu.MainMenuViewModel
 import com.example.eroto.viewModel.mainMenu.MainMenuViewModelImpl
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 
 class MainMenuActivity : AppCompatActivity() {
     private lateinit var navigation: NavigationView
@@ -65,15 +66,17 @@ class MainMenuActivity : AppCompatActivity() {
 
     private fun navigationHandler(menuItem: MenuItem): Boolean {
         var activity = when (menuItem.itemId) {
-            R.id.main_menu_logout -> LoginActivity::class.java
+            R.id.main_menu_logout -> {
+                LoginActivity::class.java
+            }
             else -> MainActivity::class.java
         }
 
-        var intent = Intent(this, activity)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP and Intent.FLAG_ACTIVITY_CLEAR_TASK and Intent.FLAG_ACTIVITY_NEW_TASK)
-        finish()
+        var intent = Intent(applicationContext, activity)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK)
         startActivity(intent)
-        overridePendingTransition(R.anim.no_animation, R.anim.no_animation)
+//        overridePendingTransition(R.anim.no_animation, R.anim.no_animation)
+        finish()
         return true
     }
 }

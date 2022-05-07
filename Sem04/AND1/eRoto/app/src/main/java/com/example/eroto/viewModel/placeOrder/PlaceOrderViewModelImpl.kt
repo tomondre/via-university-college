@@ -13,15 +13,24 @@ class PlaceOrderViewModelImpl: ViewModel(), PlaceOrderViewModel {
 
     private var userRepository = UserRepository
     private var stockRepository = StockRepository
-    private var purchaseRepository = PurchaseRepository
+    private var orderRepository = PurchaseRepository
 
 
     override fun getLoggedInUser(): LiveData<User> {
         return userRepository.getLoggedInUser()
     }
 
-    override fun placeOrder(item: PortfolioItem) {
-        purchaseRepository.purchaseStock(item)
+    override fun placeSellOrder(value: Double) {
+        val balance = getLoggedInUser().value!!.balance.balance
+        if (balance < value) {
+            throw Exception("Insufficient funds!")
+        }
+        val stock = getCurrentStock().value!!
+        val stockPrice = stock.currentPrice
+        userRepository.reduceBalance(value)
+        var numberOfStocks = value / stockPrice
+        var portfolioItem = PortfolioItem(stock, value, numberOfStocks)
+        orderRepository.placeBuyOrder(portfolioItem)
     }
 
     override fun getCurrentStock(): LiveData<Stock> {

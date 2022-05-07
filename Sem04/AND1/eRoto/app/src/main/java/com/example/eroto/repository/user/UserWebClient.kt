@@ -46,4 +46,9 @@ object UserWebClient {
 
         userReference.setValue(DatabaseUser(user))
     }
+
+    fun reduceBalance(value: Double) {
+        val userBalanceReference = Helper.getUserBalanceReference()
+        userBalanceReference.setValue(Balance(loggedInUser.value!!.balance.balance - value))
+    }
 }

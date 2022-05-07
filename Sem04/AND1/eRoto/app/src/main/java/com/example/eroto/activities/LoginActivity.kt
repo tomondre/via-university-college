@@ -14,6 +14,7 @@ import com.example.eroto.models.BigMover
 import com.example.eroto.models.LoginUser
 import com.example.eroto.viewModel.user.UserViewModel
 import com.example.eroto.viewModel.user.UserViewModelImpl
+import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
 
@@ -29,6 +30,11 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         viewModel = ViewModelProvider(this).get(UserViewModelImpl::class.java)
+
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        if (currentUser != null) {
+            FirebaseAuth.getInstance().signOut()
+        }
 
         bindViews()
         createObservers()

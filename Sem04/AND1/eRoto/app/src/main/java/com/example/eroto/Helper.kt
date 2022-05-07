@@ -39,7 +39,7 @@ class Helper {
         }
 
         fun getUsersDatabaseReference(): DatabaseReference {
-            return FirebaseDatabase.getInstance(URL).reference.child("users")
+            return getDatabaseReference().child("users")
         }
 
         fun getUserPortfolioReference(): DatabaseReference {
@@ -47,15 +47,19 @@ class Helper {
         }
 
         fun getMarketDatabaseReference(): DatabaseReference {
-            return FirebaseDatabase.getInstance(URL).reference.child("markets")
+            return getDatabaseReference().child("markets")
         }
 
         fun getStocksDatabaseReference(): DatabaseReference {
-            return FirebaseDatabase.getInstance(URL).reference.child("stocks")
+            return getDatabaseReference().child("stocks")
         }
 
         fun getBigMoverDatabaseReference(): DatabaseReference {
-            return FirebaseDatabase.getInstance(URL).reference.child("bigMovers")
+            return getDatabaseReference().child("bigMovers")
+        }
+
+        fun getDatabaseReference(): DatabaseReference {
+            return FirebaseDatabase.getInstance(URL).reference
         }
 
         fun parseMarketInfo(marketTicker: String, currency: String): String {
@@ -66,6 +70,10 @@ class Helper {
             var result = "MARKET "
             result += if (isOpen) "OPEN" else "CLOSED"
             return result
+        }
+
+        fun getUserBalanceReference(): DatabaseReference {
+            return getLoggedInUserDatabaseReference().child("balance")
         }
     }
 }

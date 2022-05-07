@@ -24,6 +24,7 @@ class UserPortfolioLiveData : LiveData<List<PortfolioItem>>() {
                             val value = dataSnapshot.getValue(Stock::class.java)
                             value?.let { item.stock = it }
                             result.add(item)
+                            setValue(result)
                         }
 
                         override fun onCancelled(databaseError: DatabaseError) {}
@@ -31,7 +32,6 @@ class UserPortfolioLiveData : LiveData<List<PortfolioItem>>() {
 
                 }
             }
-            value = result
         }
 
         override fun onCancelled(p0: DatabaseError) {}

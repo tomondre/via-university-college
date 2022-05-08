@@ -21,4 +21,4 @@ The folder structure is as follows:
   - AND1 - Android Development One
   - DAI1 - Data Analytics and Infrastructure One C# programming
   - ESW1 - Embedded Software One
-  - SEP4 - Semester Project Four: Data collection system with presentational app and data warehouse for analytics (On a different private repo)
+  - SEP4 - Semester Project Four: Data collection system with presentational android app and data warehouse for analytics (Repo: https://github.com/HolaSombreros/SEP4)

@@ -5,4 +5,5 @@ import com.example.eroto.models.PortfolioItem
 
 interface PortfolioViewModel {
     fun getPortfolio(): LiveData<List<PortfolioItem>>
+    fun closePortfolioItem(item: PortfolioItem)
 }

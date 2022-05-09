@@ -10,4 +10,8 @@ object PortfolioRepository {
     fun getPortfolio(): LiveData<List<PortfolioItem>> {
         return webClient.userPortfolioLiveData
     }
+
+    fun closePortfolioItem(item: PortfolioItem) {
+        webClient.closePortfolioItem(item)
+    }
 }

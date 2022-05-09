@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.eroto.models.PortfolioItem
 import com.example.eroto.repository.portfolio.PortfolioRepository
+import com.example.eroto.repository.user.UserRepository
 
 class PortfolioViewModelImpl : ViewModel(), PortfolioViewModel {
 
@@ -11,5 +12,10 @@ class PortfolioViewModelImpl : ViewModel(), PortfolioViewModel {
 
     override fun getPortfolio(): LiveData<List<PortfolioItem>> {
         return portfolioRepository.getPortfolio()
+    }
+
+    override fun closePortfolioItem(item: PortfolioItem) {
+        portfolioRepository.closePortfolioItem(item)
+        UserRepository.increaseBalance(item.valueInvested)
     }
 }

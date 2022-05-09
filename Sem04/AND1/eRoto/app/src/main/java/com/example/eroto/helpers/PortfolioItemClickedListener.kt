@@ -3,5 +3,6 @@ package com.example.eroto.helpers
 import com.example.eroto.models.PortfolioItem
 
 interface PortfolioItemClickedListener {
-    fun onCellClickListener(item: PortfolioItem)
+    fun onPortfolioClickListener(item: PortfolioItem)
+    fun onClosePortfolioItemListener(item: PortfolioItem)
 }

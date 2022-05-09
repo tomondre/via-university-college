@@ -32,8 +32,8 @@ class PortfolioListAdapter(items: List<PortfolioItem>, var listener: PortfolioIt
         val item = portfolioList[position]
         holder.fullName.text = item.stock.fullName
         holder.plPercent.text = "${item.stock.plPercentage}%"
-        holder.plValue.text = "$${item.stock.plValue}"
-        holder.valueInvested.text = "$${item.valueInvested}"
+        holder.plValue.text = "${item.stock.plValue}"
+        holder.valueInvested.text = "${item.valueInvested}"
         holder.ticker.text = item.stock.ticker
 
         if (position % 2 == 1) {
@@ -45,8 +45,12 @@ class PortfolioListAdapter(items: List<PortfolioItem>, var listener: PortfolioIt
             )
         }
 
+        holder.closeTrade.setOnClickListener {
+            listener.onClosePortfolioItemListener(item)
+        }
+
         holder.itemView.setOnClickListener {
-            listener.onCellClickListener(item)
+            listener.onPortfolioClickListener(item)
         }
 
         Glide.with(holder.itemView.context).load(item.stock.img).into(holder.image)
@@ -61,8 +65,9 @@ class PortfolioListAdapter(items: List<PortfolioItem>, var listener: PortfolioIt
         var ticker: TextView = itemView.findViewById(R.id.ticker)
         var fullName: TextView = itemView.findViewById(R.id.full_name)
         var valueInvested: TextView = itemView.findViewById(R.id.value_invested)
-        var value: TextView = itemView.findViewById(R.id.value)
+        var value: TextView = itemView.findViewById(R.id.value_invested)
         var plValue: TextView = itemView.findViewById(R.id.p_l_value)
         var plPercent: TextView = itemView.findViewById(R.id.p_l_percent)
+        var closeTrade: ImageView = itemView.findViewById(R.id.close_trade_button)
     }
 }

@@ -38,7 +38,7 @@
         android:textSize="12sp" />
 
     <TextView
-        android:id="@+id/value_invested"
+        android:id="@+id/value"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -50,7 +50,7 @@
         android:textSize="12sp" />
 
     <TextView
-        android:id="@+id/value"
+        android:id="@+id/value_invested"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -87,4 +87,17 @@
         android:textColor="@color/main_green"
         android:textSize="12sp"
         android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/close_trade_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="25dp"
+        app:srcCompat="@drawable/ic_baseline_close_24_red" />
+
 </RelativeLayout>

@@ -39,7 +39,6 @@ class PortfolioFragment : Fragment(), PortfolioItemClickedListener {
 
     private fun bindViews(view: View) {
         portfolioRecycler = view.findViewById(R.id.portolio_list_recycler)
-
     }
 
     private fun createObservers() {
@@ -49,7 +48,6 @@ class PortfolioFragment : Fragment(), PortfolioItemClickedListener {
     }
 
     private fun createListeners() {
-
     }
 
     private fun loadPortfolioData() {
@@ -58,10 +56,14 @@ class PortfolioFragment : Fragment(), PortfolioItemClickedListener {
         portfolioRecycler.adapter = portfolioListAdapter
     }
 
-    override fun onCellClickListener(item: PortfolioItem) {
+    override fun onPortfolioClickListener(item: PortfolioItem) {
         val stockFragment = StockFragment.newInstance(item.stock.ticker)
         val beginTransaction = activity?.supportFragmentManager?.beginTransaction()
         beginTransaction?.replace(R.id.fragmentContainerView, stockFragment)?.addToBackStack(null)
         beginTransaction?.commit()
+    }
+
+    override fun onClosePortfolioItemListener(item: PortfolioItem) {
+        viewModel.closePortfolioItem(item)
     }
 }

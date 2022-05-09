@@ -35,4 +35,8 @@ object UserRepository {
     fun reduceBalance(value: Double) {
         webClient.reduceBalance(value)
     }
+
+    fun increaseBalance(valueInvested: Double) {
+        webClient.increaseBalance(valueInvested)
+    }
 }

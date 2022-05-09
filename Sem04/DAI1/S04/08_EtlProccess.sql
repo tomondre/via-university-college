@@ -321,7 +321,6 @@ from AdventureWorks2019.Sales.SalesOrderHeader as o
               on o.SalesOrderID = saleDetail.SalesOrderID	  
 where o.OrderDate > (@LastLoadDateFactSale)
 
-    GO
 
 
 INSERT INTO AdventureWorksDwh.edw.Fact_Sale
@@ -352,9 +351,9 @@ FROM AdventureWorksDwh.Stage.Fact_Sale as f
                     on sd.Date = f.ShippingDate
          inner join AdventureWorksDwh.edw.Dim_Date as od
                     on od.Date = f.OrderDate
-where p.ValidTo = 99991231
-and c.ValidTo = 99991231
-and e.ValidTo = 99991231
+where p.ValidTo =  @FutureDate
+and c.ValidTo =  @FutureDate
+and e.ValidTo =  @FutureDate
 
 INSERT INTO [etl].[LogUpdate] ([Table], [LastLoadDate])
 VALUES ('Dim_Customer', @NewLoadDate)
@@ -364,5 +363,5 @@ INSERT INTO [etl].[LogUpdate] ([Table], [LastLoadDate])
 VALUES ('Dim_Product', @NewLoadDate)
 INSERT INTO [etl].[LogUpdate] ([Table], [LastLoadDate])
 VALUES ('Fact_Sale', @NewLoadDate)
-
-
+   
+GO

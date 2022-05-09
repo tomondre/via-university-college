@@ -1,3 +1,5 @@
+USE [AdventureWorksDwh]
+GO
 
 /****** Object:  Schema [Stage]    Script Date: 28. 2. 2022 15:14:09 ******/
 CREATE SCHEMA [Stage]

@@ -11,6 +11,8 @@ import java.util.List;
 
 public class Scripto {
     public static void main(String[] args) throws Exception {
+        System.out.println(System.getenv("HALABALA"));
+
         String position = "Internship for System Applications";
         String companyName = "Siemens";
 

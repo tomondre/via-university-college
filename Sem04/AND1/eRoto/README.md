@@ -5,6 +5,9 @@ I am using a general repository that I have created for my Via studies, therefor
 The name eRoto is just a 'parody name' to the original company eToro. (I know the name suggest other things but that is not a goal.).
 eRoto file itself is a project, therefore this file needs to be opened in order to run the android app.
 
+## Video Demo
+https://www.youtube.com/watch?v=wSikYqHPIeU
+
 ## Requirements
 1. ~~As an Investor, I want to be able to create an account, so that I can be in the system.~~
 2. ~~As an Investor, I want to be able to login to the app, so that I can start using the app.~~~

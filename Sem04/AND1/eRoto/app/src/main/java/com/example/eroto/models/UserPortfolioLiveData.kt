@@ -14,22 +14,22 @@ class UserPortfolioLiveData : LiveData<List<PortfolioItem>>() {
 
     private var listener = object : ValueEventListener {
         override fun onDataChange(p0: DataSnapshot) {
-            value = ArrayList()
+            var values = ArrayList<PortfolioItem>()
+            value = values
             for (child in p0.children) {
-                child.getValue(PortfolioItem::class.java)?.let { item ->
+                val portfolioItem = child.getValue(PortfolioItem::class.java)
+                portfolioItem?.let { item ->
                     stocksReference.child(item.stock.ticker).addValueEventListener(object :
                         ValueEventListener {
                         override fun onDataChange(dataSnapshot: DataSnapshot) {
                             val value = dataSnapshot.getValue(Stock::class.java)
                             value?.let { item.stock = it }
-                            val arrayList = ArrayList(getValue()!!)
-                            arrayList.add(item)
-                            setValue(arrayList)
+                            values.add(item)
+                            setValue(values)
                         }
 
                         override fun onCancelled(databaseError: DatabaseError) {}
                     })
-
                 }
             }
         }

@@ -9,4 +9,5 @@ interface HomePageViewModel {
     fun getMarketsData(): MarketDataListLiveData
     fun getPosts(): LiveData<List<Post>>
     fun getPortfolioOverview(): LiveData<PortfolioOverview>
+    fun getGraphData(): GraphLiveData
 }

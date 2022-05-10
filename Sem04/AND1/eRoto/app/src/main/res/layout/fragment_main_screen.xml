@@ -29,7 +29,7 @@
                 android:id="@+id/portfolio_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="$9,496.21"
+                android:text="Loading.."
                 android:textColor="#000000"
                 android:textSize="34sp"
                 android:textStyle="bold"

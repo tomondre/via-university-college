@@ -1,6 +1,5 @@
 package com.example.eroto.models
 
-import java.util.*
 import kotlin.collections.ArrayList
 
 class DatabaseUser() {
@@ -9,6 +8,7 @@ class DatabaseUser() {
     var image: String = ""
     var balance: Balance = Balance(0.0)
     var portfolio: ArrayList<PortfolioItem> = ArrayList()
+    var graphData: ArrayList<Double> = ArrayList()
 
     constructor(user: User) : this() {
         this.name = user.name

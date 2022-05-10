@@ -15,20 +15,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="4dp"
-        android:background="#292a2f"
-        app:itemTextColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/view4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/trade_stock_menu" />
-
     <ImageView
         android:id="@+id/exit_trade"
         android:layout_width="@dimen/exit_button_size"

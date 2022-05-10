@@ -1,6 +1,5 @@
 package com.example.eroto.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -50,7 +49,7 @@ class BuyStockDetailsFragment : Fragment() {
     private fun createListeners() {
         buyButton.setOnClickListener {
             val amount = amount.text.toString()
-            viewModel.placeSellOrder(amount.toDouble())
+            viewModel.placeBuyOrder(amount.toDouble())
             requireActivity().finish()
         }
     }

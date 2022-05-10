@@ -3,6 +3,7 @@ package com.example.eroto.repository.user
 import androidx.lifecycle.MutableLiveData
 import com.example.eroto.Helper
 import com.example.eroto.models.*
+import com.example.eroto.repository.portfolioOverview.PortfolioOverviewWebClient
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -43,17 +44,21 @@ object UserWebClient {
 
     private fun createUserValuesInDb(user: User) {
         val userReference = Helper.getLoggedInUserDatabaseReference()
-
-        userReference.setValue(DatabaseUser(user))
+        val databaseUser = DatabaseUser(user)
+        databaseUser.graphData.add(0.0)
+        databaseUser.graphData.add(0.0)
+        userReference.setValue(databaseUser)
     }
 
     fun reduceBalance(value: Double) {
         val userBalanceReference = Helper.getUserBalanceReference()
-        userBalanceReference.setValue(Balance(loggedInUser.value!!.balance.balance - value))
+        val newValue = loggedInUser.value!!.balance.balance - value
+        userBalanceReference.setValue(Balance(newValue))
     }
 
     fun increaseBalance(value: Double) {
         val userBalanceReference = Helper.getUserBalanceReference()
-        userBalanceReference.setValue(Balance(loggedInUser.value!!.balance.balance + value))
+        val newValue = loggedInUser.value!!.balance.balance + value
+        userBalanceReference.setValue(Balance(newValue))
     }
 }

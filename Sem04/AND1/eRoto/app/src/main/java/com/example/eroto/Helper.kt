@@ -62,6 +62,10 @@ class Helper {
             return FirebaseDatabase.getInstance(URL).reference
         }
 
+        fun getLoggedInUserGraphDataDatabaseReference(): DatabaseReference {
+            return getLoggedInUserDatabaseReference().child("graphData")
+        }
+
         fun parseMarketInfo(marketTicker: String, currency: String): String {
             return "PRICES BY $marketTicker, IN $currency"
         }

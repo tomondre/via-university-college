@@ -7,6 +7,6 @@ import com.example.eroto.models.User
 
 interface PlaceOrderViewModel {
     fun getLoggedInUser(): LiveData<User>
-    fun placeSellOrder(value: Double)
+    fun placeBuyOrder(value: Double)
     fun getCurrentStock(): LiveData<Stock>
 }

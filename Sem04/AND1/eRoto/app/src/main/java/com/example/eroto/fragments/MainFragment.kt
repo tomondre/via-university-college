@@ -39,7 +39,7 @@ class MainFragment : Fragment() {
     private var marketAdapter: MarketAdapter = MarketAdapter()
 
     private lateinit var viewModel: HomePageViewModel
-
+    private var second = false
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -54,6 +54,11 @@ class MainFragment : Fragment() {
         createPortfolioView()
         createMarketView()
         createPostsData()
+
+//        val arrayList = ArrayList<Entry>()
+//        arrayList.add(Entry(0.0f, 0.0f))
+//        arrayList.add(Entry(1.0f, 0.0f))
+//        loadPortfolioChartData(arrayList)
     }
 
     private fun bindViews(view: View) {
@@ -70,12 +75,20 @@ class MainFragment : Fragment() {
 
     private fun createObservers() {
         viewModel.getPortfolioOverview().observe(viewLifecycleOwner) {
-            loadPortfolioChartData(it.graphData)
             loadPortfolioData(it.currency, it.value, it.plValue, it.plPercent)
         }
 
         viewModel.getBigMoverGraphData().observe(viewLifecycleOwner) {
-            loadBigMoverData(it)
+            if (second) {
+                loadBigMoverData(it)
+            }
+            second = true
+        }
+
+        viewModel.getGraphData().observe(viewLifecycleOwner) {
+            if (it.isNotEmpty()) {
+                loadPortfolioChartData(it)
+            }
         }
 
         viewModel.getMarketsData().observe(viewLifecycleOwner) {

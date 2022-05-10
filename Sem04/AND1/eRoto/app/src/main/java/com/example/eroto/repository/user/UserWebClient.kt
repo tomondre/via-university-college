@@ -24,8 +24,10 @@ object UserWebClient {
     fun performLogin(loginUser: LoginUser) {
         mAuth.signInWithEmailAndPassword(loginUser.email, loginUser.password)
             .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    loggedInUser = UserLiveData(Helper.getLoggedInUserDatabaseReference())
+                }
                 loginResponse.value = it
-                loggedInUser = UserLiveData(Helper.getLoggedInUserDatabaseReference())
             }
     }
 

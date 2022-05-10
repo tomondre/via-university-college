@@ -34,12 +34,10 @@ class MainFragment : Fragment() {
     private lateinit var bigMoverRecycler: RecyclerView
     private lateinit var marketRecycler: RecyclerView
     private lateinit var postsRecycler: RecyclerView
-
     private var bigMoverAdapter: BigMoversAdapter = BigMoversAdapter()
     private var marketAdapter: MarketAdapter = MarketAdapter()
 
     private lateinit var viewModel: HomePageViewModel
-    private var second = false
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -79,10 +77,7 @@ class MainFragment : Fragment() {
         }
 
         viewModel.getBigMoverGraphData().observe(viewLifecycleOwner) {
-            if (second) {
-                loadBigMoverData(it)
-            }
-            second = true
+            loadBigMoverData(it)
         }
 
         viewModel.getGraphData().observe(viewLifecycleOwner) {
@@ -121,7 +116,10 @@ class MainFragment : Fragment() {
         lineDataSet.setDrawVerticalHighlightIndicator(false)
 
         val lineData = LineData(lineDataSet)
+//        lineChart.clear()
         lineChart.data = lineData
+        lineChart.invalidate()
+//        lineChart.notifyDataSetChanged()
     }
 
     private fun loadPortfolioData(

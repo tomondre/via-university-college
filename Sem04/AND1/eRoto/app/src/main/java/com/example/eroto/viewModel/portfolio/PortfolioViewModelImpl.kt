@@ -15,7 +15,7 @@ class PortfolioViewModelImpl : ViewModel(), PortfolioViewModel {
     }
 
     override fun closePortfolioItem(item: PortfolioItem) {
-        portfolioRepository.closePortfolioItem(item)
         UserRepository.increaseBalance(item.valueInvested)
+        portfolioRepository.closePortfolioItem(item)
     }
 }

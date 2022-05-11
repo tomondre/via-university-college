@@ -66,6 +66,10 @@ class Helper {
             return getLoggedInUserDatabaseReference().child("graphData")
         }
 
+        fun getLoggedInUserBalanceDatabaseReference(): DatabaseReference {
+            return getLoggedInUserDatabaseReference().child("balance")
+        }
+
         fun parseMarketInfo(marketTicker: String, currency: String): String {
             return "PRICES BY $marketTicker, IN $currency"
         }
@@ -74,10 +78,6 @@ class Helper {
             var result = "MARKET "
             result += if (isOpen) "OPEN" else "CLOSED"
             return result
-        }
-
-        fun getUserBalanceReference(): DatabaseReference {
-            return getLoggedInUserDatabaseReference().child("balance")
         }
     }
 }

@@ -7,6 +7,8 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 
 class BalanceLiveData(reference: DatabaseReference) : LiveData<Balance>() {
+    private var databaseReference: DatabaseReference = reference
+
     private var listener = object : ValueEventListener {
         override fun onDataChange(p0: DataSnapshot) {
             value = p0.getValue(Balance::class.java)
@@ -15,15 +17,7 @@ class BalanceLiveData(reference: DatabaseReference) : LiveData<Balance>() {
         override fun onCancelled(p0: DatabaseError) {}
     }
 
-    private var databaseReference: DatabaseReference = reference
-
-    override fun onActive() {
-        super.onActive()
+    init {
         databaseReference.addValueEventListener(listener)
-    }
-
-    override fun onInactive() {
-        super.onInactive()
-        databaseReference.removeEventListener(listener)
     }
 }

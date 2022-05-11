@@ -18,7 +18,7 @@ object PortfolioOverviewWebClient {
         addEntryToGraph(getLatestPortfolioPrice() + value)
     }
 
-    fun getLatestPortfolioPrice(): Double {
+    private fun getLatestPortfolioPrice(): Double {
         val vals = graphData.doubleValues
         return vals[vals.size - 1]
     }

@@ -67,8 +67,8 @@ class PlaceOrderFragment : Fragment() {
     }
 
     private fun createObservers() {
-        placeOrderViewModel.getLoggedInUser().observe(viewLifecycleOwner) {
-            balance.setText(it.balance.balance.toString())
+        placeOrderViewModel.getBalance().observe(viewLifecycleOwner) {
+            balance.setText(it.balance.toString())
         }
         placeOrderViewModel.getCurrentStock().observe(viewLifecycleOwner) {
             it?.let {

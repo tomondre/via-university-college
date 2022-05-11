@@ -3,6 +3,7 @@ package com.example.eroto.viewModel.deposit
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.example.eroto.models.Balance
+import com.example.eroto.models.BalanceLiveData
 import com.example.eroto.models.CreditCard
 import com.example.eroto.repository.balance.BalanceRepository
 import com.example.eroto.repository.creditCard.CreditCardRepository
@@ -16,7 +17,7 @@ class DepositViewModelImpl: ViewModel(), DepositViewModel {
         return creditCardRepository.getSavedCreditCards()
     }
 
-    override fun getBalance(): LiveData<Balance> {
+    override fun getBalance(): BalanceLiveData {
         return balanceRepository.getBalance()
     }
 

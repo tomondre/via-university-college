@@ -51,16 +51,4 @@ object UserWebClient {
         databaseUser.graphData.add(0.0)
         userReference.setValue(databaseUser)
     }
-
-    fun reduceBalance(value: Double) {
-        val userBalanceReference = Helper.getUserBalanceReference()
-        val newValue = loggedInUser.value!!.balance.balance - value
-        userBalanceReference.setValue(Balance(newValue))
-    }
-
-    fun increaseBalance(value: Double) {
-        val userBalanceReference = Helper.getUserBalanceReference()
-        val newValue = loggedInUser.value!!.balance.balance + value
-        userBalanceReference.setValue(Balance(newValue))
-    }
 }

@@ -24,15 +24,11 @@ class UserLiveData() : LiveData<User>() {
 
     override fun onActive() {
         super.onActive()
-        if (this::databaseReference.isInitialized) {
-            databaseReference.addValueEventListener(listener)
-        }
+        databaseReference.addValueEventListener(listener)
     }
 
     override fun onInactive() {
         super.onInactive()
-        if (this::databaseReference.isInitialized){
-            databaseReference.removeEventListener(listener)
-        }
+        databaseReference.removeEventListener(listener)
     }
 }

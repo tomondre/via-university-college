@@ -31,12 +31,4 @@ object UserRepository {
     fun getSignUpResponse(): LiveData<Task<AuthResult>> {
         return webClient.signUpResponse
     }
-
-    fun reduceBalance(value: Double) {
-        webClient.reduceBalance(value)
-    }
-
-    fun increaseBalance(valueInvested: Double) {
-        webClient.increaseBalance(valueInvested)
-    }
 }

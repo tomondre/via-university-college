@@ -11,9 +11,8 @@ object PortfolioWebClient{
         private set
 
     fun closePortfolioItem(item: PortfolioItem) {
-        PortfolioOverviewWebClient.removePortfolioValue(item.valueInvested)
         val updatedPortfolio = ArrayList(userPortfolioLiveData.value!!)
         updatedPortfolio.remove(item)
-        Helper.getUserPortfolioReference().setValue(updatedPortfolio)
+        userPortfolioLiveData.databaseReference.setValue(updatedPortfolio)
     }
 }

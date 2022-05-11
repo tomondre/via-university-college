@@ -15,4 +15,12 @@ object PortfolioOverviewRepository {
     fun getGraphData(): GraphLiveData {
         return webClient.graphData
     }
+
+    fun addPortfolioValue(value: Double) {
+        webClient.addPortfolioValue(value)
+    }
+
+    fun removePortfolioValue(value: Double) {
+        webClient.removePortfolioValue(value)
+    }
 }

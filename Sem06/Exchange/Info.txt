@@ -1,0 +1,84 @@
+Universities:
+	1, New Zealand - 
+		Questions: 
+			Which institution to pick?
+		Institutions:
+			- Otago Polytechnic - https://www.op.ac.nz/
+				Admission requirements:
+
+				Website: 
+					https://www.op.ac.nz/explore/student-experiences/study-abroad-and-student-exchange/
+
+			- Wintec (previously Waikato)https://www.wintec.ac.nz/
+				Admission requirements:
+				
+				Website: 
+					https://www.wintec.ac.nz/student-resources/inbound-students
+
+
+	2, University of Malta:
+		Facts:
+			Many assignments given in the last moments.
+			Make assignments asap.
+			Won't learn much from the lectures.
+
+		Questions:
+			What does "offered during" mean on the courses page? 			  - I have to choose only the "full year" or "second semester"
+			How many ECTS are required? Is it 30 (Same as in uni semester?)	  -	30 ects - 5 from Via BPR - 10 from Cloud Computingnad Research methods (replacement for SEP6) and 15 ects more from chosen courses
+			Which courses are worth it and which not?						  - He doesn't know people that attended my chosed courses.
+			Are exams very hard or just hard? 								  - Not crazy hard
+			The Discrete Mathematics for Computing Science course?			  - No info.
+			Do you like the exchange? 										  - Joao: "But I'm really happy I came here to do Erasmus"
+		Courses:
+			IT-BPR1 - Bachelor Project Preparation				 			  - 5 ects
+			CIS3111 - Cloud Computing 							 			  - 5 ects - https://www.um.edu.mt/courses/studyunit/CIS3111 - Artefact (60%), Examination (2 Hours) (40%)
+			CIS2209 - Research Methods							 			  - 5 ects - https://www.um.edu.mt/courses/studyunit/CIS2209 - Assignment (80%), Presentation (10 Minutes) (20%)
+			CPS1005 - Discrete Mathematics for Computing Science 			  - 5 ects - https://www.um.edu.mt/courses/studyunit/CPS1005 - Open Book Examination (2 Hours) (100%)
+			CCE3411 - Computer Networks 									  - 5 ects - https://www.um.edu.mt/courses/studyunit/CCE3411 - Examination (2 Hours) (80%), Practical (20%)
+			CIS2055 - Web Applications Architecture and Systems Development   - 5 ects - https://www.um.edu.mt/courses/studyunit/CIS2055 - Project (100%)
+		Total ects:															  - 30 ects
+
+
+Courses approval mail contact:
+
+
+Messages:
+	Study Counselling:
+		Hi,
+		I have a few questions regarding Erasmus and the one-course proposal. The questions:
+
+		I would like to have New Zealand as my first choice. I have found that there are two institutions that Via has agreements with:
+		                - Otago Polytechnic - https://www.op.ac.nz/
+		                - Wintec (previously Waikato)https://www.wintec.ac.nz/
+		I am not sure which one to pick. Do you have some advice on based on what should I pick the institution?
+		Is the tuition for the exchange semester free in both institutions?
+		Where can I find exchange courses in these institutions? I have found a prospects but I am not sure which programmes I am eligible to.
+		In a previous email conversation we had few months ago, you have mentioned: "Regarding choosing a destination outside EU, it is advisable to find private funding through scholarships etc.". I have found following scholarship that are offered outside of EU: LB Foreningens Rejselegat (LB Association’s Travel Grant). I won't be able to apply for it due to the reason that I have different insurance company. Are there any other scholarships that are worth to look into? (Except SU, I am not eligible to receive it without working in Denmark.)
+		My second choice will probably be Malta uni. I have found the following courses that interest me: 
+		               IT-BPR1 - Bachelor Project Preparation  - 5 ects
+		               CIS3111 - Cloud Computing  - 5 ects - https://www.um.edu.mt/courses/studyunit/CIS3111 - Artefact (60%), Examination (2 Hours) (40%)
+		               CIS2209 - Research Methods  - 5 ects - https://www.um.edu.mt/courses/studyunit/CIS2209 - Assignment (80%), Presentation (10 Minutes) (20%)
+		               CPS1005 - Discrete Mathematics for Computing Science  - 5 ects - https://www.um.edu.mt/courses/studyunit/CPS1005 - Open Book Examination (2 Hours) (100%)
+		               CCE3411 - Computer Networks  - 5 ects - https://www.um.edu.mt/courses/studyunit/CCE3411 - Examination (2 Hours) (80%), Practical (20%)
+		               CIS2055 - Web Applications Architecture and Systems Development   - 5 ects - https://www.um.edu.mt/courses/studyunit/CIS2055 - Project (100%)
+		Total ects:  - 30 ects
+
+		What do you think about the courses? Would it be possible to pick these for the agreement?
+
+		Sorry for the longer questions, but these are questions that are quite important for me.
+
+		Have a nice day,
+		Tomas Ondrejka
+	
+	Reme message:
+		Hi Reme,
+		We have talked about your exchange in New Zealand. It looked like you had a super nice experience and I definetly want to experience it :D. I am currently making a bit of research and then I will apply. I wanted to ask you a few questions regarding it:
+			What uni did you choose?
+			How was the uni? Did you learn something or was it more about the travelling experience?
+			Was is hard to get courses approved by Via?
+			What were your monthly expenses?
+		I have wrote to Via councelling but they didn't really answers to my questions therefore I think it would be easier to ask you (exhange student). :D 
+
+		Thank you
+
+

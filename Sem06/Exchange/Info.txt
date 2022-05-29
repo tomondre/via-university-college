@@ -10,10 +10,16 @@ Universities:
 					https://www.op.ac.nz/explore/student-experiences/study-abroad-and-student-exchange/
 
 			- Wintec (previously Waikato)https://www.wintec.ac.nz/
+				QnA:
+					Was is hard to get courses approved by Via? - VIA is not really helpful at all, and Wintec either. You will have to do select the courses but it is not really hard. You just need to select some courses in the Uni at New Zealand, they need to approve them and then you have to send them to VIA. Then VIA tells you how many credits you will get.
+
+
 				Admission requirements:
 				
 				Website: 
 					https://www.wintec.ac.nz/student-resources/inbound-students
+		Expenses:
+			800 eur per month
 
 
 	2, University of Malta:
@@ -80,5 +86,14 @@ Messages:
 		I have wrote to Via councelling but they didn't really answers to my questions therefore I think it would be easier to ask you (exhange student). :D 
 
 		Thank you
+    New Zealand unis message:
+    	Hi,
 
+		My name is Tomas Ondrejka and currently, I am taking a Bachelor of Software Engineering at Via University College (4th semester). Starting from January 2023 I have an opportunity from my uni to go abroad as an exchange student and I like the idea of taking my semester in New Zealand. After my research, I have found your uni and I would like to ask you a few questions that I could not find answers to.
+		  What courses am I able to take as an exchange student at your institution?
+		  Is the IELTS test mandatory if my current bachelor's is taught in English?
+		  When is the possible starting day for the semester?
+		  
+		Thank you,
+		Tomas Ondrejka
 

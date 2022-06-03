@@ -4,6 +4,7 @@ Universities:
 			Which institution to pick?
 		Institutions:
 			- Otago Polytechnic - https://www.op.ac.nz/
+				Preferable one
 				Admission requirements:
 
 				Website: 
@@ -12,9 +13,16 @@ Universities:
 			- Wintec (previously Waikato)https://www.wintec.ac.nz/
 				QnA:
 					Was is hard to get courses approved by Via? - VIA is not really helpful at all, and Wintec either. You will have to do select the courses but it is not really hard. You just need to select some courses in the Uni at New Zealand, they need to approve them and then you have to send them to VIA. Then VIA tells you how many credits you will get.
-
+				Courses:
+					IT-BPR1 - Bachelor Project Preparation				- 5 ects
+					MATH601 - Mathematics for Information Technology 	- 150 hours - https://www.wintec.ac.nz/modules/MATH601
+					INFO707 - Cloud Server Databases 					- 150 hours - https://www.wintec.ac.nz/modules/INFO707
+					COMP717 - Advanced Web Technologies 				- 150 hours - https://www.wintec.ac.nz/modules/COMP717
+					COMP615 - Data Centre Infrastructure 				- 150 hours - https://www.wintec.ac.nz/modules/COMP615
 
 				Admission requirements:
+					English test not neccessary.
+					
 				
 				Website: 
 					https://www.wintec.ac.nz/student-resources/inbound-students
@@ -46,6 +54,15 @@ Universities:
 
 
 Courses approval mail contact:
+
+Travelling:
+  New Zealand:
+    - Budapest - Seoul - 450 eur + 30 eur for 23 kg and 8kg baggage - LOT polish airlines
+    ----Few weeks to meet Dayone in Seoul----
+    Seoul - Aucklad - 560 eur - 23 kg baggage included in Air New Zealand - Air New Zealand
+    
+    Total for this trip: 
+      1000 eur 
 
 
 Messages:

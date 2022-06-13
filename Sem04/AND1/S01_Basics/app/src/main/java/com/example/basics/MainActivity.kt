@@ -3,6 +3,9 @@ package com.example.basics
 import android.graphics.Color
 import android.graphics.LinearGradient
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
@@ -28,6 +31,42 @@ class MainActivity : AppCompatActivity() {
         loadLineChartData()
         setUpLineChart()
 
+        Log.i("CREATE CALLED", "")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i("START CALLED", "")
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.i("RESTART CALLED", "")
+    }
+
+    override fun onStop() {
+        Log.i("STOP CALLED", "")
+        super.onStop()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.i("PAUSE CALLED", "")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i("RESUME CALLED", "")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i("DESTROY CALLED", "")
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        super.onCreate(savedInstanceState, persistentState)
+        Log.i("CREATE CALLED", "")
     }
 
     private fun setUpLineChart() {

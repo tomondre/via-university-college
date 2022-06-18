@@ -20,8 +20,7 @@ GO
 
 CREATE TABLE etl.LogUpdate(
 	[Table] nvarchar(50) NOT NULL,
-	LastLoadDate int NOT NULL
-)
+	LastLoadDate int NOT NULL)
 
 DECLARE @DatabaseCreationDate AS int = 20110530
 

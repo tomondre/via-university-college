@@ -302,6 +302,7 @@ INSERT INTO AdventureWorksDwh.stage.FactSale(
 	EmployeeID,
 	CustomerID,
     ProductID,
+	OrderId,
     [Date],
     Quantity,
     LineTotal)
@@ -312,6 +313,7 @@ SELECT
 	END,
     h.CustomerID,
     d.ProductID,
+	h.SalesOrderID,
     h.OrderDate,
     d.OrderQty,
     d.LineTotal
@@ -324,13 +326,15 @@ INSERT INTO AdventureWorksDwh.edw.FactSale(
 	C_ID,
 	P_ID,
 	D_ID,
+	OrderId,
 	Quantity,
 	LineTotal)
 SELECT e.E_ID,
        c.C_ID,
        p.P_ID,
        CONVERT (CHAR (8), f.[Date], 112),
-       f.Quantity,
+       f.OrderID,
+	   f.Quantity,
        f.LineTotal
 FROM AdventureWorksDwh.Stage.FactSale AS f
 LEFT JOIN AdventureWorksDwh.edw.DimEmployee AS e ON f.EmployeeID = e.EmployeeID

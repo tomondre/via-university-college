@@ -26,32 +26,6 @@ CREATE TABLE edw.DimCustomer(
 )
 
 ---------------------------------------EXTRACT & TRANSFORM---------------------------------------
---TRUNCATE TABLE stage.DimCustomer
---INSERT INTO stage.DimCustomer(
---	CustomerID,
---	[Name],
---	[Type],
---	Country,
---	GeographicalLocation
---)
---SELECT DISTINCT
---	c.CustomerID,
---	CASE WHEN c.StoreID IS NULL
---		THEN CONCAT_WS(' ', p.FirstName, p.LastName)
---		ELSE s.[Name]
---	END,
---	CASE WHEN h.OnlineOrderFlag = 0
---		THEN 'Wholesale'
---		ELSE 'Individual'
---	END,
---	cr.[Name],
---	t.[Name]
---FROM AdventureWorks2019.Sales.Customer c
---LEFT JOIN AdventureWorks2019.Sales.Store s ON c.StoreID = s.BusinessEntityID
---LEFT JOIN AdventureWorks2019.Person.Person p ON c.PersonID = p.BusinessEntityID
---JOIN AdventureWorks2019.Sales.SalesOrderHeader h ON c.CustomerID = h.CustomerID
---JOIN AdventureWorks2019.Sales.SalesTerritory t ON c.TerritoryID = t.TerritoryID
---JOIN AdventureWorks2019.Person.CountryRegion cr ON t.CountryRegionCode = cr.CountryRegionCode
 
 TRUNCATE TABLE stage.DimCustomer
 INSERT INTO stage.DimCustomer(

@@ -9,6 +9,7 @@ CREATE TABLE stage.FactSale(
 	CustomerID int,
 	EmployeeID int,
 	ProductID int,
+	OrderID int,
 	C_ID int,
 	E_ID int,
 	P_ID int,
@@ -22,23 +23,27 @@ CREATE TABLE edw.FactSale(
 	E_ID int FOREIGN KEY REFERENCES edw.DimEmployee(E_ID) NOT NULL,
 	P_ID int FOREIGN KEY REFERENCES edw.DimProduct(P_ID) NOT NULL,
 	D_ID int FOREIGN KEY REFERENCES edw.DimDate(D_ID) NOT NULL,
-	LineTotal int,
-	Quantity int)
+	OrderID int NOT NULL,
+	LineTotal int NOT NULL,
+	Quantity int NOT NULL)
+
+ALTER TABLE edw.FactSale ADD CONSTRAINT PK_FactSale PRIMARY KEY (C_ID, E_ID, P_ID, D_ID, OrderID)
 
 ---------------------------------------EXTRACT & TRANSFORM---------------------------------------
 
 TRUNCATE TABLE stage.FactSale
 
 INSERT INTO stage.FactSale(
+	OrderID,
 	CustomerID,
 	EmployeeID,
 	ProductID,
 	[Date],
 	LineTotal,
 	Quantity
-
 )
 SELECT
+	h.SalesOrderID,
 	h.CustomerID,
 	h.SalesPersonID,
 	d.ProductID,
@@ -82,6 +87,7 @@ INSERT INTO edw.FactSale(
 	E_ID,
 	P_ID,
 	D_ID,
+	OrderID,
 	LineTotal,
 	Quantity)
 SELECT
@@ -89,6 +95,7 @@ SELECT
 	E_ID,
 	P_ID,
 	D_ID,
+	OrderID,
 	LineTotal,
 	Quantity
 FROM stage.FactSale

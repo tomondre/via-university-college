@@ -24,7 +24,8 @@ CREATE TABLE edw.DimDate(
 	[Month] INT NOT NULL,
 	[Year] INT NOT NULL,
 	[WeekDay] NVARCHAR(20) NOT NULL,
-	Season NVARCHAR(20) NOT NULL
+	Season NVARCHAR(20) NOT NULL,
+	SeasonIndex INT NOT NULL
 )
 
 ---------------------------------------ROW GENERATION---------------------------------------
@@ -39,7 +40,8 @@ BEGIN
         [Month],
         [Year],
         [WeekDay],
-        [Season]
+        [Season],
+		SeasonIndex
     )
 SELECT 
     CONVERT(char(8),@StartDate, 112),
@@ -52,6 +54,11 @@ SELECT
       WHEN MONTH(@StartDate) IN (3, 4, 5) THEN 'Spring'
       WHEN MONTH(@StartDate) IN (6, 7, 8) THEN 'Summer'
       WHEN MONTH(@StartDate) IN (9, 10, 11) THEN 'Autumn'
+	END),
+	(CASE WHEN MONTH(@StartDate) IN (12, 1, 2) THEN 4
+      WHEN MONTH(@StartDate) IN (3, 4, 5) THEN 1
+      WHEN MONTH(@StartDate) IN (6, 7, 8) THEN 2
+      WHEN MONTH(@StartDate) IN (9, 10, 11) THEN 3
 	END)
         
 SET @StartDate=DATEADD(dd, 1, @StartDate)

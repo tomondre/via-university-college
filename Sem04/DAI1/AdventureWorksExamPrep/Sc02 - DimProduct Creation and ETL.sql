@@ -56,7 +56,6 @@ WHERE Category IS NULL
 
 ---------------------------------------LOAD---------------------------------------
 
-DELETE FROM edw.DimProduct
 INSERT INTO edw.DimProduct (
 	ProductID,
 	[Name],

@@ -1,4 +1,4 @@
-USE AdventureWorksDwh
+USE AdventureWorksTestDwh
 GO
 
 ---------------------------------------DIM CUSTOMER---------------------------------------

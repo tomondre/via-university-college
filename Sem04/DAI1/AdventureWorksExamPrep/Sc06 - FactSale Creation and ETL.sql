@@ -15,32 +15,31 @@ DECLARE @DefaultInternetOrderEmployeeId INT = -1
 ---------------------------------------TABLE CREATION---------------------------------------
 
 CREATE TABLE stage.FactSale(
-	CustomerID int,
-	EmployeeID int,
-	ProductID int,
-	OrderID int,
-	C_ID int,
-	E_ID int,
-	P_ID int,
-	D_ID int,
-	[Date] DateTime,
-	LineTotal int,
-	Quantity int)
+	CustomerID INT,
+	EmployeeID INT,
+	ProductID INT,
+	OrderID INT,
+	C_ID INT,
+	E_ID INT,
+	P_ID INT,
+	D_ID INT,
+	[Date] DATETIME,
+	LineTotal NUMERIC(38, 6),
+	Quantity INT)
 
 CREATE TABLE edw.FactSale(
-	C_ID int FOREIGN KEY REFERENCES edw.DimCustomer(C_ID) NOT NULL,
-	E_ID int FOREIGN KEY REFERENCES edw.DimEmployee(E_ID) NOT NULL,
-	P_ID int FOREIGN KEY REFERENCES edw.DimProduct(P_ID) NOT NULL,
-	D_ID int FOREIGN KEY REFERENCES edw.DimDate(D_ID) NOT NULL,
-	OrderID int NOT NULL,
-	LineTotal int NOT NULL,
-	Quantity int NOT NULL)
+	C_ID INT FOREIGN KEY REFERENCES edw.DimCustomer(C_ID) NOT NULL,
+	E_ID INT FOREIGN KEY REFERENCES edw.DimEmployee(E_ID) NOT NULL,
+	P_ID INT FOREIGN KEY REFERENCES edw.DimProduct(P_ID) NOT NULL,
+	D_ID INT FOREIGN KEY REFERENCES edw.DimDate(D_ID) NOT NULL,
+	OrderID INT NOT NULL,
+	LineTotal NUMERIC(38, 6) NOT NULL,
+	Quantity INT NOT NULL)
 
 ALTER TABLE edw.FactSale ADD CONSTRAINT PK_FactSale PRIMARY KEY (C_ID, E_ID, P_ID, D_ID, OrderID)
 
 ---------------------------------------EXTRACT & TRANSFORM---------------------------------------
 
-TRUNCATE TABLE stage.FactSale
 
 INSERT INTO stage.FactSale(
 	OrderID,

@@ -25,6 +25,8 @@ FROM edw.DimEmployee
 
 ---------------------------------------DIM PRODUCT---------------------------------------
 
+-------------------COUNT-------------------
+
 SELECT COUNT(*) AS 'Source Product Count'
 FROM AdventureWorksTest.Production.Product
 
@@ -44,3 +46,11 @@ FROM stage.FactSale
   
 SELECT COUNT(*) AS 'DW Sale Count'
 FROM edw.FactSale
+
+-------------------SUM-------------------
+
+SELECT SUM(LineTotal) AS 'Source Sale Sum'
+FROM AdventureWorksTest.Sales.SalesOrderDetail
+
+SELECT SUM(LineTotal) AS 'Source Sale Sum'
+FROM AdventureWorksDwh.edw.FactSale

@@ -25,7 +25,8 @@ CREATE TABLE stage.FactSale(
 	D_ID INT,
 	[Date] DATETIME,
 	LineTotal NUMERIC(38, 6),
-	Quantity INT)
+	Quantity INT,
+	Profit MONEY)
 
 CREATE TABLE edw.FactSale(
 	C_ID INT FOREIGN KEY REFERENCES edw.DimCustomer(C_ID) NOT NULL,
@@ -34,7 +35,9 @@ CREATE TABLE edw.FactSale(
 	D_ID INT FOREIGN KEY REFERENCES edw.DimDate(D_ID) NOT NULL,
 	OrderID INT NOT NULL,
 	LineTotal NUMERIC(38, 6) NOT NULL,
-	Quantity INT NOT NULL)
+	Quantity INT NOT NULL,
+	Profit MONEY
+	)
 
 ALTER TABLE edw.FactSale ADD CONSTRAINT PK_FactSale PRIMARY KEY (C_ID, E_ID, P_ID, D_ID, OrderID)
 
@@ -48,8 +51,8 @@ INSERT INTO stage.FactSale(
 	ProductID,
 	[Date],
 	LineTotal,
-	Quantity
-)
+	Quantity,
+	Profit)
 SELECT
 	h.SalesOrderID,
 	h.CustomerID,
@@ -57,11 +60,14 @@ SELECT
 	d.ProductID,
 	h.OrderDate,
 	d.LineTotal,
-	d.OrderQty
+	d.OrderQty,
+	d.LineTotal - (p.StandardCost * d.OrderQty)
 FROM AdventureWorks2019.Sales.SalesOrderHeader h
 LEFT JOIN AdventureWorks2019.Sales.SalesOrderDetail d ON h.SalesOrderID = d.SalesOrderID
+JOIN AdventureWorks2019.Production.Product p ON p.ProductID = d.ProductID
 --FROM AdventureWorksTest.Sales.SalesOrderHeader h
 --LEFT JOIN AdventureWorksTest.Sales.SalesOrderDetail d ON h.SalesOrderID = d.SalesOrderID
+--JOIN AdventureWorkTest.Production.Product p ON p.ProductID = d.ProductID
 
 ---------------------------------------TRANSFORM---------------------------------------
 
@@ -99,7 +105,8 @@ INSERT INTO edw.FactSale(
 	D_ID,
 	OrderID,
 	LineTotal,
-	Quantity)
+	Quantity,
+	Profit)
 SELECT
 	C_ID,
 	E_ID,
@@ -107,7 +114,8 @@ SELECT
 	D_ID,
 	OrderID,
 	LineTotal,
-	Quantity
+	Quantity,
+	Profit
 FROM stage.FactSale
 
 ---------------------------------------SAVE LOAD DATE---------------------------------------

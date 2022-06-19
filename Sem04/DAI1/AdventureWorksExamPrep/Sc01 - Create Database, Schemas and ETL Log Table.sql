@@ -6,7 +6,6 @@ GO
 USE AdventureWorksDwh
 GO
 
-
 ---------------------------------------TEST DATABASE CREATION---------------------------------------
 
 --CREATE DATABASE AdventureWorksTestDwh

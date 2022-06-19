@@ -1,5 +1,14 @@
+---------------------------------------DATABASE USE---------------------------------------
+
 USE AdventureWorksDwh
 GO
+
+---------------------------------------TEST DATABASE USE---------------------------------------
+
+--USE AdventureWorksTestDwh
+--GO
+
+---------------------------------------DATABASE SETUP---------------------------------------
 
 DECLARE @StartDate DATETIME
 DECLARE @EndDate DATETIME

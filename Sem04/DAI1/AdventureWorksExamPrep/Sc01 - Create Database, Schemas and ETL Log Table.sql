@@ -6,6 +6,15 @@ GO
 USE AdventureWorksDwh
 GO
 
+
+---------------------------------------TEST DATABASE CREATION---------------------------------------
+
+--CREATE DATABASE AdventureWorksTestDwh
+--GO
+
+--USE AdventureWorksTestDwh
+--GO
+
 ---------------------------------------SCHEMAS CREATION---------------------------------------
 CREATE SCHEMA stage
 GO

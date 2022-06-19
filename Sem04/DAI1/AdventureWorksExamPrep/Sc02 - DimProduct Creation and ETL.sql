@@ -1,5 +1,14 @@
+---------------------------------------DATABASE USE---------------------------------------
+
 USE AdventureWorksDwh
 GO
+
+---------------------------------------TEST DATABASE USE---------------------------------------
+
+--USE AdventureWorksTestDwh
+--GO
+
+---------------------------------------DATABASE SETUP---------------------------------------
 
 DECLARE @OldDate AS INT = 20110530
 DECLARE @FutureDate AS INT = 99991231
@@ -36,6 +45,8 @@ SELECT
 	c.[Name]
 FROM AdventureWorks2019.Production.Product p
 LEFT JOIN AdventureWorks2019.Production.ProductSubcategory c ON c.ProductSubcategoryID = p.ProductSubcategoryID
+--FROM AdventureWorksTest.Production.Product p
+--LEFT JOIN AdventureWorksTest.Production.ProductSubcategory c ON c.ProductSubcategoryID = p.ProductSubcategoryID
 
 ---------------------------------------TRANSFORM---------------------------------------
 

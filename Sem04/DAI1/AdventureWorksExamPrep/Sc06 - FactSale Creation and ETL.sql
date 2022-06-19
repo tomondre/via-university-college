@@ -1,5 +1,14 @@
+---------------------------------------DATABASE USE---------------------------------------
+
 USE AdventureWorksDwh
 GO
+
+---------------------------------------TEST DATABASE USE---------------------------------------
+
+--USE AdventureWorksTestDwh
+--GO
+
+---------------------------------------DATABASE SETUP---------------------------------------
 
 DECLARE @DefaultInternetOrderEmployeeId INT = -1
 
@@ -52,6 +61,8 @@ SELECT
 	d.OrderQty
 FROM AdventureWorks2019.Sales.SalesOrderHeader h
 LEFT JOIN AdventureWorks2019.Sales.SalesOrderDetail d ON h.SalesOrderID = d.SalesOrderID
+--FROM AdventureWorksTest.Sales.SalesOrderHeader h
+--LEFT JOIN AdventureWorksTest.Sales.SalesOrderDetail d ON h.SalesOrderID = d.SalesOrderID
 
 ---------------------------------------TRANSFORM---------------------------------------
 

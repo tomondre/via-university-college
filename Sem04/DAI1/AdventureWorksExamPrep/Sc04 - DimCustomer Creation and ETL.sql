@@ -1,5 +1,14 @@
+---------------------------------------DATABASE USE---------------------------------------
+
 USE AdventureWorksDwh
 GO
+
+---------------------------------------TEST DATABASE USE---------------------------------------
+
+--USE AdventureWorksTestDwh
+--GO
+
+---------------------------------------DATABASE SETUP---------------------------------------
 
 DECLARE @OldDate AS INT = 20110530
 DECLARE @FutureDate AS INT = 99991231
@@ -52,6 +61,11 @@ LEFT JOIN AdventureWorks2019.Sales.Store s ON c.StoreID = s.BusinessEntityID
 LEFT JOIN AdventureWorks2019.Person.Person p ON c.PersonID = p.BusinessEntityID
 JOIN AdventureWorks2019.Sales.SalesTerritory t ON c.TerritoryID = t.TerritoryID
 JOIN AdventureWorks2019.Person.CountryRegion cr ON t.CountryRegionCode = cr.CountryRegionCode
+--FROM AdventureWorksTest.Sales.Customer c
+--LEFT JOIN AdventureWorksTest.Sales.Store s ON c.StoreID = s.BusinessEntityID
+--LEFT JOIN AdventureWorksTest.Person.Person p ON c.PersonID = p.BusinessEntityID
+--JOIN AdventureWorksTest.Sales.SalesTerritory t ON c.TerritoryID = t.TerritoryID
+--JOIN AdventureWorksTest.Person.CountryRegion cr ON t.CountryRegionCode = cr.CountryRegionCode
 
 ---------------------------------------LOAD---------------------------------------
 

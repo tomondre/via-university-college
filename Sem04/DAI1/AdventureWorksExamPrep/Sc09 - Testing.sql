@@ -47,10 +47,18 @@ FROM stage.FactSale
 SELECT COUNT(*) AS 'DW Sale Count'
 FROM edw.FactSale
 
--------------------SUM-------------------
+-------------------TOTAL LINE SUM-------------------
 
-SELECT SUM(LineTotal) AS 'Source Sale Sum'
+SELECT SUM(LineTotal) AS 'Source Sale LineTotal Sum'
 FROM AdventureWorksTest.Sales.SalesOrderDetail
 
-SELECT SUM(LineTotal) AS 'Source Sale Sum'
+SELECT SUM(LineTotal) AS 'DW Sale LineTotal Sum'
+FROM AdventureWorksDwh.edw.FactSale
+
+-------------------QUANTITY SUM-------------------
+
+SELECT SUM(OrderQty) AS 'Source Sale Quantity Sum'
+FROM AdventureWorksTest.Sales.SalesOrderDetail
+
+SELECT SUM(Quantity) AS 'DW Sale Quantity Sum'
 FROM AdventureWorksDwh.edw.FactSale

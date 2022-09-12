@@ -22,3 +22,9 @@ The folder structure is as follows:
   - DAI1 - Data Analytics and Infrastructure One C# programming
   - ESW1 - Embedded Software One
   - SEP4 - Semester Project Four: Data collection system with presentational android app and data warehouse for analytics (Repo: https://github.com/HolaSombreros/SEP4)
+- Sem05 - Semester Five
+  - Internship/Application - Internship applications
+  - AWS Cloud Praciticioner Exam/Notes - Notes made for the Cloud Practicioner Exam
+  - Terraform Associate Certification/Notes - Notes made for the Terraform Associate exam
+- Sem06 - Semester Six
+  - Exchange - Information gathered about possible exchange unis and their courses

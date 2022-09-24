@@ -42,26 +42,23 @@ public class CustomerNetworkingImpl extends CustomerServiceGrpc.CustomerServiceI
         var user = customer.getUser();
         user.setCustomer(customer);
 
-        try
-        {
+        try {
             var createdCustomerFuture = dao.createCustomer(user);
             var createdCustomer = getObjectAfterDone(createdCustomerFuture);
             UserMessage userMessage = createdCustomer.toMessage();
             responseObserver.onNext(userMessage);
             responseObserver.onCompleted();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
             responseObserver.onError(Status.INTERNAL.withDescription("Could not save the customer to the database.").asException());
-
+            System.out.println(e.getMessage());
         }
     }
 
     @Async
     @Override
     public void getAllCustomers(PageRequestMessage request,
-                                StreamObserver<CustomersMessage> responseObserver)
-    {
+                                StreamObserver<CustomersMessage> responseObserver) {
         var pageRequest = PageRequest.of(request.getPageNumber(), request.getPageSize());
         var page = dao.getAllCustomers(pageRequest);
         customers(responseObserver, page);
@@ -70,8 +67,7 @@ public class CustomerNetworkingImpl extends CustomerServiceGrpc.CustomerServiceI
     @Async
     @Override
     public void deleteCustomer(UserMessage request,
-        StreamObserver<CustomerMessage> responseObserver)
-    {
+                               StreamObserver<CustomerMessage> responseObserver) {
         dao.deleteCustomer(request.getId());
         responseObserver.onNext(CustomerMessage.newBuilder().build());
         responseObserver.onCompleted();
@@ -80,16 +76,14 @@ public class CustomerNetworkingImpl extends CustomerServiceGrpc.CustomerServiceI
     @Async
     @Override
     public void getCustomerById(UserMessage request, StreamObserver<CustomerMessage> responseObserver) {
-        try
-        {
+        try {
             var customerByIdFuture = dao.getCustomerById(request.getId());
             var customerById = getObjectAfterDone(customerByIdFuture);
             var customerMessage = customerById.toCustomerMessage();
             responseObserver.onNext(customerMessage);
             responseObserver.onCompleted();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
             responseObserver.onError(Status.INTERNAL.withDescription("Could not fetch the customer from the database.").asException());
         }
     }
@@ -100,16 +94,14 @@ public class CustomerNetworkingImpl extends CustomerServiceGrpc.CustomerServiceI
         var customer = new Customer(request);
         var user = customer.getUser();
         user.setCustomer(customer);
-        try
-        {
+        try {
             var editedFuture = dao.editCustomer(user);
             var edited = getObjectAfterDone(editedFuture);
             CustomerMessage customerMessage = edited.toCustomerMessage();
             responseObserver.onNext(customerMessage);
             responseObserver.onCompleted();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
             responseObserver.onError(Status.INTERNAL.withDescription("Could not save the edited provider to the database.").asException());
         }
 
@@ -117,49 +109,39 @@ public class CustomerNetworkingImpl extends CustomerServiceGrpc.CustomerServiceI
 
     @Async
     @Override
-    public void findCustomerByName(RequestMessage request, StreamObserver<CustomersMessage> responseObserver)
-    {
+    public void findCustomerByName(RequestMessage request, StreamObserver<CustomersMessage> responseObserver) {
         var name = request.getName();
         var pageRequest = PageRequest.of(request.getPageInfo().getPageNumber(), request.getPageInfo().getPageSize());
         var page = dao.findCustomerByName(name, pageRequest);
         customers(responseObserver, page);
     }
 
-    private synchronized void customers(StreamObserver<CustomersMessage> responseObserver, Future<Page<User>> pageFuture)
-    {
-        try
-        {
+    private synchronized void customers(StreamObserver<CustomersMessage> responseObserver, Future<Page<User>> pageFuture) {
+        try {
             Page<User> page = getObjectAfterDone(pageFuture);
             var collect = page.getContent().stream().map(User::toCustomerMessage)
-                              .collect(Collectors.toList());
+                    .collect(Collectors.toList());
             PageMessage pageInfo = PageMessage.newBuilder().setPageNumber(page.getNumber()).setTotalPages(page.getTotalPages())
-                                              .setTotalElements(page.getTotalPages()).build();
+                    .setTotalElements(page.getTotalPages()).build();
             var customersMessage = CustomersMessage.newBuilder().addAllCustomers(collect).setPage(pageInfo).build();
             responseObserver.onNext(customersMessage);
             responseObserver.onCompleted();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
             responseObserver.onError(
                     Status.INTERNAL.withDescription("Could not fetch the customers from the database.").asException());
 
         }
     }
 
-    private synchronized <T> T getObjectAfterDone(Future<T> future) throws Exception
-    {
+    private synchronized <T> T getObjectAfterDone(Future<T> future) throws Exception {
         T object;
-        while (true)
-        {
-            if (future.isDone())
-            {
-                try
-                {
+        while (true) {
+            if (future.isDone()) {
+                try {
                     object = future.get();
                     break;
-                }
-                catch (ExecutionException | InterruptedException e)
-                {
+                } catch (ExecutionException | InterruptedException e) {
                     throw new Exception(e);
                 }
             }

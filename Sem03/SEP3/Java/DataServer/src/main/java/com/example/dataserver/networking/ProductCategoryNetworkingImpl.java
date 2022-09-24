@@ -23,20 +23,17 @@ import java.util.stream.Collectors;
 
 @GrpcService
 @EnableAsync
-public class ProductCategoryNetworkingImpl extends CategoryServiceGrpc.CategoryServiceImplBase
-{
+public class ProductCategoryNetworkingImpl extends CategoryServiceGrpc.CategoryServiceImplBase {
     private CategoryDAO categoryDAO;
 
     @Autowired
-    public ProductCategoryNetworkingImpl(CategoryDAO categoryDAO)
-    {
+    public ProductCategoryNetworkingImpl(CategoryDAO categoryDAO) {
         this.categoryDAO = categoryDAO;
     }
 
     @Async
     @Override
-    public void getAllProductCategories(PageRequestMessage request, StreamObserver<CategoriesMessage> responseObserver)
-    {
+    public void getAllProductCategories(PageRequestMessage request, StreamObserver<CategoriesMessage> responseObserver) {
         PageRequest pageRequest = PageRequest.of(request.getPageNumber(), request.getPageSize());
         var allCategoriesFuture = categoryDAO.getAllCategories(pageRequest);
         categories(responseObserver, allCategoriesFuture);
@@ -44,75 +41,60 @@ public class ProductCategoryNetworkingImpl extends CategoryServiceGrpc.CategoryS
 
     @Async
     @Override
-    public void addProductCategory(CategoryMessage request, StreamObserver<CategoryMessage> responseObserver)
-    {
+    public void addProductCategory(CategoryMessage request, StreamObserver<CategoryMessage> responseObserver) {
         var category = new Category(request);
-        try
-        {
+        try {
             var createdCategoryFuture = categoryDAO.addProductCategory(category);
             var createdCategory = getObjectAfterDone(createdCategoryFuture);
             CategoryMessage categoryMessage = createdCategory.toMessage();
             responseObserver.onNext(categoryMessage);
             responseObserver.onCompleted();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
             responseObserver.onError(Status.INTERNAL.withDescription("Could not create the category in the database.").asException());
         }
     }
 
     @Async
     @Override
-    public void editProductCategory(CategoryMessage request, StreamObserver<CategoryMessage> responseObserver)
-    {
+    public void editProductCategory(CategoryMessage request, StreamObserver<CategoryMessage> responseObserver) {
         var category = new Category(request);
-        try
-        {
+        try {
             var editedCategoryFuture = categoryDAO.editProductCategory(category);
             var editedCategory = getObjectAfterDone(editedCategoryFuture);
             CategoryMessage categoryMessage = editedCategory.toMessage();
             responseObserver.onNext(categoryMessage);
             responseObserver.onCompleted();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
             responseObserver.onError(Status.INTERNAL.withDescription("Could not save the edited category to the database.").asException());
         }
     }
 
-    private synchronized void categories(StreamObserver<CategoriesMessage> responseObserver, Future<Page<Category>> pageFuture)
-    {
-        try
-        {
+    private synchronized void categories(StreamObserver<CategoriesMessage> responseObserver, Future<Page<Category>> pageFuture) {
+        try {
             var page = getObjectAfterDone(pageFuture);
             var collect = page.getContent().stream().map(Category::toMessage)
-                              .collect(Collectors.toList());
+                    .collect(Collectors.toList());
             PageMessage pageInfo = PageMessage.newBuilder().setPageNumber(page.getNumber()).setTotalPages(page.getTotalPages())
-                                              .setTotalElements(page.getTotalPages()).build();
+                    .setTotalElements(page.getTotalPages()).build();
             var categoriesMessage = CategoriesMessage.newBuilder().addAllCategories(collect).setPageInfo(pageInfo).build();
             responseObserver.onNext(categoriesMessage);
             responseObserver.onCompleted();
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
             responseObserver.onError(Status.INTERNAL.withDescription("Could not fetch the categories from the database.").asException());
         }
     }
 
-    private synchronized <T> T getObjectAfterDone(Future<T> future) throws Exception
-    {
+    private synchronized <T> T getObjectAfterDone(Future<T> future) throws Exception {
         T object;
-        while (true)
-        {
-            if (future.isDone())
-            {
-                try
-                {
+        while (true) {
+            if (future.isDone()) {
+                try {
                     object = future.get();
                     break;
-                }
-                catch (ExecutionException | InterruptedException e)
-                {
+                } catch (ExecutionException | InterruptedException e) {
                     throw new Exception(e);
                 }
             }

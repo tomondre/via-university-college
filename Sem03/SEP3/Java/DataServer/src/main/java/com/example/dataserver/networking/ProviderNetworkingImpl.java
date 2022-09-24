@@ -55,6 +55,7 @@ public class ProviderNetworkingImpl extends ProviderServiceGrpc.ProviderServiceI
         }
         catch (Exception e)
         {
+            System.out.println(e.getMessage());
             responseObserver.onError(Status.INTERNAL.withDescription("Could not save the provider to the database.").asException());
         }
     }
@@ -82,6 +83,7 @@ public class ProviderNetworkingImpl extends ProviderServiceGrpc.ProviderServiceI
         }
         catch (Exception e)
         {
+System.out.println(e.getMessage());
             responseObserver.onError(Status.INTERNAL.withDescription("Could not fetch the data from the database.").asException());
         }
     }
@@ -103,6 +105,7 @@ public class ProviderNetworkingImpl extends ProviderServiceGrpc.ProviderServiceI
         }
         catch (Exception e)
         {
+System.out.println(e.getMessage());
             responseObserver.onError(Status.INTERNAL.withDescription("Could not perform the edit in the database").asException());
         }
     }
@@ -149,6 +152,7 @@ public class ProviderNetworkingImpl extends ProviderServiceGrpc.ProviderServiceI
         }
         catch (Exception e)
         {
+System.out.println(e.getMessage());
             responseObserver.onError(Status.INTERNAL.withDescription("Could not fetch the data from the database").asException());
         }
     }

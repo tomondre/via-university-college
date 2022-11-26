@@ -49,7 +49,7 @@ Universities:
 			CIS2209 - Research Methods							 			  - 5 ects - https://www.um.edu.mt/courses/studyunit/CIS2209 - Assignment (80%), Presentation (10 Minutes) (20%)
 			CPS1005 - Discrete Mathematics for Computing Science 			  - 5 ects - https://www.um.edu.mt/courses/studyunit/CPS1005 - Open Book Examination (2 Hours) (100%)
 			CCE3411 - Computer Networks 									  - 5 ects - https://www.um.edu.mt/courses/studyunit/CCE3411 - Examination (2 Hours) (80%), Practical (20%)
-			CIS2055 - Web Applications Architecture and Systems Development   - 5 ects - https://www.um.edu.mt/courses/studyunit/CIS2055 - Project (100%)
+			CIS2055 - Web Applications Architecture and Systems Development   - 5 ects -   - Project (100%)
 		Total ects:															  - 30 ects
 
 

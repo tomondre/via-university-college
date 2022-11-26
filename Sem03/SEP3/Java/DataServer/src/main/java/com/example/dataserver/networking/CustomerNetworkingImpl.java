@@ -76,6 +76,7 @@ public class CustomerNetworkingImpl extends CustomerServiceGrpc.CustomerServiceI
     @Async
     @Override
     public void getCustomerById(UserMessage request, StreamObserver<CustomerMessage> responseObserver) {
+        System.out.println("Customer> GetById request received.");
         try {
             var customerByIdFuture = dao.getCustomerById(request.getId());
             var customerById = getObjectAfterDone(customerByIdFuture);

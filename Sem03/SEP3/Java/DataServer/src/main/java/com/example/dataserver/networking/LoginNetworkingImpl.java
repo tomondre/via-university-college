@@ -28,6 +28,7 @@ public class LoginNetworkingImpl extends LoginServiceGrpc.LoginServiceImplBase {
     @Override
     public void getUserLogin(UserMessage request,
                              StreamObserver<UserMessage> responseObserver) {
+        System.out.println("Request received");
         try {
             var userLoginFuture = loginDAO.getUserLogin(new User(request));
             var userLogin = getObjectAfterDone(userLoginFuture);
@@ -50,6 +51,7 @@ public class LoginNetworkingImpl extends LoginServiceGrpc.LoginServiceImplBase {
                     object = future.get();
                     break;
                 } catch (ExecutionException | InterruptedException e) {
+                    System.out.println(e.getMessage());
                     throw new Exception(e);
                 }
             }

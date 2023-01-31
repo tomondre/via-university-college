@@ -1,0 +1,36 @@
+Verve Ventures:
+	Payment card brand
+	Company investing in startups
+
+
+Interviewer:
+	Edoardo Sella
+
+Technologies: 
+	MongoDB
+	MySQL
+	Redis
+	ElasticSearch
+	Angular
+	Cloud services
+	Postman
+
+Requirements:
+	Java Development
+	Frontend experience
+
+Questions:
+	What is Verve Ventures? --- Venture capital firm
+		- You can choose a startup you want to invest in 
+	Is the position concretly for verve or for the invested startup?
+	How many interns are you taking?
+	What methodology?
+	What cloud services used?
+	What unit tests? - Jest?
+	
+	Working model?
+	
+	Salary? - Zurich is expensive
+
+Eddie:
+	

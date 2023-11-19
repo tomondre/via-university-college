@@ -1,9 +1,9 @@
-[submodule "Sem07/SWA1/swa-assignments"]
-	path = Sem07/SWA1/swa-assignments
+[submodule "Sem07/SWA1/Assignments"]
+	path = Sem07/SWA1/Assignments
 	url = https://github.com/tomondre/swa-assignments.git
-[submodule "Sem07/XRD1/ARProject"]
-	path = Sem07/XRD1/ARProject
+[submodule "Sem07/XRD1/AR-Project"]
+	path = Sem07/XRD1/AR-Project
 	url = https://github.com/JakubPlatzek/ARProject
-[submodule "Sem07/XRD1/VR-project"]
-	path = Sem07/XRD1/VR-project
+[submodule "Sem07/XRD1/VR-Project"]
+	path = Sem07/XRD1/VR-Project
 	url = https://github.com/JakubPlatzek/VR-project

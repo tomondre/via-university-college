@@ -1,0 +1,1 @@
+The set of square matrices can be closed ot the 4 basic arithmetic operation on the condition that a quantity (determinant, to be defined) a non-zero

@@ -1,0 +1,3 @@
+* Are deep learning algorithms suitable for predictions? Deep learning algorithms are part of unsupervised learning, and general algorithms in this context are not used for prediction
+* I wanted to ask what the midterm and final exam will look like? Is it more theoretical exam or do we get a data set example and we should say what algorithms are supossed to be used? Or do we need to learn the whole book?
+* Should we do the exercises from book?

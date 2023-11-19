@@ -7,8 +7,7 @@ The assignment number one is related to analyzing recent AirBnb listings in Cope
 5. Analysing the top hosts of listings in Copenhagen
 6. Analysing the neighbourhoods in terms of room type
 7. Analysing the top 10 highest rated listings
-8. Analysing the neighbourhoods in terms of whether they are expensive or affordable
-9. Creating a model that classifies whether a listing is affordable or expensive
+8. Creating a model that classifies whether a listing is affordable or expensive
 
 # Preprocessing
 The solution to the mentioned problems/insights were different for each problem type. Before analysing any problem, 
@@ -74,7 +73,7 @@ improve performance, to make sure the distance calculation is not biased.
   * Classifying `affordable` listings shows:
     * Balanced Precision - 71% 
     * Similar Recall - 70% 
-  * Classifying `expensive` listings shows:
+  * Classifying expensive listings shows:
     * Similar Precision - 71% 
     * Slightly Higher Recall - 73%
 

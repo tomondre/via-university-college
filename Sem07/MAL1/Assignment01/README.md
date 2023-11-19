@@ -16,21 +16,28 @@ a Data Preprocessing needed to be implemented. The following preprocessing steps
 the data correctness and cleanliness of data:
 1. Loading the data from `listings.csv` file into a variable
 2. Taking only subset of features from the data to avoid unnecessary metrics
-3. Removing the `$` from the price column
-4. Dropping all reviews where `number_of_reviews=0`
-5. Dropping all rows with null values to avoid inconsistencies
-6. Making sure `neighbourhood_cleansed` values are not missing danish letters like `æ` `ø` `å`
+3. Displaying the table with the updated data to ensure the data is preprocessed correctly until this point
+4. Removing the `$` from the price column
+5. Dropping all reviews where `number_of_reviews=0`
+6. Displaying the description of data before and after dropping the `number_of_reviews=0` rows  
+7. Dropping all rows with null values to avoid inconsistencies
+8. Making sure `neighbourhood_cleansed` values are not missing danish letters like `æ` `ø` `å`
 
 There have also been a problem-related data cleansing implemented, related to the problem statements mentioned above:
 1. The ocurrences of words in the listing names needed to have some of the words filtered out, as these did not bring 
 value or were so many times mentioned that the scale of other words was too small. Some of the words included: `copenhagen`,
-`with`, `in`, `the`,...
-2. A listing host named `apartmentincopenhagen` needed to be filtered out, as it this is not a danish name.
+`with`, `in`, `the`,... . After the filtering, a word cloud has been created that shows the most common words in the listing names. 
+2. A listing host named `apartmentincopenhagen` needed to be filtered out, as it this is not a danish name. After the filtering,
+a word cloud has been created that shows the most common words in the listing host names.
 3. An evenly-distributed bins have been created by applying the `log` function on the price column. The bins have been 
-then used for easier to understand plotting of the landscape in Copenhagen and its prices
-4. No additional preprocessing have been implemented
+then used for easier to understand plotting of the landscape in Copenhagen and its prices. To validate the distribution,
+a barchart has been created to show the distribution of prices in the dataset. The data has been plotted on a map to 
+show the location of listings in Copenhagen and their respective prices
+4. No additional preprocessing have been implemented. The data has been plotted with boxplot to show the differences in 
+prices between neighbourhoods. Similarly, the neighbourhoods has beem plotted with log prices to show the distribution
+of neighbourhoods in terms of prices and minimum nights
 5. For the analysis of top hosts, the data needed to be grouped by `host_id` and sorted by `apartmentincopenhagen` 
-to make sure that the head() of the data will show relevant rows
+to make sure that the head() of the data will show relevant rows.
 6. No additional preprocessing have been implemented
 7. The data needed to be sorted by `review_scores_rating` and the first 10 data entries needed to be taken into 
 consideration  
@@ -42,7 +49,7 @@ The `GaussianNB` model assumes that the underlying data has Gaussian distributio
 pre-processing step to ensure the `GaussianNB` has a good performance.
 
 # Algorithms
-There have been two algorithms used in the assignment - `GaussianNB` and `KNN`. The problem that the algorithms are solving is 
+Two algorithms have been used in the assignment - `GaussianNB` and `KNN`. The problem that the algorithms are solving is 
 the classification of listing into `affordable` or `expensive` 
 Reason for choosing the two algorithms are:
 * `GaussianNB`: Often used for classification tasks with high-dimensional data. In the case of our assignment, the dataset has
@@ -64,10 +71,10 @@ improve performance, to make sure the distance calculation is not biased.
     * Very High Recall - 94% 
 * `KNN`:
   * Accuracy of 71% 
-  * Classifying affordable listings shows:
+  * Classifying `affordable` listings shows:
     * Balanced Precision - 71% 
     * Similar Recall - 70% 
-  * Classifying expensive listings shows:
+  * Classifying `expensive` listings shows:
     * Similar Precision - 71% 
     * Slightly Higher Recall - 73%
 

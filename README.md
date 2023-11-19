@@ -28,3 +28,8 @@ The folder structure is as follows:
   - Terraform Associate Certification/Notes - Notes made for the Terraform Associate exam
 - Sem06 - Semester Six
   - Exchange - Information gathered about possible exchange unis and their courses
+  - UOS Notes - Notes and Assignments from my semester abroad at University of Seoul in South Korea
+- Sem07 - Semester Seven
+  - MAL1 - Introduction to Machine Learning and AI
+  - SWA1 - Single-Page Web Applications
+  - XRD1 - XR Development

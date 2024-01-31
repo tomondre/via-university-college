@@ -1,7 +1,7 @@
 # Via University College Exercises and Projects
 
-This is a repo where you can find all my coding and project activity during my university studies in Denmark. The
-documentation of projects is located in a different system Mostly Google Drive. These are not all the courses during semesters - only the coding ones.
+This is a repo where you can find all my coding and project activity during my bachelor university studies in Horsens, Denmark. The
+documentation of projects is located in a different system, mostly Google Drive. These are not all the courses during semesters - only the coding ones.
 
 The folder structure is as follows:
 
